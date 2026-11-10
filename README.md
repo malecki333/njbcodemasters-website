@@ -21,8 +21,28 @@ are intentionally excluded. The original source repository is unchanged.
 
 The only publishing change to copied website text is the absolute production
 URL host: `https://njbcodemasters.com` becomes
-`https://www.njbcodemasters.com` in metadata and site URLs. Runtime JavaScript,
+`https://www.njbcodemasters.com` in metadata and site URLs.
+
+The subsequent language-navigation fix is also applied to the local source:
+first-time visitors use English, independently of browser language. Menu and
+legacy root links follow the page language until a language is selected
+manually. Manual choices are stored in the browser and persist across links,
+reloads and later visits until changed again (or browser storage is cleared).
+Saved choices, including German, reopen the matching language homepage;
+explicit `/de/`, `/en/` and `/sr/` URLs take precedence.
 CSS, images, sound and video remain unchanged.
+
+The unused registration for a nonexistent `/sw.js` was removed. The website
+does not implement offline/PWA caching; no replacement worker or caching layer
+is introduced. GitHub Pages controls HTTP response headers. A Permissions-Policy
+header warning was not reproduced in a direct production response.
+
+Language-fix regression checks: 33 cases against the actual scripts cover
+English defaults with a German browser, repeated manual EN/DE/SR choices,
+stored preferences, menu targets, legacy links and later root visits.
+Edge completed the German and Serbian desktop persistence sequences; the
+extended browser run encountered automation timeouts, so a complete new
+desktop/mobile browser pass is not claimed for this follow-up.
 
 ## Existing behavior
 

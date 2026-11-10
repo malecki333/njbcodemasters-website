@@ -125,16 +125,6 @@
         }
     }
     
-    // Service Worker registration (for PWA features)
-    if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js')
-                .catch(error => {
-                    console.warn('ServiceWorker registration failed:', error);
-                });
-        });
-    }
-    
     // Add meta tags if missing
     const ensureMetaTags = () => {
         if (!document.querySelector('meta[name="theme-color"]')) {

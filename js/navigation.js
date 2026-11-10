@@ -64,8 +64,8 @@
             }
         }
         if (!['de', 'en', 'sr'].includes(language)) {
-            const browserLanguage = navigator.language.split('-')[0];
-            language = ['de', 'en', 'sr'].includes(browserLanguage) ? browserLanguage : 'de';
+            const pageLanguage = document.documentElement.lang;
+            language = ['de', 'en', 'sr'].includes(pageLanguage) ? pageLanguage : 'en';
         }
         const pages = [
             'index', 'about', 'vezaiongen-vi', 'modules', 'pilot-program', 'roadmap',

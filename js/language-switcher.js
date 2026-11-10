@@ -195,7 +195,7 @@ class LanguageSwitcher {
         // damit der komplette Inhalt (nicht nur Navigation) korrekt lokalisiert ist.
         if (!document.body.classList.contains('njb-landing') && !this.hasLanguageDirectoryInPath()) {
             const storedLang = localStorage.getItem('language') || localStorage.getItem('preferredLanguage');
-            if (this.isSupportedLanguage(storedLang) && storedLang !== 'de') {
+            if (this.isSupportedLanguage(storedLang)) {
                 this.navigateToLanguage(storedLang);
                 return;
             }

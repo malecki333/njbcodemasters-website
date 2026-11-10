@@ -14,8 +14,8 @@
             console.warn('Saved language is unavailable for legacy navigation.', error);
         }
     }
-    language ||= (navigator.languages || [navigator.language])
-        .map(normalize).find(value => supported.includes(value)) || 'de';
+    language ||= normalize(document.documentElement.lang);
+    if (!supported.includes(language)) language = 'en';
     const page = current.pathname.split('/').pop();
     const targetPage = page === 'njb.html' ? 'vezaiongen-vi.html' : page;
     const base = current.pathname.slice(0, current.pathname.lastIndexOf('/') + 1);
