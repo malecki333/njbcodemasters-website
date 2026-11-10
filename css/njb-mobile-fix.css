@@ -1,0 +1,155 @@
+/* Mobile Media Query - Complete replacement */
+@media (max-width: 768px) {
+    .njb-nav__links {
+        display: none !important;
+    }
+    
+    .njb-nav__links.active {
+        display: flex !important;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: var(--njb-bg-primary);
+        border-bottom: 1px solid var(--njb-border);
+        flex-direction: column;
+        gap: 0.8rem;
+        padding: 1.5rem;
+        z-index: 999;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+        box-sizing: border-box;
+    }
+    
+    .njb-nav__toggle {
+        display: flex;
+        width: 44px;
+        height: 44px;
+        background-color: var(--njb-bg-secondary);
+        border: none;
+        border-radius: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        cursor: pointer;
+        transition: all 0.2s;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    .njb-nav__toggle:hover {
+        background-color: rgba(59, 130, 246, 0.1);
+        border-color: var(--njb-border-hover);
+    }
+    
+    .njb-nav__toggle span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--njb-white);
+        transition: all 0.3s ease;
+    }
+    
+    .njb-nav__toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(8px, 8px);
+    }
+    
+    .njb-nav__toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .njb-nav__toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+    }
+    
+    .njb-btn--back {
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--njb-bg-secondary);
+        border: none;
+        border-radius: 0.5rem;
+        gap: 0;
+        flex-shrink: 0;
+    }
+    
+    .njb-btn--back span {
+        display: none;
+    }
+    
+    .njb-btn--back svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .language-switcher {
+        display: flex !important;
+        align-items: center;
+        width: auto;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        flex-shrink: 0;
+    }
+    
+    .language-switcher label {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 1.2rem;
+        margin: 0;
+        padding: 0;
+        transition: all 0.2s;
+        line-height: 1;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 10;
+    }
+    
+    .language-switcher label:hover {
+        background-color: transparent;
+        border-color: transparent;
+        opacity: 0.8;
+    }
+    
+    .language-switcher select {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 36px;
+        height: 36px;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 20;
+        border: none;
+    }
+    
+    /* njb-hero responsive is handled in hero.css */
+    
+    .njb-btn--large {
+        width: 100%;
+    }
+    
+    .njb-features__grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .njb-roi__container {
+        padding: 2rem;
+    }
+    
+    .njb-roi__savings-amount {
+        font-size: 2rem;
+    }
+}

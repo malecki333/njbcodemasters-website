@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Glassmorphism: Trend oder Zukunft? - Wir untersuchen den Glassmorphism Design-Trend und zeigen, wann und wie man ihn effektiv einsetzt.">
+    <title>Glassmorphism: Trend oder Zukunft? | Blog | NJB CodeMasters</title>
+    
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/button-animations.css">
+    <link rel="stylesheet" href="../css/i18n.css">
+    <link rel="stylesheet" href="../css/performance.css">
+    
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    
+    <style>
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-md);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-4xl);
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-4px);
+            color: var(--secondary-color);
+        }
+
+        .article-hero {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.8), rgba(244, 114, 182, 0.8)), linear-gradient(135deg, #ec4899, #f472b6);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-4xl);
+            color: white;
+            margin-bottom: var(--space-4xl);
+        }
+
+        /* Light Mode: Stelle sicher dass Hero Text lesbar ist */
+        [data-theme="light"] .article-hero h1,
+        [data-theme="light"] .article-hero,
+        [data-theme="light"] .article-hero p,
+        [data-theme="light"] .article-meta,
+        [data-theme="light"] .article-tag {
+            color: white !important;
+        }
+
+        .article-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--space-2xl);
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            font-size: var(--font-size-sm);
+            opacity: 0.9;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 999px;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            margin-top: var(--space-lg);
+        }
+
+        .article-content {
+            font-size: var(--font-size-lg);
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        /* Light Mode: Weiße Schriftfarbe für readability über dunklem Hintergrund */
+        [data-theme="light"] .article-content,
+        [data-theme="light"] .article-content h2,
+        [data-theme="light"] .article-content h3,
+        [data-theme="light"] .article-content p,
+        [data-theme="light"] .article-content li {
+            color: white !important;
+        }
+
+        [data-theme="light"] .article-content strong {
+            color: #fbbf24 !important;
+        }
+
+        [data-theme="light"] .article-content a {
+            color: #60a5fa !important;
+        }
+
+        [data-theme="light"] .highlight {
+            background: rgba(0, 0, 0, 0.3) !important;
+            border-left-color: #fbbf24 !important;
+            color: white !important;
+        }
+
+        [data-theme="light"] .highlight strong {
+            color: #fbbf24 !important;
+        }
+
+        [data-theme="light"] .code-block {
+            background: rgba(0, 0, 0, 0.4) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="light"] .code-block code {
+            color: #60a5fa !important;
+        }
+
+        .article-content h2 {
+            font-size: var(--font-size-2xl);
+            margin-top: var(--space-4xl);
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content p {
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-left: var(--space-2xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .article-content li {
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
+        }
+
+        .article-content strong {
+            color: #ec4899;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .highlight {
+            background: rgba(236, 72, 153, 0.1);
+            padding: var(--space-lg);
+            border-left: 4px solid #ec4899;
+            border-radius: var(--radius-lg);
+            margin: var(--space-2xl) 0;
+            color: var(--text-primary);
+        }
+
+        .code-block {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            margin: var(--space-2xl) 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: var(--font-size-sm);
+            color: #ec4899;
+        }
+
+        .article-footer {
+            border-top: 1px solid var(--glass-border);
+            padding-top: var(--space-4xl);
+            margin-top: var(--space-5xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+
+        .article-author {
+            color: var(--text-secondary);
+            font-size: var(--font-size-base);
+        }
+
+        @media (max-width: 768px) {
+            .article-hero {
+                padding: var(--space-2xl);
+            }
+
+            .article-hero h1 {
+                font-size: var(--font-size-2xl);
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .article-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+
+    <link rel="canonical" href="https://www.njbcodemasters.com/de/blog-article-2.html">
+    <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/blog-article-2.html">
+    <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/blog-article-2.html">
+    <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/blog-article-2.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:url" content="https://www.njbcodemasters.com/de/blog-article-2.html">
+    <meta property="og:title" content="Glassmorphism: Trend oder Zukunft? | Blog | NJB CodeMasters">
+    <meta property="og:description" content="Glassmorphism: Trend oder Zukunft? - Wir untersuchen den Glassmorphism Design-Trend und zeigen, wann und wie man ihn effektiv einsetzt.">
+    <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Glassmorphism: Trend oder Zukunft? | Blog | NJB CodeMasters">
+    <meta name="twitter:description" content="Glassmorphism: Trend oder Zukunft? - Wir untersuchen den Glassmorphism Design-Trend und zeigen, wann und wie man ihn effektiv einsetzt.">
+    <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/"}</script>
+</head>
+<body data-language="de">
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" aria-label="Zur Startseite">
+                    <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
+                </a>
+            </div>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Startseite</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">Über uns</a></li>
+                <li class="nav__item"><a href="services.html" class="nav__link">Services</a></li>
+                <li class="nav__item"><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+                <li class="nav__item"><a href="pricing.html" class="nav__link">Preise</a></li>
+                <li class="nav__item"><a href="blog.html" class="nav__link active">Blog</a></li>
+                <li class="nav__item"><a href="contact.html" class="nav__link">Kontakt</a></li>
+            </ul>
+
+            <div class="nav__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
+                        <line class="sun-ray" x1="12" y1="19" x2="12" y2="23"></line>
+                        <line class="sun-ray" x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                        <line class="sun-ray" x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                        <line class="sun-ray" x1="1" y1="12" x2="5" y2="12"></line>
+                        <line class="sun-ray" x1="19" y1="12" x2="23" y2="12"></line>
+                        <line class="sun-ray" x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                        <line class="sun-ray" x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="moon-crescent" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <circle class="moon-full" cx="12" cy="12" r="9" opacity="0"></circle>
+                    </svg>
+                    <span class="toggle-label">Theme</span>
+                </button>
+
+                <button class="nav__toggle" id="navToggle" aria-label="Navigation öffnen">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="page-hero section">
+            <div class="container">
+                <div class="page-hero__content fade-in-up">
+                    <h1 class="page-hero__title">
+                        Blog Artikel
+                    </h1>
+                    <p class="page-hero__description">
+                        Lesen Sie detaillierte Artikel zu Technologie und Web-Entwicklung
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container article-container">
+            <a href="blog.html" class="back-link">← Zurück zum Blog</a>
+
+            <article>
+                <div class="article-hero">
+                    <h1>Glassmorphism: Trend oder Zukunft?</h1>
+                    <div class="article-meta">
+                        <span>📅 8. Dezember 2024</span>
+                        <span>⏱️ 7 min Lesedauer</span>
+                        <span>✍️ von CEO</span>
+                    </div>
+                    <span class="article-tag">Design</span>
+                </div>
+
+                <div class="article-content">
+                    <h2>Was ist Glassmorphism?</h2>
+                    <p>
+                        Glassmorphism ist ein moderner Design-Trend, der visuell an gefrostetes Glas erinnert. Dieser Stil kombiniert Frosted-Glass-Effekte mit transparenten oder semi-transparenten Elementen und schafft eine elegante, zukunftsweisende Ästhetik. Der Trend wurde populär durch Apples Fluent Design und iOS-Interfaces und hat sich mittlerweile in der gesamten Web-Design-Community verbreitet.
+                    </p>
+
+                    <h2>Die Technik hinter Glassmorphism</h2>
+                    <p>
+                        Glassmorphism wird hauptsächlich mit CSS umgesetzt. Die wichtigsten Techniken sind:
+                    </p>
+                    <ul>
+                        <li><strong>Backdrop Filter</strong> – Erzeugt den Glaseffekt durch Unschärfe des Hintergrunds</li>
+                        <li><strong>Semi-transparente Farben</strong> – RGBA-Werte mit Alpha-Kanal für Durchscheinbarkeit</li>
+                        <li><strong>Border und Shadows</strong> – Unterstützen den Tiefeneffekt</li>
+                        <li><strong>Blur und Layering</strong> – Schaffen visuellen Kontrast</li>
+                    </ul>
+
+                    <div class="code-block">
+                        <code>
+                            .glass-effect {<br>
+                            &nbsp;&nbsp;background: rgba(255, 255, 255, 0.1);<br>
+                            &nbsp;&nbsp;backdrop-filter: blur(10px);<br>
+                            &nbsp;&nbsp;border: 1px solid rgba(255, 255, 255, 0.2);<br>
+                            &nbsp;&nbsp;border-radius: 10px;<br>
+                            &nbsp;&nbsp;box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);<br>
+                            }
+                        </code>
+                    </div>
+
+                    <div class="highlight">
+                        <strong>💡 Hinweis:</strong> Der <code>backdrop-filter</code> wird von modernen Browsern unterstützt, hat aber noch keine 100% Kompatibilität. Planen Sie Fallbacks für ältere Browser ein.
+                    </div>
+
+                    <h2>Wann sollten Sie Glassmorphism verwenden?</h2>
+                    <p>
+                        Glassmorphism ist nicht für jedes Projekt geeignet. Verwenden Sie diesen Trend bei:
+                    </p>
+                    <ul>
+                        <li><strong>Moderne, Premium-Websites</strong> – Der Effekt wirkt luxuriös und hochwertig</li>
+                        <li><strong>Tech- und Innovation-Produkte</strong> – Passt zu futuristischen Themes</li>
+                        <li><strong>Overlay und Modal-Fenster</strong> – Funktioniert besonders gut für diese Komponenten</li>
+                        <li><strong>Cards und Feature-Highlights</strong> – Erzeugt visuellen Fokus</li>
+                    </ul>
+
+                    <h2>Häufige Fehler bei Glassmorphism</h2>
+                    <p>
+                        Bei der Implementierung von Glassmorphism sollten Sie diese Fehler vermeiden:
+                    </p>
+
+                    <h3>1. Zu viel Transparency</h3>
+                    <p>
+                        Wenn Glas-Elemente zu transparent sind, wird die Lesbarkeit beeinträchtigt. Verwenden Sie ausreichend Kontrast zwischen Text und Hintergrund.
+                    </p>
+
+                    <h3>2. Unzureichender Kontrast</h3>
+                    <p>
+                        Stellen Sie sicher, dass der Text über dem Glaseffekt lesbar bleibt. WCAG-Standards müssen erfüllt werden.
+                    </p>
+
+                    <h3>3. Performance-Probleme</h3>
+                    <p>
+                        Backdrop-Filter können die Performance beeinträchtigen, besonders auf mobilen Geräten. Testen Sie gründlich und verwenden Sie Fallbacks.
+                    </p>
+
+                    <h3>4. Übernutzung</h3>
+                    <p>
+                        Nicht jedes Element sollte den Glaseffekt haben. Setzen Sie ihn gezielt für wichtige UI-Komponenten ein.
+                    </p>
+
+                    <h2>Glassmorphism vs. andere Design-Trends</h2>
+                    <p>
+                        Wie verhält sich Glassmorphism zu anderen aktuellen Design-Trends?
+                    </p>
+                    <ul>
+                        <li><strong>Neumorphism</strong> – Konzentriert sich auf sanfte, erhabene Effekte. Glassmorphism ist moderner und transparenter.</li>
+                        <li><strong>Flat Design</strong> – Verzichtet auf Tiefe. Glassmorphism fügt Tiefe auf subtile Weise hinzu.</li>
+                        <li><strong>Material Design</strong> – Nutzt Schatten und Elevationen. Glassmorphism ergänzt diese Prinzipien mit modernen Effekten.</li>
+                    </ul>
+
+                    <h2>Zukunftsaussichten</h2>
+                    <p>
+                        Wird Glassmorphism ein Trend bleiben oder ein zeitloses Design-Element werden? Trends können schnell vorübergehen, aber einige Elemente entwickeln sich zu Standard-Praktiken:
+                    </p>
+                    <ul>
+                        <li>Bessere Browser-Unterstützung für <code>backdrop-filter</code> wird die Adoption erleichtern</li>
+                        <li>Designsysteme werden Glasmorphism als Komponente integrieren</li>
+                        <li>Die Kombination mit dunklen Themen wird beliebter</li>
+                        <li>Performance-Optimierungen werden die Nutzung auf mobilen Geräten ermöglichen</li>
+                    </ul>
+
+                    <div class="highlight">
+                        <strong>📌 Fazit:</strong> Glassmorphism ist mehr als nur ein Trend – es ist eine Designtechnik, die sich etabliert hat. Verwenden Sie sie bewusst, um Ihre Website modern und elegant zu gestalten, ohne dabei Funktionalität und Zugänglichkeit zu opfern.
+                    </div>
+
+                    <h2>Ressourcen zum Lernen</h2>
+                    <ul>
+                        <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a> – Umfangreiche CSS-Tutorials</li>
+                        <li><a href="https://www.glassmorphism.com/" target="_blank">Glassmorphism.com</a> – Designinspiration und Tools</li>
+                        <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a> – Technische Dokumentation</li>
+                    </ul>
+                </div>
+
+                <div class="article-footer">
+                    <span class="article-author">
+                        <strong>Autor:</strong> CEO<br>
+                        <em>Verfasst am 8. Dezember 2024</em>
+                    </span>
+                    <a href="blog.html" class="back-link">← Zurück zum Blog</a>
+                </div>
+            </article>
+        </section>
+    <!-- Footer wird automatisch geladen -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/performance.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/testimonials.js" defer></script>
+    <script src="../js/stats-counter.js" defer></script>
+    <script src="../js/hero-canvas.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/ai-assistant.js" defer></script>
+</body>
+</html>

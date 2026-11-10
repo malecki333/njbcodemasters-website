@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Entwicklungsfelder von NJB CodeMasters in industrieller Software, VezaionGen VI, Enterprise-Integration und digitalen Produkten.">
+    <title>Portfolio & Kompetenzfelder | NJB CodeMasters</title>
+    
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/button-animations.css">
+    <link rel="stylesheet" href="../css/i18n.css">
+    <link rel="stylesheet" href="../css/performance.css">
+    
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    
+    <style>
+        .portfolio-hero {
+            text-align: center;
+            margin-bottom: var(--space-5xl);
+        }
+
+        .portfolio-hero h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: var(--space-lg);
+        }
+
+        .portfolio-hero p {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-5xl);
+        }
+
+        .portfolio-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .portfolio-card__image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .portfolio-card__content {
+            padding: var(--space-2xl);
+        }
+
+        .portfolio-card h3 {
+            font-size: var(--font-size-xl);
+            margin-bottom: var(--space-sm);
+        }
+
+        .portfolio-card__category {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 999px;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-md);
+        }
+
+        .portfolio-card p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+
+        .portfolio-card__meta {
+            display: flex;
+            gap: var(--space-lg);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .portfolio-card__meta span {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .portfolio-card__link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: var(--font-weight-semibold);
+            transition: all 0.3s ease;
+        }
+
+        .portfolio-card__link:hover {
+            text-decoration: underline;
+        }
+
+        /* Stats Section */
+        .stats-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-2xl);
+            margin: var(--space-5xl) 0;
+            padding: var(--space-3xl);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-3xl);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            margin-bottom: var(--space-sm);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+        }
+    </style>
+
+    <link rel="canonical" href="https://www.njbcodemasters.com/de/portfolio.html">
+    <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/portfolio.html">
+    <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/portfolio.html">
+    <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/portfolio.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:url" content="https://www.njbcodemasters.com/de/portfolio.html">
+    <meta property="og:title" content="Portfolio & Kompetenzfelder | NJB CodeMasters">
+    <meta property="og:description" content="Entwicklungsfelder von NJB CodeMasters in industrieller Software, VezaionGen VI, Enterprise-Integration und digitalen Produkten.">
+    <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio & Kompetenzfelder | NJB CodeMasters">
+    <meta name="twitter:description" content="Entwicklungsfelder von NJB CodeMasters in industrieller Software, VezaionGen VI, Enterprise-Integration und digitalen Produkten.">
+    <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/"}</script>
+<link rel="stylesheet" href="../css/platform-content.css">
+</head>
+<body data-language="de">
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" aria-label="Zur Startseite">
+                    <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
+                </a>
+                
+                <!-- Menu Toggle Button -->
+                <button class="nav__toggle" id="navToggle" aria-label="Navigation öffnen" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Startseite</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">Über uns</a></li>
+                <li class="nav__item"><a href="services.html" class="nav__link">Leistungen</a></li>
+                <li class="nav__item"><a href="pricing.html" class="nav__link">Preise</a></li>
+                <li class="nav__item"><a href="portfolio.html" class="nav__link active">Portfolio</a></li>
+                <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
+                <li class="nav__item"><a href="contact.html" class="nav__link">Kontakt</a></li>
+            </ul>
+
+            <div class="nav__actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
+                        <line class="sun-ray" x1="12" y1="19" x2="12" y2="23"></line>
+                        <line class="sun-ray" x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                        <line class="sun-ray" x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                        <line class="sun-ray" x1="1" y1="12" x2="5" y2="12"></line>
+                        <line class="sun-ray" x1="19" y1="12" x2="23" y2="12"></line>
+                        <line class="sun-ray" x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                        <line class="sun-ray" x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="moon-crescent" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <circle class="moon-full" cx="12" cy="12" r="9" opacity="0"></circle>
+                    </svg>
+                    <span class="toggle-label">Theme</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main"><section class="section platform-content"><div class="container"><p class="section-label">NJB CODEMASTERS</p><h1>Kompetenzfelder</h1><p class="section-description">Ein Überblick über Produkt- und Entwicklungsbereiche, auf die sich NJB CodeMasters konzentriert.</p></div></section>
+<section class="section platform-content"><div class="container"><h2>Entwicklungsfelder</h2><div class="values-grid"><article class="pricing-card"><h3>VezaionGen VI</h3><p>Unsere industrielle Plattforminitiative für verbundene Funktionen in Produktion, Qualität, Instandhaltung, Energie, Robotik und Logistik.</p></article><article class="pricing-card"><h3>Industrielle Daten &amp; Analytics</h3><p>Datenmodelle, operative Dashboards und Digital-Twin-Ansätze für einen gemeinsamen Blick auf betriebliche Informationen.</p></article><article class="pricing-card"><h3>Enterprise Software &amp; Integration</h3><p>Softwareentwicklung und Schnittstellen, die sich an Nutzern, Anforderungen und vorhandenen Systemlandschaften orientieren.</p></article><article class="pricing-card"><h3>Web- &amp; Mobile-Produkte</h3><p>Digitale Anwendungen und Benutzeroberflächen für konkrete Produkt- und Geschäftsanforderungen.</p></article></div></div></section>
+<section class="section platform-content"><div class="container"><h2>Entwicklungsvorhaben besprechen</h2><p>Gern sprechen wir mit Ihnen über Themen und Ziele, die zu diesen Entwicklungsfeldern passen.</p><a class="btn btn--primary" href="contact.html">Projekt besprechen</a></div></section></main>
+
+    <!-- Footer wird automatisch geladen -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/performance.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/testimonials.js" defer></script>
+    <script src="../js/stats-counter.js" defer></script>
+    <script src="../js/hero-canvas.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/ai-assistant.js" defer></script>
+</body>
+</html>

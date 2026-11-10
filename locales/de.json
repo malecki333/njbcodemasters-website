@@ -1,0 +1,116 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Leistungen",
+    "pricing": "Preise",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "genesis": "Genesis 6.0",
+    "live": "LIVE"
+  },
+  "hero": {
+    "title": "Wir bauen Ihr digitales Fundament",
+    "subtitle": "Von modernen Websites bis zu komplexen Industrial OS Systemen",
+    "cta": "Jetzt Projekt starten"
+  },
+  "pricing": {
+    "title": "Transparente Preise für dein Projekt",
+    "subtitle": "Wähle aus unseren bewährten Paketen oder kalkuliere deine individuelle Lösung.",
+    "enterprise_title": "🚀 Enterprise Lösungen",
+    "enterprise_desc": "Komplexe Industrie 4.0 Systeme mit MES/ERP, Echtzeit-Monitoring und Predictive Analytics",
+    "webdev_title": "💻 Web Development Pakete",
+    "webdev_desc": "Responsive Websites und Web-Apps für jeden Bedarf",
+    "starter": "Starter",
+    "professional": "Professional",
+    "premium": "Premium",
+    "enterprise": "Industrial OS & MES/ERP"
+  },
+  "codemasters": {
+    "label": "Technologie",
+    "title": "VezaionGen VI",
+    "subtitle": "VezaionGen VI ist eine integrierte industrielle Webplattform von NJB CodeMasters. Sie verbindet dokumentierte Funktionsbereiche für Fabrikbetrieb, Qualität, Instandhaltung, Energie, Robotik und Logistik mit gemeinsamen Datenmodellen und Bedienoberflächen.",
+    "cta": "VezaionGen VI entdecken",
+    "features": [
+      {
+        "title": "Autonomous Operations",
+        "desc": "Ereignisgesteuerte Orchestrierung, L0–L3-Heuristiken, Simulation, Wiederherstellung und Eskalation an Menschen. Keine Zusage unbeaufsichtigter Autonomie."
+      },
+      {
+        "title": "Energy & ESG",
+        "desc": "Energie- und Emissionsdaten, CO2-Zuordnung und lokalisierte ESG-Berichte. Regulatorische Konformität bedarf fachlicher Prüfung."
+      },
+      {
+        "title": "Logistics Integration",
+        "desc": "Import und Datenprüfung, Routenanreicherung, Flottenprozesse, Disposition, GPS-Ereignisse und Offline-Synchronisation."
+      },
+      {
+        "title": "Digital Twin",
+        "desc": "3D-Ansichten, Fabrik- und Zonengeometrie sowie Modelle und Zustände von Maschinen und Anlagen."
+      },
+      {
+        "title": "Industrial Analytics",
+        "desc": "Analyse-, Anomalie- und Insight-Dashboards sowie Werkzeuglebensdauer-Schätzungen. Prognosegenauigkeit ist nicht pauschal bestätigt."
+      },
+      {
+        "title": "Knowledge Systems",
+        "desc": "Betriebliche Regeln, industrielle Datenverträge sowie Produkt-, Bediener- und Transferdokumentation. Kein eigenständig trainiertes Wissensmodell wird behauptet."
+      }
+    ]
+  },
+  "footer": {
+    "copyright": "© 2024 Meine Firmenwebsite. Alle Rechte vorbehalten.",
+    "privacy": "Datenschutz",
+    "legal": "Impressum",
+    "contact": "Kontakt"
+  },
+  "platformHomeHTML": "<section class=\"section platform-content\"><div class=\"container\"><h2>Was ist VezaionGen VI?</h2><p>VezaionGen VI ist eine integrierte industrielle Webplattform von NJB CodeMasters. Sie verbindet dokumentierte Funktionsbereiche für Fabrikbetrieb, Qualität, Instandhaltung, Energie, Robotik und Logistik mit gemeinsamen Datenmodellen und Bedienoberflächen.</p></div></section>\n<section class=\"section platform-content\"><div class=\"container\"><h2>Warum Industry 6.0?</h2><p>Produktion, Transport, Qualität und Energie werden gemeinsam betrachtet statt als isolierte Anwendungen. Dokumentierte Orchestrierung, Datenverträge und Wiederherstellungspfade bilden dafür die Grundlage. Vernetzung und adaptive Entscheidungen sollen die industrielle Widerstandsfähigkeit stärken; das ist kein Leistungsversprechen.</p></div></section>\n<section class=\"section platform-content\"><div class=\"container\"><h2>Kernfähigkeiten</h2><div class=\"values-grid\"><article class=\"pricing-card\"><h3>Digital Twin</h3><p>3D-Ansichten, Fabrik- und Zonengeometrie sowie Modelle und Zustände von Maschinen und Anlagen.</p></article><article class=\"pricing-card\"><h3>Robotics</h3><p>Aufgabenzuweisung, Failover und Geometrieprüfungen. Hardware- und Sicherheitsintegration müssen separat nachgewiesen werden.</p></article><article class=\"pricing-card\"><h3>Industrial Analytics</h3><p>Analyse-, Anomalie- und Insight-Dashboards sowie Werkzeuglebensdauer-Schätzungen. Prognosegenauigkeit ist nicht pauschal bestätigt.</p></article><article class=\"pricing-card\"><h3>Autonomous Operations</h3><p>Ereignisgesteuerte Orchestrierung, L0–L3-Heuristiken, Simulation, Wiederherstellung und Eskalation an Menschen. Keine Zusage unbeaufsichtigter Autonomie.</p></article><article class=\"pricing-card\"><h3>Knowledge Systems</h3><p>Betriebliche Regeln, industrielle Datenverträge sowie Produkt-, Bediener- und Transferdokumentation. Kein eigenständig trainiertes Wissensmodell wird behauptet.</p></article><article class=\"pricing-card\"><h3>Quality Intelligence</h3><p>Qualitätsprozesse, Bild- und Qualitätssignale, Erkennung und Dashboards. Ein separat trainiertes VezaionGen-Modell ist nicht belegt.</p></article><article class=\"pricing-card\"><h3>Logistics Integration</h3><p>Import und Datenprüfung, Routenanreicherung, Flottenprozesse, Disposition, GPS-Ereignisse und Offline-Synchronisation.</p></article><article class=\"pricing-card\"><h3>Energy &amp; ESG</h3><p>Energie- und Emissionsdaten, CO2-Zuordnung und lokalisierte ESG-Berichte. Regulatorische Konformität bedarf fachlicher Prüfung.</p></article></div><p>Die Beschreibungen beziehen sich auf dokumentierte Softwarefunktionen. Reifegrad und messbare Leistung unterscheiden sich je nach Bereich. Industrieller Einsatz, autonome Entscheidungen und Hardwareintegration erfordern gesonderte Validierung.</p></div></section>\n<section class=\"section platform-content\"><div class=\"container\"><h2>Modulübersicht</h2><div class=\"values-grid\"><article class=\"pricing-card\"><h3>Industrial Core</h3><p>Fabrikbetrieb, Material, Werkzeuge, Aufträge, Wartung und Qualität.</p></article><article class=\"pricing-card\"><h3>Digital Twin &amp; Robotics</h3><p>3D-Modelle, Anlagenzustände, Fabrikgeometrie und Robotikaufgaben.</p></article><article class=\"pricing-card\"><h3>Logistics &amp; Transport</h3><p>TMS-Import, Datenqualität, Routen, Beladung, Flotte und Fahreroberflächen.</p></article><article class=\"pricing-card\"><h3>ESG &amp; Sustainability</h3><p>Energie, Emissionen, CO2-Zuordnung und Berichte.</p></article><article class=\"pricing-card\"><h3>Autonomy &amp; Self-Healing</h3><p>Orchestrierung, Heuristiken, Fehler-/Datenlückensignale und Wiederherstellung.</p></article><article class=\"pricing-card\"><h3>Integration Ecosystem</h3><p>API-Verträge, Datenadapter, Synchronisation und externe Datenquellen.</p></article></div><a class=\"btn btn--primary\" href=\"de/modules.html\">Modulübersicht</a></div></section>\n<section class=\"section platform-content\"><div class=\"container\"><h2>Pilotprogramm</h2><p>Das Pilotprogramm ist eine Beratungs- und Pilotoption für Pilotkunden, Industriepartner und Produktionsbetriebe. Gemeinsam werden geeignete Anwendungsfälle, Datenzugänge und Validierungsschritte abgestimmt. Teilnahme, Umfang und Termine werden individuell vereinbart.</p><a class=\"btn btn--primary\" href=\"de/pilot-program.html\">Pilotprogramm</a></div></section>\n<section class=\"section platform-content\"><div class=\"container\"><h2>Kontakt</h2><a class=\"btn btn--primary\" href=\"de/contact.html#vezaiongen-consultation\">Request VezaionGen VI Consultation</a></div></section>",
+  "platformProductHref": "de/vezaiongen-vi.html",
+  "organizationHTML": "<section id=\"organization-focus\" class=\"section platform-content\"><div class=\"container\"><h2>NJB CodeMasters: Software, Beratung und industrielle Entwicklung</h2><p>NJB CodeMasters ist die Hauptorganisation hinter VezaionGen VI. Neben dem Flaggschiffprodukt bleiben Dienstleistungen, Consulting und Enterprise Development eigenständige Anfragebereiche. Bestehende Leistungen und Portfolio können Sie getrennt vom Produkt erkunden.</p><a class=\"btn btn--primary\" href=\"de/services.html\">Dienstleistungen</a> <a class=\"btn btn--primary\" href=\"de/portfolio.html\">Portfolio</a> <a class=\"btn btn--primary\" href=\"de/contact.html#request-consulting\">Consulting</a> <a class=\"btn btn--primary\" href=\"de/contact.html#request-enterprise\">Enterprise Development</a></div></section>",
+  "trustHTML": "<section id=\"trust-layer\" class=\"section platform-content\"><div class=\"container\"><h2>Unternehmen und Kontakt</h2><h3>NJB CodeMasters d.o.o. Gornji Milanovac</h3><p>Kurzname: NJB CodeMasters d.o.o. · Direktor: Nenad Baralić</p><p>Matični broj: 22196898 · PIB: 115715145 · Tätigkeit: 6201 – Computerprogrammierung</p><p>Baba Višnjina 5, 32300 Gornji Milanovac, Serbien</p><p><a href=\"mailto:nenad@njbcodemasters.com\">nenad@njbcodemasters.com</a></p><p>VezaionGen VI ist das Flaggschiffprodukt. Anfragen zu Dienstleistungen, Enterprise Development und Piloten werden getrennt bearbeitet.</p><p><a href=\"de/about.html\">NJB CodeMasters</a> · <a href=\"de/vezaiongen-vi.html\">VezaionGen VI</a> · <a href=\"de/contact.html\">Kontakt</a> · <a href=\"de/impressum.html\">Impressum</a> · <a href=\"de/datenschutz.html\">Datenschutz</a> · <a href=\"de/pilot-program.html\">Pilotprogramm</a></p><p>Rechte an Drittkomponenten und Kundendaten werden nicht als eigene Rechte beansprucht.</p><p>Die Datenschutzhinweise beschreiben den bestätigten Website-Stand; Verarbeitungsgrundlagen, Dienstleister und Aufbewahrungsfristen bedürfen noch der fachlichen Prüfung.</p><p>Die bereitgestellten Register nennen Nenad Baralić als Founder und Director. Die Dokumentation von Softwarewerten begründet keine pauschalen Leistungs-, Sicherheits- oder Rechtsgarantien.</p><p>Impressum und Datenschutz sind nicht rechtlich freigegeben. Die Links bestätigen keine vollständige Rechtsdokumentation.</p></div></section>",
+  "trustFacts": {
+    "stats": [
+      [
+        "Software",
+        "Industrielle Webplattform"
+      ],
+      [
+        "Daten",
+        "Gemeinsame Datenmodelle"
+      ],
+      [
+        "APIs",
+        "Dokumentierte Schnittstellen"
+      ],
+      [
+        "DE · EN · SR",
+        "Dreisprachige Laufzeit"
+      ]
+    ],
+    "title": "NJB CodeMasters und VezaionGen VI",
+    "label": "Organisation und Produkt",
+    "slides": [
+      [
+        "NJB CodeMasters",
+        "Die Register nennen NJB CodeMasters d.o.o. als Organisation hinter VezaionGen VI.",
+        "NJB CodeMasters d.o.o.",
+        "Software und industrielle Entwicklung"
+      ],
+      [
+        "VezaionGen VI",
+        "Die dokumentierte Plattform verbindet Fabrikbetrieb, Qualität, Wartung, Energie, Robotik und Logistik.",
+        "VezaionGen VI",
+        "Industrielle Softwareplattform"
+      ],
+      [
+        "Founder",
+        "Nenad Baralić wird in den bereitgestellten Dokumenten als Founder und Director genannt.",
+        "Nenad Baralić",
+        "Founder & Director"
+      ]
+    ],
+    "prev": "Vorherige Information",
+    "next": "Nächste Information"
+  }
+}

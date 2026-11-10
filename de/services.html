@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Unsere professionellen Leistungen und Services">
+    <title>Leistungen | NJB CodeMasters</title>
+    
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/button-animations.css">
+    <link rel="stylesheet" href="../css/i18n.css">
+    <link rel="stylesheet" href="../css/performance.css">
+    
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    
+    <style>
+        .services-hero {
+            text-align: center;
+            margin-bottom: var(--space-5xl);
+        }
+
+        .services-hero h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: var(--space-lg);
+        }
+
+        .services-hero p {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-5xl);
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-2xl);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .service-card h3 {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-md);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-features li {
+            padding: var(--space-sm) 0;
+            padding-left: var(--space-lg);
+            position: relative;
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        .service-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* Process Section */
+        .process-section {
+            margin-bottom: var(--space-5xl);
+        }
+
+        .process-section h2 {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            font-size: clamp(2rem, 3vw, 2.5rem);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-2xl);
+            margin: 0 auto var(--space-lg);
+            color: white;
+        }
+
+        .process-step h3 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-sm);
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-3xl);
+            padding: var(--space-3xl);
+            text-align: center;
+            margin-top: var(--space-5xl);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+            font-size: var(--font-size-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+    <!-- i18n & Internationalization -->
+    <link rel="stylesheet" href="../css/i18n.css">
+
+    <link rel="canonical" href="https://www.njbcodemasters.com/de/services.html">
+    <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/services.html">
+    <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/services.html">
+    <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/services.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:url" content="https://www.njbcodemasters.com/de/services.html">
+    <meta property="og:title" content="Leistungen | NJB CodeMasters">
+    <meta property="og:description" content="Unsere professionellen Leistungen und Services">
+    <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Leistungen | NJB CodeMasters">
+    <meta name="twitter:description" content="Unsere professionellen Leistungen und Services">
+    <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/"}</script>
+<link rel="stylesheet" href="../css/platform-content.css">
+</head>
+<body data-language="de">
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" aria-label="Zur Startseite">
+                    <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
+                </a>
+                
+                <!-- Menu Toggle Button -->
+                <button class="nav__toggle" id="navToggle" aria-label="Navigation öffnen" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Startseite</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">Über uns</a></li>
+                <li class="nav__item"><a href="services.html" class="nav__link active">Leistungen</a></li>
+                <li class="nav__item"><a href="pricing.html" class="nav__link">Preise</a></li>
+                <li class="nav__item"><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+                <li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li>
+                <li class="nav__item"><a href="contact.html" class="nav__link">Kontakt</a></li>
+            </ul>
+
+            <div class="nav__actions">
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <label for="languageSelect">🌐</label>
+                    <select id="languageSelect" aria-label="Sprache wählen">
+                        <option value="de">Deutsch</option>
+                        <option value="en">English</option>
+                        <option value="sr">Српски</option>
+                    </select>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
+                        <line class="sun-ray" x1="12" y1="19" x2="12" y2="23"></line>
+                        <line class="sun-ray" x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                        <line class="sun-ray" x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                        <line class="sun-ray" x1="1" y1="12" x2="5" y2="12"></line>
+                        <line class="sun-ray" x1="19" y1="12" x2="23" y2="12"></line>
+                        <line class="sun-ray" x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                        <line class="sun-ray" x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="moon-crescent" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <circle class="moon-full" cx="12" cy="12" r="9" opacity="0"></circle>
+                    </svg>
+                    <span class="toggle-label">Theme</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+<section class="section platform-content"><div class="container"><p class="section-label">NJB CODEMASTERS</p><h1>Software für Industrie und digitale Produkte</h1><p class="section-description">NJB CodeMasters verbindet Enterprise Development und industrielle Technologie mit den Anforderungen konkreter Teams und Prozesse.</p></div></section>
+<section class="section platform-content"><div class="container"><h2>Womit wir Unternehmen unterstützen</h2><div class="values-grid">
+<article class="pricing-card"><h3>Industry 6.0 &amp; Industrial AI</h3><p>Intelligente, menschenorientierte industrielle Anwendungen konzipieren und in vorhandene Betriebsumgebungen einordnen.</p></article>
+<article class="pricing-card"><h3>Enterprise Development</h3><p>Software, Datenmodelle und Schnittstellen für komplexe Abläufe, Rollen und Systemlandschaften entwickeln.</p></article>
+<article class="pricing-card"><h3>Digital Twin</h3><p>Digitale Modelle und operative Informationen zusammenführen, um Anlagen und Prozesse im Kontext zu betrachten.</p></article>
+<article class="pricing-card"><h3>Automation</h3><p>Wiederkehrende Abläufe und Systemverbindungen gestalten, mit klaren Übergaben und menschlicher Kontrolle.</p></article>
+<article class="pricing-card"><h3>Consulting</h3><p>Technische Entscheidungen, Architektur und Produktziele gemeinsam strukturieren und passende nächste Schritte bestimmen.</p></article>
+<article class="pricing-card"><h3>Digitale Produkte</h3><p>Web- und Mobile-Anwendungen entlang konkreter Anforderungen entwickeln. Unsere Arbeit an VezaionGen VI verbindet diese Erfahrung mit industriellen Anwendungsfeldern.</p></article>
+</div></div></section>
+<section class="section platform-content"><div class="container"><h2>Zusammenarbeit mit klarem Fokus</h2><p>Zu Beginn stimmen wir Ziel, Nutzer, betriebliche Umgebung und technische Schnittstellen ab. Daraus entsteht ein passender Leistungsumfang mit transparenten Annahmen und nächsten Schritten.</p><a class="btn btn--primary" href="contact.html">Projekt besprechen</a> <a class="btn btn--secondary" href="pricing.html">Service-Richtpreise ansehen</a></div></section>
+</main>
+
+    <!-- Footer wird automatisch geladen -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/performance.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/testimonials.js" defer></script>
+    <script src="../js/stats-counter.js" defer></script>
+    <script src="../js/hero-canvas.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/ai-assistant.js" defer></script>
+</body>
+</html>

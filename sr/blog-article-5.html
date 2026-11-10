@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Скалабилна серверска архитектура - Дубинско разумевање микросервиса, API-ја и облачне инфраструктуре за скалабилне системе.">
+    <title>Скалабилна серверска архитектура | Блог | NJB CodeMasters</title>
+    
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/button-animations.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/i18n.css">
+    <link rel="stylesheet" href="../css/performance.css">
+    
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    
+    <style>
+        .main {
+            min-height: 100vh;
+        }
+
+        .page-hero {
+            padding: var(--space-4xl) 0;
+        }
+
+        .section {
+            padding: var(--space-5xl) 0;
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-md);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-4xl);
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-4px);
+            color: var(--secondary-color);
+        }
+
+        .article-hero {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.8), rgba(52, 211, 153, 0.8)), linear-gradient(135deg, #10b981, #34d399);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-4xl);
+            color: white;
+            margin-bottom: var(--space-4xl);
+        }
+
+        /* Light Mode: Stelle sicher dass Hero Text lesbar ist */
+        [data-theme="light"] .article-hero h1,
+        [data-theme="light"] .article-hero,
+        [data-theme="light"] .article-hero p,
+        [data-theme="light"] .article-meta,
+        [data-theme="light"] .article-tag {
+            color: white !important;
+        }
+
+        .article-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--space-2xl);
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            font-size: var(--font-size-sm);
+            opacity: 0.9;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 999px;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            margin-top: var(--space-lg);
+        }
+
+        .article-content {
+            font-size: var(--font-size-lg);
+            line-height: 1.8;
+            color: var(--text-primary);
+            display: block;
+            padding: var(--space-2xl) 0;
+        }
+
+        /* Light Mode: Weiße Schriftfarbe für readability über dunklem Hintergrund */
+        [data-theme="light"] .article-content,
+        [data-theme="light"] .article-content h2,
+        [data-theme="light"] .article-content h3,
+        [data-theme="light"] .article-content p,
+        [data-theme="light"] .article-content li {
+            color: white !important;
+        }
+
+        [data-theme="light"] .article-content strong {
+            color: #fbbf24 !important;
+        }
+
+        [data-theme="light"] .article-content a {
+            color: #60a5fa !important;
+        }
+
+        [data-theme="light"] .highlight {
+            background: rgba(0, 0, 0, 0.3) !important;
+            border-left-color: #fbbf24 !important;
+            color: white !important;
+        }
+
+        [data-theme="light"] .highlight strong {
+            color: #fbbf24 !important;
+        }
+
+        [data-theme="light"] .code-block {
+            background: rgba(0, 0, 0, 0.4) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="light"] .code-block code {
+            color: #60a5fa !important;
+        }
+
+        .article-content h2 {
+            font-size: var(--font-size-2xl);
+            margin-top: var(--space-4xl);
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content p {
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-left: var(--space-2xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .article-content li {
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
+        }
+
+        .article-content strong {
+            color: #10b981;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .highlight {
+            background: rgba(16, 185, 129, 0.1);
+            padding: var(--space-lg);
+            border-left: 4px solid #10b981;
+            border-radius: var(--radius-lg);
+            margin: var(--space-2xl) 0;
+            color: var(--text-primary);
+        }
+
+        .code-block {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            margin: var(--space-2xl) 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: var(--font-size-sm);
+            color: #10b981;
+        }
+
+        .article-footer {
+            border-top: 1px solid var(--glass-border);
+            padding-top: var(--space-4xl);
+            margin-top: var(--space-5xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+
+        .article-author {
+            color: var(--text-secondary);
+            font-size: var(--font-size-base);
+        }
+
+        @media (max-width: 768px) {
+            .article-hero {
+                padding: var(--space-2xl);
+            }
+
+            .article-hero h1 {
+                font-size: var(--font-size-2xl);
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .article-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+
+    <link rel="canonical" href="https://www.njbcodemasters.com/sr/blog-article-5.html">
+    <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/blog-article-5.html">
+    <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/blog-article-5.html">
+    <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/blog-article-5.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="sr_RS">
+    <meta property="og:url" content="https://www.njbcodemasters.com/sr/blog-article-5.html">
+    <meta property="og:title" content="Скалабилна серверска архитектура | Блог | NJB CodeMasters">
+    <meta property="og:description" content="Скалабилна серверска архитектура - Дубинско разумевање микросервиса, API-ја и облачне инфраструктуре за скалабилне системе.">
+    <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Скалабилна серверска архитектура | Блог | NJB CodeMasters">
+    <meta name="twitter:description" content="Скалабилна серверска архитектура - Дубинско разумевање микросервиса, API-ја и облачне инфраструктуре за скалабилне системе.">
+    <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/"}</script>
+</head>
+<body data-language="sr">
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" aria-label="На почетну">
+                    <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
+                </a>
+                
+                <!-- Menu Toggle Button -->
+                <button class="nav__toggle" id="navToggle" aria-label="Отвори навигацију" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">О нама</a></li>
+                <li class="nav__item"><a href="services.html" class="nav__link">Услуге</a></li>
+                <li class="nav__item"><a href="portfolio.html" class="nav__link">Портфолио</a></li>
+                <li class="nav__item"><a href="pricing.html" class="nav__link">Цене</a></li>
+                <li class="nav__item"><a href="blog.html" class="nav__link active">Блог</a></li>
+                <li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li>
+            </ul>
+
+            <div class="nav__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Промени тему">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
+                        <line class="sun-ray" x1="12" y1="19" x2="12" y2="23"></line>
+                        <line class="sun-ray" x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                        <line class="sun-ray" x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                        <line class="sun-ray" x1="1" y1="12" x2="5" y2="12"></line>
+                        <line class="sun-ray" x1="19" y1="12" x2="23" y2="12"></line>
+                        <line class="sun-ray" x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                        <line class="sun-ray" x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="moon-crescent" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <circle class="moon-full" cx="12" cy="12" r="9" opacity="0"></circle>
+                    </svg>
+                    <span class="toggle-label">Тема</span>
+                </button>
+            </div>
+    </header>
+
+    <main class="main">
+        <!-- Article -->
+        <section class="section container article-container">
+            <a href="blog.html" class="back-link">← Назад на блог</a>
+
+            <article>
+                <div class="article-hero">
+                    <h1>Скалабилна серверска архитектура</h1>
+                    <div class="article-meta">
+                        <span>📅 5. децембра 2024.</span>
+                        <span>⏱️ 8 мин читања</span>
+                        <span>✍️ аутор: директор</span>
+                    </div>
+                    <span class="article-tag">Веб развој</span>
+                </div>
+
+                <div class="article-content">
+                    <h2>Основе скалабилне серверске архитектуре</h2>
+                    <p>
+                        Добро обликована серверска архитектура је темељ сваке успешне веб апликације. Са растом броја корисника и порастом обима података, ваша архитектура мора моћи да расте. Овај чланак приказује најважније принципе за скалабилне серверске системе.
+                    </p>
+
+                    <h2>Од монолита до микросервиса</h2>
+                    <p>
+                        Прелаз са монолита на микросервисе често је потребан када апликација расте:
+                    </p>
+                    <ul>
+                        <li><strong>Монолити:</strong> Једноставни за развој, али тешко скалирају. Једна грешка може срушити целу апликацију.</li>
+                        <li><strong>Микросервиси:</strong> Више независних сервиса који сарађују. Комплекснији, али веома скалабилни и одрживи.</li>
+                    </ul>
+
+                    <div class="highlight">
+                        <strong>💡 Савет:</strong> Започните са добро структурираним монолитом. Поделите га касније на микросервисе када раст то оправда.
+                    </div>
+
+                    <h2>API дизајн за скалабилност</h2>
+                    <p>
+                        Добро обликован API је фундаменталан за скалабилну архитектуру:
+                    </p>
+
+                    <h3>1. Верзионисање</h3>
+                    <p>
+                        API-ји треба да буду верзионисани, тако да можете увести нове функције без промена које нарушавају компатибилност:
+                    </p>
+                    <div class="code-block">
+                        <code>
+                            /api/v1/users<br>
+                            /api/v2/users  // Са новим функцијама, али стари API остаје функционалан
+                        </code>
+                    </div>
+
+                    <h3>2. Рад без чувања стања</h3>
+                    <p>
+                        API-ји треба да буду stateless – сваки захтев треба да садржи све потребне информације. Ово омогућава хоризонтално скалирање преко више сервера.
+                    </p>
+
+                    <h3>3. Стратегије кеширања</h3>
+                    <p>
+                        Имплементирајте кеширање на различитим нивоима:
+                    </p>
+                    <ul>
+                        <li><strong>Кеширање на клијенту:</strong> Кеш прегледача, HTTP заглавља (ETag, Cache-Control)</li>
+                        <li><strong>Кеширање апликације:</strong> Redis, Memcached за често преузимане податке</li>
+                        <li><strong>Кеширање базе података:</strong> Кеширање резултата упита, оптимизација индекса</li>
+                    </ul>
+
+                    <h2>Оптимизација базе података</h2>
+                    <p>
+                        База података је често уско грло. Оптимизујте је темељно:
+                    </p>
+
+                    <h3>Индексирање</h3>
+                    <div class="code-block">
+                        <code>
+                            -- Креирајте индексе за често претраживане колоне<br>
+                            CREATE INDEX idx_user_email ON users(email);<br>
+                            CREATE INDEX idx_post_created ON posts(created_at);<br>
+                            <br>
+                            -- Сложени индекси за комплексне упите<br>
+                            CREATE INDEX idx_user_status_created ON users(status, created_at);
+                        </code>
+                    </div>
+
+                    <h3>Оптимизација упита</h3>
+                    <ul>
+                        <li>Избегавајте N+1 упите путем Joins или Batching-а</li>
+                        <li>Користите EXPLAIN PLAN за анализу упита</li>
+                        <li>Имплементирајте пагинацију за велике сетове података</li>
+                        <li>Денормализујте када је потребно због перформанси</li>
+                    </ul>
+
+                    <h3>Репликација и партиционисање</h3>
+                    <p>
+                        Код веома великог обима података морате хоризонтално скалирати базу података:
+                    </p>
+                    <ul>
+                        <li><strong>Репликација:</strong> Master-Slave подешавање за скалирање читања</li>
+                        <li><strong>Партиционисање:</strong> Дистрибуција података на основу Hash-Key-а на више база података</li>
+                    </ul>
+
+                    <h2>Расподела оптерећења</h2>
+                    <p>
+                        Расподелите саобраћај на више сервера како бисте повећали отпорност на кварове:
+                    </p>
+                    <ul>
+                        <li><strong>Round Robin:</strong> Једноставан, али није увек праведан</li>
+                        <li><strong>Least Connections:</strong> Сервер са мање веза добија нови саобраћај</li>
+                        <li><strong>IP Hash:</strong> Исте IP адресе увек иду на исти сервер (за Session Persistence)</li>
+                        <li><strong>Weighted Round Robin:</strong> Засновано на капацитету сервера</li>
+                    </ul>
+
+                    <h2>Редови порука и архитектура заснована на догађајима</h2>
+                    <p>
+                        Редови порука раздвајају сервисе и побољшавају скалабилност:
+                    </p>
+                    <div class="code-block">
+                        <code>
+                            // Корисник се региструје - Догађај се објављује у реду<br>
+                            queue.publish('user.registered', { userId: 123 });<br>
+                            <br>
+                            // Различити сервиси конзумирају догађај<br>
+                            queue.subscribe('user.registered', (event) => {<br>
+                            &nbsp;&nbsp;// Email сервис шаље добродошли email<br>
+                            &nbsp;&nbsp;// Analytics сервис прати догађај<br>
+                            &nbsp;&nbsp;// Recommendation сервис ажурира профил<br>
+                            });
+                        </code>
+                    </div>
+
+                    <h2>Контејнери и оркестрација</h2>
+                    <p>
+                        Docker и Kubernetes омогућавају једноставно скалирање:
+                    </p>
+                    <ul>
+                        <li><strong>Docker:</strong> Пакујте своју апликацију са свим зависностима</li>
+                        <li><strong>Kubernetes:</strong> Аутоматско скалирање, преузимање рада у случају отказа и примена</li>
+                        <li><strong>Аутоматско скалирање:</strong> Сервиси се покрећу или заустављају према оптерећењу процесора и употреби меморије</li>
+                    </ul>
+
+                    <h2>Праћење рада и евидентирање догађаја</h2>
+                    <p>
+                        Не можете оптимизовати оно што не можете измерити:
+                    </p>
+                    <ul>
+                        <li><strong>Метрике:</strong> Време одзива, пропусна моћ, стопа грешака, оптерећење процесора и употреба меморије</li>
+                        <li><strong>Евидентирање догађаја:</strong> Структуирани логови за брзо отклањање грешака</li>
+                        <li><strong>Дистрибуирано праћење захтева:</strong> Праћење тока захтева преко више сервиса</li>
+                        <li><strong>Обавештења:</strong> Аутоматска обавештења при проблемима</li>
+                    </ul>
+
+                    <h2>Безбедност при скалирању</h2>
+                    <p>
+                        Са више сервиса расте и сложеност безбедносних захтева:
+                    </p>
+                    <ul>
+                        <li>Имплементирајте аутентификацију између сервиса (mTLS)</li>
+                        <li>Користите API мрежне пролазе за централну аутентификацију</li>
+                        <li>Имплементирајте Rate-Limiting за заштиту од злоупотребе</li>
+                        <li>Шифрујте податке у транзиту и у мировању</li>
+                    </ul>
+
+                    <div class="highlight">
+                        <strong>📌 Закључак:</strong> Скалабилна серверска архитектура није једнократни задатак, већ континуирани процес. Започните са основним принципима, мерите континуирано и оптимизујте на основу правих података. Са правим технологијама и праксама можете изградити системе који расту са вашим послом.
+                    </div>
+
+                    <h2>Ресурси</h2>
+                    <ul>
+                        <li><a href="https://microservices.io/" target="_blank">Microservices.io</a> – Ресурси о микросервисима</li>
+                        <li><a href="https://kubernetes.io/" target="_blank">Kubernetes.io</a> – Оркестрација контејнера</li>
+                        <li><a href="https://www.nginx.com/" target="_blank">Nginx</a> – Веб-сервер и распоређивач оптерећења</li>
+                        <li><a href="https://redis.io/" target="_blank">Redis</a> – Кеширање у меморији</li>
+                    </ul>
+                </div>
+
+                <div class="article-footer">
+                    <span class="article-author">
+                        <strong>Аутор:</strong> Директор<br>
+                        <em>Написано 5. децембра 2024.</em>
+                    </span>
+                    <a href="blog.html" class="back-link">← Назад на блог</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer wird automatisch geladen -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/performance.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/testimonials.js" defer></script>
+    <script src="../js/stats-counter.js" defer></script>
+    <script src="../js/hero-canvas.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/ai-assistant.js" defer></script>
+</body>
+</html>
+
+
+
+

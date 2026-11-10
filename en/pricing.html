@@ -1,0 +1,1044 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NJB CodeMasters | Pricing. Service packages, a cost calculator and VezaionGen VI enterprise consultation."><meta name="robots" content="index,follow">
+<title>Pricing | NJB CodeMasters</title>
+<link rel="canonical" href="https://www.njbcodemasters.com/en/pricing.html">
+    <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/pricing.html">
+    <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/pricing.html">
+    <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/pricing.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
+    <meta property="og:type" content="website"><meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://www.njbcodemasters.com/en/pricing.html"><meta property="og:title" content="Pricing | NJB CodeMasters">
+    <meta property="og:description" content="NJB CodeMasters | Pricing. Service packages, a cost calculator and VezaionGen VI enterprise consultation."><meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Pricing | NJB CodeMasters">
+    <meta name="twitter:description" content="NJB CodeMasters | Pricing. Service packages, a cost calculator and VezaionGen VI enterprise consultation."><meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/"}</script>
+<link rel="stylesheet" href="../css/reset.css"><link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/global.css"><link rel="stylesheet" href="../css/background.css"><link rel="stylesheet" href="../css/header.css"><link rel="stylesheet" href="../css/footer.css"><link rel="stylesheet" href="../css/hero.css"><link rel="stylesheet" href="../css/home.css"><link rel="stylesheet" href="../css/about.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/button-animations.css"><link rel="stylesheet" href="../css/i18n.css"><link rel="stylesheet" href="../css/performance.css"><link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/pricing.css">
+<style>
+        .pricing-hero {
+            text-align: center;
+            margin-bottom: var(--space-5xl);
+        }
+
+        .pricing-hero h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: var(--space-lg);
+        }
+
+        .pricing-hero p {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Pricing Toggle */
+        .toggle-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--space-md);
+            margin: var(--space-3xl) 0 var(--space-5xl);
+        }
+
+        .pricing-toggle {
+            display: inline-flex;
+            align-items: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 999px;
+            padding: 4px;
+            cursor: pointer;
+        }
+
+        .toggle-btn {
+            padding: var(--space-sm) var(--space-lg);
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .toggle-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Pricing Cards */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-5xl);
+        }
+
+        .pricing-card {
+            position: relative;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-2xl);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-color);
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(118, 75, 162, 0.06) 100%);
+            transform: scale(1.02);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.02) translateY(-8px);
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--primary-color);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 999px;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .package-name {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-md);
+            margin-top: var(--space-md);
+        }
+
+        .package-desc {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .price {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+            margin-bottom: var(--space-sm);
+        }
+
+        .price-period {
+            color: var(--text-secondary);
+            font-size: var(--font-size-base);
+            margin-bottom: var(--space-2xl);
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--space-2xl);
+            flex-grow: 1;
+        }
+
+        .features-list li {
+            padding: var(--space-sm) 0;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: var(--font-size-sm);
+        }
+
+        .features-list li::before {
+            content: "✓";
+            color: var(--primary-color);
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .cta-btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Calculator Section */
+        .calculator-section {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-3xl);
+            margin-bottom: var(--space-5xl);
+        }
+
+        .calculator-section h2 {
+            margin-bottom: var(--space-2xl);
+        }
+
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .calc-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .calc-label {
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-sm);
+            color: var(--text-primary);
+        }
+
+        .calc-label-hint {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .slider-group {
+            display: flex;
+            gap: var(--space-md);
+            align-items: center;
+        }
+
+        input[type="range"] {
+            flex: 1;
+            height: 6px;
+            border-radius: 3px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.6);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: white;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        input[type="range"]::-moz-range-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.6);
+        }
+
+        .slider-value {
+            min-width: 60px;
+            text-align: right;
+            font-weight: var(--font-weight-semibold);
+            color: var(--primary-color);
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-sm);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .checkbox-item:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            cursor: pointer;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+
+        .checkbox-label {
+            cursor: pointer;
+            flex: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .checkbox-price {
+            font-size: var(--font-size-sm);
+            color: var(--primary-color);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .addon-description {
+            font-size: var(--font-size-xs);
+            color: var(--text-tertiary);
+            margin-top: 2px;
+            margin-bottom: 8px;
+            padding-left: 26px;
+            line-height: 1.3;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+
+        /* Calculator Result */
+        .calc-result {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(118, 75, 162, 0.08) 100%);
+            border: 1px solid var(--primary-color);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-2xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-2xl);
+        }
+
+        .result-label {
+            font-size: var(--font-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+        }
+
+        .result-value {
+            font-size: 2.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--primary-color);
+        }
+
+        .result-info {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            flex: 1;
+        }
+
+        /* Table Section */
+        .breakdown-section {
+            margin-top: var(--space-5xl);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .pricing-card.featured:hover {
+                transform: translateY(-8px);
+            }
+
+            .calculator-section {
+                padding: var(--space-2xl);
+            }
+
+            .calc-result {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .slider-group {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .slider-value {
+                text-align: left;
+            }
+        }
+
+        .package-radio {
+            border-color: var(--glass-border) !important;
+        }
+
+        .package-radio input[type="radio"]:checked + div,
+        .package-radio input[type="radio"]:checked {
+            accent-color: var(--primary-color);
+        }
+
+        .package-radio:has(input[type="radio"]:checked) {
+            border-color: var(--primary-color) !important;
+            background: rgba(99, 102, 241, 0.1);
+        }
+    </style>
+<link rel="stylesheet" href="../css/platform-content.css">
+</head>
+<body data-language="en">
+<header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Home"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Home</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Modules</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilot Program</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Privacy Policy</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Legal Notice</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Legacy Content</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Services</a></li><li><a class="nav__link" href="pricing.html">Pricing</a></li><li><a class="nav__link" href="portfolio.html">Portfolio</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Choose language"><option value="de">Deutsch</option><option value="en">English</option><option value="sr">Srpski</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Sound"><span class="sound-label">Sound</span></button></div></nav></header>
+<main class="main">
+        <section class="section">
+            <div class="container">
+                <!-- Hero Section -->
+                <div class="pricing-hero"><p class="section-label">Services</p>
+                    <h1>Transparent <span class="text-gradient">Pricing</span> for your project</h1>
+                    <p>Choose from our established packages or calculate your individual solution. All prices are estimates and may be adjusted to your requirements.</p>
+                </div>
+<article class="pricing-card featured" id="vezaiongen-enterprise" style="margin: 0 auto var(--space-3xl); max-width: 1000px; border-color: var(--primary-color);"><picture class="brand-logo brand-logo--pricing"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI logo" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture><p class="section-label">FLAGSHIP INDUSTRIAL PLATFORM</p><h2>VezaionGen VI Enterprise</h2><p>NJB CodeMasters’ dedicated platform offer for connected industrial workflows.</p><ul class="features-list"><li>Modular industrial platform capabilities</li><li>On-Premise, Private Cloud or SaaS deployment models for discussion</li><li>Pilot initiative to explore a use case together</li><li>Discussion of capabilities, integrations and operating model</li></ul><p><strong>Price on request</strong> · Pilot program available</p><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">Discuss VezaionGen VI</a></article>
+
+                <!-- Pricing Cards -->
+                <div style="margin-bottom: var(--space-3xl); padding-bottom: var(--space-2xl); border-bottom: 1px solid var(--border-color);">
+                    <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-lg); text-align: center;">🚀 <span class="text-gradient">Enterprise Services & Development</span></h2>
+                    <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Industrial software development, system integration and operations for complex production and enterprise environments.</p>
+                </div>
+
+                <aside class="pricing-scope-note"><strong>Clear price distinction:</strong> The following EUR ranges apply only to NJB CodeMasters services and commissioned custom software projects. The from €60,000 estimate is for an industrial services project, not a VezaionGen VI platform or licence price. VezaionGen VI is offered separately: price on request; pilot program available.</aside>
+<div class="pricing-grid">
+                    <!-- Enterprise / Industrial OS (FLAGSHIP) -->
+                    <div class="pricing-card featured" style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.1));">
+                        <span class="badge" style="left: 20px;">INDUSTRIAL SERVICES</span>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center;" class="enterprise-grid">
+                            <div>
+                                <h3 class="package-name" style="color: var(--primary-color); font-size: 2.5rem;">Industrial Software<br>&amp; MES/ERP Integration</h3>
+                                <p class="package-desc" style="font-size: var(--font-size-lg); color: var(--text-secondary);">Custom software, data integration and operational applications shaped for industrial environments.</p>
+                                
+                                <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: rgba(99, 102, 241, 0.1); border-radius: var(--radius-lg); border-left: 4px solid var(--primary-color);">
+                                    <div style="margin-bottom: var(--space-sm);">
+                                        <span style="font-size: var(--font-size-sm); color: var(--text-secondary); text-transform: uppercase;">Services project implementation</span>
+                                        <div style="font-size: 2rem; font-weight: bold; color: var(--primary-color);">from €60,000</div>
+                                    </div>
+                                    <div>
+                                        <span style="font-size: var(--font-size-sm); color: var(--text-secondary); text-transform: uppercase;">+ Monthly service operations &amp; support</span>
+                                        <div style="font-size: 1.5rem; font-weight: bold; color: var(--text-primary);">€3,000 – €10,000/month</div>
+                                    </div>
+                                </div>
+                                <p class="pricing-price-note">Indicative price for services and project implementation—not a VezaionGen VI platform or licence price.</p>
+                            </div>
+                            
+                            <div>
+                                <ul class="features-list" style="columns: 2;">
+                                    <li>Complex MES/ERP systems</li>
+                                    <li>Real-time data acquisition</li>
+                                    <li>Predictive Analytics</li>
+                                    <li>IoT Integration</li>
+                                    <li>Energy monitoring</li>
+                                    <li>CO2 tracking</li>
+                                    <li>Advanced QC systems</li>
+                                    <li>Custom modules</li>
+                                    <li>24/7 Dedicated Support</li>
+                                    <li>Regular updates</li>
+                                    <li>Custom Integrations</li>
+                                    <li>Performance Optimization</li>
+                                </ul>
+                                
+                                <div style="margin-top: var(--space-2xl);">
+                                    <a class="btn btn--secondary" style="width: 100%; justify-content: center; margin-top: var(--space-md);" href="contact.html#request-enterprise">Request a detailed quotation</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Standard Web Development Packages -->
+                <div style="margin-top: var(--space-3xl); margin-bottom: var(--space-3xl); padding-top: var(--space-3xl); padding-bottom: var(--space-2xl); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+                    <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-lg); text-align: center;">💻 <span class="text-gradient">Web Development Packages</span></h2>
+                    <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Responsive websites and web apps for every requirement</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <!-- Starter Paket -->
+                    <div class="pricing-card">
+                        <h3 class="package-name">Starter</h3>
+                        <p class="package-desc">Ideal for small projects and startups</p>
+                        <div class="price">€2,500</div>
+                        <p class="price-period">One-time fee</p>
+                        <ul class="features-list">
+                            <li>Consultation and planning</li>
+                            <li>Modern design (up to 3 pages)</li>
+                            <li>Responsive implementation</li>
+                            <li>CMS Integration (WordPress)</li>
+                            <li>Basic SEO</li>
+                            <li>Testing & Launch</li>
+                        </ul>
+                        <a class="btn btn--primary cta-btn" href="contact.html?package=Starter#request-website">Send an enquiry</a>
+                    </div>
+
+                    <!-- Professional Paket (Featured) -->
+                    <div class="pricing-card featured">
+                        <span class="badge">Most popular</span>
+                        <h3 class="package-name">Professional</h3>
+                        <p class="package-desc">For ambitious growth projects</p>
+                        <div class="price">€5,500</div>
+                        <p class="price-period">One-time fee</p>
+                        <ul class="features-list">
+                            <li>Consultation and planning</li>
+                            <li>Custom design (up to 6 pages)</li>
+                            <li>Responsive and optimized</li>
+                            <li>CMS with extensions</li>
+                            <li>SEO and performance</li>
+                            <li>Blog Integration</li>
+                            <li>Analytics Setup</li>
+                            <li>1 month of support</li>
+                        </ul>
+                        <a class="btn btn--primary cta-btn" href="contact.html?package=Professional#request-website">Send an enquiry</a>
+                    </div>
+
+                    <!-- Premium Paket -->
+                    <div class="pricing-card">
+                        <h3 class="package-name">Premium</h3>
+                        <p class="package-desc">A comprehensive enterprise solution</p>
+                        <div class="price">€9,500</div>
+                        <p class="price-period">One-time fee</p>
+                        <ul class="features-list">
+                            <li>Comprehensive strategic consultation</li>
+                            <li>Brand Design System</li>
+                            <li>Custom Development</li>
+                            <li>E-Commerce Integration</li>
+                            <li>Advanced SEO & CRO</li>
+                            <li>Newsletter Integration</li>
+                            <li>Video/Animation Support</li>
+                            <li>3 months of support and maintenance</li>
+                        </ul>
+                        <a class="btn btn--primary cta-btn" href="contact.html?package=Premium#request-website">Send an enquiry</a>
+                    </div>
+                </div>
+
+                <!-- Pricing Calculator mit Paket-Auswahl -->
+                <div class="calculator-section">
+                    <h2>Custom Cost Calculator</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-3xl);">Choose a base package and add the extras you need.</p>
+
+                    <div class="calculator-grid">
+                        <!-- Paket-Auswahl -->
+                        <div class="calc-item" style="grid-column: 1 / -1;">
+                            <label class="calc-label">Select a base package</label>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md);">
+                                <label style="display: flex; align-items: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;" class="package-radio">
+                                    <input type="radio" name="package" value="2500" data-name="Starter" checked style="cursor: pointer;">
+                                    <div style="margin-left: var(--space-sm);">
+                                        <strong>Starter</strong>
+                                        <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">€2,500</div>
+                                    </div>
+                                </label>
+                                <label style="display: flex; align-items: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;" class="package-radio">
+                                    <input type="radio" name="package" value="5500" data-name="Professional" style="cursor: pointer;">
+                                    <div style="margin-left: var(--space-sm);">
+                                        <strong>Professional</strong>
+                                        <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">€5,500</div>
+                                    </div>
+                                </label>
+                                <label style="display: flex; align-items: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;" class="package-radio">
+                                    <input type="radio" name="package" value="9500" data-name="Premium" style="cursor: pointer;">
+                                    <div style="margin-left: var(--space-sm);">
+                                        <strong>Premium</strong>
+                                        <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">€9,500</div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Timeline -->
+                        <div class="calc-item">
+                            <label class="calc-label">
+                                Preferred delivery speed
+                                <span class="calc-label-hint">(delivery time)</span>
+                            </label>
+                            <select id="timelineSelect" style="padding: var(--space-sm); border-radius: var(--radius-md); border: 1px solid var(--glass-border); background: var(--bg-primary); color: var(--text-primary); cursor: pointer;">
+                                <option value="0">Standard (6–8 weeks) - €0</option>
+                                <option value="500">Express (4–6 weeks) - +€500</option>
+                                <option value="1200">Urgent (2–4 weeks) - +€1,200</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Add-ons -->
+                    <div style="margin-top: var(--space-3xl); padding-top: var(--space-3xl); border-top: 1px solid var(--glass-border);">
+                        <h3 style="margin-bottom: var(--space-lg);">Optional Extras</h3>
+                        <p>Choose the add-ons you want included in your enquiry. Selected extras will appear in the enquiry form, email draft and subject line.</p>
+                        <p id="selectedExtras" role="status" aria-live="polite">No extras selected yet.</p>
+                        <div class="checkbox-group">
+                            <!-- Web Development -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="3500" id="webdev">
+                                <span class="checkbox-label">
+                                    <span>Web Development (Full-Stack)</span>
+                                    <span class="checkbox-price">+€3,500</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Modern, responsive websites using HTML5, CSS3 and JavaScript with performance optimization</p>
+
+                            <!-- App Development -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="8500" id="appdev">
+                                <span class="checkbox-label">
+                                    <span>App Development (iOS/Android)</span>
+                                    <span class="checkbox-price">+€8,500</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Native or cross-platform mobile apps with modern UX design and app-store deployment</p>
+
+                            <!-- UI/UX Design -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="2500" id="uiux">
+                                <span class="checkbox-label">
+                                    <span>UI/UX Design Professional</span>
+                                    <span class="checkbox-price">+€2,500</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Wireframing, prototyping, user research and visual design for effective usability</p>
+
+                            <!-- Backend Development -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="4200" id="backend">
+                                <span class="checkbox-label">
+                                    <span>Backend Development</span>
+                                    <span class="checkbox-price">+€4,200</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Robust server architectures, RESTful APIs, database design and cloud infrastructure</p>
+
+                            <!-- E-Commerce -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="5500" id="ecommerce">
+                                <span class="checkbox-label">
+                                    <span>Complete E-Commerce Solution</span>
+                                    <span class="checkbox-price">+€5,500</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Online shop with payment systems, inventory management, analytics and reporting</p>
+
+                            <!-- Tech Consulting -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="1800" id="consulting">
+                                <span class="checkbox-label">
+                                    <span>Tech Consulting</span>
+                                    <span class="checkbox-price">+€1,800</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Strategic consultation, technology-stack planning, code reviews and team training</p>
+
+                            <!-- SEO -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="800" id="seo">
+                                <span class="checkbox-label">
+                                    <span>Advanced SEO and SEM</span>
+                                    <span class="checkbox-price">+€800</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Search engine optimization, keyword analysis, on-page/off-page SEO and Google Ads setup</p>
+
+                            <!-- Animations -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="1200" id="animation">
+                                <span class="checkbox-label">
+                                    <span>Animations and Interactions</span>
+                                    <span class="checkbox-price">+€1,200</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Modern CSS/JavaScript animations, scroll effects and interactive UI elements</p>
+
+                            <!-- Support -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="600" id="support">
+                                <span class="checkbox-label">
+                                    <span>3 Months of Priority Support</span>
+                                    <span class="checkbox-price">+€600</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Fast response times, bug fixes, updates and technical support by email/chat</p>
+
+                            <!-- Newsletter -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="400" id="newsletter">
+                                <span class="checkbox-label">
+                                    <span>Newsletter System Setup</span>
+                                    <span class="checkbox-price">+€400</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Email-marketing integration (Mailchimp/SendGrid), templates and automation</p>
+
+                            <!-- AI Chat -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="2500" id="aichat">
+                                <span class="checkbox-label">
+                                    <span>Website AI Chat Integration</span>
+                                    <span class="checkbox-price">+€2,500</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">AI chatbot for customer support, FAQ answers and lead generation</p>
+
+                            <!-- CMS -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="1800" id="cms">
+                                <span class="checkbox-label">
+                                    <span>CMS System (WordPress/Custom)</span>
+                                    <span class="checkbox-price">+€1,800</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Content management system for straightforward editing without programming skills</p>
+
+                            <!-- Analytics -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="900" id="analytics">
+                                <span class="checkbox-label">
+                                    <span>Analytics & Tracking Setup</span>
+                                    <span class="checkbox-price">+€900</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Google Analytics 4, conversion tracking, heatmaps and detailed performance reports</p>
+
+                            <!-- Multilang -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="1200" id="multilang">
+                                <span class="checkbox-label">
+                                    <span>Multilingual Website</span>
+                                    <span class="checkbox-price">+€1,200</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Translation into multiple languages, automatic language detection and SEO optimization</p>
+
+                            <!-- Booking -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="700" id="booking">
+                                <span class="checkbox-label">
+                                    <span>Booking and Appointment Management</span>
+                                    <span class="checkbox-price">+€700</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Online appointments, calendar integration, automatic confirmations and reminders</p>
+
+                            <!-- 3D -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="3200" id="3d">
+                                <span class="checkbox-label">
+                                    <span>3D Models and Animations</span>
+                                    <span class="checkbox-price">+€3,200</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Base package: 3–5 simple 3D product models OR 1 complex interactive 3D element with WebGL animation. Additional models: from €400 each</p>
+
+                            <!-- Video -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="2000" id="video">
+                                <span class="checkbox-label">
+                                    <span>Video Production and Integration</span>
+                                    <span class="checkbox-price">+€2,000</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Professional video production, editing, optimization and seamless website integration</p>
+
+                            <!-- Social Media -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="500" id="social">
+                                <span class="checkbox-label">
+                                    <span>Social Media Integration</span>
+                                    <span class="checkbox-price">+€500</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Social feeds, share buttons and automatic posting functions</p>
+
+                            <!-- API -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="1500" id="api">
+                                <span class="checkbox-label">
+                                    <span>API Integrations (Payments, CRM)</span>
+                                    <span class="checkbox-price">+€1,500</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Integration of external systems such as Stripe, PayPal, Salesforce and HubSpot</p>
+
+                            <!-- Custom Forms -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="1100" id="forms">
+                                <span class="checkbox-label">
+                                    <span>Custom Forms and Tools</span>
+                                    <span class="checkbox-price">+€1,100</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Specialized forms, calculators and configurators with validation and backend integration</p>
+
+                            <!-- Performance -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="800" id="performance">
+                                <span class="checkbox-label">
+                                    <span>Advanced Performance Optimization</span>
+                                    <span class="checkbox-price">+€800</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">Caching, lazy loading, CDN setup and code minification for fast loading</p>
+
+                            <!-- Accessibility -->
+                            <label class="checkbox-item">
+                                <input type="checkbox" class="addon-checkbox" data-price="950" id="accessibility">
+                                <span class="checkbox-label">
+                                    <span>Accessibility (WCAG 2.1)</span>
+                                    <span class="checkbox-price">+€950</span>
+                                </span>
+                            </label>
+                            <p class="addon-description">WCAG 2.1-compliant implementation for screen readers, keyboard navigation and contrast standards</p>
+                        </div>
+                    </div>
+
+                    <!-- Result -->
+                    <div class="calc-result" style="margin-top: var(--space-3xl);">
+                        <div>
+                            <div class="result-label">Estimated Total Cost</div>
+                            <div class="result-value" id="totalPrice">€2,500</div>
+                            <div style="font-size: var(--font-size-xs); color: var(--text-secondary); margin-top: var(--space-sm);" id="packageBreakdown">Starter €2,500</div>
+                        </div>
+                        <div class="result-info">
+                            <p>✓ Based on typical projects<br>
+                            ✓ Final cost following a detailed assessment<br>
+                            ✓ Non-binding, with no hidden fees</p>
+                        </div>
+                        <button class="btn btn--primary">Request this estimate</button>
+                    </div>
+                </div>
+
+                <!-- Breakdown Table -->
+                <div class="breakdown-section">
+                    <h2>Service Details and Indicative Prices</h2>
+                    <table class="breakdown-table">
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Description</th>
+                                <th style="text-align: right;">Indicative price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>1. Consultation and Planning</strong></td>
+                                <td>Initial consultation, requirements analysis, structure planning and technical recommendations</td>
+                                <td class="price">€500 – €1,500</td>
+                            </tr>
+                            <tr>
+                                <td><strong>2. Design</strong></td>
+                                <td>Custom screen design (UX/UI) and responsive layout based on your corporate identity</td>
+                                <td class="price">€1,000 – €3,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>3. Development</strong></td>
+                                <td>HTML/CSS/JavaScript or CMS integration (e.g. WordPress), with responsive implementation</td>
+                                <td class="price">€2,000 – €7,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>4. Content Creation</strong></td>
+                                <td>Copy optimization, image selection and SEO-focused content integration</td>
+                                <td class="price">€500 – €2,000</td>
+                            </tr>
+                            <tr>
+                                <td><strong>5. Testing and Launch</strong></td>
+                                <td>Browser testing, performance optimization, functional checks and launch</td>
+                                <td class="price">€300 – €800</td>
+                            </tr>
+                            <tr>
+                                <td><strong>6. Maintenance and Support</strong></td>
+                                <td>Ongoing updates, security, backups and content adjustments</td>
+                                <td class="price">€50 – €300/month</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- CodeMasters OS Features on Pricing Page -->
+                <section style="margin-top: var(--space-5xl); margin-bottom: var(--space-5xl);">
+                    <div class="section-header text-center fade-in-up">
+                        <span class="section-label">Also of Interest</span>
+                        <h2 class="section-title" style="font-size: var(--font-size-4xl);">VezaionGen <span class="text-gradient">VI</span></h2>
+                        <p class="section-description">Pricing on Request — Enterprise Industrial Platform</p>
+                    </div>
+
+                    <div class="codemasters-grid">
+                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.05s;">
+                            <div class="codemasters-card__icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="20" x2="18" y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg>
+                            </div>
+                            <h3 class="codemasters-card__title">Industrial Operations</h3><p class="codemasters-card__desc">Factory operations, materials, tools, orders, maintenance and quality.</p>
+                        </div>
+
+                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.1s;">
+                            <div class="codemasters-card__icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                                </svg>
+                            </div>
+                            <h3 class="codemasters-card__title">Quality Intelligence</h3><p class="codemasters-card__desc">Quality workflows, image/quality signals, detection and dashboards. A separately trained VezaionGen model is not evidenced.</p>
+                        </div>
+
+                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.15s;">
+                            <div class="codemasters-card__icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                </svg>
+                            </div>
+                            <h3 class="codemasters-card__title">Energy &amp; ESG</h3><p class="codemasters-card__desc">Energy and emissions data, carbon allocation and localized ESG reports. Regulatory compliance requires expert review.</p>
+                        </div>
+
+                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.2s;">
+                            <div class="codemasters-card__icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"></circle>
+                                    <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M1 12h6m6 0h6M4.8 4.8l4.2 4.2m6 0l4.2-4.2M4.8 19.2l4.2-4.2m6 0l4.2 4.2"></path>
+                                </svg>
+                            </div>
+                            <h3 class="codemasters-card__title">Industrial Analytics</h3><p class="codemasters-card__desc">Analytics, anomaly and insight dashboards, and tool-life estimates. Prediction accuracy is not generally verified.</p>
+                        </div>
+                    </div>
+
+                    <div class="section-cta fade-in-up" style="animation-delay: 0.25s;">
+                        <a href="vezaiongen-vi.html" class="btn btn--primary btn--large">
+                            <span>Explore VezaionGen VI</span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- FAQ / Info -->
+                <section style="margin-top: var(--space-5xl);">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="grid-2" style="margin-top: var(--space-3xl);">
+                        <div class="card">
+                            <h3>Is maintenance included?</h3>
+                            <p>The listed prices cover website creation. Maintenance and support are optional and can be added as a monthly package.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Can I change the services?</h3>
+                            <p>Yes. The packages are guidelines. We can adapt the scope and cost to your specific requirements.</p>
+                        </div>
+                        <div class="card">
+                            <h3>How long does a project take?</h3>
+                            <p>Standard projects take 6–8 weeks. Express (4–6 weeks) and urgent (2–4 weeks) options are available at an additional charge.</p>
+                        </div>
+                        <div class="card">
+                            <h3>Are there hidden costs?</h3>
+                            <p>No. All costs are transparent. Following a detailed assessment, you receive a binding quotation without surprises.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+
+<section id="service-requests" class="section platform-content"><div class="container"><h2>Service Enquiries</h2><p>Tell us about your objective, operational context and the support you are looking for. We can discuss relevant services and a suitable scope.</p><div class="values-grid"><a class="btn btn--primary" href="contact.html#request-website">Website Development</a> <a class="btn btn--primary" href="contact.html#request-mobile-apps">Mobile Apps</a> <a class="btn btn--primary" href="contact.html#request-enterprise">Enterprise Development</a> <a class="btn btn--primary" href="contact.html#request-consulting">Consulting</a> <a class="btn btn--primary" href="contact.html#request-automation">Automation</a> <a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI</a></div></div></section></main>
+<script>
+        // Neue Preiskalkulator-Logik
+        const packageRadios = document.querySelectorAll('input[name="package"]');
+        const timelineSelect = document.getElementById('timelineSelect');
+        const totalPriceEl = document.getElementById('totalPrice');
+        const packageBreakdown = document.getElementById('packageBreakdown');
+        const addonCheckboxes = document.querySelectorAll('.addon-checkbox');
+        const selectedExtrasEl = document.getElementById('selectedExtras');
+        let selectedAddons = [];
+
+        function formatCurrency(value) {
+            return '€' + Math.round(value).toLocaleString('de-DE');
+        }
+
+        function calculateTotal() {
+            // Paket auslesen
+            const selectedPackage = document.querySelector('input[name="package"]:checked');
+            const packagePrice = parseInt(selectedPackage.value);
+            const packageName = selectedPackage.dataset.name;
+
+            // Timeline Surcharge
+            const timelineValue = parseInt(timelineSelect.value);
+
+            // Add-ons
+            let addonsTotal = 0;
+            selectedAddons = [];
+            addonCheckboxes.forEach(checkbox => {
+                if (checkbox.checked) {
+                    const price = parseInt(checkbox.dataset.price);
+                    addonsTotal += price;
+                    selectedAddons.push({
+                        name: checkbox.nextElementSibling.querySelector('span:first-child').textContent.trim(),
+                        price
+                    });
+                }
+            });
+
+            const total = packagePrice + timelineValue + addonsTotal;
+
+            totalPriceEl.textContent = formatCurrency(total);
+            
+            // Breakdown anzeigen
+            let breakdown = `${packageName} ${formatCurrency(packagePrice)}`;
+            if (timelineValue > 0) breakdown += ` + Timeline ${formatCurrency(timelineValue)}`;
+            if (addonsTotal > 0) breakdown += ` + Extras: ${selectedAddons.map(extra => `${extra.name} (${formatCurrency(extra.price)})`).join(', ')}`;
+            packageBreakdown.textContent = breakdown;
+            selectedExtrasEl.textContent = selectedAddons.length
+                ? `Selected: ${selectedAddons.map(extra => `${extra.name} (${formatCurrency(extra.price)})`).join(', ')}`
+                : 'No extras selected yet.';
+        }
+
+        packageRadios.forEach(radio => {
+            radio.addEventListener('change', calculateTotal);
+        });
+
+        timelineSelect.addEventListener('change', calculateTotal);
+        addonCheckboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', calculateTotal);
+        });
+
+        // Initial calculation
+        calculateTotal();
+
+        // Button funktionen anpassen
+        const calcButton = document.querySelector('.calc-result .btn--primary');
+        if (calcButton) {
+            calcButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                const selectedPackage = document.querySelector('input[name="package"]:checked');
+                const packageName = selectedPackage.dataset.name;
+                const breakdown = packageBreakdown.textContent;
+                const extrasSubject = selectedAddons.length
+                    ? ` + ${selectedAddons.map(extra => extra.name).join(', ')}`
+                    : '';
+                const message = `Package: ${packageName}\n\n${breakdown}\nEstimated total: ${totalPriceEl.textContent}\n\nPlease contact me with a detailed quotation.`;
+                
+                const queryParams = new URLSearchParams({
+                    subject: `Estimate: ${packageName}${extrasSubject}`,
+                    package: packageName,
+                    message: message
+                });
+                
+                window.location.href = `contact.html?${queryParams.toString()}#request-website`;
+            });
+        }
+    </script>
+<div id="footer-placeholder"></div>
+<script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/ai-assistant.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
+</body></html>

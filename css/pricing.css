@@ -1,0 +1,709 @@
+/* Pricing Page Styles */
+
+.main .pricing-card:not(.featured) :is(.package-name, .package-desc, .price-period, .features-list li) {
+    color: var(--text-primary);
+}
+
+.main .pricing-card .price,
+.main .result-value {
+    -webkit-text-fill-color: currentColor;
+}
+
+[data-theme="dark"] .main .pricing-card .price {
+    color: #a5b4fc;
+}
+
+.main .pricing-card.featured {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(118, 75, 162, 0.06)), var(--glass-bg) !important;
+}
+
+.main .pricing-card.featured[style] {
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.1)), var(--glass-bg) !important;
+}
+
+.main .pricing-card.featured :is(p, li, span:not(.badge), h3, div) {
+    color: var(--text-primary) !important;
+}
+
+.main .pricing-card.featured .btn--primary,
+.main .pricing-card.featured .btn--primary span {
+    color: #1a1a1a !important;
+}
+
+.main .pricing-card .btn--primary,
+.main .calc-result .btn--primary {
+    background: white;
+    color: #1a1a1a !important;
+}
+
+.main .pricing-card .btn--primary::before,
+.main .calc-result .btn--primary::before {
+    background: linear-gradient(135deg, var(--primary-dark), #764ba2);
+}
+
+.main .pricing-card .btn--primary:hover,
+.main .calc-result .btn--primary:hover {
+    color: white !important;
+}
+
+.main .pricing-card.featured .btn--primary:hover,
+.main .pricing-card.featured .btn--primary:hover span {
+    color: white !important;
+}
+
+.main .checkbox-group {
+    background: var(--glass-bg);
+}
+
+.main .calculator-section :is(.checkbox-label, .addon-description, .calc-label-hint, .result-info p) {
+    color: var(--text-primary);
+}
+
+.main .checkbox-price {
+    color: var(--primary-dark);
+}
+
+[data-theme="dark"] .main .checkbox-price {
+    color: #a5b4fc;
+}
+
+/* Hard override: prevent reveal animations from hiding content on pricing */
+.reveal,
+.reveal.is-visible,
+.reveal.in-view,
+.reveal.reveal--zoom,
+.reveal.reveal--slide-up,
+.reveal.reveal--slide-down,
+.reveal.reveal--slide-left,
+.reveal.reveal--slide-right,
+.reveal.reveal--rotate {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    transition: none !important;
+}
+
+/* In case a global style uses display:none before visible */
+.reveal {
+    display: block !important;
+}
+
+.calculator-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-3xl);
+}
+
+@media (max-width: 768px) {
+    .calculator-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main .enterprise-grid {
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: var(--space-lg) !important;
+    }
+
+    .main .pricing-grid,
+    .main .calculator-grid,
+    .main .checkbox-group {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .main .pricing-card {
+        min-width: 0;
+        padding: var(--space-lg);
+    }
+
+    .main .pricing-card .btn {
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+}
+
+.calc-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.calc-label {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.calc-label-hint {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+/* Package Radio Styling */
+.package-radio {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.package-radio input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    background: transparent;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.package-radio input[type="radio"]:checked {
+    background: var(--accent-primary);
+    box-shadow: inset 0 0 0 3px var(--bg-primary);
+}
+
+.package-radio input[type="radio"]:hover {
+    border-color: var(--accent-secondary);
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.1);
+}
+
+/* Checkbox Group Styling */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+.checkbox-item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    padding: var(--space-sm) 0;
+    transition: transform 0.2s ease;
+}
+
+.checkbox-item:hover {
+    transform: translateX(2px);
+}
+
+.checkbox-item input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--accent-primary);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    background: transparent;
+    margin: 0;
+    margin-right: var(--space-sm);
+    flex-shrink: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.checkbox-item input[type="checkbox"]:checked {
+    background: var(--accent-primary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.checkbox-item input[type="checkbox"]:hover {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.checkbox-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    margin-left: 28px;
+}
+
+.checkbox-price {
+    font-weight: 600;
+    color: var(--accent-primary);
+    white-space: nowrap;
+}
+
+/* Add-on Description */
+.addon-description {
+    font-size: var(--font-size-xs);
+    color: var(--text-tertiary);
+    margin-top: 2px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    max-width: 100%;
+    word-wrap: break-word;
+    text-align: center;
+}
+
+/* Calculator Result */
+.calc-result {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    padding: var(--space-2xl);
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .calc-result {
+        grid-template-columns: 1fr;
+    }
+}
+
+.result-label {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.result-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-md);
+}
+
+.result-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.result-info p {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* Pricing Cards */
+.pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-2xl);
+    margin-bottom: var(--space-4xl);
+}
+
+@media (max-width: 768px) {
+    .pricing-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+.pricing-card {
+    position: relative;
+    padding: var(--space-2xl);
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Ensure CTA buttons align at the bottom in all cards */
+.pricing-card .cta-btn {
+    margin-top: auto !important;
+}
+
+.pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);
+    border-color: var(--accent-primary);
+}
+
+.pricing-card.featured {
+    border: 2px solid var(--accent-primary);
+    background: linear-gradient(135deg, rgba(99, 101, 241, 0.639), rgba(236, 72, 154, 0.594));
+    transform: scale(1.05);
+}
+
+.pricing-card h3 {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-lg);
+}
+
+.package-desc {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+    flex-grow: 1;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-lg) 0;
+    flex-grow: 1;
+}
+
+.features-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--glass-border);
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+}
+
+.features-list li:last-child {
+    border-bottom: none;
+}
+
+.features-list li:before {
+    content: "✓ ";
+    color: var(--accent-primary);
+    font-weight: 600;
+    margin-right: var(--space-xs);
+}
+
+.cta-btn {
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-primary) !important;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: var(--font-size-base);
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
+    color: white !important;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+}
+
+.cta-btn:active {
+    transform: translateY(0);
+}
+
+/* Breakdown Section */
+.breakdown-section {
+    margin-top: var(--space-4xl);
+    padding-top: var(--space-4xl);
+    border-top: 2px solid var(--glass-border);
+}
+
+.breakdown-section h2 {
+    margin-bottom: var(--space-2xl);
+}
+
+.breakdown-table {
+    display: block;
+    width: 100%;
+    margin-top: var(--space-2xl);
+    border: 0;
+    background: transparent;
+}
+
+.breakdown-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.breakdown-table tbody {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+    gap: var(--space-lg);
+}
+
+.breakdown-table tbody tr {
+    display: grid;
+    align-content: start;
+    gap: var(--space-md);
+    min-width: 0;
+    padding: var(--space-xl);
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-md);
+}
+
+.breakdown-table td {
+    display: block;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    color: var(--text-secondary);
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+.breakdown-table td::before {
+    display: block;
+    margin-bottom: var(--space-xs);
+    color: var(--text-tertiary);
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.breakdown-table td:first-child {
+    color: var(--text-primary);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+.breakdown-table td:first-child::before {
+    content: "Service";
+}
+
+.breakdown-table td:nth-child(2)::before {
+    content: "Description";
+}
+
+.breakdown-table td.price {
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border-color);
+    color: var(--primary-dark);
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+.breakdown-table td.price::before {
+    content: "Indicative price";
+}
+
+html[lang="de"] .breakdown-table td:first-child::before {
+    content: "Leistung";
+}
+
+html[lang="de"] .breakdown-table td:nth-child(2)::before {
+    content: "Beschreibung";
+}
+
+html[lang="de"] .breakdown-table td.price::before {
+    content: "Richtpreis";
+}
+
+html[lang="sr"] .breakdown-table td:first-child::before {
+    content: "Услуга";
+}
+
+html[lang="sr"] .breakdown-table td:nth-child(2)::before {
+    content: "Опис";
+}
+
+html[lang="sr"] .breakdown-table td.price::before {
+    content: "Оријентациона цена";
+}
+
+:root[data-theme="dark"] .breakdown-table td.price {
+    color: var(--primary-light);
+}
+
+.pricing-scope-note {
+    max-width: 1000px;
+    margin: var(--space-xl) auto;
+    padding: var(--space-lg) var(--space-xl);
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary-color);
+    border-radius: var(--radius-lg);
+    line-height: var(--line-height-relaxed);
+}
+
+.pricing-price-note {
+    margin-top: var(--space-md);
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+/* Button Styling */
+.btn {
+    padding: var(--space-md) var(--space-lg);
+    border: none;
+    border-radius: var(--radius-md);
+    color: var(--text-primary) !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: var(--font-size-base);
+}
+
+.btn--primary {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: var(--text-primary) !important;
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3);
+    color: white !important;
+}
+
+/* Stronger specificity to enforce dark text by default on pricing page */
+.pricing-card .cta-btn,
+.calc-result .btn--primary,
+.calc-result .cta-btn,
+.pricing-grid .btn--primary {
+    color: #111 !important;
+}
+
+.pricing-card .cta-btn:hover,
+.calc-result .btn--primary:hover,
+.calc-result .cta-btn:hover,
+.pricing-grid .btn--primary:hover {
+    color: #fff !important;
+}
+
+/* Button defaults restored */
+
+.btn--primary:active {
+    transform: translateY(0);
+}
+
+/* Select Styling */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236366f1' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+    background-color: transparent;
+}
+
+select option {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+/* FEATURED CARD BUTTON - HIGHEST PRIORITY - MUST BE AT THE END */
+.pricing-card.featured .cta-btn {
+    background: #f8f9fa !important;
+    border: 2px solid var(--accent-primary) !important;
+    color: #000000 !important;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25) !important;
+}
+
+.pricing-card.featured .cta-btn:hover {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary)) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.3) !important;
+    transform: translateY(-2px) !important;
+}
+/* Enterprise Pricing Card Responsive */
+@media (max-width: 1024px) {
+    .pricing-card[style*="grid-column: 1 / -1"] {
+        grid-column: 1 / -1 !important;
+    }
+    
+    .enterprise-grid {
+        grid-template-columns: 1fr !important;
+    }
+    
+    .pricing-card[style*="grid-column: 1 / -1"] h3 {
+        font-size: 1.875rem !important;
+    }
+    
+    .features-list {
+        columns: 1 !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .pricing-card[style*="grid-column: 1 / -1"] h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .pricing-card[style*="grid-column: 1 / -1"] p {
+        font-size: var(--font-size-base) !important;
+    }
+    
+    .enterprise-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* Features List Styling */
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-sm);
+    font-size: var(--font-size-base);
+    color: #cbd5e1;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.features-list li::before {
+    content: "✓";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 12px;
+    flex-shrink: 0;
+}

@@ -1,0 +1,128 @@
+/* Performance-Optimierungen für CSS */
+
+/* 1. GPU-Beschleunigung für Animationen aktivieren */
+.fade-in-up,
+.fade-in-down,
+.fade-in-left,
+.fade-in-right,
+.scale-in,
+.reveal,
+.parallax,
+.btn,
+.card,
+.team-member,
+.value-card,
+.stat-card {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+}
+
+/* 2. Optimierte Transitions mit GPU */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 3. Lazy Loading Image Fade-in */
+img {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+img.loaded,
+img[src] {
+    opacity: 1;
+}
+
+/* 4. Reduziere Repaints - nur Transform und Opacity animieren */
+.animate {
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    animation-fill-mode: both;
+}
+
+/* 5. Containment für bessere Performance */
+.card,
+.blog-card,
+.service-card,
+.team-member,
+.value-card {
+    contain: layout style paint;
+}
+
+/* 6. Optimiertes Scrolling */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 7. Reduziere Layout-Thrashing */
+.container,
+.section {
+    content-visibility: visible;
+}
+
+/* 8. Font Loading Optimization */
+@font-face {
+    font-display: swap; /* Verhindert FOIT (Flash of Invisible Text) */
+}
+
+/* 9. Kritische Animationen mit höherer Priorität */
+@media (prefers-reduced-motion: no-preference) {
+    .hero__content,
+    .page-hero__content {
+        animation: fadeInUp 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+}
+
+/* 10. Reduzierte Bewegung für Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* 11. Optimierte Shadow Performance */
+.glass,
+.card,
+.btn {
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+/* 12. Intersection Observer Compatibility */
+.reveal {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 13. Prevent Layout Shift */
+img[width][height] {
+    height: auto;
+}
+
+/* 14. Optimierte Backdrop-Filter */
+.glass-bg,
+[class*="glass"] {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    transform: translateZ(0);
+}
+
+/* 15. Smooth Font Rendering */
+body {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

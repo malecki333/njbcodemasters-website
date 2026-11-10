@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Наше професионалне услуге и решења">
+    <title>Услуге | NJB CodeMasters</title>
+    
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/button-animations.css">
+    <link rel="stylesheet" href="../css/i18n.css">
+    <link rel="stylesheet" href="../css/performance.css">
+    
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    
+    <style>
+        .services-hero {
+            text-align: center;
+            margin-bottom: var(--space-5xl);
+        }
+
+        .services-hero h1 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: var(--space-lg);
+        }
+
+        .services-hero p {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-5xl);
+        }
+
+        .service-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-2xl);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .service-card h3 {
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-md);
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+
+        .service-features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .service-features li {
+            padding: var(--space-sm) 0;
+            padding-left: var(--space-lg);
+            position: relative;
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        .service-features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: var(--font-weight-bold);
+        }
+
+        /* Process Section */
+        .process-section {
+            margin-bottom: var(--space-5xl);
+        }
+
+        .process-section h2 {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            font-size: clamp(2rem, 3vw, 2.5rem);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-2xl);
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-2xl);
+            margin: 0 auto var(--space-lg);
+            color: white;
+        }
+
+        .process-step h3 {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-sm);
+        }
+
+        .process-step p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-3xl);
+            padding: var(--space-3xl);
+            text-align: center;
+            margin-top: var(--space-5xl);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            margin-bottom: var(--space-lg);
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: var(--space-2xl);
+            font-size: var(--font-size-lg);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+
+    <!-- i18n & Internationalization -->
+    <link rel="stylesheet" href="../css/i18n.css">
+
+    <link rel="canonical" href="https://www.njbcodemasters.com/sr/services.html">
+    <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/services.html">
+    <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/services.html">
+    <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/services.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="sr_RS">
+    <meta property="og:url" content="https://www.njbcodemasters.com/sr/services.html">
+    <meta property="og:title" content="Услуге | NJB CodeMasters">
+    <meta property="og:description" content="Наше професионалне услуге и решења">
+    <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Услуге | NJB CodeMasters">
+    <meta name="twitter:description" content="Наше професионалне услуге и решења">
+    <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/"}</script>
+<link rel="stylesheet" href="../css/platform-content.css">
+</head>
+<body data-language="sr">
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" aria-label="На почетну страницу">
+                    <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
+                </a>
+                
+                <!-- Menu Toggle Button -->
+                <button class="nav__toggle" id="navToggle" aria-label="Отвори навигацију" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">О нама</a></li>
+                <li class="nav__item"><a href="services.html" class="nav__link active">Услуге</a></li>
+                <li class="nav__item"><a href="pricing.html" class="nav__link">Цене</a></li>
+                <li class="nav__item"><a href="portfolio.html" class="nav__link">Портфолио</a></li>
+                <li class="nav__item"><a href="blog.html" class="nav__link">Блог</a></li>
+                <li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li>
+            </ul>
+
+            <div class="nav__actions">
+                <!-- Language Switcher -->
+                <div class="language-switcher">
+                    <label for="languageSelect">🌐</label>
+                    <select id="languageSelect" aria-label="Изабери језик">
+                        <option value="de">Немачки</option>
+                        <option value="en">Енглески</option>
+                        <option value="sr">Српски</option>
+                    </select>
+                </div>
+
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Промени тему">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
+                        <line class="sun-ray" x1="12" y1="19" x2="12" y2="23"></line>
+                        <line class="sun-ray" x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                        <line class="sun-ray" x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                        <line class="sun-ray" x1="1" y1="12" x2="5" y2="12"></line>
+                        <line class="sun-ray" x1="19" y1="12" x2="23" y2="12"></line>
+                        <line class="sun-ray" x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                        <line class="sun-ray" x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="moon-crescent" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <circle class="moon-full" cx="12" cy="12" r="9" opacity="0"></circle>
+                    </svg>
+                    <span class="toggle-label">Тема</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+<section class="section platform-content"><div class="container"><p class="section-label">NJB CODEMASTERS</p><h1>Софтвер за индустрију и дигиталне производе</h1><p class="section-description">NJB CodeMasters повезује развој пословног софтвера и индустријске технологије са потребама тимова и процеса.</p></div></section>
+<section class="section platform-content"><div class="container"><h2>Подршка за пословање</h2><div class="values-grid"><article class="pricing-card"><h3>Индустрија 6.0 и индустријска вештачка интелигенција</h3><p>Обликовање интелигентних индустријских решења усмерених на људе и прилагођених радном окружењу.</p></article><article class="pricing-card"><h3>Развој пословних система</h3><p>Развој софтвера, модела података и интерфејса за сложене процесе, улоге и постојеће системе.</p></article><article class="pricing-card"><h3>Дигитални близанац</h3><p>Повезивање дигиталних модела и оперативних информација ради бољег разумевања постројења и процеса.</p></article><article class="pricing-card"><h3>Аутоматизација</h3><p>Обликовање поновљивих токова рада и системских веза уз јасно дефинисане прелазе између корака и људски надзор.</p></article><article class="pricing-card"><h3>Консалтинг</h3><p>Заједничко структурирање техничких одлука, архитектуре и циљева производа, уз договор о наредним корацима.</p></article><article class="pricing-card"><h3>Дигитални производи</h3><p>Развој веб и мобилних апликација према конкретним захтевима. Рад на VezaionGen VI повезује ово искуство са индустријским областима.</p></article></div></div></section>
+<section class="section platform-content"><div class="container"><h2>Сарадња са јасним фокусом</h2><p>На почетку усаглашавамо циљеве, кориснике, радно окружење и техничке интерфејсе. То је основа за одговарајући обим, јасне претпоставке и наредне кораке.</p><a class="btn btn--primary" href="contact.html">Разговарајте о пројекту</a> <a class="btn btn--secondary" href="pricing.html">Погледајте цене услуга</a></div></section>
+</main>
+
+    <!-- Footer будет аутоматски учитан -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/performance.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/testimonials.js" defer></script>
+    <script src="../js/stats-counter.js" defer></script>
+    <script src="../js/hero-canvas.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/ai-assistant.js" defer></script>
+</body>
+</html>

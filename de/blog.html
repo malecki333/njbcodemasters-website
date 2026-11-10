@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog - Tipps, Tricks und Insights zu Web-Entwicklung und Technologie">
+    <title>Blog | NJB CodeMasters</title>
+    
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/button-animations.css">
+    <link rel="stylesheet" href="../css/i18n.css">
+    <link rel="stylesheet" href="../css/performance.css">
+    
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    
+    <style>
+        .blog-hero {
+            text-align: center;
+            margin-bottom: var(--space-5xl);
+        }
+
+        .blog-hero h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: var(--space-lg);
+        }
+
+        .blog-hero p {
+            font-size: var(--font-size-lg);
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--space-3xl);
+            margin-bottom: var(--space-5xl);
+        }
+
+        .blog-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+        }
+
+        .blog-card__header {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .blog-card__content {
+            padding: var(--space-2xl);
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card__meta {
+            display: flex;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-lg);
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .blog-card__tag {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary-color);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 999px;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .blog-card h3 {
+            font-size: var(--font-size-2xl);
+            margin: var(--space-lg) 0;
+            flex-grow: 1;
+        }
+
+        .blog-card p {
+            color: var(--text-secondary);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            margin-bottom: var(--space-lg);
+        }
+
+        .blog-card__footer {
+            border-top: 1px solid var(--glass-border);
+            padding-top: var(--space-lg);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .blog-card__author {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+        }
+
+        .blog-card__link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: var(--font-weight-semibold);
+            transition: all 0.3s ease;
+        }
+
+        .blog-card__link:hover {
+            text-decoration: underline;
+        }
+
+        /* Search & Filter */
+        .blog-search {
+            margin-bottom: var(--space-3xl);
+            display: flex;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .blog-search input {
+            flex: 1;
+            min-width: 250px;
+            padding: var(--space-lg);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            color: var(--text-primary);
+            font-size: var(--font-size-base);
+        }
+
+        .blog-search input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .blog-filters {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-5xl);
+        }
+
+        .filter-btn {
+            padding: var(--space-md) var(--space-lg);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+    </style>
+
+    <link rel="canonical" href="https://www.njbcodemasters.com/de/blog.html">
+    <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/blog.html">
+    <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/blog.html">
+    <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/blog.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="de_DE">
+    <meta property="og:url" content="https://www.njbcodemasters.com/de/blog.html">
+    <meta property="og:title" content="Blog | NJB CodeMasters">
+    <meta property="og:description" content="Blog - Tipps, Tricks und Insights zu Web-Entwicklung und Technologie">
+    <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blog | NJB CodeMasters">
+    <meta name="twitter:description" content="Blog - Tipps, Tricks und Insights zu Web-Entwicklung und Technologie">
+    <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/"}</script>
+<link rel="stylesheet" href="../css/platform-content.css">
+</head>
+<body data-language="de">
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" aria-label="Zur Startseite">
+                    <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
+                </a>
+                
+                <!-- Menu Toggle Button -->
+                <button class="nav__toggle" id="navToggle" aria-label="Navigation öffnen" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Startseite</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">Über uns</a></li>
+                <li class="nav__item"><a href="services.html" class="nav__link">Leistungen</a></li>
+                <li class="nav__item"><a href="pricing.html" class="nav__link">Preise</a></li>
+                <li class="nav__item"><a href="portfolio.html" class="nav__link">Portfolio</a></li>
+                <li class="nav__item"><a href="blog.html" class="nav__link active">Blog</a></li>
+                <li class="nav__item"><a href="contact.html" class="nav__link">Kontakt</a></li>
+            </ul>
+
+            <div class="nav__actions">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
+                        <line class="sun-ray" x1="12" y1="19" x2="12" y2="23"></line>
+                        <line class="sun-ray" x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                        <line class="sun-ray" x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                        <line class="sun-ray" x1="1" y1="12" x2="5" y2="12"></line>
+                        <line class="sun-ray" x1="19" y1="12" x2="23" y2="12"></line>
+                        <line class="sun-ray" x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                        <line class="sun-ray" x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="moon-crescent" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <circle class="moon-full" cx="12" cy="12" r="9" opacity="0"></circle>
+                    </svg>
+                    <span class="toggle-label">Theme</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="page-hero section">
+            <div class="container">
+                <div class="page-hero__content fade-in-up">
+                    <h1 class="page-hero__title">
+                        Unser <span class="text-gradient">Blog</span>
+                    </h1>
+                    <p class="page-hero__description">
+                        Neueste Insights, Tipps und Trends aus der Welt der Technologie und Web-Entwicklung.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="section container">
+            <div class="blog-hero">
+                <h2>Aktuelle Artikel</h2>
+                <p>Lesen Sie unsere neuesten Blog-Posts zu Technologie, Web-Entwicklung und Innovation</p>
+            </div>
+
+            <!-- Search & Filter -->
+            <div class="blog-search">
+                <input type="text" id="blogSearch" placeholder="Blog durchsuchen...">
+            </div>
+
+            <div class="blog-filters">
+                <button class="filter-btn active" data-filter="all">Alle</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+                <button class="filter-btn" data-filter="trends">Trends</button>
+                <button class="filter-btn" data-filter="tipps">Tipps & Tricks</button>
+            </div>
+
+            <!-- Blog Grid -->
+            <div class="blog-grid" id="blogGrid">
+                <!-- Article 1 -->
+                <article class="blog-card" data-category="web">
+                    <div class="blog-card__header">🚀</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 9. Dezember 2024</span>
+                            <span>⏱️ 5 min</span>
+                        </div>
+                        <span class="blog-card__tag">Web Development</span>
+                        <h3>Die Zukunft von Web Performance</h3>
+                        <p>Entdecken Sie die neuesten Techniken und Best Practices für die Optimierung der Web-Performance in 2025.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">von CEO</span>
+                            <a href="blog-article-1.html" class="blog-card__link">Lesen →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="blog-card" data-category="design">
+                    <div class="blog-card__header">🎨</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 8. Dezember 2024</span>
+                            <span>⏱️ 7 min</span>
+                        </div>
+                        <span class="blog-card__tag">Design</span>
+                        <h3>Glassmorphism: Trend oder Zukunft?</h3>
+                        <p>Wir untersuchen den Glassmorphism Design-Trend und zeigen, wann und wie man ihn effektiv einsetzt.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">von CEO</span>
+                            <a href="blog-article-2.html" class="blog-card__link">Lesen →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="blog-card" data-category="trends">
+                    <div class="blog-card__header">📊</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 7. Dezember 2024</span>
+                            <span>⏱️ 6 min</span>
+                        </div>
+                        <span class="blog-card__tag">Trends</span>
+                        <h3>AI in der Web-Entwicklung</h3>
+                        <p>Wie künstliche Intelligenz die Entwicklung von Webanwendungen revolutioniert und neue Möglichkeiten schafft.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">von CEO</span>
+                            <a href="blog-article-3.html" class="blog-card__link">Lesen →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 4 -->
+                <article class="blog-card" data-category="tipps">
+                    <div class="blog-card__header">💡</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 6. Dezember 2024</span>
+                            <span>⏱️ 4 min</span>
+                        </div>
+                        <span class="blog-card__tag">Tipps & Tricks</span>
+                        <h3>CSS-Tricks die Sie kennen sollten</h3>
+                        <p>Wir zeigen praktische CSS-Techniken, die Sie Zeit sparen und Ihren Code verbessern können.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">von CEO</span>
+                            <a href="blog-article-4.html" class="blog-card__link">Lesen →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="blog-card" data-category="web">
+                    <div class="blog-card__header">⚙️</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 5. Dezember 2024</span>
+                            <span>⏱️ 8 min</span>
+                        </div>
+                        <span class="blog-card__tag">Web Development</span>
+                        <h3>Backend-Architektur für Skalierbarkeit</h3>
+                        <p>Ein tiefergehendes Verständnis von Microservices, APIs und Cloud-Infrastruktur für scalable Systeme.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">von CEO</span>
+                            <a href="blog-article-5.html" class="blog-card__link">Lesen →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="blog-card" data-category="design">
+                    <div class="blog-card__header">🎯</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 4. Dezember 2024</span>
+                            <span>⏱️ 6 min</span>
+                        </div>
+                        <span class="blog-card__tag">Design</span>
+                        <h3>UX-Psychologie im Web-Design</h3>
+                        <p>Verstehen Sie die psychologischen Prinzipien hinter effektivem User Experience Design und Conversion.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">von CEO</span>
+                            <a href="blog-article-6.html" class="blog-card__link">Lesen →</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer wird automatisch geladen -->
+    <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/main.js"></script>
+    
+    <script>
+        // Blog Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+        const blogSearch = document.getElementById('blogSearch');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.dataset.filter;
+                blogCards.forEach(card => {
+                    if (filter === 'all' || card.dataset.category === filter) {
+                        card.style.display = '';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        blogSearch.addEventListener('input', (e) => {
+            const search = e.target.value.toLowerCase();
+            blogCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const desc = card.querySelector('p').textContent.toLowerCase();
+                if (title.includes(search) || desc.includes(search)) {
+                    card.style.display = '';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    </script>
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/performance.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/testimonials.js" defer></script>
+    <script src="../js/stats-counter.js" defer></script>
+    <script src="../js/hero-canvas.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/ai-assistant.js" defer></script>
+</body>
+</html>

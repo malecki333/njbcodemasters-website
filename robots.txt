@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /index-backup.html
+Disallow: /button-test.html
+Disallow: /test-canvas.html
+Disallow: /de/index-backup.html
+Disallow: /de/button-test.html
+Disallow: /de/test-canvas.html
+Sitemap: https://www.njbcodemasters.com/sitemap.xml

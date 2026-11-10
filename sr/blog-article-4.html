@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CSS трикови које треба да познајете - Практичне CSS технике које вам штеде време и побољшавају ваш код.">
+    <title>CSS трикови које треба да познајете | Блог | NJB CodeMasters</title>
+    
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/button-animations.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/i18n.css">
+    <link rel="stylesheet" href="../css/performance.css">
+    
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    
+    <style>
+        .main {
+            min-height: 100vh;
+        }
+
+        .page-hero {
+            padding: var(--space-4xl) 0;
+        }
+
+        .section {
+            padding: var(--space-5xl) 0;
+        }
+
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-md);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-4xl);
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-4px);
+            color: var(--secondary-color);
+        }
+
+        .article-hero {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(236, 72, 153, 0.8)), linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: var(--radius-2xl);
+            padding: var(--space-4xl);
+            color: white;
+            margin-bottom: var(--space-4xl);
+        }
+
+        /* Light Mode: Stelle sicher dass Hero Text lesbar ist */
+        [data-theme="light"] .article-hero h1,
+        [data-theme="light"] .article-hero,
+        [data-theme="light"] .article-hero p,
+        [data-theme="light"] .article-meta,
+        [data-theme="light"] .article-tag {
+            color: white !important;
+        }
+
+        .article-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--space-2xl);
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            font-size: var(--font-size-sm);
+            opacity: 0.9;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 999px;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            margin-top: var(--space-lg);
+        }
+
+        .article-content {
+            font-size: var(--font-size-lg);
+            line-height: 1.8;
+            color: var(--text-primary);
+            display: block;
+            padding: var(--space-2xl) 0;
+        }
+
+        /* Light Mode: Weiße Schriftfarbe für readability über dunklem Hintergrund */
+        [data-theme="light"] .article-content,
+        [data-theme="light"] .article-content h2,
+        [data-theme="light"] .article-content h3,
+        [data-theme="light"] .article-content p,
+        [data-theme="light"] .article-content li {
+            color: white !important;
+        }
+
+        [data-theme="light"] .article-content strong {
+            color: #fbbf24 !important;
+        }
+
+        [data-theme="light"] .article-content a {
+            color: #60a5fa !important;
+        }
+
+        [data-theme="light"] .highlight {
+            background: rgba(0, 0, 0, 0.3) !important;
+            border-left-color: #fbbf24 !important;
+            color: white !important;
+        }
+
+        [data-theme="light"] .highlight strong {
+            color: #fbbf24 !important;
+        }
+
+        [data-theme="light"] .code-block {
+            background: rgba(0, 0, 0, 0.4) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="light"] .code-block code {
+            color: #60a5fa !important;
+        }
+
+        .article-content h2 {
+            font-size: var(--font-size-2xl);
+            margin-top: var(--space-4xl);
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content p {
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-left: var(--space-2xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .article-content li {
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
+        }
+
+        .article-content strong {
+            color: var(--primary-color);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .highlight {
+            background: rgba(99, 102, 241, 0.1);
+            padding: var(--space-lg);
+            border-left: 4px solid var(--primary-color);
+            border-radius: var(--radius-lg);
+            margin: var(--space-2xl) 0;
+            color: var(--text-primary);
+        }
+
+        .code-block {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            margin: var(--space-2xl) 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: var(--font-size-sm);
+            color: var(--primary-color);
+        }
+
+        .article-footer {
+            border-top: 1px solid var(--glass-border);
+            padding-top: var(--space-4xl);
+            margin-top: var(--space-5xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+
+        .article-author {
+            color: var(--text-secondary);
+            font-size: var(--font-size-base);
+        }
+
+        @media (max-width: 768px) {
+            .article-hero {
+                padding: var(--space-2xl);
+            }
+
+            .article-hero h1 {
+                font-size: var(--font-size-2xl);
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .article-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+
+    <link rel="canonical" href="https://www.njbcodemasters.com/sr/blog-article-4.html">
+    <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/blog-article-4.html">
+    <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/blog-article-4.html">
+    <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/blog-article-4.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="sr_RS">
+    <meta property="og:url" content="https://www.njbcodemasters.com/sr/blog-article-4.html">
+    <meta property="og:title" content="CSS трикови које треба да познајете | Блог | NJB CodeMasters">
+    <meta property="og:description" content="CSS трикови које треба да познајете - Практичне CSS технике које вам штеде време и побољшавају ваш код.">
+    <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CSS трикови које треба да познајете | Блог | NJB CodeMasters">
+    <meta name="twitter:description" content="CSS трикови које треба да познајете - Практичне CSS технике које вам штеде време и побољшавају ваш код.">
+    <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/"}</script>
+</head>
+<body data-language="sr">
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" aria-label="На почетну">
+                    <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
+                </a>
+                
+                <!-- Menu Toggle Button -->
+                <button class="nav__toggle" id="navToggle" aria-label="Отвори навигацију" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">О нама</a></li>
+                <li class="nav__item"><a href="services.html" class="nav__link">Услуге</a></li>
+                <li class="nav__item"><a href="portfolio.html" class="nav__link">Портфолио</a></li>
+                <li class="nav__item"><a href="pricing.html" class="nav__link">Цене</a></li>
+                <li class="nav__item"><a href="blog.html" class="nav__link active">Блог</a></li>
+                <li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li>
+            </ul>
+
+            <div class="nav__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Промени тему">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
+                        <line class="sun-ray" x1="12" y1="19" x2="12" y2="23"></line>
+                        <line class="sun-ray" x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                        <line class="sun-ray" x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                        <line class="sun-ray" x1="1" y1="12" x2="5" y2="12"></line>
+                        <line class="sun-ray" x1="19" y1="12" x2="23" y2="12"></line>
+                        <line class="sun-ray" x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                        <line class="sun-ray" x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="moon-crescent" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <circle class="moon-full" cx="12" cy="12" r="9" opacity="0"></circle>
+                    </svg>
+                    <span class="toggle-label">Тема</span>
+                </button>
+            </div>
+    </header>
+
+    <main class="main">
+        <!-- Article -->
+        <section class="section container article-container">
+            <a href="blog.html" class="back-link">← Назад на блог</a>
+
+            <article>
+                <div class="article-hero">
+                    <h1>CSS трикови које треба да познајете</h1>
+                    <div class="article-meta">
+                        <span>📅 6. децембра 2024.</span>
+                        <span>⏱️ 4 мин читања</span>
+                        <span>✍️ аутор: директор</span>
+                    </div>
+                    <span class="article-tag">Савети и трикови</span>
+                </div>
+
+                <div class="article-content">
+                    <h2>CSS савети и трикови за ефикаснији развој</h2>
+                    <p>
+                        CSS је моћан и вишестран, али постоје многе напредне технике које програмери превиђају. Ови CSS трикови ће убрзати ваш радни ток и побољшати ваш код.
+                    </p>
+
+                    <h2>1. CSS варијабле (Custom Properties)</h2>
+                    <p>
+                        CSS варијабле омогућавају чување и поновно коришћење вредности. Ово је савршено за теме и глобална прилагођавања стилова:
+                    </p>
+                    <div class="code-block">
+                        <code>
+                            :root {<br>
+                            &nbsp;&nbsp;--primary-color: #6366f1;<br>
+                            &nbsp;&nbsp;--spacing-unit: 8px;<br>
+                            }<br>
+                            <br>
+                            .button {<br>
+                            &nbsp;&nbsp;background-color: var(--primary-color);<br>
+                            &nbsp;&nbsp;padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);<br>
+                            }
+                        </code>
+                    </div>
+
+                    <div class="highlight">
+                        <strong>💡 Предност:</strong> Промените једну варијаблу и сви елементи се аутоматски ажурирају. Савршено за имплементацију тамног режима!
+                    </div>
+
+                    <h2>2. Комбиновање CSS Grid и Flexbox распореда</h2>
+                    <p>
+                        Већина програмера користи или Grid или Flexbox, али комбинација је често најбоље решење:
+                    </p>
+                    <div class="code-block">
+                        <code>
+                            .container {<br>
+                            &nbsp;&nbsp;display: grid;<br>
+                            &nbsp;&nbsp;grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));<br>
+                            &nbsp;&nbsp;gap: 2rem;<br>
+                            }<br>
+                            <br>
+                            .card {<br>
+                            &nbsp;&nbsp;display: flex;<br>
+                            &nbsp;&nbsp;flex-direction: column;<br>
+                            &nbsp;&nbsp;justify-content: space-between;<br>
+                            }
+                        </code>
+                    </div>
+
+                    <h2>3. CSS Calc() за респонзивне вредности</h2>
+                    <p>
+                        Са <code>calc()</code> можете користити математичке изразе директно у CSS-у:
+                    </p>
+                    <ul>
+                        <li>Респонзивне величине фонта: <code>font-size: calc(1rem + 2vw);</code></li>
+                        <li>Динамички унутрашњи размак: <code>padding: calc(var(--spacing) * 1.5);</code></li>
+                        <li>Флексибилне ширине: <code>width: calc(100% - 2rem);</code></li>
+                    </ul>
+
+                    <h2>4. :nth-child() селектори</h2>
+                    <p>
+                        Са модерним :nth-child() селекторима можете креирати комплексне обрасце:
+                    </p>
+                    <div class="code-block">
+                        <code>
+                            /* Сваки непаран елемент */
+                            li:nth-child(odd) { background: #f0f0f0; }<br>
+                            <br>
+                            /* Сваки 3. елемент */
+                            li:nth-child(3n) { border-left: 3px solid blue; }<br>
+                            <br>
+                            /* Последња 3 елемента */
+                            li:nth-last-child(-n + 3) { opacity: 0.5; }
+                        </code>
+                    </div>
+
+                    <h2>5. Clip-Path за креативне облике</h2>
+                    <p>
+                        <code>clip-path</code> омогућава сечење елемената у различите облике без потребе за додатним HTML елементима:
+                    </p>
+                    <div class="code-block">
+                        <code>
+                            .triangle {<br>
+                            &nbsp;&nbsp;clip-path: polygon(50% 0%, 100% 100%, 0% 100%);<br>
+                            }<br>
+                            <br>
+                            .hexagon {<br>
+                            &nbsp;&nbsp;clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);<br>
+                            }
+                        </code>
+                    </div>
+
+                    <h2>6. Backdrop-Filter за ефекте стакла</h2>
+                    <p>
+                        <code>backdrop-filter</code> ствара савремен ефекат гласморфизма:
+                    </p>
+                    <div class="code-block">
+                        <code>
+                            .glass {<br>
+                            &nbsp;&nbsp;background: rgba(255, 255, 255, 0.1);<br>
+                            &nbsp;&nbsp;backdrop-filter: blur(10px);<br>
+                            &nbsp;&nbsp;border: 1px solid rgba(255, 255, 255, 0.2);<br>
+                            }
+                        </code>
+                    </div>
+
+                    <h2>7. Упити контејнера у савременом CSS-у</h2>
+                    <p>
+                        Упити контејнера допуњују медијске упите. Они омогућавају респонзивни дизајн заснован на величини контејнера, а не на величини видљивог дела странице:
+                    </p>
+                    <div class="code-block">
+                        <code>
+                            @container (min-width: 400px) {<br>
+                            &nbsp;&nbsp;.card { display: grid; }<br>
+                            }
+                        </code>
+                    </div>
+
+                    <h2>8. :has() селектор за елегантна решења</h2>
+                    <p>
+                        <code>:has()</code> селектор омогућава родитељске селекторе:
+                    </p>
+                    <div class="code-block">
+                        <code>
+                            /* Стилизовање засновано на деци елементима */<br>
+                            .card:has(> .featured) {<br>
+                            &nbsp;&nbsp;border-color: gold;<br>
+                            &nbsp;&nbsp;box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);<br>
+                            }
+                        </code>
+                    </div>
+
+                    <h2>9. Aspect-Ratio за доследне пропорције</h2>
+                    <p>
+                        <code>aspect-ratio</code> одржава праве пропорције за респонзивне елементе:
+                    </p>
+                    <div class="code-block">
+                        <code>
+                            .image-container {<br>
+                            &nbsp;&nbsp;width: 100%;<br>
+                            &nbsp;&nbsp;aspect-ratio: 16 / 9;<br>
+                            &nbsp;&nbsp;object-fit: cover;<br>
+                            }
+                        </code>
+                    </div>
+
+                    <h2>10. Логичка CSS својства</h2>
+                    <p>
+                        Логичка својства су важна за вишејезичне веб странице (LTR и RTL):
+                    </p>
+                    <div class="code-block">
+                        <code>
+                            /* Уместо: margin-left: 1rem; */<br>
+                            .element {<br>
+                            &nbsp;&nbsp;margin-inline-start: 1rem;<br>
+                            &nbsp;&nbsp;padding-block: 2rem;<br>
+                            }
+                        </code>
+                    </div>
+
+                    <h2>Бонус: Савети за перформансе</h2>
+                    <ul>
+                        <li>Користите <code>transform</code> уместо <code>left/top</code> за боље перформансе</li>
+                        <li>Користите <code>will-change</code> штедљиво за анимације</li>
+                        <li>Избегавајте <code>box-shadow</code> на великим површинама</li>
+                        <li>Дајте предност CSS правилима неопходним за почетни приказ странице</li>
+                    </ul>
+
+                    <div class="highlight">
+                        <strong>📌 Закључак:</strong> CSS није "само стилизовање". Са овим модерним техникама можете креирати елегантне, ефикасне и одрживе веб странице. Пратите нове CSS могућности!
+                    </div>
+                </div>
+
+                <div class="article-footer">
+                    <span class="article-author">
+                        <strong>Аутор:</strong> Директор<br>
+                        <em>Написано 6. децембра 2024.</em>
+                    </span>
+                    <a href="blog.html" class="back-link">← Назад на блог</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <!-- Footer wird automatisch geladen -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/performance.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/testimonials.js" defer></script>
+    <script src="../js/stats-counter.js" defer></script>
+    <script src="../js/hero-canvas.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/ai-assistant.js" defer></script>
+</body>
+</html>
+
+
+
+

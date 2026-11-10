@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Гласморфизам: Тренд или будућност? - Истражујемо гласморфизам као тренд у дизајну и показујемо када и како га ефикасно користити.">
+    <title>Гласморфизам: Тренд или будућност? | Блог | NJB CodeMasters</title>
+    
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/button-animations.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/i18n.css">
+    <link rel="stylesheet" href="../css/performance.css">
+    
+    <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+    
+    <style>
+        .article-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-md);
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-4xl);
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            transform: translateX(-4px);
+            color: var(--secondary-color);
+        }
+
+        .article-hero {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.8), rgba(244, 114, 182, 0.8)), linear-gradient(135deg, #ec4899, #f472b6);
+            border-radius: var(--radius-2xl);
+            padding: var(--space-4xl);
+            color: white;
+            margin-bottom: var(--space-4xl);
+        }
+
+        /* Light Mode: Stelle sicher dass Hero Text lesbar ist */
+        [data-theme="light"] .article-hero h1,
+        [data-theme="light"] .article-hero,
+        [data-theme="light"] .article-hero p,
+        [data-theme="light"] .article-meta,
+        [data-theme="light"] .article-tag {
+            color: white !important;
+        }
+
+        .article-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: var(--space-2xl);
+            line-height: 1.2;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: var(--space-xl);
+            flex-wrap: wrap;
+            font-size: var(--font-size-sm);
+            opacity: 0.9;
+        }
+
+        .article-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: 999px;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            margin-top: var(--space-lg);
+        }
+
+        .article-content {
+            font-size: var(--font-size-lg);
+            line-height: 1.8;
+            color: var(--text-primary);
+        }
+
+        /* Light Mode: Weiße Schriftfarbe für readability über dunklem Hintergrund */
+        [data-theme="light"] .article-content,
+        [data-theme="light"] .article-content h2,
+        [data-theme="light"] .article-content h3,
+        [data-theme="light"] .article-content p,
+        [data-theme="light"] .article-content li {
+            color: white !important;
+        }
+
+        [data-theme="light"] .article-content strong {
+            color: #fbbf24 !important;
+        }
+
+        [data-theme="light"] .article-content a {
+            color: #60a5fa !important;
+        }
+
+        [data-theme="light"] .highlight {
+            background: rgba(0, 0, 0, 0.3) !important;
+            border-left-color: #fbbf24 !important;
+            color: white !important;
+        }
+
+        [data-theme="light"] .highlight strong {
+            color: #fbbf24 !important;
+        }
+
+        [data-theme="light"] .code-block {
+            background: rgba(0, 0, 0, 0.4) !important;
+            border-color: rgba(255, 255, 255, 0.1) !important;
+        }
+
+        [data-theme="light"] .code-block code {
+            color: #60a5fa !important;
+        }
+
+        .article-content h2 {
+            font-size: var(--font-size-2xl);
+            margin-top: var(--space-4xl);
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+        }
+
+        .article-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .article-content p {
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
+        }
+
+        .article-content ul,
+        .article-content ol {
+            margin-left: var(--space-2xl);
+            margin-bottom: var(--space-lg);
+        }
+
+        .article-content li {
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
+        }
+
+        .article-content strong {
+            color: #ec4899;
+            font-weight: var(--font-weight-bold);
+        }
+
+        .article-content em {
+            font-style: italic;
+            color: var(--text-secondary);
+        }
+
+        .highlight {
+            background: rgba(236, 72, 153, 0.1);
+            padding: var(--space-lg);
+            border-left: 4px solid #ec4899;
+            border-radius: var(--radius-lg);
+            margin: var(--space-2xl) 0;
+            color: var(--text-primary);
+        }
+
+        .code-block {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            overflow-x: auto;
+            margin: var(--space-2xl) 0;
+        }
+
+        .code-block code {
+            font-family: 'Courier New', monospace;
+            font-size: var(--font-size-sm);
+            color: #ec4899;
+        }
+
+        .article-footer {
+            border-top: 1px solid var(--glass-border);
+            padding-top: var(--space-4xl);
+            margin-top: var(--space-5xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+
+        .article-author {
+            color: var(--text-secondary);
+            font-size: var(--font-size-base);
+        }
+
+        @media (max-width: 768px) {
+            .article-hero {
+                padding: var(--space-2xl);
+            }
+
+            .article-hero h1 {
+                font-size: var(--font-size-2xl);
+            }
+
+            .article-meta {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .article-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+
+    <link rel="canonical" href="https://www.njbcodemasters.com/sr/blog-article-2.html">
+    <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/blog-article-2.html">
+    <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/blog-article-2.html">
+    <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/blog-article-2.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="sr_RS">
+    <meta property="og:url" content="https://www.njbcodemasters.com/sr/blog-article-2.html">
+    <meta property="og:title" content="Гласморфизам: Тренд или будућност? | Блог | NJB CodeMasters">
+    <meta property="og:description" content="Гласморфизам: Тренд или будућност? - Истражујемо гласморфизам као тренд у дизајну и показујемо када и како га ефикасно користити.">
+    <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Гласморфизам: Тренд или будућност? | Блог | NJB CodeMasters">
+    <meta name="twitter:description" content="Гласморфизам: Тренд или будућност? - Истражујемо гласморфизам као тренд у дизајну и показујемо када и како га ефикасно користити.">
+    <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/"}</script>
+</head>
+<body data-language="sr">
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" aria-label="На почетну страну">
+                    <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
+                </a>
+                
+                <!-- Menu Toggle Button -->
+                <button class="nav__toggle" id="navToggle" aria-label="Отвори навигацију" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">О нама</a></li>
+                <li class="nav__item"><a href="services.html" class="nav__link">Услуге</a></li>
+                <li class="nav__item"><a href="portfolio.html" class="nav__link">Портфолио</a></li>
+                <li class="nav__item"><a href="pricing.html" class="nav__link">Цене</a></li>
+                <li class="nav__item"><a href="blog.html" class="nav__link active">Блог</a></li>
+                <li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li>
+            </ul>
+
+            <div class="nav__actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Промени тему">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
+                        <line class="sun-ray" x1="12" y1="19" x2="12" y2="23"></line>
+                        <line class="sun-ray" x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                        <line class="sun-ray" x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                        <line class="sun-ray" x1="1" y1="12" x2="5" y2="12"></line>
+                        <line class="sun-ray" x1="19" y1="12" x2="23" y2="12"></line>
+                        <line class="sun-ray" x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                        <line class="sun-ray" x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="moon-crescent" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <circle class="moon-full" cx="12" cy="12" r="9" opacity="0"></circle>
+                    </svg>
+                    <span class="toggle-label">Тема</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="page-hero section">
+            <div class="container">
+                <div class="page-hero__content fade-in-up">
+                    <h1 class="page-hero__title">
+                        Блог чланак
+                    </h1>
+                    <p class="page-hero__description">
+                        Прочитајте детаљне чланке о технологији и веб развоју
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container article-container">
+            <a href="blog.html" class="back-link">← Назад на блог</a>
+
+            <article>
+                <div class="article-hero">
+                    <h1>Гласморфизам: Тренд или будућност?</h1>
+                    <div class="article-meta">
+                        <span>📅 8. децембра 2024</span>
+                        <span>⏱️ 7 мин читања</span>
+                        <span>✍️ аутор: директор</span>
+                    </div>
+                    <span class="article-tag">Дизајн</span>
+                </div>
+
+                <div class="article-content">
+                    <h2>Шта је гласморфизам?</h2>
+                    <p>
+                        Гласморфизам је модеран дизајн тренд који визуелно подсећа на матирано стакло. Овај стил комбинује ефекте матираног стакла са прозирним или полупрозирним елементима и ствара елегантну, футуристичку естетику. Тренд је постао популаран кроз Microsoft Fluent Design и Apple iOS интерфејсе и у међувремену се проширио кроз читаву веб-дизајн заједницу.
+                    </p>
+
+                    <h2>Технологија иза гласморфизма</h2>
+                    <p>
+                        Гласморфизам се углавном спроводи са CSS-ом. Најважније технике су:
+                    </p>
+                    <ul>
+                        <li><strong>Backdrop Filter</strong> – Ствара стаклени ефекат кроз замућење позадине</li>
+                        <li><strong>Полупрозирне боје</strong> – RGBA вредности са алфа каналом за прозирност</li>
+                        <li><strong>Оквири и сенке</strong> – Подржавају ефекат дубине</li>
+                        <li><strong>Замућење и слојеви</strong> – Стварају визуелни контраст</li>
+                    </ul>
+
+                    <div class="code-block">
+                        <code>
+                            .glass-effect {<br>
+                            &nbsp;&nbsp;background: rgba(255, 255, 255, 0.1);<br>
+                            &nbsp;&nbsp;backdrop-filter: blur(10px);<br>
+                            &nbsp;&nbsp;border: 1px solid rgba(255, 255, 255, 0.2);<br>
+                            &nbsp;&nbsp;border-radius: 10px;<br>
+                            &nbsp;&nbsp;box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);<br>
+                            }
+                        </code>
+                    </div>
+
+                    <div class="highlight">
+                        <strong>💡 Напомена:</strong> <code>backdrop-filter</code> подржавају модерни прегледачи, али немају 100% компатибилности. Предвидите резервна решења за старије прегледаче.
+                    </div>
+
+                    <h2>Када треба користити гласморфизам?</h2>
+                    <p>
+                        Гласморфизам није прикладан за сваки пројекат. Користите овај тренд за:
+                    </p>
+                    <ul>
+                        <li><strong>Модерне веб-сајтове врхунског квалитета</strong> – Ефекат делује луксузно и висококвалитетно</li>
+                        <li><strong>Технолошке и иновативне производе</strong> – Прилагођава се футуристичким темама</li>
+                        <li><strong>Преклопне слојеве и модалне прозоре</strong> – Посебно добро функционише за ове компоненте</li>
+                        <li><strong>Картице и истакнуте функционалности</strong> – Ствара визуелни фокус</li>
+                    </ul>
+
+                    <h2>Честе грешке при примени гласморфизма</h2>
+                    <p>
+                        При имплементацији гласморфизма, избегавајте ове грешке:
+                    </p>
+
+                    <h3>1. Превише прозирности</h3>
+                    <p>
+                        Ако су стаклени елементи превише прозирни, читљивост је угрожена. Користите довољан контраст између текста и позадине.
+                    </p>
+
+                    <h3>2. Недовољан контраст</h3>
+                    <p>
+                        Уверите се да текст остаје читљив преко стакленог ефекта. WCAG стандарди морају бити испоњени.
+                    </p>
+
+                    <h3>3. Проблеми перформанси</h3>
+                    <p>
+                        Својство backdrop-filter може утицати на перформансе, посебно на мобилним уређајима. Темељно тестирајте и користите резервна решења.
+                    </p>
+
+                    <h3>4. Прекомерна употреба</h3>
+                    <p>
+                        Не треба сваки елемент да има стаклени ефекат. Користите га циљано за важне UI компоненте.
+                    </p>
+
+                    <h2>Гласморфизам у поређењу са другим трендовима у дизајну</h2>
+                    <p>
+                        Како се гласморфизам упоређује са другим тренутним дизајн трендовима?
+                    </p>
+                    <ul>
+                        <li><strong>Neumorphism</strong> – Фокусира се на меке, издигнуте ефекте. Гласморфизам је модернији и прозирнији.</li>
+                        <li><strong>Flat Design</strong> – Одриче се дубине. Гласморфизам додаје дубину на суптилан начин.</li>
+                        <li><strong>Material Design</strong> – Користи сенке и елевације. Гласморфизам допуњава ова начела са модерним ефектима.</li>
+                    </ul>
+
+                    <h2>Будући изгледи</h2>
+                    <p>
+                        Да ли ће гласморфизам остати тренд или постати трајан елемент дизајна? Трендови могу брзо нестати, али неки елементи постају стандардна пракса:
+                    </p>
+                    <ul>
+                        <li>Боља подршка прегледача за <code>backdrop-filter</code> ће олакшати усвајање</li>
+                        <li>Дизајн системи ће интегрисати гласморфизам као компоненту</li>
+                        <li>Комбинација са тамним темама ће постати популарнија</li>
+                        <li>Оптимизације перформанси ће омогућити коришћење на мобилним уређајима</li>
+                    </ul>
+
+                    <div class="highlight">
+                        <strong>📌 Закључак:</strong> Гласморфизам је више од обичног тренда – то је дизајн техника која се установила. Користите је свесно да учините свој веб-сајт модерним и елегантним, без жртвовања функционалности и приступачности.
+                    </div>
+
+                    <h2>Ресурси за учење</h2>
+                    <ul>
+                        <li><a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a> – Опширна CSS упутства</li>
+                        <li><a href="https://www.glassmorphism.com/" target="_blank">Glassmorphism.com</a> – Инспирација за дизајн и алати</li>
+                        <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a> – Техничка документација</li>
+                    </ul>
+                </div>
+
+                <div class="article-footer">
+                    <span class="article-author">
+                        <strong>Аутор:</strong> Директор<br>
+                        <em>Написано 8. децембра 2024</em>
+                    </span>
+                    <a href="blog.html" class="back-link">← Назад на блог</a>
+                </div>
+            </article>
+        </section>
+    <!-- Footer се аутоматски учитава -->
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/performance.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/testimonials.js" defer></script>
+    <script src="../js/stats-counter.js" defer></script>
+    <script src="../js/hero-canvas.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/ai-assistant.js" defer></script>
+</body>
+</html>
