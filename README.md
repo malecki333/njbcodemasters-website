@@ -95,11 +95,11 @@ final site at the custom domain, not by changing the existing routing.
 
 The export was checked locally on 2026-11-10:
 
-- 137 copied website files, 76 HTML pages and 2,792 local file references.
+- 136 copied website files, 76 HTML pages and 2,792 local file references.
 - Every copied file matches the current local source, except the documented
   production-host replacement. All 14 loaded JavaScript files, CSS and binary
   assets are unchanged.
-- All 137 files returned their exact bytes through a static-only test server;
+- All 136 files returned their exact bytes through a static-only test server;
   video byte-range delivery worked and backend endpoints returned 404.
 - Microsoft Edge 157.0.4341.42: eight root/EN/DE/SR homepage checks at 1440 px
   and 390 px, including video, overlays, navigation, theme and assistant.
