@@ -64,6 +64,9 @@ on the browser and device; a fixed 60 FPS is not guaranteed.
 
 ## Existing behavior
 
+VezaionGen VI uses the unchanged original logo in both themes on every page.
+The alternate light image remains unused; no extra glow filter is applied.
+
 Navigation, language preferences, themes, animations, Matrix/membrane,
 sound/video, typewriter, product information and pricing calculations run in
 the browser, as in the local website.

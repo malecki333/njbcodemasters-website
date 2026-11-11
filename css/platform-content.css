@@ -52,7 +52,7 @@
     height: auto;
     max-width: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 6px 18px rgba(37, 99, 235, 0.3));
+    filter: none;
     background: transparent;
     border: 0;
     border-radius: 0;
@@ -70,18 +70,10 @@
 }
 
 .brand-logo .brand-logo__light {
-    display: block;
+    display: none;
 }
 
 .brand-logo .brand-logo__dark {
-    display: none;
-}
-
-:root[data-theme="dark"] .brand-logo .brand-logo__light {
-    display: none;
-}
-
-:root[data-theme="dark"] .brand-logo .brand-logo__dark {
     display: block;
 }
 
