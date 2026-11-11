@@ -114,12 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p class="footer__description">
                         ${t.description}
                     </p>
-                    <div class="footer__social">
-                        <a class="footer__linkedin" href="https://www.linkedin.com/company/njb-codemasters" target="_blank" rel="noopener noreferrer" aria-label="${t.linkedin}">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.46 7.89a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.29 10.86H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.74 1.36-1.52 2.79-1.52 2.99 0 3.58 1.97 3.58 4.53v5.24z"/></svg>
-                            <span>LinkedIn</span>
-                        </a>
-                    </div>
                 </div>
                 <div class="footer__column">
                     <h4 class="footer__title">${t.quickLinks}</h4>
@@ -155,6 +149,10 @@ document.addEventListener('DOMContentLoaded', function() {
                             <a href="mailto:nenad@njbcodemasters.com">nenad@njbcodemasters.com</a>
                         </li>
                     </ul>
+                    <a class="footer__linkedin" href="https://www.linkedin.com/company/njb-codemasters" target="_blank" rel="noopener noreferrer" aria-label="${t.linkedin}">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.46 7.89a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.29 10.86H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.74 1.36-1.52 2.79-1.52 2.99 0 3.58 1.97 3.58 4.53v5.24z"/></svg>
+                        <span>LinkedIn</span>
+                    </a>
                 </div>
                 <div class="footer__column">
                     <h4 class="footer__title">${t.newsletter}</h4>

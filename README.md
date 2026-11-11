@@ -66,6 +66,7 @@ on the browser and device; a fixed 60 FPS is not guaranteed.
 
 The shared footer links to the NJB CodeMasters LinkedIn company profile using
 an inline logo, a visible label and localized accessible text in DE/EN/SR.
+The link sits in the contact column directly below the email address.
 The link opens in a new tab without loading third-party embeds or scripts.
 
 On mobile, copyright text sits just below the footer divider, with bottom

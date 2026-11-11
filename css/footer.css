@@ -108,6 +108,7 @@
 }
 
 .footer__linkedin {
+    align-self: flex-start;
     display: inline-flex;
     align-items: center;
     justify-content: center;
