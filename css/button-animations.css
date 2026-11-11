@@ -239,8 +239,7 @@
 
 /* Theme Toggle Icons */
 .theme-toggle svg {
-    transition: opacity 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-                transform 0.7s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: opacity var(--transition-fast);
 }
 
 .theme-toggle:hover .sun-icon {
@@ -269,19 +268,13 @@
     }
 }
 
-/* Theme Toggle Button Rotation on Click */
-.theme-toggle:active {
-    animation: buttonMorph 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-@keyframes buttonMorph {
-    0% {
-        transform: rotate(0deg) scale(1);
-    }
-    50% {
-        transform: rotate(360deg) scale(1.25);
-    }
-    100% {
-        transform: rotate(720deg) scale(1);
-    }
+.btn svg,
+.service-card .btn--text svg,
+.testimonial-btn svg,
+.newsletter-form .btn svg,
+.form-actions .btn svg,
+.file-upload-label svg,
+.social-link svg,
+.social-links a svg {
+    transition: transform 180ms ease-out;
 }

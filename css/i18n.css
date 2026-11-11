@@ -14,7 +14,7 @@
     background: var(--bg-secondary);
     color: var(--text-primary);
     box-shadow: var(--shadow-sm);
-    transition: var(--transition-all);
+    transition: background-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
     cursor: pointer;
     overflow: hidden;
 }
@@ -92,14 +92,8 @@
     transform-origin: center;
 }
 
-.language-switcher:hover .language-icon svg,
-.language-switcher:focus-visible .language-icon svg {
-    animation: moonRotateScale 2s linear infinite !important;
-    will-change: transform;
-}
-
-.language-switcher:active .language-icon svg {
-    animation: moonRotateScale 1.4s linear infinite !important;
+.language-switcher:hover .language-icon svg {
+    animation: moonRotateScale 300ms ease-out 1 !important;
 }
 
 .language-caret {

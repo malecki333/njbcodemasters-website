@@ -57,22 +57,11 @@
     // Initialize theme (persisted or light)
     setTheme(getPreferredTheme());
     
-    // Theme toggle event with morphing 720° rotation
     if (themeToggle) {
         themeToggle.addEventListener('click', () => {
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             setTheme(newTheme);
-            
-            // Add morphing 720° rotation animation
-            themeToggle.style.transition = 'transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
-            themeToggle.style.transform = 'rotate(360deg) scale(1.25)';
-            setTimeout(() => {
-                themeToggle.style.transform = 'rotate(720deg) scale(1)';
-                setTimeout(() => {
-                    themeToggle.style.transform = '';
-                }, 800);
-            }, 400);
         });
     }
     

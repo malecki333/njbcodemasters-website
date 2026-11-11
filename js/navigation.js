@@ -34,6 +34,15 @@
         (document.querySelector('.nav__actions') || document.body).appendChild(soundButton);
     }
     soundButton.id = 'soundToggle';
+    const actions = document.querySelector('.nav__actions');
+    if (actions) {
+        const languageSwitcher = actions.querySelector('.language-switcher');
+        const themeButton = actions.querySelector('.theme-toggle');
+        if (languageSwitcher) actions.prepend(languageSwitcher);
+        if (themeButton && soundButton.parentElement === actions) {
+            actions.insertBefore(themeButton, soundButton);
+        }
+    }
     if (soundButton && !soundButton.querySelector('svg')) {
         const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
         icon.setAttribute('class', 'sound-icon');

@@ -432,6 +432,7 @@
     // Cursor reveal overlay - Hexagonal particle membrane effect (OPTIMIZED)
     const initRevealOverlay = () => {
         if (document.querySelector('.reveal-overlay')) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         const touchBackground = !window.matchMedia('(pointer: fine)').matches;
 
         // Text-Layer im Hintergrund
@@ -460,7 +461,12 @@
             box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
             pointer-events: none;
             z-index: 20000;
-            white-space: nowrap;
+            box-sizing: border-box;
+            max-width: calc(100vw - 32px);
+            max-width: calc(100dvw - 32px);
+            white-space: normal;
+            overflow-wrap: anywhere;
+            line-height: 1.5;
             opacity: 0;
             transition: opacity 200ms ease;
         `;
@@ -595,16 +601,17 @@
         document.body.appendChild(typingLine);
 
         const fillTextGrid = () => {
-            const cols = Math.ceil(window.innerWidth / 20) + 30;
-            const rows = Math.ceil(window.innerHeight / 16) + 30;
-            let buffer = '';
-            for (let r = 0; r < rows; r++) {
-                for (let c = 0; c < cols; c++) {
-                    buffer += '<CodeMasters>';
-                }
-                buffer += '\n';
+            const style = getComputedStyle(textContent);
+            const measurement = document.createElement('canvas').getContext('2d');
+            if (!measurement) {
+                console.error('Background text: Canvas 2D context is unavailable.');
+                return;
             }
-            textContent.textContent = buffer;
+            measurement.font = style.font;
+            const word = '<CodeMasters>';
+            const cols = Math.ceil(window.innerWidth / measurement.measureText(word).width) + 1;
+            const rows = Math.ceil(window.innerHeight / parseFloat(style.lineHeight)) + 1;
+            textContent.textContent = (word.repeat(cols) + '\n').repeat(rows);
         };
 
         // Image-Layer über dem Text - Canvas-basierte Video-Maskierung
@@ -670,7 +677,14 @@
             if (video.paused) startVideo();
         }, { passive: true });
 
+        const useVideoFrames = typeof video.requestVideoFrameCallback === 'function';
         let animationFrameId = null;
+        let lastVideoTime = -1;
+        const scheduleVideoFrame = () => {
+            animationFrameId = useVideoFrames
+                ? video.requestVideoFrameCallback(renderMaskedVideo)
+                : requestAnimationFrame(renderMaskedVideo);
+        };
         const renderMaskedVideo = () => {
             animationFrameId = null;
             if (pageSuspended) return;
@@ -680,7 +694,8 @@
             const h = maskedCanvas.height;
             
             // Clear canvas
-            if (ready) {
+            if (ready && video.currentTime !== lastVideoTime) {
+                lastVideoTime = video.currentTime;
                 maskedCtx.clearRect(0, 0, w, h);
                 maskedCtx.drawImage(video, 0, 0, w, h);
                 maskedCtx.globalCompositeOperation = 'destination-in';
@@ -688,11 +703,8 @@
                 maskedCtx.globalCompositeOperation = 'source-over';
             }
             
-            animationFrameId = requestAnimationFrame(renderMaskedVideo);
+            scheduleVideoFrame();
         };
-        
-        // Starte Rendering-Loop
-        renderMaskedVideo();
         
         window.addEventListener('resize', () => {
             resizeMaskedCanvas();
@@ -730,8 +742,7 @@
         let isActive = true;
         let time = 0;
         
-        // OPTIMIZED: Dichtere Partikel für detailliertere Membran
-        const spacing = 12;
+        const spacing = 32;
         
         // Spatial grid für schnelle Nachbarsuche
         const grid = new Map();
@@ -744,6 +755,31 @@
         };
         
         const particles = [];
+        const particleSprites = Array.from({ length: 9 }, (_, force) => {
+            const sprite = document.createElement('canvas');
+            sprite.width = sprite.height = 32;
+            const spriteCtx = sprite.getContext('2d');
+            if (!spriteCtx) {
+                console.error('Membrane particle sprite: Canvas 2D context is unavailable.');
+                return null;
+            }
+            const gradient = spriteCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
+            gradient.addColorStop(0, `rgba(0, 0, 0, ${Math.min(1, 0.9 + force * 0.1)})`);
+            gradient.addColorStop(0.6, `rgba(0, 0, 0, ${Math.min(1, 0.6 + force * 0.2)})`);
+            gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
+            spriteCtx.fillStyle = gradient;
+            spriteCtx.beginPath();
+            for (let i = 0; i < 8; i++) {
+                const angle = Math.PI / 4 * i;
+                const x = 16 + Math.cos(angle) * 11.2;
+                const y = 16 + Math.sin(angle) * 11.2;
+                if (i === 0) spriteCtx.moveTo(x, y);
+                else spriteCtx.lineTo(x, y);
+            }
+            spriteCtx.closePath();
+            spriteCtx.fill();
+            return sprite;
+        });
         
         class HexParticle {
             constructor(gridX, gridY, offsetX, offsetY) {
@@ -759,7 +795,7 @@
                 this.gridKey = getGridKey(this.x, this.y);
             }
             
-            update() {
+            update(step) {
                 const dx = currentX - this.x;
                 const dy = currentY - this.y;
                 const dist = Math.sqrt(dx * dx + dy * dy);
@@ -769,28 +805,31 @@
                 if (dist < repelRadius && dist > 1) {
                     const force = (1 - dist / repelRadius) * 8;
                     this.repelForce = force;
-                    this.vx -= (dx / dist) * force;
-                    this.vy -= (dy / dist) * force;
+                    this.vx -= (dx / dist) * force * step;
+                    this.vy -= (dy / dist) * force * step;
                 } else {
-                    this.repelForce *= 0.9;
+                    this.repelForce *= Math.pow(0.9, step);
                 }
                 
                 // Organic noise movement
-                const noiseX = Math.sin(time * 0.0008 + this.noiseOffset) * 0.5;
-                const noiseY = Math.cos(time * 0.001 + this.noiseOffset) * 0.5;
-                this.vx += noiseX;
-                this.vy += noiseY;
+                const nearX = currentX - this.baseX;
+                const nearY = currentY - this.baseY;
+                const nearSpotlight = nearX * nearX + nearY * nearY < 450 * 450;
+                const noiseX = nearSpotlight ? Math.sin(time * 0.0008 + this.noiseOffset) * 0.5 : 0;
+                const noiseY = nearSpotlight ? Math.cos(time * 0.001 + this.noiseOffset) * 0.5 : 0;
+                this.vx += noiseX * step;
+                this.vy += noiseY * step;
                 
                 // Spring back to base position
-                this.vx += (this.baseX - this.x) * 0.03;
-                this.vy += (this.baseY - this.y) * 0.03;
+                this.vx += (this.baseX - this.x) * 0.03 * step;
+                this.vy += (this.baseY - this.y) * 0.03 * step;
                 
                 // Friction
-                this.vx *= 0.88;
-                this.vy *= 0.88;
+                this.vx *= Math.pow(0.88, step);
+                this.vy *= Math.pow(0.88, step);
                 
-                this.x += this.vx;
-                this.y += this.vy;
+                this.x += this.vx * step;
+                this.y += this.vy * step;
                 
                 // Update grid position
                 const newKey = getGridKey(this.x, this.y);
@@ -818,15 +857,14 @@
                     if (n === this) return false;
                     const dx = n.x - this.x;
                     const dy = n.y - this.y;
-                    return Math.sqrt(dx * dx + dy * dy) < spacing * 1.8;
+                    return dx * dx + dy * dy < (spacing * 1.8) ** 2;
                 });
             }
             
             isInSpotlight() {
                 const dx = currentX - this.x;
                 const dy = currentY - this.y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                return dist < 350; // Spotlight-Radius
+                return dx * dx + dy * dy < 350 * 350;
             }
             
             draw(ctx, neighbors) {
@@ -841,6 +879,7 @@
                 // Verbindungen nur zu Nachbarn die auch im Spotlight sind
                 ctx.strokeStyle = `rgba(0, 0, 0, ${(0.4 + this.repelForce * 0.1) * opacity})`;
                 ctx.lineWidth = (2 + this.repelForce * 0.5) * opacity;
+                ctx.beginPath();
                 
                 neighbors.forEach(n => {
                     if (!n.isInSpotlight()) return;
@@ -848,35 +887,18 @@
                     const dy = n.y - this.y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
                     if (dist < spacing * 1.8) {
-                        ctx.beginPath();
                         ctx.moveTo(this.x, this.y);
                         ctx.lineTo(n.x, n.y);
-                        ctx.stroke();
                     }
                 });
+                ctx.stroke();
                 
-                // Draw polygon particle (8 edges für Performance)
-                const gradient = ctx.createRadialGradient(
-                    this.x, this.y, 0,
-                    this.x, this.y, this.size
-                );
-                gradient.addColorStop(0, `rgba(0, 0, 0, ${(0.9 + this.repelForce * 0.1) * opacity})`);
-                gradient.addColorStop(0.6, `rgba(0, 0, 0, ${(0.6 + this.repelForce * 0.2) * opacity})`);
-                gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
-                
-                ctx.fillStyle = gradient;
-                ctx.beginPath();
-                
-                // 8-sided polygon shape
-                for (let i = 0; i < 8; i++) {
-                    const angle = (Math.PI / 4) * i + time * 0.0003;
-                    const hx = this.x + Math.cos(angle) * (this.size * 0.7);
-                    const hy = this.y + Math.sin(angle) * (this.size * 0.7);
-                    if (i === 0) ctx.moveTo(hx, hy);
-                    else ctx.lineTo(hx, hy);
+                const sprite = particleSprites[Math.min(8, Math.round(this.repelForce))];
+                if (sprite) {
+                    ctx.globalAlpha = opacity;
+                    ctx.drawImage(sprite, this.x - this.size, this.y - this.size, this.size * 2, this.size * 2);
+                    ctx.globalAlpha = 1;
                 }
-                ctx.closePath();
-                ctx.fill();
             }
         }
         
@@ -903,15 +925,11 @@
             }
         };
         
-        initGrid();
-        
         const resize = () => {
-            const dpr = Math.min(window.devicePixelRatio || 1, 2); // Max 2x für Performance
-            canvas.width = window.innerWidth * dpr;
-            canvas.height = window.innerHeight * dpr;
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
             canvas.style.width = window.innerWidth + 'px';
             canvas.style.height = window.innerHeight + 'px';
-            ctx.scale(dpr, dpr);
             initGrid();
             fillTextGrid();
         };
@@ -921,20 +939,31 @@
         
         const lerp = (start, end, factor) => start + (end - start) * factor;
         let membraneFrameId = null;
+        let lastMembraneTime = null;
         
-        const render = () => {
+        const render = (timestamp) => {
             membraneFrameId = null;
             if (pageSuspended || !isActive) return;
-            time++;
-            currentX = lerp(currentX, targetX, 0.15);
-            currentY = lerp(currentY, targetY, 0.15);
-            
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const elapsed = lastMembraneTime === null ? 1000 / 60 : timestamp - lastMembraneTime;
+            lastMembraneTime = timestamp;
+            const step = Math.min(elapsed / (1000 / 60), 2);
+            time += step;
+            // Reach 90% of the pointer position in about 55ms, independent of refresh rate.
+            const follow = 1 - Math.exp(-elapsed / 24);
+            currentX = lerp(currentX, targetX, follow);
+            currentY = lerp(currentY, targetY, follow);
             
             // Update particles FIRST
             grid.clear();
             particles.forEach(p => {
-                p.update();
+                const dx = currentX - p.baseX;
+                const dy = currentY - p.baseY;
+                // Only simulate the spotlight and particles still returning to their base.
+                if (dx * dx + dy * dy > 450 * 450 &&
+                    Math.abs(p.x - p.baseX) + Math.abs(p.y - p.baseY) < 1 &&
+                    Math.abs(p.vx) + Math.abs(p.vy) < 0.1) return;
+                p.update(step);
+                if (!p.isInSpotlight()) return;
                 if (!grid.has(p.gridKey)) {
                     grid.set(p.gridKey, []);
                 }
@@ -998,15 +1027,18 @@
         const suspendBackground = () => {
             pageSuspended = true;
             video.pause();
-            cancelAnimationFrame(animationFrameId);
+            if (useVideoFrames) video.cancelVideoFrameCallback(animationFrameId);
+            else cancelAnimationFrame(animationFrameId);
             cancelAnimationFrame(membraneFrameId);
             animationFrameId = null;
             membraneFrameId = null;
+            lastMembraneTime = null;
         };
         const resumeBackground = () => {
             pageSuspended = document.hidden;
             if (pageSuspended) return;
             resizeMaskedCanvas();
+            lastVideoTime = -1;
             resize();
             startVideo();
             if (animationFrameId === null) renderMaskedVideo();

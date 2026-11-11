@@ -44,6 +44,24 @@ Edge completed the German and Serbian desktop persistence sequences; the
 extended browser run encountered automation timeouts, so a complete new
 desktop/mobile browser pass is not claimed for this follow-up.
 
+## UI responsiveness update
+
+The membrane now uses time-based pointer following (about 55 ms to reach 90%
+of the target), cached particle graphics and a 32-pixel particle grid. Video
+frames render only when changed; background work pauses in hidden tabs and
+is skipped for reduced-motion preferences.
+
+Header controls consistently use language, theme, sound order. Header hover
+animations stop after one cycle. Button fills and footer underlines use
+150 ms transform transitions. The light-theme pricing note has a matching
+dark foreground. The sound typewriter wraps long messages within the viewport,
+preserving a 16-pixel margin on narrow screens.
+
+Validated locally with JavaScript regression tests and browser checks at
+320, 360, 390, 430, 768 and 1366 pixels, including Cyrillic and unbroken text.
+SEO metadata checks passed for all 58 sitemap pages. Actual frame rates depend
+on the browser and device; a fixed 60 FPS is not guaranteed.
+
 ## Existing behavior
 
 Navigation, language preferences, themes, animations, Matrix/membrane,
