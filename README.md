@@ -66,6 +66,9 @@ on the browser and device; a fixed 60 FPS is not guaranteed.
 
 VezaionGen VI uses the unchanged original logo in both themes on every page.
 The alternate light image remains unused; no extra glow filter is applied.
+Its transparent artwork sits on the same dark backing in both themes so that
+light cards cannot wash out its colors. The sound typewriter uses the page's
+German, English or Serbian language, with viewport wrapping in every language.
 
 Navigation, language preferences, themes, animations, Matrix/membrane,
 sound/video, typewriter, product information and pricing calculations run in

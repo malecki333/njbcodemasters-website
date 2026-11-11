@@ -473,10 +473,14 @@
 
         const typingTextEl = typingLine.querySelector('.typing-text');
         const caretEl = typingLine.querySelector('.typing-caret');
+        const isGerman = document.documentElement.lang === 'de';
 
         const bootMessages = isSerbian ? [
             'покретање приказа NJB CodeMasters...',
             'учитавање честичне мембране...'
+        ] : isGerman ? [
+            'NJB CodeMasters wird gestartet...',
+            'Partikelmembran wird geladen...'
         ] : [
             'booting CodeMasters overlay...',
             'loading particle membrane...'
@@ -503,6 +507,27 @@
             'Развијајмо отпорне системе',
             'Развијајмо интелигентну индустрију',
             'Развијајмо VezaionGen VI'
+        ] : isGerman ? [
+            'Sie brauchen eine Website oder Web-App?',
+            'Entwickeln wir sie gemeinsam - schreiben Sie uns.',
+            'Sie brauchen Design, Markenauftritt oder Marketing?',
+            'Gestalten wir Ihre Idee - schreiben Sie uns.',
+            'Sie brauchen Strategie und Beratung?',
+            'Planen wir Ihre nächsten Schritte gemeinsam.',
+            'NJB CodeMasters',
+            'Industrie 6.0',
+            'Digitaler Zwilling',
+            'Autonome Prozesse',
+            'Industrielle Intelligenz',
+            'Wissenssysteme',
+            'Vorhersagende Analytik',
+            'Industrielle KI',
+            'VezaionGen VI',
+            'Nutzen Sie noch Industrie 4.0?',
+            'Bereit für Industrie 6.0?',
+            'Entwickeln wir widerstandsfähige Systeme',
+            'Gestalten wir die intelligente Industrie',
+            'Entwickeln wir VezaionGen VI'
         ] : [
             'Need a website or web app?',
             'Let’s build it — message me.',
