@@ -107,6 +107,35 @@
     transition: var(--transition-all);
 }
 
+.footer__linkedin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 10px 18px;
+    border-radius: var(--radius-full);
+    background: #0a66c2;
+    color: #fff;
+    font-weight: var(--font-weight-semibold);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.footer__linkedin svg {
+    flex-shrink: 0;
+}
+
+.footer__linkedin:hover {
+    background: #004182;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.footer__linkedin:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
+}
+
 .social-link:hover {
     background: var(--gradient-primary);
     color: white;
