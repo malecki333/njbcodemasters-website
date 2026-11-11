@@ -292,6 +292,26 @@
     padding-block: var(--launch-section-space);
 }
 
+.main > .section:has(.brand-logo--product) {
+    padding-bottom: 32px;
+}
+
+.main > .section:has(.brand-logo--product) > .container {
+    display: flow-root;
+}
+
+.main > .section:has(.brand-logo--product) p:last-of-type {
+    margin-bottom: 0;
+}
+
+.main .brand-logo--product {
+    margin-block: 32px 0;
+}
+
+.main > .section:has(.brand-logo--product) + .section {
+    padding-top: 0;
+}
+
 .main > .section.container {
     padding-inline: var(--container-padding);
     margin-block: 0 !important;
@@ -902,6 +922,15 @@
 
     .footer__content {
         grid-template-columns: minmax(0, 1fr);
+        margin-bottom: 16px;
+    }
+
+    .footer__bottom {
+        padding-top: 0;
+    }
+
+    .footer {
+        padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
     }
 
     #ai-chat-toggle {

@@ -64,6 +64,10 @@ on the browser and device; a fixed 60 FPS is not guaranteed.
 
 ## Existing behavior
 
+On mobile, copyright text sits just below the footer divider, with bottom
+clearance for the floating controls and device safe area. The product-page logo
+has equal 32-pixel gaps to the introduction above and capabilities heading below.
+
 VezaionGen VI uses the unchanged original logo in both themes on every page.
 The alternate light image remains unused; no extra glow filter is applied.
 Its transparent artwork sits on the same dark backing in both themes so that
