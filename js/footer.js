@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const lightLogoSrc = hasLangDir
         ? '../assets/brand/njb-codemasters-light.png'
         : 'assets/brand/njb-codemasters-light.png';
-    
+
     // Übersetzungen für Footer
     const translations = {
         de: {
@@ -96,9 +96,9 @@ document.addEventListener('DOMContentLoaded', function() {
             thankYou: 'No newsletter subscription was submitted. A newsletter service is not configured yet. Contact: nenad@njbcodemasters.com.'
         }
     };
-    
+
     const t = translations[lang] || translations.de;
-    
+
     const footerHTML = `
     <footer class="footer">
         <div class="container">
@@ -150,8 +150,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         </li>
                     </ul>
                     <a class="footer__linkedin" href="https://www.linkedin.com/company/njb-codemasters" target="_blank" rel="noopener noreferrer" aria-label="${t.linkedin}">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false"><path d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52zM7.93 18.75H4.98V9.2h2.95v9.55zM6.46 7.89a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42zm12.29 10.86H15.8V14.1c0-1.11-.02-2.54-1.55-2.54-1.55 0-1.79 1.21-1.79 2.46v4.73H9.51V9.2h2.83v1.3h.04c.39-.74 1.36-1.52 2.79-1.52 2.99 0 3.58 1.97 3.58 4.53v5.24z"/></svg>
-                        <span>LinkedIn</span>
+                        <span class="footer__linkedin-badge" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M6.94 5a2 2 0 1 1-4-.002 2 2 0 0 1 4 .002zM7 8.48H3V21h4V8.48zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68z"/></svg></span>
+                        <span class="footer__linkedin-label">Follow</span>
                     </a>
                 </div>
                 <div class="footer__column">
@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
         footerPlaceholder.id = 'footer-placeholder';
         document.body.appendChild(footerPlaceholder);
     }
-    
+
     // Footer einfügen
     footerPlaceholder.outerHTML = footerHTML;
 
