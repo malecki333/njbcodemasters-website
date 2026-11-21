@@ -3,241 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Вештачка интелигенција у веб развоју - Како вештачка интелигенција револуционира развој веб апликација и ствара нове могућности.">
-    <title>Вештачка интелигенција у веб развоју | Блог | NJB CodeMasters</title>
-    
+    <meta name="description" content="Шта Zero-Trust безбедност у индустријским архитектурама значи за доносиоце одлука – контрола, граница одговорности и сигурност рада.">
+    <title>Zero-Trust безбедност у индустријским архитектурама | Блог | NJB CodeMasters</title>
+
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/background.css">
     <link rel="stylesheet" href="../css/header.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/button-animations.css">
-    <link rel="stylesheet" href="../css/background.css">
     <link rel="stylesheet" href="../css/i18n.css">
     <link rel="stylesheet" href="../css/performance.css">
-    
-        <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
+    <link rel="stylesheet" href="../css/platform-content.css">
+
+    <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    
+
     <style>
-        .main {
-            min-height: 100vh;
-        }
-
-        .page-hero {
-            padding: var(--space-4xl) 0;
-        }
-
-        .section {
-            padding: var(--space-5xl) 0;
-        }
-
-        .article-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-md);
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--space-4xl);
-            transition: all 0.3s ease;
-        }
-
-        .back-link:hover {
-            transform: translateX(-4px);
-            color: var(--secondary-color);
-        }
-
-        .article-hero {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.8), rgba(249, 115, 22, 0.8)), linear-gradient(135deg, #f59e0b, #f97316);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-4xl);
-            color: white;
-            margin-bottom: var(--space-4xl);
-        }
-
-        /* Light Mode: Stelle sicher dass Hero Text lesbar ist */
-        [data-theme="light"] .article-hero h1,
-        [data-theme="light"] .article-hero,
-        [data-theme="light"] .article-hero p,
-        [data-theme="light"] .article-meta,
-        [data-theme="light"] .article-tag {
-            color: white !important;
-        }
-
-        .article-hero h1 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: var(--space-2xl);
-            line-height: 1.2;
-        }
-
-        .article-meta {
-            display: flex;
-            gap: var(--space-xl);
-            flex-wrap: wrap;
-            font-size: var(--font-size-sm);
-            opacity: 0.9;
-        }
-
-        .article-tag {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: var(--space-xs) var(--space-md);
-            border-radius: 999px;
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-semibold);
-            margin-top: var(--space-lg);
-        }
-
-        .article-content {
-            font-size: var(--font-size-lg);
-            line-height: 1.8;
-            color: var(--text-primary);
-            display: block;
-            padding: var(--space-2xl) 0;
-        }
-
-        /* Light Mode: Weiße Schriftfarbe für readability über dunklem Hintergrund */
-        [data-theme="light"] .article-content,
-        [data-theme="light"] .article-content h2,
-        [data-theme="light"] .article-content h3,
-        [data-theme="light"] .article-content p,
-        [data-theme="light"] .article-content li {
-            color: white !important;
-        }
-
-        [data-theme="light"] .article-content strong {
-            color: #fbbf24 !important;
-        }
-
-        [data-theme="light"] .article-content a {
-            color: #60a5fa !important;
-        }
-
-        [data-theme="light"] .highlight {
-            background: rgba(0, 0, 0, 0.3) !important;
-            border-left-color: #fbbf24 !important;
-            color: white !important;
-        }
-
-        [data-theme="light"] .highlight strong {
-            color: #fbbf24 !important;
-        }
-
-        [data-theme="light"] .code-block {
-            background: rgba(0, 0, 0, 0.4) !important;
-            border-color: rgba(255, 255, 255, 0.1) !important;
-        }
-
-        [data-theme="light"] .code-block code {
-            color: #60a5fa !important;
-        }
-
-        .article-content h2 {
-            font-size: var(--font-size-2xl);
-            margin-top: var(--space-4xl);
-            margin-bottom: var(--space-lg);
-            color: var(--text-primary);
-        }
-
-        .article-content h2:first-child {
-            margin-top: 0;
-        }
-
-        .article-content p {
-            margin-bottom: var(--space-lg);
-            color: var(--text-primary);
-        }
-
-        .article-content ul,
-        .article-content ol {
-            margin-left: var(--space-2xl);
-            margin-bottom: var(--space-lg);
-        }
-
-        .article-content li {
-            margin-bottom: var(--space-md);
-            color: var(--text-primary);
-        }
-
-        .article-content strong {
-            color: #f59e0b;
-            font-weight: var(--font-weight-bold);
-        }
-
-        .article-content em {
-            font-style: italic;
-            color: var(--text-secondary);
-        }
-
-        .highlight {
-            background: rgba(245, 158, 11, 0.1);
-            padding: var(--space-lg);
-            border-left: 4px solid #f59e0b;
-            border-radius: var(--radius-lg);
-            margin: var(--space-2xl) 0;
-            color: var(--text-primary);
-        }
-
-        .code-block {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: var(--space-lg);
-            border-radius: var(--radius-lg);
-            overflow-x: auto;
-            margin: var(--space-2xl) 0;
-        }
-
-        .code-block code {
-            font-family: 'Courier New', monospace;
-            font-size: var(--font-size-sm);
-            color: #f59e0b;
-        }
-
-        .article-footer {
-            border-top: 1px solid var(--glass-border);
-            padding-top: var(--space-4xl);
-            margin-top: var(--space-5xl);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: var(--space-lg);
-        }
-
-        .article-author {
-            color: var(--text-secondary);
-            font-size: var(--font-size-base);
-        }
-
-        @media (max-width: 768px) {
-            .article-hero {
-                padding: var(--space-2xl);
-            }
-
-            .article-hero h1 {
-                font-size: var(--font-size-2xl);
-            }
-
-            .article-meta {
-                flex-direction: column;
-                gap: var(--space-md);
-            }
-
-            .article-footer {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
+        .article-container { max-width: 900px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: var(--space-md); color: var(--primary-color); text-decoration: none; font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4xl); transition: all 0.3s ease; }
+        .back-link:hover { transform: translateX(-4px); color: var(--secondary-color); }
+        .article-hero { background: linear-gradient(135deg, rgba(99, 102, 241, 0.85), rgba(14, 165, 233, 0.85)), linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: var(--radius-2xl); padding: var(--space-4xl); color: white; margin-bottom: var(--space-4xl); }
+        [data-theme="light"] .article-hero h1, [data-theme="light"] .article-hero, [data-theme="light"] .article-hero p, [data-theme="light"] .article-meta, [data-theme="light"] .article-tag { color: white !important; }
+        .article-hero h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: var(--space-2xl); line-height: 1.2; }
+        .article-meta { display: flex; gap: var(--space-xl); flex-wrap: wrap; font-size: var(--font-size-sm); opacity: 0.92; }
+        .article-tag { display: inline-block; background: rgba(255, 255, 255, 0.2); color: white; padding: var(--space-xs) var(--space-md); border-radius: 999px; font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); margin-top: var(--space-lg); }
+        .article-content { font-size: var(--font-size-lg); line-height: 1.8; color: var(--text-primary); }
+        [data-theme="light"] .article-content, [data-theme="light"] .article-content h2, [data-theme="light"] .article-content p, [data-theme="light"] .article-content li { color: white !important; }
+        [data-theme="light"] .article-content strong { color: #fbbf24 !important; }
+        [data-theme="light"] .highlight { background: rgba(0, 0, 0, 0.3) !important; border-left-color: #fbbf24 !important; color: white !important; }
+        [data-theme="light"] .highlight strong { color: #fbbf24 !important; }
+        .article-content h2 { font-size: var(--font-size-2xl); margin-top: var(--space-4xl); margin-bottom: var(--space-lg); color: var(--text-primary); }
+        .article-content h2:first-child { margin-top: 0; }
+        .article-content p { margin-bottom: var(--space-lg); color: var(--text-primary); }
+        .article-content ul { margin-left: var(--space-2xl); margin-bottom: var(--space-lg); }
+        .article-content li { margin-bottom: var(--space-md); color: var(--text-primary); }
+        .article-content strong { color: var(--primary-color); font-weight: var(--font-weight-bold); }
+        .article-content em { font-style: italic; color: var(--text-secondary); }
+        .highlight { background: rgba(99, 102, 241, 0.1); padding: var(--space-lg); border-left: 4px solid var(--primary-color); border-radius: var(--radius-lg); margin: var(--space-2xl) 0; color: var(--text-primary); }
+        .article-footer { border-top: 1px solid var(--glass-border); padding-top: var(--space-4xl); margin-top: var(--space-5xl); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-lg); }
+        .article-author { color: var(--text-secondary); font-size: var(--font-size-base); }
+        @media (max-width: 768px) { .article-hero { padding: var(--space-2xl); } .article-hero h1 { font-size: var(--font-size-2xl); } .article-meta { flex-direction: column; gap: var(--space-md); } .article-footer { flex-direction: column; align-items: flex-start; } }
     </style>
 
     <link rel="canonical" href="https://www.njbcodemasters.com/sr/blog-article-3.html">
@@ -245,44 +55,43 @@
     <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/blog-article-3.html">
     <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/blog-article-3.html">
     <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
-    <meta property="og:type" content="website">
+    <meta property="og:type" content="article">
     <meta property="og:locale" content="sr_RS">
     <meta property="og:url" content="https://www.njbcodemasters.com/sr/blog-article-3.html">
-    <meta property="og:title" content="Вештачка интелигенција у веб развоју | Блог | NJB CodeMasters">
-    <meta property="og:description" content="Вештачка интелигенција у веб развоју - Како вештачка интелигенција револуционира развој веб апликација и ствара нове могућности.">
+    <meta property="og:title" content="Zero-Trust безбедност у индустријским архитектурама | NJB CodeMasters">
+    <meta property="og:description" content="Шта Zero-Trust безбедност у индустријским архитектурама значи за доносиоце одлука.">
     <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Вештачка интелигенција у веб развоју | Блог | NJB CodeMasters">
-    <meta name="twitter:description" content="Вештачка интелигенција у веб развоју - Како вештачка интелигенција револуционира развој веб апликација и ствара нове могућности.">
+    <meta name="twitter:title" content="Zero-Trust безбедност у индустријским архитектурама | NJB CodeMasters">
+    <meta name="twitter:description" content="Шта Zero-Trust безбедност у индустријским архитектурама значи за доносиоце одлука.">
     <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
 </head>
 <body data-language="sr">
-    <header class="header">
+    <header class="header" id="header">
         <nav class="nav container">
             <div class="nav__logo">
                 <a href="index.html" aria-label="На почетну страну">
                     <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
                 </a>
-                
-                <!-- Menu Toggle Button -->
-                <button class="nav__toggle" id="navToggle" aria-label="Отвори навигацију" aria-expanded="false">
+                <button class="nav__toggle" id="navToggle" type="button" aria-label="Отвори навигацију" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
             </div>
 
             <ul class="nav__menu" id="navMenu">
                 <li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li>
-                <li class="nav__item"><a href="about.html" class="nav__link">О нама</a></li>
-                <li class="nav__item"><a href="services.html" class="nav__link">Услуге</a></li>
-                <li class="nav__item"><a href="portfolio.html" class="nav__link">Портфолио</a></li>
-                <li class="nav__item"><a href="pricing.html" class="nav__link">Цене</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li>
+                <li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li>
+                <li class="nav__item"><a href="modules.html" class="nav__link">Модули</a></li>
+                <li class="nav__item"><a href="pilot-program.html" class="nav__link">Пилот програм</a></li>
+                <li class="nav__item"><a href="roadmap.html" class="nav__link">Мапа пута</a></li>
                 <li class="nav__item"><a href="blog.html" class="nav__link active">Блог</a></li>
                 <li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li>
             </ul>
 
             <div class="nav__actions">
-                <button class="theme-toggle" id="themeToggle" aria-label="Промени тему">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Промени тему">
                     <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="4"></circle>
                         <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
@@ -301,158 +110,71 @@
                     <span class="toggle-label">Тема</span>
                 </button>
             </div>
+        </nav>
     </header>
 
     <main class="main">
-        <!-- Article -->
+        <section class="page-hero section">
+            <div class="container">
+                <div class="page-hero__content fade-in-up">
+                    <h1 class="page-hero__title">Блог чланак</h1>
+                    <p class="page-hero__description">Практичне перспективе за руковођење, производњу и индустријски софтвер</p>
+                </div>
+            </div>
+        </section>
+
         <section class="section container article-container">
             <a href="blog.html" class="back-link">← Назад на блог</a>
 
             <article>
                 <div class="article-hero">
-                    <h1>Вештачка интелигенција у веб развоју</h1>
+                    <h1>Zero-Trust безбедност у индустријским архитектурама</h1>
                     <div class="article-meta">
-                        <span>📅 7. децембра 2024.</span>
-                        <span>⏱️ 6 мин читања</span>
-                        <span>✍️ аутор: директор</span>
+                        <span>📅 Новембар 2026</span>
+                        <span>⏱️ 5 мин читања</span>
+                        <span>✍️ аутор: NJB CodeMasters</span>
                     </div>
-                    <span class="article-tag">Трендови</span>
+                    <span class="article-tag">Безбедност и поверење</span>
                 </div>
 
                 <div class="article-content">
-                    <h2>Револуција вештачке интелигенције у веб развоју</h2>
+                    <h2>Зашто правило „једном унутра – све дозвољено“ у индустрији више не важи</h2>
                     <p>
-                        Вештачка интелигенција је већ дошла у веб развој и трансформише начин на који градимо веб-сајтове и апликације, тестирамо их и оптимизујемо. Од аутоматизованих алата за развој до паметних помоћника за дизајн — вештачка интелигенција мења целу индустрију.
+                        У савременим производним и логистичким системима све више уређаја, машина, партнера и приступа је међусобно повезано. Ако се безбедност ослања само на спољни периметар, настаје озбиљан ризик: чим једна тачка буде угрожена, проблем може пребрзо да се прошири даље.
+                    </p>
+                    <p>
+                        <strong>Zero-Trust</strong> приступ заснива се на јасном правилу: ниједан приступ нити корак се не подразумева без провере – сваки захтев, улога и радња се јасно ограничавају на оно што је заиста потребно.
                     </p>
 
-                    <h2>Генерисање кода уз помоћ вештачке интелигенције</h2>
-                    <p>
-                        Један од највећих пробоја је генерисање кода уз помоћ вештачке интелигенције. Алати као што су GitHub Copilot, ChatGPT и слични сервиси могу да пишу код и да врше отклањање грешака:
-                    </p>
+                    <h2>Шта доносиоци одлука треба да траже</h2>
                     <ul>
-                        <li><strong>Аутоматско завршавање кода</strong> – Паметни предлози засновани на контексту</li>
-                        <li><strong>Отклањање грешака</strong> – Вештачка интелигенција може препознати и отклонити честе грешке</li>
-                        <li><strong>Оптимизација кода</strong> – Алгоритми се аутоматски побољшавају</li>
-                        <li><strong>Документација</strong> – Аутоматско генерисање коментара кода</li>
+                        <li><strong>Јасне надлежности и права:</strong> Свако види и управља само оним што припада његовом послу и одговорности.</li>
+                        <li><strong>Ограничавање штете:</strong> Чак и када дође до сметње на једном месту, остатак погона остаје заштићен и оперативан.</li>
+                        <li><strong>Праћење и одговорност:</strong> Кључни кораци остају видљиви и проверљиви без успоравања свакодневног рада.</li>
+                        <li><strong>Стабилност у раду:</strong> Безбедност мора да штити процес, а не да га блокира када спољне везе варирају.</li>
                     </ul>
 
                     <div class="highlight">
-                        <strong>💡 Предност:</strong> Програмери се могу фокусирати на важније задатке док вештачка интелигенција преузима рутинске послове. Утицај на продуктивност зависи од задатка, алата и начина провере резултата.
+                        <strong>💡 За доносиоце одлука:</strong> Безбедност у индустрији није накнадни додатак на крају пројекта, већ заштита континуитета производње, поверења клијената и вредности компаније.
                     </div>
 
-                    <h2>Тестирање и контрола квалитета</h2>
+                    <h2>Поверење кроз јасна правила</h2>
                     <p>
-                        Вештачка интелигенција мења и начин тестирања веб апликација:
+                        За руководство је пресудно сазнање да су критични процеси, подаци о производњи и опрема заштићени. Добро постављен Zero-Trust оквир спаја висок ниво заштите са једноставним и практичним коришћењем на терену.
                     </p>
-                    <ul>
-                        <li><strong>Аутоматизовано генерисање тестова</strong> – Тестови се пишу сами на основу кода</li>
-                        <li><strong>Предиктивна детекција грешака</strong> – Вештачка интелигенција предвиђа потенцијалне грешке</li>
-                        <li><strong>Визуелно тестирање</strong> – Аутоматска детекција одступања у дизајну</li>
-                        <li><strong>Праћење перформанси</strong> – Анализа у реалном времену и предлози оптимизације</li>
-                    </ul>
-
-                    <h2>Дизајн и корисничко искуство уз вештачку интелигенцију</h2>
-                    <p>
-                        Дизајнери и стручњаци за корисничко искуство могу користити алате вештачке интелигенције:
-                    </p>
-
-                    <h3>1. Паметни помоћници за дизајн</h3>
-                    <p>
-                        Алати аутоматски генеришу предлоге дизајна засноване на најбољим праксама и понашању корисника. Они могу:
-                    </p>
-                    <ul>
-                        <li>Оптимизовати макете за боље конверзије</li>
-                        <li>Аутоматски генерисати палете боја</li>
-                        <li>Тестирати одзивне дизајне</li>
-                    </ul>
-
-                    <h3>2. Персонализација</h3>
-                    <p>
-                        Вештачка интелигенција омогућава високо персонализовано корисничко искуство:
-                    </p>
-                    <ul>
-                        <li>Динамички садржај заснован на понашању корисника</li>
-                        <li>Адаптивни интерфејси који се прилагођавају кориснику</li>
-                        <li>Паметне препоруке и предлози</li>
-                    </ul>
-
-                    <h2>SEO и оптимизација садржаја</h2>
-                    <p>
-                        Алати вештачке интелигенције помажу при оптимизацији садржаја за претраживаче:
-                    </p>
-                    <ul>
-                        <li><strong>Анализа кључних речи</strong> – Аутоматска идентификација релевантних кључних речи</li>
-                        <li><strong>Генерисање садржаја</strong> – Аутоматско писање SEO-оптимизованих текстова</li>
-                        <li><strong>Оптимизација метаподатака</strong> – Паметно креирање наслова и описа</li>
-                        <li><strong>Анализа структуре</strong> – Аутоматска оптимизација хијерархије садржаја</li>
-                    </ul>
-
-                    <div class="code-block">
-                        <code>
-                            // Пример: анализа садржаја подржана AI<br>
-                            const aiAnalyzer = new ContentAnalyzer();<br>
-                            const suggestions = aiAnalyzer.optimize(content);<br>
-                            console.log(suggestions); // Предлози оптимизације
-                        </code>
-                    </div>
-
-                    <h2>Серверски развој и програмски интерфејси</h2>
-                    <p>
-                        Вештачка интелигенција унапређује и серверски развој:
-                    </p>
-                    <ul>
-                        <li><strong>Оптимизација базе података</strong> – Вештачка интелигенција предлаже оптималне индексе</li>
-                        <li><strong>Дизајн API-ја</strong> – Аутоматско генерисање API крајњих тачака</li>
-                        <li><strong>Безбедност</strong> – Детекција безбедносних пропуста и рањивости</li>
-                        <li><strong>Скалабилност</strong> – Паметна алокација ресурса</li>
-                    </ul>
-
-                    <h2>Изазови и разматрања</h2>
-                    <p>
-                        Иако вештачка интелигенција нуди велике предности, постоје и изазови:
-                    </p>
-                    <ul>
-                        <li><strong>Заштита приватности</strong> – Алати вештачке интелигенције обрађују податке који могу бити поверљиви</li>
-                        <li><strong>Зависност</strong> – Превише зависности од вештачке интелигенције може довести до губитка вештина</li>
-                        <li><strong>Контрола квалитета</strong> – Код генерисан помоћу вештачке интелигенције мора бити детаљно проверен</li>
-                        <li><strong>Пристрасност</strong> – Вештачка интелигенција може појачати постојеће пристрасности у подацима</li>
-                    </ul>
-
-                    <h2>Добре праксе за примену вештачке интелигенције у веб развоју</h2>
-                    <p>
-                        Да бисте ефикасно искористили вештачку интелигенцију, придржавајте се следећих добрих пракси:
-                    </p>
-                    <ul>
-                        <li>Користите вештачку интелигенцију као алат, не као замену за програмере</li>
-                        <li>Увек ручно проверите садржај генерисан помоћу вештачке интелигенције</li>
-                        <li>Обратите пажњу на заштиту приватности и безбедност</li>
-                        <li>Редовно обучавајте свој тим за рад са новим алатима вештачке интелигенције</li>
-                        <li>Комбинујте вештачку интелигенцију са људском креативношћу и експертизом</li>
-                    </ul>
-
-                    <div class="highlight">
-                        <strong>📌 Закључак:</strong> Вештачка интелигенција није крај веб развоја, већ почетак нове ере. Програмери који ефикасно користе алате вештачке интелигенције биће успешни у 2025. години и даље. Кључ је искористити технологију без губљења људске компоненте.
-                    </div>
-
-                    <h2>Препоручени алати вештачке интелигенције</h2>
-                    <ul>
-                        <li><a href="https://github.com/features/copilot" target="_blank">GitHub Copilot</a> – Помоћник за код</li>
-                        <li><a href="https://openai.com/chatgpt" target="_blank">ChatGPT</a> – Универзални помоћник са вештачком интелигенцијом</li>
-                        <li><a href="https://www.figma.com/" target="_blank">Figma AI</a> – Подршка у дизајну</li>
-                        <li><a href="https://www.framer.com/" target="_blank">Framer</a> – Алат за израду веб-сајтова уз вештачку интелигенцију</li>
-                    </ul>
                 </div>
 
                 <div class="article-footer">
                     <span class="article-author">
-                        <strong>Аутор:</strong> Директор<br>
-                        <em>Написано 7. децембра 2024.</em>
+                        <strong>Аутор:</strong> NJB CodeMasters<br>
+                        <em>Објављено у новембру 2026.</em>
                     </span>
                     <a href="blog.html" class="back-link">← Назад на блог</a>
                 </div>
             </article>
         </section>
-    <!-- Footer wird automatisch geladen -->
+    </main>
+
     <div id="footer-placeholder"></div>
 
     <script src="../js/i18n.js" defer></script>
