@@ -1,1 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="How the Transport Management System (TMS), routes, capacities, digital twins, and step-by-step automation work together in VezaionGen VI.">
+    <title>TMS, Logistics, and Digital Twins in VezaionGen VI | Blog | NJB CodeMasters</title>
 
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/background.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/button-animations.css">
+    <link rel="stylesheet" href="../css/i18n.css">
+    <link rel="stylesheet" href="../css/performance.css">
+    <link rel="stylesheet" href="../css/platform-content.css">
+
+    <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
+    <link rel="manifest" href="../site.webmanifest">
+
+    <style>
+        .article-container { max-width: 900px; margin: 0 auto; }
+        .back-link { display: inline-flex; align-items: center; gap: var(--space-md); color: var(--primary-color); text-decoration: none; font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4xl); transition: all 0.3s ease; }
+        .back-link:hover { transform: translateX(-4px); color: var(--secondary-color); }
+        .article-hero { background: linear-gradient(135deg, rgba(99, 102, 241, 0.85), rgba(14, 165, 233, 0.85)), linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: var(--radius-2xl); padding: var(--space-4xl); color: white; margin-bottom: var(--space-4xl); }
+        [data-theme="light"] .article-hero h1, [data-theme="light"] .article-hero, [data-theme="light"] .article-hero p, [data-theme="light"] .article-meta, [data-theme="light"] .article-tag { color: white !important; }
+        .article-hero h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: var(--space-2xl); line-height: 1.2; }
+        .article-meta { display: flex; gap: var(--space-xl); flex-wrap: wrap; font-size: var(--font-size-sm); opacity: 0.92; }
+        .article-tag { display: inline-block; background: rgba(255, 255, 255, 0.2); color: white; padding: var(--space-xs) var(--space-md); border-radius: 999px; font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); margin-top: var(--space-lg); }
+        .article-content { font-size: var(--font-size-lg); line-height: 1.8; color: var(--text-primary); }
+        [data-theme="light"] .article-content, [data-theme="light"] .article-content h2, [data-theme="light"] .article-content p, [data-theme="light"] .article-content li { color: white !important; }
+        [data-theme="light"] .article-content strong { color: #fbbf24 !important; }
+        [data-theme="light"] .highlight { background: rgba(0, 0, 0, 0.3) !important; border-left-color: #fbbf24 !important; color: white !important; }
+        [data-theme="light"] .highlight strong { color: #fbbf24 !important; }
+        .article-content h2 { font-size: var(--font-size-2xl); margin-top: var(--space-4xl); margin-bottom: var(--space-lg); color: var(--text-primary); }
+        .article-content h2:first-child { margin-top: 0; }
+        .article-content p { margin-bottom: var(--space-lg); color: var(--text-primary); }
+        .article-content ul { margin-left: var(--space-2xl); margin-bottom: var(--space-lg); }
+        .article-content li { margin-bottom: var(--space-md); color: var(--text-primary); }
+        .article-content strong { color: var(--primary-color); font-weight: var(--font-weight-bold); }
+        .article-content em { font-style: italic; color: var(--text-secondary); }
+        .highlight { background: rgba(99, 102, 241, 0.1); padding: var(--space-lg); border-left: 4px solid var(--primary-color); border-radius: var(--radius-lg); margin: var(--space-2xl) 0; color: var(--text-primary); }
+        .article-footer { border-top: 1px solid var(--glass-border); padding-top: var(--space-4xl); margin-top: var(--space-5xl); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-lg); }
+        .article-author { color: var(--text-secondary); font-size: var(--font-size-base); }
+        @media (max-width: 768px) { .article-hero { padding: var(--space-2xl); } .article-hero h1 { font-size: var(--font-size-2xl); } .article-meta { flex-direction: column; gap: var(--space-md); } .article-footer { flex-direction: column; align-items: flex-start; } }
+    </style>
+
+    <link rel="canonical" href="https://www.njbcodemasters.com/en/blog-article-5.html">
+    <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/blog-article-5.html">
+    <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/blog-article-5.html">
+    <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/blog-article-5.html">
+    <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://www.njbcodemasters.com/en/blog-article-5.html">
+    <meta property="og:title" content="TMS, Logistics, and Digital Twins in VezaionGen VI | NJB CodeMasters">
+    <meta property="og:description" content="How TMS, routes, capacities, digital twins, and step-by-step automation work together in VezaionGen VI.">
+    <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="TMS, Logistics, and Digital Twins in VezaionGen VI | NJB CodeMasters">
+    <meta name="twitter:description" content="How TMS, routes, capacities, digital twins, and step-by-step automation work together in VezaionGen VI.">
+    <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
+</head>
+<body data-language="en">
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <a href="index.html" aria-label="Go to homepage">
+                    <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
+                </a>
+                <button class="nav__toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
+
+            <ul class="nav__menu" id="navMenu">
+                <li class="nav__item"><a href="index.html" class="nav__link">Home</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li>
+                <li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li>
+                <li class="nav__item"><a href="modules.html" class="nav__link">Modules</a></li>
+                <li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilot Program</a></li>
+                <li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li>
+                <li class="nav__item"><a href="blog.html" class="nav__link active">Blog</a></li>
+                <li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li>
+            </ul>
+
+            <div class="nav__actions">
+                <div class="language-switcher">
+                    <label for="languageSelect">🌐</label>
+                    <select id="languageSelect" aria-label="Select language">
+                        <option value="de">Deutsch</option>
+                        <option value="en" selected>English</option>
+                        <option value="sr">Srpski</option>
+                    </select>
+                </div>
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle theme">
+                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
+                        <line class="sun-ray" x1="12" y1="19" x2="12" y2="23"></line>
+                        <line class="sun-ray" x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
+                        <line class="sun-ray" x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
+                        <line class="sun-ray" x1="1" y1="12" x2="5" y2="12"></line>
+                        <line class="sun-ray" x1="19" y1="12" x2="23" y2="12"></line>
+                        <line class="sun-ray" x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
+                        <line class="sun-ray" x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path class="moon-crescent" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        <circle class="moon-full" cx="12" cy="12" r="9" opacity="0"></circle>
+                    </svg>
+                    <span class="toggle-label">Theme</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <section class="page-hero section">
+            <div class="container">
+                <div class="page-hero__content fade-in-up">
+                    <h1 class="page-hero__title">Blog Article</h1>
+                    <p class="page-hero__description">Practical insights into leadership, manufacturing, logistics, and industrial software</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section container article-container">
+            <a href="blog.html" class="back-link">← Back to Blog</a>
+
+            <article>
+                <div class="article-hero">
+                    <h1>TMS, Logistics, and Digital Twins in VezaionGen VI</h1>
+                    <div class="article-meta">
+                        <span>📅 November 2026</span>
+                        <span>⏱️ 6 min read</span>
+                        <span>✍️ by NJB CodeMasters</span>
+                    </div>
+                    <span class="article-tag">Logistics &amp; Modules</span>
+                </div>
+
+                <div class="article-content">
+                    <h2>Why Daily Logistics Often Stalls at Handoffs</h2>
+                    <p>
+                        On paper, a transport schedule almost always looks neat. In real operations, however, an order changes first thing in the morning, a vehicle needs to be reassigned, or congestion builds up at the loading dock. When transport orders, vehicles, drivers, routes, and arrival estimates live in disconnected spreadsheets, time gets lost right when teams need speed most.
+                    </p>
+                    <p>
+                        In <strong>VezaionGen VI</strong>, these areas do not run in isolation—they operate on one shared foundation. The <strong>Transport Management System (TMS)</strong> forms the central backbone for transport orders, deliveries, vehicles, drivers, distribution planning, and reporting, supported by dedicated modules for corridors, routes, capacities, arrival estimates, and warehouse flows.
+                    </p>
+
+                    <h2>How the Modules Work Together in Practice</h2>
+                    <p>
+                        For IT teams, this means a clean modular architecture with clear responsibilities and no sprawl of disconnected tools. For dispatchers, warehouse staff, and leadership, it means fewer phone calls, less searching for information, and a reliable picture of the day as it unfolds.
+                    </p>
+                    <ul>
+                        <li><strong>Transport Management System (TMS):</strong> Brings transport orders, delivery status, vehicles, and drivers together in one place so everyone works from the same picture.</li>
+                        <li><strong>Corridors, Routes, and Capacities:</strong> Recurring transport lanes, practical delivery sequences, and payload or volume limits can be balanced realistically—instead of sending vehicles out half empty or overloaded.</li>
+                        <li><strong>ETA Calculation and Deviations:</strong> Estimated arrival times and potential delays become visible early, giving teams time to respond before a minor delay becomes a bottleneck.</li>
+                        <li><strong>Warehouse and Process Flow:</strong> Goods receipt, loading, and warehouse zones align much more smoothly with transport scheduling.</li>
+                        <li><strong>Digital Twins:</strong> A digital representation of workflows and areas shows how changes in load, sequence, or resources will play out—before pressure builds on the floor.</li>
+                    </ul>
+
+                    <div class="highlight">
+                        <strong>💡 For Decision-Makers and IT:</strong> Nobody needs to overhaul an entire operation overnight. A solid modular platform supports existing workflows first and expands step by step right where time or visibility is currently being lost.
+                    </div>
+
+                    <h2>Step-by-Step Toward Smarter Automation</h2>
+                    <p>
+                        Not every organization wants full automation right away—and it does not need to. <strong>VezaionGen VI</strong> supports a calm, practical transition: first, the system provides clear visibility and concrete suggestions for routes, vehicles, or time windows while people stay in full control. Once rules and data are well established in daily work, recurring steps can gradually be automated further.
+                    </p>
+                    <p>
+                        The result is not abstract tech complexity, but a dependable tool that takes pressure off daily operations and grows naturally alongside the business.
+                    </p>
+                </div>
+
+                <div class="article-footer">
+                    <span class="article-author">
+                        <strong>Author:</strong> NJB CodeMasters<br>
+                        <em>Published in November 2026</em>
+                    </span>
+                    <a href="blog.html" class="back-link">← Back to Blog</a>
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="../js/i18n.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/performance.js" defer></script>
+    <script src="../js/footer.js" defer></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/navigation.js" defer></script>
+    <script src="../js/animations.js" defer></script>
+    <script src="../js/testimonials.js" defer></script>
+    <script src="../js/stats-counter.js" defer></script>
+    <script src="../js/hero-canvas.js" defer></script>
+    <script src="../js/main.js" defer></script>
+    <script src="../js/ai-assistant.js" defer></script>
+</body>
+</html>
