@@ -25,12 +25,15 @@
 
     <style>
         .article-container { max-width: 900px; margin: 0 auto; }
-        .back-link { display: inline-flex; align-items: center; gap: var(--space-md); color: var(--primary-color); text-decoration: none; font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4xl); transition: all 0.3s ease; }
-        .back-link:hover { transform: translateX(-4px); color: var(--secondary-color); }
         .top-back-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md); margin-bottom: var(--space-4xl); }
-        .top-back-nav > .back-link { margin-bottom: 0; }
-        .vezaion-back-link { display: inline-flex; align-items: center; gap: var(--space-xs); color: #e0f2fe; background: rgba(56, 189, 248, 0.18); border: 1px solid rgba(56, 189, 248, 0.55); padding: 0.45rem 0.95rem; border-radius: 999px; text-decoration: none; font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm); margin-bottom: 0; transition: all 0.25s ease; }
+        .back-link,
+        .vezaion-back-link { display: inline-flex; align-items: center; gap: var(--space-xs); padding: 0.45rem 0.95rem; border-radius: 999px; text-decoration: none; font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm); margin-bottom: 0; transition: all 0.25s ease; }
+        .back-link { color: #c7d2fe; background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(129, 140, 248, 0.48); }
+        .back-link:hover { color: #ffffff; background: rgba(99, 102, 241, 0.3); border-color: #a5b4fc; transform: translateX(-3px); }
+        .vezaion-back-link { color: #e0f2fe; background: rgba(56, 189, 248, 0.18); border: 1px solid rgba(56, 189, 248, 0.55); }
         .vezaion-back-link:hover { color: #ffffff; background: rgba(56, 189, 248, 0.3); border-color: #7dd3fc; transform: translateX(-3px); }
+        [data-theme="light"] .back-link { color: #3730a3; background: rgba(79, 70, 229, 0.1); border-color: rgba(79, 70, 229, 0.3); }
+        [data-theme="light"] .back-link:hover { color: #1e1b4b; background: rgba(79, 70, 229, 0.18); }
         [data-theme="light"] .vezaion-back-link { color: #0369a1; background: rgba(2, 132, 199, 0.12); border-color: rgba(2, 132, 199, 0.35); }
         [data-theme="light"] .vezaion-back-link:hover { color: #0c4a6e; background: rgba(2, 132, 199, 0.2); }
         .article-hero { background: linear-gradient(135deg, rgba(99, 102, 241, 0.85), rgba(14, 165, 233, 0.85)), linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: var(--radius-2xl); padding: var(--space-4xl); color: white; margin-bottom: var(--space-4xl); }
