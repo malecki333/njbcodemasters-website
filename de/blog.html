@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog - Praxisnahe Perspektiven zu Unternehmensführung, modularer Industrie-Software, Zero-Trust-Sicherheit und KI.">
+    <meta name="description" content="Blog - Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero-Trust-Sicherheit, Logistik und KI.">
     <title>Blog | NJB CodeMasters</title>
 
     <link rel="stylesheet" href="../css/reset.css">
@@ -138,16 +138,17 @@
             text-decoration: underline;
         }
 
-        /* Search & Filter */
-        .blog-search {
-            margin-bottom: var(--space-3xl);
+        /* Search & Dropdown Filter */
+        .blog-controls {
+            margin-bottom: var(--space-5xl);
             display: flex;
             gap: var(--space-lg);
             flex-wrap: wrap;
+            align-items: stretch;
         }
 
-        .blog-search input {
-            flex: 1;
+        .blog-controls input {
+            flex: 2;
             min-width: 250px;
             padding: var(--space-lg);
             background: var(--glass-bg);
@@ -157,33 +158,39 @@
             font-size: var(--font-size-base);
         }
 
-        .blog-search input::placeholder {
+        .blog-controls input::placeholder {
             color: var(--text-secondary);
         }
 
-        .blog-filters {
-            display: flex;
-            gap: var(--space-md);
-            flex-wrap: wrap;
-            margin-bottom: var(--space-5xl);
-        }
-
-        .filter-btn {
-            padding: var(--space-md) var(--space-lg);
+        .blog-controls select {
+            flex: 1;
+            min-width: 230px;
+            padding: var(--space-lg);
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-lg);
             color: var(--text-primary);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            font-size: var(--font-size-base);
             font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: border-color 0.3s ease;
         }
 
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--primary-color);
+        .blog-controls select:hover,
+        .blog-controls select:focus,
+        .blog-controls input:focus {
+            outline: none;
             border-color: var(--primary-color);
-            color: white;
+        }
+
+        .blog-controls select option {
+            background: #0f172a;
+            color: #f8fafc;
+        }
+
+        [data-theme="light"] .blog-controls select option {
+            background: #ffffff;
+            color: #0f172a;
         }
     </style>
 
@@ -196,11 +203,11 @@
     <meta property="og:locale" content="de_DE">
     <meta property="og:url" content="https://www.njbcodemasters.com/de/blog.html">
     <meta property="og:title" content="Blog | NJB CodeMasters">
-    <meta property="og:description" content="Praxisnahe Perspektiven zu Unternehmensführung, modularer Industrie-Software, Zero-Trust-Sicherheit und KI.">
+    <meta property="og:description" content="Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero-Trust-Sicherheit, Logistik und KI.">
     <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Blog | NJB CodeMasters">
-    <meta name="twitter:description" content="Praxisnahe Perspektiven zu Unternehmensführung, modularer Industrie-Software, Zero-Trust-Sicherheit und KI.">
+    <meta name="twitter:description" content="Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero-Trust-Sicherheit, Logistik und KI.">
     <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
 </head>
@@ -211,7 +218,7 @@
                 <a href="index.html" aria-label="Zur Startseite">
                     <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
                 </a>
-                <button class="nav__toggle" id="navToggle" type="button" aria-label="Navigation öffnen" aria-expanded="false">
+                <button class="nav__toggle" id="navToggle" type="button" aria-label="Navigation umschalten" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
             </div>
@@ -228,6 +235,14 @@
             </ul>
 
             <div class="nav__actions">
+                <div class="language-switcher">
+                    <label for="languageSelect">🌐</label>
+                    <select id="languageSelect" aria-label="Sprache wählen">
+                        <option value="de" selected>Deutsch</option>
+                        <option value="en">English</option>
+                        <option value="sr">Srpski</option>
+                    </select>
+                </div>
                 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme wechseln">
                     <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="4"></circle>
@@ -258,7 +273,7 @@
                         Unser <span class="text-gradient">Blog</span>
                     </h1>
                     <p class="page-hero__description">
-                        Praxisnahe Perspektiven zu Unternehmensführung, modularer Industrie-Software, Sicherheit und KI.
+                        Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero-Trust-Sicherheit, Logistik und KI.
                     </p>
                 </div>
             </div>
@@ -267,33 +282,33 @@
         <section class="section container">
             <div class="blog-hero">
                 <h2>Aktuelle Artikel</h2>
-                <p>Einblicke in den Aufbau von NJB CodeMasters und moderne industrielle Plattform-Architekturen</p>
+                <p>Gedanken aus der Praxis zum Aufbau von NJB CodeMasters und den Modulen von VezaionGen VI</p>
             </div>
 
-            <div class="blog-search">
+            <div class="blog-controls">
                 <input type="text" id="blogSearch" placeholder="Blog durchsuchen...">
-            </div>
-
-            <div class="blog-filters">
-                <button class="filter-btn active" data-filter="all">Alle</button>
-                <button class="filter-btn" data-filter="company">Unternehmen &amp; Gründung</button>
-                <button class="filter-btn" data-filter="platform">Plattform &amp; Industrie</button>
-                <button class="filter-btn" data-filter="security">Sicherheit</button>
-                <button class="filter-btn" data-filter="ai">KI &amp; Daten</button>
+                <select id="blogCategoryFilter" aria-label="Thema filtern">
+                    <option value="all" selected>Alle Themen</option>
+                    <option value="company">Unternehmen &amp; Gründung</option>
+                    <option value="platform">Plattform &amp; Industrie</option>
+                    <option value="logistics">Logistik &amp; TMS</option>
+                    <option value="security">Sicherheit</option>
+                    <option value="ai">KI &amp; Analytics</option>
+                </select>
             </div>
 
             <div class="blog-grid" id="blogGrid">
-                <!-- Article 1 -->
+                <!-- Artikel 1 -->
                 <article class="blog-card" data-category="company">
                     <div class="blog-card__header">🌉</div>
                     <div class="blog-card__content">
                         <div class="blog-card__meta">
                             <span>📅 November 2026</span>
-                            <span>⏱️ 6 min</span>
+                            <span>⏱️ 6 Min.</span>
                         </div>
                         <span class="blog-card__tag">Unternehmensführung &amp; Gründung</span>
                         <h3>Hürden als Brücken: Gründung und der Weg zu VezaionGen VI</h3>
-                        <p>Wie aus realen Produktionsanforderungen, Zeit- und Kostendruck sowie unternehmerischen Hürden ein modulares Industriesystem entstand.</p>
+                        <p>Wie reale Anforderungen aus der Fertigung, Zeit- und Kostendisziplin sowie alltägliche Hürden zu einer modularen Lösung geführt haben.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
                             <a href="blog-article-1.html" class="blog-card__link">Lesen →</a>
@@ -301,17 +316,17 @@
                     </div>
                 </article>
 
-                <!-- Article 2 -->
+                <!-- Artikel 2 -->
                 <article class="blog-card" data-category="platform">
                     <div class="blog-card__header">🧩</div>
                     <div class="blog-card__content">
                         <div class="blog-card__meta">
                             <span>📅 November 2026</span>
-                            <span>⏱️ 5 min</span>
+                            <span>⏱️ 5 Min.</span>
                         </div>
                         <span class="blog-card__tag">Plattform-Architektur</span>
                         <h3>Warum modulare Software-Plattformen die Zukunft der Industrie sind</h3>
-                        <p>Warum starre Monolithen und isolierte Insellösungen den Betrieb ausbremsen und modulare Systeme langfristige Handlungsfähigkeit sichern.</p>
+                        <p>Weshalb starre Systeme und Insellösungen den Betrieb ausbremsen und modulare Strukturen langfristig handlungsfähig halten.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
                             <a href="blog-article-2.html" class="blog-card__link">Lesen →</a>
@@ -319,17 +334,17 @@
                     </div>
                 </article>
 
-                <!-- Article 3 -->
+                <!-- Artikel 3 -->
                 <article class="blog-card" data-category="security">
                     <div class="blog-card__header">🛡️</div>
                     <div class="blog-card__content">
                         <div class="blog-card__meta">
                             <span>📅 November 2026</span>
-                            <span>⏱️ 5 min</span>
+                            <span>⏱️ 5 Min.</span>
                         </div>
                         <span class="blog-card__tag">Sicherheit &amp; Vertrauen</span>
                         <h3>Zero-Trust-Sicherheit in industriellen Architekturen</h3>
-                        <p>Klare Prinzipien für Entscheider: Wie gezielte Zugriffskontrolle und saubere Grenzen kritische Produktionsabläufe schützen.</p>
+                        <p>Klare Prinzipien für Entscheider: Wie saubere Zugriffsgrenzen und Nachvollziehbarkeit den laufenden Betrieb schützen.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
                             <a href="blog-article-3.html" class="blog-card__link">Lesen →</a>
@@ -337,20 +352,56 @@
                     </div>
                 </article>
 
-                <!-- Article 4 -->
+                <!-- Artikel 4 -->
                 <article class="blog-card" data-category="ai">
                     <div class="blog-card__header">🤝</div>
                     <div class="blog-card__content">
                         <div class="blog-card__meta">
                             <span>📅 November 2026</span>
-                            <span>⏱️ 6 min</span>
+                            <span>⏱️ 6 Min.</span>
                         </div>
-                        <span class="blog-card__tag">KI &amp; Kollaboration</span>
+                        <span class="blog-card__tag">KI &amp; Zusammenarbeit</span>
                         <h3>KI-Agenten &amp; Federated Learning: Gemeinsam wachsen ohne Datenpreisgabe</h3>
-                        <p>Wie Unternehmen von gemeinsamen Erkenntnissen und intelligenten Assistenten profitieren, ohne sensible Betriebsdaten aus der Hand zu geben.</p>
+                        <p>Wie Unternehmen von geteilten Erkenntnissen und intelligenter Unterstützung profitieren, ohne sensible Betriebsdaten preiszugeben.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
                             <a href="blog-article-4.html" class="blog-card__link">Lesen →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Artikel 5 -->
+                <article class="blog-card" data-category="logistics">
+                    <div class="blog-card__header">🚚</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 November 2026</span>
+                            <span>⏱️ 6 Min.</span>
+                        </div>
+                        <span class="blog-card__tag">Logistik &amp; Module</span>
+                        <h3>TMS, Logistik und digitale Zwillinge in VezaionGen VI</h3>
+                        <p>Wie Transport Management System, Routen, Kapazitäten, Lagerfluss und schrittweise Automatisierung im Alltag zusammenwirken.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">von NJB CodeMasters</span>
+                            <a href="blog-article-5.html" class="blog-card__link">Lesen →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Artikel 6 -->
+                <article class="blog-card" data-category="ai">
+                    <div class="blog-card__header">📊</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 November 2026</span>
+                            <span>⏱️ 5 Min.</span>
+                        </div>
+                        <span class="blog-card__tag">Analytics &amp; Praxis</span>
+                        <h3>Industrial Analytics, Simulation und verlässliche Entscheidungen</h3>
+                        <p>Wie verständliche Kennzahlen, Frühwarnungen und geschützte Testläufe den Betrieb im Alltag sicherer machen.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">von NJB CodeMasters</span>
+                            <a href="blog-article-6.html" class="blog-card__link">Lesen →</a>
                         </div>
                     </div>
                 </article>
@@ -361,45 +412,34 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        const filterBtns = document.querySelectorAll('.filter-btn');
+        const categoryFilter = document.getElementById('blogCategoryFilter');
         const blogCards = document.querySelectorAll('.blog-card');
         const blogSearch = document.getElementById('blogSearch');
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+        function filterBlogPosts() {
+            const selectedCategory = categoryFilter.value;
+            const search = blogSearch.value.toLowerCase().trim();
 
-                const filter = btn.dataset.filter;
-                blogCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = '';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        blogSearch.addEventListener('input', (e) => {
-            const search = e.target.value.toLowerCase();
             blogCards.forEach(card => {
+                const matchesCategory = selectedCategory === 'all' || card.dataset.category === selectedCategory;
                 const title = card.querySelector('h3').textContent.toLowerCase();
                 const desc = card.querySelector('p').textContent.toLowerCase();
-                if (title.includes(search) || desc.includes(search)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
+                const tag = card.querySelector('.blog-card__tag').textContent.toLowerCase();
+                const matchesSearch = !search || title.includes(search) || desc.includes(search) || tag.includes(search);
+
+                card.style.display = (matchesCategory && matchesSearch) ? '' : 'none';
             });
-        });
+        }
+
+        categoryFilter.addEventListener('change', filterBlogPosts);
+        blogSearch.addEventListener('input', filterBlogPosts);
     </script>
     <script src="../js/i18n.js" defer></script>
     <script src="../js/language-switcher.js" defer></script>
     <script src="../js/performance.js" defer></script>
     <script src="../js/footer.js" defer></script>
     <script src="../js/theme.js"></script>
-    <script src="../js/navigation.js"></script>
+    <script src="../js/navigation.js" defer></script>
     <script src="../js/animations.js" defer></script>
     <script src="../js/testimonials.js" defer></script>
     <script src="../js/stats-counter.js" defer></script>
