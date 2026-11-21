@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Блог - Практичне перспективе о управљању, модуларном индустријском софтверу, безбедности и AI.">
+    <meta name="description" content="Блог - Практични погледи на руковођење, модуларни индустријски софтвер, Zero-Trust безбедност, логистику и вештачку интелигенцију.">
     <title>Блог | NJB CodeMasters</title>
 
     <link rel="stylesheet" href="../css/reset.css">
@@ -138,16 +138,17 @@
             text-decoration: underline;
         }
 
-        /* Search & Filter */
-        .blog-search {
-            margin-bottom: var(--space-3xl);
+        /* Search & Dropdown Filter */
+        .blog-controls {
+            margin-bottom: var(--space-5xl);
             display: flex;
             gap: var(--space-lg);
             flex-wrap: wrap;
+            align-items: stretch;
         }
 
-        .blog-search input {
-            flex: 1;
+        .blog-controls input {
+            flex: 2;
             min-width: 250px;
             padding: var(--space-lg);
             background: var(--glass-bg);
@@ -157,33 +158,39 @@
             font-size: var(--font-size-base);
         }
 
-        .blog-search input::placeholder {
+        .blog-controls input::placeholder {
             color: var(--text-secondary);
         }
 
-        .blog-filters {
-            display: flex;
-            gap: var(--space-md);
-            flex-wrap: wrap;
-            margin-bottom: var(--space-5xl);
-        }
-
-        .filter-btn {
-            padding: var(--space-md) var(--space-lg);
+        .blog-controls select {
+            flex: 1;
+            min-width: 230px;
+            padding: var(--space-lg);
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-lg);
             color: var(--text-primary);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            font-size: var(--font-size-base);
             font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: border-color 0.3s ease;
         }
 
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--primary-color);
+        .blog-controls select:hover,
+        .blog-controls select:focus,
+        .blog-controls input:focus {
+            outline: none;
             border-color: var(--primary-color);
-            color: white;
+        }
+
+        .blog-controls select option {
+            background: #0f172a;
+            color: #f8fafc;
+        }
+
+        [data-theme="light"] .blog-controls select option {
+            background: #ffffff;
+            color: #0f172a;
         }
     </style>
 
@@ -196,11 +203,11 @@
     <meta property="og:locale" content="sr_RS">
     <meta property="og:url" content="https://www.njbcodemasters.com/sr/blog.html">
     <meta property="og:title" content="Блог | NJB CodeMasters">
-    <meta property="og:description" content="Практичне перспективе о управљању, модуларном индустријском софтверу, безбедности и AI.">
+    <meta property="og:description" content="Практични погледи на руковођење, модуларни индустријски софтвер, Zero-Trust безбедност, логистику и вештачку интелигенцију.">
     <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Блог | NJB CodeMasters">
-    <meta name="twitter:description" content="Практичне перспективе о управљању, модуларном индустријском софтверу, безбедности и AI.">
+    <meta name="twitter:description" content="Практични погледи на руковођење, модуларни индустријски софтвер, Zero-Trust безбедност, логистику и вештачку интелигенцију.">
     <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
 </head>
@@ -208,10 +215,10 @@
     <header class="header" id="header">
         <nav class="nav container">
             <div class="nav__logo">
-                <a href="index.html" aria-label="На почетну страну">
+                <a href="index.html" aria-label="Почетна">
                     <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
                 </a>
-                <button class="nav__toggle" id="navToggle" type="button" aria-label="Отвори навигацију" aria-expanded="false">
+                <button class="nav__toggle" id="navToggle" type="button" aria-label="Пребаци навигацију" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
             </div>
@@ -222,12 +229,20 @@
                 <li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li>
                 <li class="nav__item"><a href="modules.html" class="nav__link">Модули</a></li>
                 <li class="nav__item"><a href="pilot-program.html" class="nav__link">Пилот програм</a></li>
-                <li class="nav__item"><a href="roadmap.html" class="nav__link">Мапа пута</a></li>
+                <li class="nav__item"><a href="roadmap.html" class="nav__link">План развоја</a></li>
                 <li class="nav__item"><a href="blog.html" class="nav__link active">Блог</a></li>
                 <li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li>
             </ul>
 
             <div class="nav__actions">
+                <div class="language-switcher">
+                    <label for="languageSelect">🌐</label>
+                    <select id="languageSelect" aria-label="Изабери језик">
+                        <option value="de">Deutsch</option>
+                        <option value="en">English</option>
+                        <option value="sr" selected>Српски</option>
+                    </select>
+                </div>
                 <button class="theme-toggle" id="themeToggle" type="button" aria-label="Промени тему">
                     <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="4"></circle>
@@ -258,7 +273,7 @@
                         Наш <span class="text-gradient">Блог</span>
                     </h1>
                     <p class="page-hero__description">
-                        Практичне перспективе о управљању, модуларном индустријском софтверу, безбедности и AI.
+                        Практични погледи на руковођење, модуларни индустријски софтвер, Zero-Trust безбедност, логистику и вештачку интелигенцију.
                     </p>
                 </div>
             </div>
@@ -266,24 +281,24 @@
 
         <section class="section container">
             <div class="blog-hero">
-                <h2>Актуелни чланци</h2>
-                <p>Увиди у развој NJB CodeMasters и савремене модуларне индустријске архитектуре</p>
+                <h2>Најновији чланци</h2>
+                <p>Практична искуства о развоју NJB CodeMasters и модулима система VezaionGen VI</p>
             </div>
 
-            <div class="blog-search">
-                <input type="text" id="blogSearch" placeholder="Претражите блог...">
-            </div>
-
-            <div class="blog-filters">
-                <button class="filter-btn active" data-filter="all">Све</button>
-                <button class="filter-btn" data-filter="company">Компанија и оснивање</button>
-                <button class="filter-btn" data-filter="platform">Платформа и индустрија</button>
-                <button class="filter-btn" data-filter="security">Безбедност</button>
-                <button class="filter-btn" data-filter="ai">AI и подаци</button>
+            <div class="blog-controls">
+                <input type="text" id="blogSearch" placeholder="Претражи блог...">
+                <select id="blogCategoryFilter" aria-label="Филтрирај по теми">
+                    <option value="all" selected>Све теме</option>
+                    <option value="company">Компанија и оснивање</option>
+                    <option value="platform">Платформа и индустрија</option>
+                    <option value="logistics">Логистика и TMS</option>
+                    <option value="security">Безбедност</option>
+                    <option value="ai">AI и аналитика</option>
+                </select>
             </div>
 
             <div class="blog-grid" id="blogGrid">
-                <!-- Article 1 -->
+                <!-- Чланак 1 -->
                 <article class="blog-card" data-category="company">
                     <div class="blog-card__header">🌉</div>
                     <div class="blog-card__content">
@@ -291,17 +306,17 @@
                             <span>📅 Новембар 2026</span>
                             <span>⏱️ 6 мин</span>
                         </div>
-                        <span class="blog-card__tag">Управљање и оснивање</span>
-                        <h3>Препреке као мостови: Оснивање и пут ка VezaionGen VI</h3>
-                        <p>Како су из реалних производних захтева, уштеде времена и трошкова и препрека настали модуларни систем.</p>
+                        <span class="blog-card__tag">Руковођење и оснивање</span>
+                        <h3>Препреке као мостови: оснивање и пут ка систему VezaionGen VI</h3>
+                        <p>Како су реални захтеви из производње, дисциплина времена и трошкова и свакодневне препреке обликовали модуларни систем.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">аутор: NJB CodeMasters</span>
-                            <a href="blog-article-1.html" class="blog-card__link">Прочитајте →</a>
+                            <a href="blog-article-1.html" class="blog-card__link">Читај →</a>
                         </div>
                     </div>
                 </article>
 
-                <!-- Article 2 -->
+                <!-- Чланак 2 -->
                 <article class="blog-card" data-category="platform">
                     <div class="blog-card__header">🧩</div>
                     <div class="blog-card__content">
@@ -311,15 +326,15 @@
                         </div>
                         <span class="blog-card__tag">Архитектура платформе</span>
                         <h3>Зашто су модуларне софтверске платформе будућност индустрије</h3>
-                        <p>Зашто крути системи и раздвојени алати успоравају рад, док модуларна архитектура чува флексибилност.</p>
+                        <p>Зашто крути системи и неповезани алати успоравају рад, док модуларна структура чува прилагодљивост на дужи рок.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">аутор: NJB CodeMasters</span>
-                            <a href="blog-article-2.html" class="blog-card__link">Прочитајте →</a>
+                            <a href="blog-article-2.html" class="blog-card__link">Читај →</a>
                         </div>
                     </div>
                 </article>
 
-                <!-- Article 3 -->
+                <!-- Чланак 3 -->
                 <article class="blog-card" data-category="security">
                     <div class="blog-card__header">🛡️</div>
                     <div class="blog-card__content">
@@ -329,15 +344,15 @@
                         </div>
                         <span class="blog-card__tag">Безбедност и поверење</span>
                         <h3>Zero-Trust безбедност у индустријским архитектурама</h3>
-                        <p>Јасна начела за доносиоце одлука: како циљана контрола и јасне границе штите рад у погону.</p>
+                        <p>Јасни принципи за доносиоце одлука: како ограничен приступ и јасна одговорност чувају континуитет рада.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">аутор: NJB CodeMasters</span>
-                            <a href="blog-article-3.html" class="blog-card__link">Прочитајте →</a>
+                            <a href="blog-article-3.html" class="blog-card__link">Читај →</a>
                         </div>
                     </div>
                 </article>
 
-                <!-- Article 4 -->
+                <!-- Чланак 4 -->
                 <article class="blog-card" data-category="ai">
                     <div class="blog-card__header">🤝</div>
                     <div class="blog-card__content">
@@ -346,11 +361,47 @@
                             <span>⏱️ 6 мин</span>
                         </div>
                         <span class="blog-card__tag">AI и сарадња</span>
-                        <h3>AI агенти и Federated Learning: Заједнички раст без предавања података</h3>
-                        <p>Како предузећа могу да расту уз заједничко учење без предавања осетљивих пословних података.</p>
+                        <h3>AI агенти и Federated Learning: заједнички раст без откривања података</h3>
+                        <p>Како фирме имају користи од заједничког учења и паметних асистената без излагања осетљивих података.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">аутор: NJB CodeMasters</span>
-                            <a href="blog-article-4.html" class="blog-card__link">Прочитајте →</a>
+                            <a href="blog-article-4.html" class="blog-card__link">Читај →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Чланак 5 -->
+                <article class="blog-card" data-category="logistics">
+                    <div class="blog-card__header">🚚</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 Новембар 2026</span>
+                            <span>⏱️ 6 мин</span>
+                        </div>
+                        <span class="blog-card__tag">Логистика и модули</span>
+                        <h3>TMS, логистика и дигитални близанци у VezaionGen VI</h3>
+                        <p>Како транспортни систем, руте, капацитети, складишни токови и постепена аутоматизација раде заједно у пракси.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">аутор: NJB CodeMasters</span>
+                            <a href="blog-article-5.html" class="blog-card__link">Читај →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Чланак 6 -->
+                <article class="blog-card" data-category="ai">
+                    <div class="blog-card__header">📊</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 Новембар 2026</span>
+                            <span>⏱️ 5 мин</span>
+                        </div>
+                        <span class="blog-card__tag">Аналитика и пракса</span>
+                        <h3>Индустријска аналитика, симулација и поуздане одлуке</h3>
+                        <p>Како јасни показатељи, рана упозорења и безбедне симулације чине свакодневно одлучивање сигурнијим.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">аутор: NJB CodeMasters</span>
+                            <a href="blog-article-6.html" class="blog-card__link">Читај →</a>
                         </div>
                     </div>
                 </article>
@@ -361,38 +412,27 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        const filterBtns = document.querySelectorAll('.filter-btn');
+        const categoryFilter = document.getElementById('blogCategoryFilter');
         const blogCards = document.querySelectorAll('.blog-card');
         const blogSearch = document.getElementById('blogSearch');
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+        function filterBlogPosts() {
+            const selectedCategory = categoryFilter.value;
+            const search = blogSearch.value.toLowerCase().trim();
 
-                const filter = btn.dataset.filter;
-                blogCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = '';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        blogSearch.addEventListener('input', (e) => {
-            const search = e.target.value.toLowerCase();
             blogCards.forEach(card => {
+                const matchesCategory = selectedCategory === 'all' || card.dataset.category === selectedCategory;
                 const title = card.querySelector('h3').textContent.toLowerCase();
                 const desc = card.querySelector('p').textContent.toLowerCase();
-                if (title.includes(search) || desc.includes(search)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
+                const tag = card.querySelector('.blog-card__tag').textContent.toLowerCase();
+                const matchesSearch = !search || title.includes(search) || desc.includes(search) || tag.includes(search);
+
+                card.style.display = (matchesCategory && matchesSearch) ? '' : 'none';
             });
-        });
+        }
+
+        categoryFilter.addEventListener('change', filterBlogPosts);
+        blogSearch.addEventListener('input', filterBlogPosts);
     </script>
     <script src="../js/i18n.js" defer></script>
     <script src="../js/language-switcher.js" defer></script>
