@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Блог - Савети, трикови и увиди о веб развоју и технологији">
+    <meta name="description" content="Блог - Практичне перспективе о управљању, модуларном индустријском софтверу, безбедности и AI.">
     <title>Блог | NJB CodeMasters</title>
-    
+
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/global.css">
@@ -16,12 +16,13 @@
     <link rel="stylesheet" href="../css/button-animations.css">
     <link rel="stylesheet" href="../css/i18n.css">
     <link rel="stylesheet" href="../css/performance.css">
-    
-        <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
+    <link rel="stylesheet" href="../css/platform-content.css">
+
+    <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    
+
     <style>
         .blog-hero {
             text-align: center;
@@ -195,43 +196,39 @@
     <meta property="og:locale" content="sr_RS">
     <meta property="og:url" content="https://www.njbcodemasters.com/sr/blog.html">
     <meta property="og:title" content="Блог | NJB CodeMasters">
-    <meta property="og:description" content="Блог - Савети, трикови и увиди о веб развоју и технологији">
+    <meta property="og:description" content="Практичне перспективе о управљању, модуларном индустријском софтверу, безбедности и AI.">
     <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Блог | NJB CodeMasters">
-    <meta name="twitter:description" content="Блог - Савети, трикови и увиди о веб развоју и технологији">
+    <meta name="twitter:description" content="Практичне перспективе о управљању, модуларном индустријском софтверу, безбедности и AI.">
     <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
-<link rel="stylesheet" href="../css/platform-content.css">
 </head>
 <body data-language="sr">
-    <!-- Header & Navigation -->
     <header class="header" id="header">
         <nav class="nav container">
             <div class="nav__logo">
                 <a href="index.html" aria-label="На почетну страну">
                     <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
                 </a>
-                
-                <!-- Menu Toggle Button -->
-                <button class="nav__toggle" id="navToggle" aria-label="Отвори навигацију" aria-expanded="false">
+                <button class="nav__toggle" id="navToggle" type="button" aria-label="Отвори навигацију" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
             </div>
 
             <ul class="nav__menu" id="navMenu">
                 <li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li>
-                <li class="nav__item"><a href="about.html" class="nav__link">О нама</a></li>
-                <li class="nav__item"><a href="services.html" class="nav__link">Услуге</a></li>
-                <li class="nav__item"><a href="pricing.html" class="nav__link">Цене</a></li>
-                <li class="nav__item"><a href="portfolio.html" class="nav__link">Портфолио</a></li>
+                <li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li>
+                <li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li>
+                <li class="nav__item"><a href="modules.html" class="nav__link">Модули</a></li>
+                <li class="nav__item"><a href="pilot-program.html" class="nav__link">Пилот програм</a></li>
+                <li class="nav__item"><a href="roadmap.html" class="nav__link">Мапа пута</a></li>
                 <li class="nav__item"><a href="blog.html" class="nav__link active">Блог</a></li>
                 <li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li>
             </ul>
 
             <div class="nav__actions">
-                <!-- Theme Toggle -->
-                <button class="theme-toggle" id="themeToggle" aria-label="Промени тему">
+                <button class="theme-toggle" id="themeToggle" type="button" aria-label="Промени тему">
                     <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="4"></circle>
                         <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
@@ -254,7 +251,6 @@
     </header>
 
     <main class="main">
-        <!-- Hero Section -->
         <section class="page-hero section">
             <div class="container">
                 <div class="page-hero__content fade-in-up">
@@ -262,151 +258,109 @@
                         Наш <span class="text-gradient">Блог</span>
                     </h1>
                     <p class="page-hero__description">
-                        Најновији увиди, савети и трендови из света технологије и веб развоја.
+                        Практичне перспективе о управљању, модуларном индустријском софтверу, безбедности и AI.
                     </p>
                 </div>
             </div>
         </section>
 
-        <!-- Blog Section -->
         <section class="section container">
             <div class="blog-hero">
-                <h2>Издвојени чланци</h2>
-                <p>Прочитајте наше најновије блог чланке о технологији, веб развоју и иновацијама</p>
+                <h2>Актуелни чланци</h2>
+                <p>Увиди у развој NJB CodeMasters и савремене модуларне индустријске архитектуре</p>
             </div>
 
-            <!-- Search & Filter -->
             <div class="blog-search">
                 <input type="text" id="blogSearch" placeholder="Претражите блог...">
             </div>
 
             <div class="blog-filters">
                 <button class="filter-btn active" data-filter="all">Све</button>
-                <button class="filter-btn" data-filter="web">Веб развој</button>
-                <button class="filter-btn" data-filter="design">Дизајн</button>
-                <button class="filter-btn" data-filter="trends">Трендови</button>
-                <button class="filter-btn" data-filter="tipps">Савети и трикови</button>
+                <button class="filter-btn" data-filter="company">Компанија и оснивање</button>
+                <button class="filter-btn" data-filter="platform">Платформа и индустрија</button>
+                <button class="filter-btn" data-filter="security">Безбедност</button>
+                <button class="filter-btn" data-filter="ai">AI и подаци</button>
             </div>
 
-            <!-- Blog Grid -->
             <div class="blog-grid" id="blogGrid">
                 <!-- Article 1 -->
-                <article class="blog-card" data-category="web">
-                    <div class="blog-card__header">🚀</div>
+                <article class="blog-card" data-category="company">
+                    <div class="blog-card__header">🌉</div>
                     <div class="blog-card__content">
                         <div class="blog-card__meta">
-                            <span>📅 9. децембар 2024</span>
-                            <span>⏱️ 5 мин</span>
+                            <span>📅 Новембар 2026</span>
+                            <span>⏱️ 6 мин</span>
                         </div>
-                        <span class="blog-card__tag">Веб развој</span>
-                        <h3>Будућност веб перформанси</h3>
-                        <p>Откријте најновије технике и добре праксе за оптимизацију веб перформанси 2025.</p>
+                        <span class="blog-card__tag">Управљање и оснивање</span>
+                        <h3>Препреке као мостови: Оснивање и пут ка VezaionGen VI</h3>
+                        <p>Како су из реалних производних захтева, уштеде времена и трошкова и препрека настали модуларни систем.</p>
                         <div class="blog-card__footer">
-                            <span class="blog-card__author">аутор: директор</span>
+                            <span class="blog-card__author">аутор: NJB CodeMasters</span>
                             <a href="blog-article-1.html" class="blog-card__link">Прочитајте →</a>
                         </div>
                     </div>
                 </article>
 
                 <!-- Article 2 -->
-                <article class="blog-card" data-category="design">
-                    <div class="blog-card__header">🎨</div>
+                <article class="blog-card" data-category="platform">
+                    <div class="blog-card__header">🧩</div>
                     <div class="blog-card__content">
                         <div class="blog-card__meta">
-                            <span>📅 8. децембар 2024</span>
-                            <span>⏱️ 7 мин</span>
+                            <span>📅 Новембар 2026</span>
+                            <span>⏱️ 5 мин</span>
                         </div>
-                        <span class="blog-card__tag">Дизајн</span>
-                        <h3>Гласморфизам: тренд или будућност?</h3>
-                        <p>Испитујемо тренд гласморфизма у дизајну и показујемо када и како да га ефикасно користите.</p>
+                        <span class="blog-card__tag">Архитектура платформе</span>
+                        <h3>Зашто су модуларне софтверске платформе будућност индустрије</h3>
+                        <p>Зашто крути системи и раздвојени алати успоравају рад, док модуларна архитектура чува флексибилност.</p>
                         <div class="blog-card__footer">
-                            <span class="blog-card__author">аутор: директор</span>
+                            <span class="blog-card__author">аутор: NJB CodeMasters</span>
                             <a href="blog-article-2.html" class="blog-card__link">Прочитајте →</a>
                         </div>
                     </div>
                 </article>
 
                 <!-- Article 3 -->
-                <article class="blog-card" data-category="trends">
-                    <div class="blog-card__header">📊</div>
+                <article class="blog-card" data-category="security">
+                    <div class="blog-card__header">🛡️</div>
                     <div class="blog-card__content">
                         <div class="blog-card__meta">
-                            <span>📅 7. децембар 2024</span>
-                            <span>⏱️ 6 мин</span>
+                            <span>📅 Новембар 2026</span>
+                            <span>⏱️ 5 мин</span>
                         </div>
-                        <span class="blog-card__tag">Трендови</span>
-                        <h3>Вештачка интелигенција у веб развоју</h3>
-                        <p>Како вештачка интелигенција унапређује развој веб апликација и отвара нове могућности.</p>
+                        <span class="blog-card__tag">Безбедност и поверење</span>
+                        <h3>Zero-Trust безбедност у индустријским архитектурама</h3>
+                        <p>Јасна начела за доносиоце одлука: како циљана контрола и јасне границе штите рад у погону.</p>
                         <div class="blog-card__footer">
-                            <span class="blog-card__author">аутор: директор</span>
+                            <span class="blog-card__author">аутор: NJB CodeMasters</span>
                             <a href="blog-article-3.html" class="blog-card__link">Прочитајте →</a>
                         </div>
                     </div>
                 </article>
 
                 <!-- Article 4 -->
-                <article class="blog-card" data-category="tipps">
-                    <div class="blog-card__header">💡</div>
+                <article class="blog-card" data-category="ai">
+                    <div class="blog-card__header">🤝</div>
                     <div class="blog-card__content">
                         <div class="blog-card__meta">
-                            <span>📅 6. децембар 2024</span>
-                            <span>⏱️ 4 мин</span>
-                        </div>
-                        <span class="blog-card__tag">Савети и трикови</span>
-                        <h3>CSS трикови које треба да познајете</h3>
-                        <p>Представљамо практичне CSS технике које штеде време и унапређују квалитет кода.</p>
-                        <div class="blog-card__footer">
-                            <span class="blog-card__author">аутор: директор</span>
-                            <a href="blog-article-4.html" class="blog-card__link">Прочитајте →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Article 5 -->
-                <article class="blog-card" data-category="web">
-                    <div class="blog-card__header">⚙️</div>
-                    <div class="blog-card__content">
-                        <div class="blog-card__meta">
-                            <span>📅 5. децембар 2024</span>
-                            <span>⏱️ 8 мин</span>
-                        </div>
-                        <span class="blog-card__tag">Веб развој</span>
-                        <h3>Скалабилна серверска архитектура</h3>
-                        <p>Упознајте микросервисе, програмске интерфејсе и инфраструктуру у облаку за скалабилне системе.</p>
-                        <div class="blog-card__footer">
-                            <span class="blog-card__author">аутор: директор</span>
-                            <a href="blog-article-5.html" class="blog-card__link">Прочитајте →</a>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Article 6 -->
-                <article class="blog-card" data-category="design">
-                    <div class="blog-card__header">🎯</div>
-                    <div class="blog-card__content">
-                        <div class="blog-card__meta">
-                            <span>📅 4. децембар 2024</span>
+                            <span>📅 Новембар 2026</span>
                             <span>⏱️ 6 мин</span>
                         </div>
-                        <span class="blog-card__tag">Дизајн</span>
-                        <h3>UX психологија у веб дизајну</h3>
-                        <p>Упознајте психолошке принципе који доприносе бољем корисничком искуству и већој стопи конверзије.</p>
+                        <span class="blog-card__tag">AI и сарадња</span>
+                        <h3>AI агенти и Federated Learning: Заједнички раст без предавања података</h3>
+                        <p>Како предузећа могу да расту уз заједничко учење без предавања осетљивих пословних података.</p>
                         <div class="blog-card__footer">
-                            <span class="blog-card__author">аутор: директор</span>
-                            <a href="blog-article-6.html" class="blog-card__link">Прочитајте →</a>
+                            <span class="blog-card__author">аутор: NJB CodeMasters</span>
+                            <a href="blog-article-4.html" class="blog-card__link">Прочитајте →</a>
                         </div>
                     </div>
                 </article>
             </div>
         </section>
-
     </main>
 
-    <!-- Footer wird automatisch geladen -->
     <div id="footer-placeholder"></div>
 
     <script>
-        // Blog Filter
         const filterBtns = document.querySelectorAll('.filter-btn');
         const blogCards = document.querySelectorAll('.blog-card');
         const blogSearch = document.getElementById('blogSearch');
@@ -415,7 +369,7 @@
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
-                
+
                 const filter = btn.dataset.filter;
                 blogCards.forEach(card => {
                     if (filter === 'all' || card.dataset.category === filter) {
