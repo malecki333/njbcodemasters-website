@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Како AI агенти и Federated Learning омогућавају заједничко учење и раст без предавања осетљивих пословних података.">
-    <title>AI агенти и Federated Learning: Заједнички раст без предавања података | Блог | NJB CodeMasters</title>
+    <meta name="description" content="Како AI агенти и Federated Learning омогућавају заједничко учење и раст без одавања осетљивих пословних података.">
+    <title>AI агенти и Federated Learning: Заједнички раст без одавања података | Блог | NJB CodeMasters</title>
 
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/variables.css">
@@ -25,8 +25,17 @@
 
     <style>
         .article-container { max-width: 900px; margin: 0 auto; }
-        .back-link { display: inline-flex; align-items: center; gap: var(--space-md); color: var(--primary-color); text-decoration: none; font-weight: var(--font-weight-semibold); margin-bottom: var(--space-4xl); transition: all 0.3s ease; }
-        .back-link:hover { transform: translateX(-4px); color: var(--secondary-color); }
+        .top-back-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md); margin-bottom: var(--space-4xl); }
+        .back-link,
+        .vezaion-back-link { display: inline-flex; align-items: center; gap: var(--space-xs); padding: 0.45rem 0.95rem; border-radius: 999px; text-decoration: none; font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm); margin-bottom: 0; transition: all 0.25s ease; }
+        .back-link { color: #c7d2fe; background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(129, 140, 248, 0.48); }
+        .back-link:hover { color: #ffffff; background: rgba(99, 102, 241, 0.3); border-color: #a5b4fc; transform: translateX(-3px); }
+        .vezaion-back-link { color: #e0f2fe; background: rgba(56, 189, 248, 0.18); border: 1px solid rgba(56, 189, 248, 0.55); }
+        .vezaion-back-link:hover { color: #ffffff; background: rgba(56, 189, 248, 0.3); border-color: #7dd3fc; transform: translateX(-3px); }
+        [data-theme="light"] .back-link { color: #3730a3; background: rgba(79, 70, 229, 0.1); border-color: rgba(79, 70, 229, 0.3); }
+        [data-theme="light"] .back-link:hover { color: #1e1b4b; background: rgba(79, 70, 229, 0.18); }
+        [data-theme="light"] .vezaion-back-link { color: #0369a1; background: rgba(2, 132, 199, 0.12); border-color: rgba(2, 132, 199, 0.35); }
+        [data-theme="light"] .vezaion-back-link:hover { color: #0c4a6e; background: rgba(2, 132, 199, 0.2); }
         .article-hero { background: linear-gradient(135deg, rgba(99, 102, 241, 0.85), rgba(14, 165, 233, 0.85)), linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: var(--radius-2xl); padding: var(--space-4xl); color: white; margin-bottom: var(--space-4xl); }
         [data-theme="light"] .article-hero h1, [data-theme="light"] .article-hero, [data-theme="light"] .article-hero p, [data-theme="light"] .article-meta, [data-theme="light"] .article-tag { color: white !important; }
         .article-hero h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: var(--space-2xl); line-height: 1.2; }
@@ -58,12 +67,12 @@
     <meta property="og:type" content="article">
     <meta property="og:locale" content="sr_RS">
     <meta property="og:url" content="https://www.njbcodemasters.com/sr/blog-article-4.html">
-    <meta property="og:title" content="AI агенти и Federated Learning: Заједнички раст без предавања података | NJB CodeMasters">
-    <meta property="og:description" content="Како AI агенти и Federated Learning омогућавају заједничко учење без предавања података.">
+    <meta property="og:title" content="AI агенти и Federated Learning: Заједнички раст без одавања података | NJB CodeMasters">
+    <meta property="og:description" content="Како AI агенти и Federated Learning омогућавају заједничко учење без одавања података.">
     <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI агенти и Federated Learning: Заједнички раст без предавања података | NJB CodeMasters">
-    <meta name="twitter:description" content="Како AI агенти и Federated Learning омогућавају заједничко учење без предавања података.">
+    <meta name="twitter:title" content="AI агенти и Federated Learning: Заједнички раст без одавања података | NJB CodeMasters">
+    <meta name="twitter:description" content="Како AI агенти и Federated Learning омогућавају заједничко учење без одавања података.">
     <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
 </head>
@@ -128,7 +137,7 @@
 
             <article>
                 <div class="article-hero">
-                    <h1>AI агенти и Federated Learning: Заједнички раст без предавања података</h1>
+                    <h1>AI агенти и Federated Learning: Заједнички раст без одавања података</h1>
                     <div class="article-meta">
                         <span>📅 Новембар 2026</span>
                         <span>⏱️ 6 мин читања</span>
@@ -143,7 +152,7 @@
                         Многа предузећа знају да се кроз праћење образаца и раније откривање одступања могу унапредити рад и доносити сигурније одлуке. Ипак, чим се појави захтев да се осетљиви производни, комерцијални или оперативни подаци шаљу споља или спајају на једном централном месту, опрез је потпуно оправдан.
                     </p>
                     <p>
-                        Ниједно предузеће не жели да преда сопствено знање, марже или поверљиве податке из погона само да би дошло до корисних увида.
+                        Ниједно предузеће не жели да ода сопствено знање, марже или поверљиве податке из погона само да би дошло до корисних увида.
                     </p>
 
                     <h2>Како заједно раде AI агенти и Federated Learning</h2>
@@ -161,7 +170,7 @@
                     </ul>
 
                     <div class="highlight">
-                        <strong>💡 За доносиоце одлука:</strong> Предност не долази од предавања осетљивих података, већ од паметног учења унутар јасних граница поверења.
+                        <strong>💡 За доносиоце одлука:</strong> Предност не долази од одавања осетљивих података, већ од паметног учења унутар јасних граница поверења.
                     </div>
 
                     <h2>Закључак серијала</h2>
@@ -196,41 +205,64 @@
     <script src="../js/main.js" defer></script>
     <script src="../js/ai-assistant.js" defer></script>
     <script>
-document.addEventListener('DOMContentLoaded', () => {
-    const params = new URLSearchParams(window.location.search);
-    const cameFromProduct = params.get('from') === 'vezaiongen' || /vezaiongen-vi\.html/i.test(document.referrer || '');
-    const footer = document.querySelector('.article-footer');
-    if (!cameFromProduct || !footer) return;
-
-    const lang = document.documentElement.lang || 'de';
-    const labels = {
-        de: '← Zurück zu VezaionGen VI',
-        en: '← Back to VezaionGen VI',
-        sr: '← Назад на VezaionGen VI'
-    };
-
-    const wrap = document.createElement('div');
-    wrap.style.display = 'flex';
-    wrap.style.gap = 'var(--space-xl)';
-    wrap.style.flexWrap = 'wrap';
-    wrap.style.alignItems = 'center';
-
-    const existingBack = footer.querySelector('.back-link');
-    const productLink = document.createElement('a');
-    productLink.href = 'vezaiongen-vi.html';
-    productLink.className = 'back-link';
-    productLink.style.marginBottom = '0';
-    productLink.textContent = labels[lang] || labels.de;
-
-    if (existingBack) {
-        existingBack.style.marginBottom = '0';
-        existingBack.parentNode.insertBefore(wrap, existingBack);
-        wrap.appendChild(productLink);
-        wrap.appendChild(existingBack);
-    } else {
-        footer.appendChild(productLink);
+(function () {
+    function createProductBackLink(lang) {
+        const labels = {
+            de: '← Zurück zu VezaionGen VI',
+            en: '← Back to VezaionGen VI',
+            sr: '← Назад на VezaionGen VI'
+        };
+        const link = document.createElement('a');
+        link.href = 'vezaiongen-vi.html';
+        link.className = 'vezaion-back-link';
+        link.textContent = labels[lang] || labels.de;
+        return link;
     }
-});
+
+    function initVezaionBackLinks() {
+        const params = new URLSearchParams(window.location.search);
+        const cameFromProduct =
+            params.get('from') === 'vezaiongen' ||
+            /vezaiongen-vi\.html/i.test(document.referrer || '');
+        if (!cameFromProduct) return;
+
+        const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'de';
+
+        const articleContainer = document.querySelector('.article-container');
+        const topBackLink = articleContainer ? articleContainer.querySelector(':scope > .back-link') : null;
+        if (topBackLink && !articleContainer.querySelector('.top-back-nav')) {
+            const topNav = document.createElement('div');
+            topNav.className = 'top-back-nav';
+            topBackLink.parentNode.insertBefore(topNav, topBackLink);
+            topNav.appendChild(topBackLink);
+            topNav.appendChild(createProductBackLink(lang));
+        }
+
+        const footer = document.querySelector('.article-footer');
+        if (footer && !footer.querySelector('.vezaion-back-link')) {
+            const footerBackLink = footer.querySelector('.back-link');
+            const productLinkBottom = createProductBackLink(lang);
+            if (footerBackLink) {
+                const wrap = document.createElement('div');
+                wrap.style.display = 'flex';
+                wrap.style.gap = 'var(--space-md)';
+                wrap.style.flexWrap = 'wrap';
+                wrap.style.alignItems = 'center';
+                footerBackLink.parentNode.insertBefore(wrap, footerBackLink);
+                wrap.appendChild(productLinkBottom);
+                wrap.appendChild(footerBackLink);
+            } else {
+                footer.appendChild(productLinkBottom);
+            }
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initVezaionBackLinks);
+    } else {
+        initVezaionBackLinks();
+    }
+})();
 </script>
 </body>
 </html>
