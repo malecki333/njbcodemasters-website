@@ -189,5 +189,42 @@
     <script src="../js/hero-canvas.js" defer></script>
     <script src="../js/main.js" defer></script>
     <script src="../js/ai-assistant.js" defer></script>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const params = new URLSearchParams(window.location.search);
+    const cameFromProduct = params.get('from') === 'vezaiongen' || /vezaiongen-vi\.html/i.test(document.referrer || '');
+    const footer = document.querySelector('.article-footer');
+    if (!cameFromProduct || !footer) return;
+
+    const lang = document.documentElement.lang || 'de';
+    const labels = {
+        de: '← Zurück zu VezaionGen VI',
+        en: '← Back to VezaionGen VI',
+        sr: '← Назад на VezaionGen VI'
+    };
+
+    const wrap = document.createElement('div');
+    wrap.style.display = 'flex';
+    wrap.style.gap = 'var(--space-xl)';
+    wrap.style.flexWrap = 'wrap';
+    wrap.style.alignItems = 'center';
+
+    const existingBack = footer.querySelector('.back-link');
+    const productLink = document.createElement('a');
+    productLink.href = 'vezaiongen-vi.html';
+    productLink.className = 'back-link';
+    productLink.style.marginBottom = '0';
+    productLink.textContent = labels[lang] || labels.de;
+
+    if (existingBack) {
+        existingBack.style.marginBottom = '0';
+        existingBack.parentNode.insertBefore(wrap, existingBack);
+        wrap.appendChild(productLink);
+        wrap.appendChild(existingBack);
+    } else {
+        footer.appendChild(productLink);
+    }
+});
+</script>
 </body>
 </html>
