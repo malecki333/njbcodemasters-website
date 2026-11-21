@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog - Practical perspectives on leadership, modular industrial software, Zero-Trust security, and AI.">
+    <meta name="description" content="Blog - Practical insights into leadership, modular industrial software, Zero-Trust security, logistics, and AI.">
     <title>Blog | NJB CodeMasters</title>
 
     <link rel="stylesheet" href="../css/reset.css">
@@ -138,16 +138,17 @@
             text-decoration: underline;
         }
 
-        /* Search & Filter */
-        .blog-search {
-            margin-bottom: var(--space-3xl);
+        /* Search & Dropdown Filter */
+        .blog-controls {
+            margin-bottom: var(--space-5xl);
             display: flex;
             gap: var(--space-lg);
             flex-wrap: wrap;
+            align-items: stretch;
         }
 
-        .blog-search input {
-            flex: 1;
+        .blog-controls input {
+            flex: 2;
             min-width: 250px;
             padding: var(--space-lg);
             background: var(--glass-bg);
@@ -157,33 +158,39 @@
             font-size: var(--font-size-base);
         }
 
-        .blog-search input::placeholder {
+        .blog-controls input::placeholder {
             color: var(--text-secondary);
         }
 
-        .blog-filters {
-            display: flex;
-            gap: var(--space-md);
-            flex-wrap: wrap;
-            margin-bottom: var(--space-5xl);
-        }
-
-        .filter-btn {
-            padding: var(--space-md) var(--space-lg);
+        .blog-controls select {
+            flex: 1;
+            min-width: 230px;
+            padding: var(--space-lg);
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-lg);
             color: var(--text-primary);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            font-size: var(--font-size-base);
             font-weight: var(--font-weight-semibold);
+            cursor: pointer;
+            transition: border-color 0.3s ease;
         }
 
-        .filter-btn:hover,
-        .filter-btn.active {
-            background: var(--primary-color);
+        .blog-controls select:hover,
+        .blog-controls select:focus,
+        .blog-controls input:focus {
+            outline: none;
             border-color: var(--primary-color);
-            color: white;
+        }
+
+        .blog-controls select option {
+            background: #0f172a;
+            color: #f8fafc;
+        }
+
+        [data-theme="light"] .blog-controls select option {
+            background: #ffffff;
+            color: #0f172a;
         }
     </style>
 
@@ -196,11 +203,11 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://www.njbcodemasters.com/en/blog.html">
     <meta property="og:title" content="Blog | NJB CodeMasters">
-    <meta property="og:description" content="Practical perspectives on leadership, modular industrial software, Zero-Trust security, and AI.">
+    <meta property="og:description" content="Practical insights into leadership, modular industrial software, Zero-Trust security, logistics, and AI.">
     <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Blog | NJB CodeMasters">
-    <meta name="twitter:description" content="Practical perspectives on leadership, modular industrial software, Zero-Trust security, and AI.">
+    <meta name="twitter:description" content="Practical insights into leadership, modular industrial software, Zero-Trust security, logistics, and AI.">
     <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
 </head>
@@ -208,7 +215,7 @@
     <header class="header" id="header">
         <nav class="nav container">
             <div class="nav__logo">
-                <a href="index.html" aria-label="Home">
+                <a href="index.html" aria-label="Go to homepage">
                     <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
                 </a>
                 <button class="nav__toggle" id="navToggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
@@ -230,7 +237,7 @@
             <div class="nav__actions">
                 <div class="language-switcher">
                     <label for="languageSelect">🌐</label>
-                    <select id="languageSelect" aria-label="Choose language">
+                    <select id="languageSelect" aria-label="Select language">
                         <option value="de">Deutsch</option>
                         <option value="en" selected>English</option>
                         <option value="sr">Srpski</option>
@@ -266,7 +273,7 @@
                         Our <span class="text-gradient">Blog</span>
                     </h1>
                     <p class="page-hero__description">
-                        Practical perspectives on leadership, modular industrial software, Zero-Trust security, and AI.
+                        Practical insights into leadership, modular industrial software, Zero-Trust security, logistics, and AI.
                     </p>
                 </div>
             </div>
@@ -275,19 +282,19 @@
         <section class="section container">
             <div class="blog-hero">
                 <h2>Latest Articles</h2>
-                <p>Insights into building NJB CodeMasters and modern modular industrial architectures</p>
+                <p>Real-world thoughts on building NJB CodeMasters and the modules of VezaionGen VI</p>
             </div>
 
-            <div class="blog-search">
-                <input type="text" id="blogSearch" placeholder="Search the blog...">
-            </div>
-
-            <div class="blog-filters">
-                <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="company">Company &amp; Founding</button>
-                <button class="filter-btn" data-filter="platform">Platform &amp; Industry</button>
-                <button class="filter-btn" data-filter="security">Security</button>
-                <button class="filter-btn" data-filter="ai">AI &amp; Data</button>
+            <div class="blog-controls">
+                <input type="text" id="blogSearch" placeholder="Search blog...">
+                <select id="blogCategoryFilter" aria-label="Filter by topic">
+                    <option value="all" selected>All Topics</option>
+                    <option value="company">Company &amp; Founding</option>
+                    <option value="platform">Platform &amp; Industry</option>
+                    <option value="logistics">Logistics &amp; TMS</option>
+                    <option value="security">Security</option>
+                    <option value="ai">AI &amp; Analytics</option>
+                </select>
             </div>
 
             <div class="blog-grid" id="blogGrid">
@@ -301,7 +308,7 @@
                         </div>
                         <span class="blog-card__tag">Leadership &amp; Founding</span>
                         <h3>Hurdles as Bridges: Founding and the Path to VezaionGen VI</h3>
-                        <p>How real production needs, time and cost discipline, and everyday hurdles shaped a modular industrial system.</p>
+                        <p>How real manufacturing demands, time and cost discipline, and everyday hurdles shaped a modular solution.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">by NJB CodeMasters</span>
                             <a href="blog-article-1.html" class="blog-card__link">Read →</a>
@@ -319,7 +326,7 @@
                         </div>
                         <span class="blog-card__tag">Platform Architecture</span>
                         <h3>Why Modular Software Platforms Are the Future of Industry</h3>
-                        <p>Why rigid systems and isolated tools slow operations down while modular architecture keeps adaptability intact.</p>
+                        <p>Why rigid systems and disconnected tools slow operations down, while modular structures keep companies adaptable long term.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">by NJB CodeMasters</span>
                             <a href="blog-article-2.html" class="blog-card__link">Read →</a>
@@ -337,7 +344,7 @@
                         </div>
                         <span class="blog-card__tag">Security &amp; Trust</span>
                         <h3>Zero-Trust Security in Industrial Architectures</h3>
-                        <p>Clear principles for decision-makers: how scoped access and firm guardrails protect critical operations.</p>
+                        <p>Clear principles for decision-makers: how clean access boundaries and accountability protect ongoing operations.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">by NJB CodeMasters</span>
                             <a href="blog-article-3.html" class="blog-card__link">Read →</a>
@@ -355,10 +362,46 @@
                         </div>
                         <span class="blog-card__tag">AI &amp; Collaboration</span>
                         <h3>AI Agents &amp; Federated Learning: Growing Together Without Exposing Data</h3>
-                        <p>How organizations benefit from shared learning and intelligent assistants without exposing sensitive data.</p>
+                        <p>How companies benefit from shared insights and intelligent assistance without exposing sensitive operational data.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">by NJB CodeMasters</span>
                             <a href="blog-article-4.html" class="blog-card__link">Read →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 5 -->
+                <article class="blog-card" data-category="logistics">
+                    <div class="blog-card__header">🚚</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 November 2026</span>
+                            <span>⏱️ 6 min</span>
+                        </div>
+                        <span class="blog-card__tag">Logistics &amp; Modules</span>
+                        <h3>TMS, Logistics, and Digital Twins in VezaionGen VI</h3>
+                        <p>How the Transport Management System, routes, capacities, warehouse flows, and step-by-step automation work together in practice.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">by NJB CodeMasters</span>
+                            <a href="blog-article-5.html" class="blog-card__link">Read →</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 6 -->
+                <article class="blog-card" data-category="ai">
+                    <div class="blog-card__header">📊</div>
+                    <div class="blog-card__content">
+                        <div class="blog-card__meta">
+                            <span>📅 November 2026</span>
+                            <span>⏱️ 5 min</span>
+                        </div>
+                        <span class="blog-card__tag">Analytics &amp; Practice</span>
+                        <h3>Industrial Analytics, Simulation, and Reliable Decisions</h3>
+                        <p>How clear metrics, early warnings, and safe simulation runs make everyday operational decisions more dependable.</p>
+                        <div class="blog-card__footer">
+                            <span class="blog-card__author">by NJB CodeMasters</span>
+                            <a href="blog-article-6.html" class="blog-card__link">Read →</a>
                         </div>
                     </div>
                 </article>
@@ -369,38 +412,27 @@
     <div id="footer-placeholder"></div>
 
     <script>
-        const filterBtns = document.querySelectorAll('.filter-btn');
+        const categoryFilter = document.getElementById('blogCategoryFilter');
         const blogCards = document.querySelectorAll('.blog-card');
         const blogSearch = document.getElementById('blogSearch');
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
+        function filterBlogPosts() {
+            const selectedCategory = categoryFilter.value;
+            const search = blogSearch.value.toLowerCase().trim();
 
-                const filter = btn.dataset.filter;
-                blogCards.forEach(card => {
-                    if (filter === 'all' || card.dataset.category === filter) {
-                        card.style.display = '';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        blogSearch.addEventListener('input', (e) => {
-            const search = e.target.value.toLowerCase();
             blogCards.forEach(card => {
+                const matchesCategory = selectedCategory === 'all' || card.dataset.category === selectedCategory;
                 const title = card.querySelector('h3').textContent.toLowerCase();
                 const desc = card.querySelector('p').textContent.toLowerCase();
-                if (title.includes(search) || desc.includes(search)) {
-                    card.style.display = '';
-                } else {
-                    card.style.display = 'none';
-                }
+                const tag = card.querySelector('.blog-card__tag').textContent.toLowerCase();
+                const matchesSearch = !search || title.includes(search) || desc.includes(search) || tag.includes(search);
+
+                card.style.display = (matchesCategory && matchesSearch) ? '' : 'none';
             });
-        });
+        }
+
+        categoryFilter.addEventListener('change', filterBlogPosts);
+        blogSearch.addEventListener('input', filterBlogPosts);
     </script>
     <script src="../js/i18n.js" defer></script>
     <script src="../js/language-switcher.js" defer></script>
