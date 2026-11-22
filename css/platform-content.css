@@ -1056,3 +1056,8 @@
         min-height: 210px;
     }
 }
+
+.article-container > .back-link,
+.article-container .top-back-nav {
+    margin-bottom: var(--space-4xl);
+}
