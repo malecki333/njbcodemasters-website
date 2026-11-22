@@ -141,23 +141,32 @@
             box-shadow: 0 14px 28px rgba(99, 102, 241, 0.15) !important;
         }
 
-        .portfolio-field__badge {
-            display: inline-flex;
+        /* Überschrifts-Badge direkt über der Karte-Überschrift innerhalb der Karte */
+        .main .section .pricing-card .badge,
+        .main .section .portfolio-card .badge {
+            position: static !important;
+            top: auto !important;
+            left: auto !important;
+            right: auto !important;
+            transform: none !important;
+            display: inline-flex !important;
             align-items: center;
             justify-content: center;
-            background: #7c85ff;
-            color: #ffffff;
-            padding: 0.32rem 0.8rem;
+            background: #7c85ff !important;
+            color: #ffffff !important;
+            padding: 0.34rem 0.85rem;
             border-radius: 999px;
             font-size: 0.72rem;
             font-weight: 700;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.05em;
             text-transform: uppercase;
-            margin-bottom: 1rem;
+            margin: 0 auto 0.9rem !important;
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.32);
         }
 
         .main .section .pricing-card h3 {
             font-size: var(--font-size-xl);
+            margin-top: 0;
             margin-bottom: 0.75rem;
             text-align: center;
             width: 100%;
@@ -199,7 +208,7 @@
 
             .main .section .pricing-card,
             .main .section .portfolio-card {
-                padding: 1.6rem var(--space-lg) !important;
+                padding: 1.75rem var(--space-lg) !important;
             }
 
             .main .section .pricing-card:hover,
@@ -300,25 +309,25 @@
                 <h2>Entwicklungsfelder</h2>
                 <div class="values-grid">
                     <article class="pricing-card">
-                        <span class="portfolio-field__badge">Plattform</span>
+                        <span class="badge">PLATTFORM</span>
                         <h3><span class="nowrap">VezaionGen VI</span></h3>
                         <p>Unsere industrielle Plattforminitiative für verbundene Funktionen in Produktion, Qualität, Instandhaltung, Energie, Robotik und Logistik.</p>
                     </article>
 
                     <article class="pricing-card">
-                        <span class="portfolio-field__badge">Daten &amp; Einblicke</span>
+                        <span class="badge">DATEN &amp; ANALYTICS</span>
                         <h3>Industrielle Daten &amp; Analytics</h3>
                         <p>Datenmodelle, operative Dashboards und Digital-Twin-Ansätze für einen gemeinsamen Blick auf betriebliche Informationen.</p>
                     </article>
 
                     <article class="pricing-card">
-                        <span class="portfolio-field__badge">Systeme</span>
+                        <span class="badge">ENTERPRISE &amp; INTEGRATION</span>
                         <h3>Enterprise Software &amp; Integration</h3>
                         <p>Softwareentwicklung und Schnittstellen, die sich an Nutzern, Anforderungen und vorhandenen Systemlandschaften orientieren.</p>
                     </article>
 
                     <article class="pricing-card">
-                        <span class="portfolio-field__badge">Anwendungen</span>
+                        <span class="badge">WEB &amp; MOBILE</span>
                         <h3>Web- &amp; Mobile-Produkte</h3>
                         <p>Digitale Anwendungen und Benutzeroberflächen für konkrete Produkt- und Geschäftsanforderungen.</p>
                     </article>
