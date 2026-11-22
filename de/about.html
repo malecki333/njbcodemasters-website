@@ -36,10 +36,10 @@ body {
 }
 .main .section:first-of-type {
     padding-top: 5.75rem;
-    padding-bottom: 2.25rem;
+    padding-bottom: 2rem;
 }
 .main .section.about-card-section {
-    padding-top: 1.5rem;
+    padding-top: 1.25rem;
     padding-bottom: 3.5rem;
 }
 .main .section .container {
@@ -68,7 +68,7 @@ body {
 .platform-content .values-grid,
 .platform-content .about-card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.5rem;
     align-items: stretch;
     margin-top: 0.75rem;
@@ -76,9 +76,16 @@ body {
 .platform-content .values-grid .pricing-card {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     height: 100%;
     text-align: center;
     align-items: center;
+}
+.platform-content .values-grid .pricing-card:last-child {
+    grid-column: 1 / -1;
+}
+.platform-content .values-grid .pricing-card:last-child > p {
+    max-width: 72ch;
 }
 .platform-content .values-grid .pricing-card h2 {
     margin-top: 0;
@@ -148,6 +155,9 @@ body {
     .platform-content .values-grid,
     .platform-content .about-card-grid {
         grid-template-columns: 1fr;
+    }
+    .platform-content .values-grid .pricing-card:last-child {
+        grid-column: auto;
     }
     .about-card__actions {
         flex-direction: column;
