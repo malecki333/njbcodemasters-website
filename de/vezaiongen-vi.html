@@ -36,20 +36,36 @@ body {
 }
 .main .section:first-of-type {
     padding-top: 5.75rem;
-    padding-bottom: 2.5rem;
+    padding-bottom: 2.75rem;
+}
+.main .section.platform-content:first-of-type,
+.main > .section:nth-of-type(2) {
+    padding-top: 3.85rem;
 }
 .main .section .container {
     text-align: center;
 }
-.main .section h1 {
+.main .section h1,
+.main .section .container h1 {
+    display: block;
+    width: 100%;
+    max-width: 100%;
     margin-top: 0;
     margin-bottom: 0.75rem;
+    margin-inline: auto;
     line-height: 1.15;
     text-align: center;
 }
-.main .section h2 {
+.main .section h2,
+.main .section .container h2,
+.main .platform-content h2,
+.main .platform-content .container h2 {
+    display: block;
+    width: 100%;
+    max-width: 100%;
     margin-top: 0;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.7rem;
+    margin-inline: auto;
     line-height: 1.25;
     text-align: center;
 }
@@ -212,6 +228,9 @@ body {
     .main .section:first-of-type {
         padding-top: 4.75rem;
         padding-bottom: 2rem;
+    }
+    .main > .section:nth-of-type(2) {
+        padding-top: 2.75rem;
     }
     .platform-content .values-grid {
         grid-template-columns: 1fr;
