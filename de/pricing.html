@@ -58,6 +58,7 @@
             text-align: center;
         }
 
+        /* Magenta-zu-Violett Verlauf auf strong */
         .main .section strong {
             background: linear-gradient(90deg, #ff2bd6 0%, #c026d3 48%, #8b5cf6 100%);
             -webkit-background-clip: text;
@@ -99,6 +100,14 @@
             max-width: 820px;
             margin: 0 auto var(--space-3xl);
             text-align: center;
+            background: #141829 !important;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg) var(--space-xl);
+        }
+
+        [data-theme="light"] .pricing-scope-note {
+            background: #f8f9ff !important;
         }
 
         .pricing-price-note {
@@ -106,42 +115,7 @@
             margin-inline: auto;
         }
 
-        /* Pricing Toggle */
-        .toggle-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: var(--space-md);
-            margin: var(--space-3xl) auto var(--space-4xl);
-        }
-
-        .pricing-toggle {
-            display: inline-flex;
-            align-items: center;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 999px;
-            padding: 4px;
-            cursor: pointer;
-        }
-
-        .toggle-btn {
-            padding: var(--space-sm) var(--space-lg);
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
-            border-radius: 999px;
-            transition: all 0.3s ease;
-            font-weight: var(--font-weight-semibold);
-        }
-
-        .toggle-btn.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Pricing Cards */
+        /* Pricing Cards & solide Hover-Oberflächen (kein Transparent-Bug) */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -151,51 +125,101 @@
             align-items: stretch;
         }
 
-        .pricing-card {
+        .pricing-card,
+        .codemasters-card,
+        .calculator-section,
+        .calc-result,
+        .card {
             position: relative;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            background: #121626 !important;
+            background-color: #121626 !important;
+            border: 1px solid rgba(148, 163, 184, 0.22);
             border-radius: var(--radius-2xl);
-            padding: var(--space-2xl);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            min-width: 0;
+            max-width: 100%;
+            opacity: 1 !important;
+        }
+
+        [data-theme="light"] .pricing-card,
+        [data-theme="light"] .codemasters-card,
+        [data-theme="light"] .calculator-section,
+        [data-theme="light"] .calc-result,
+        [data-theme="light"] .card {
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            border-color: rgba(15, 23, 42, 0.12);
+        }
+
+        .pricing-card {
+            padding: 2.5rem var(--space-2xl) var(--space-2xl);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            min-width: 0;
-            max-width: 100%;
         }
 
-        .pricing-card:hover {
-            transform: translateY(-8px);
+        .pricing-card:hover,
+        .codemasters-card:hover,
+        .card:hover {
+            transform: translateY(-6px);
             border-color: var(--primary-color);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
+            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.45);
+            background: #161b30 !important;
+            background-color: #161b30 !important;
+            opacity: 1 !important;
+        }
+
+        [data-theme="light"] .pricing-card:hover,
+        [data-theme="light"] .codemasters-card:hover,
+        [data-theme="light"] .card:hover {
+            background: #f5f7ff !important;
+            background-color: #f5f7ff !important;
+            box-shadow: 0 16px 32px rgba(99, 102, 241, 0.14);
+            opacity: 1 !important;
         }
 
         .pricing-card.featured {
             border-color: var(--primary-color);
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(118, 75, 162, 0.06) 100%);
-            transform: scale(1.02);
+            background: #171c33 !important;
+            background-color: #171c33 !important;
+        }
+
+        [data-theme="light"] .pricing-card.featured {
+            background: #f4f5ff !important;
+            background-color: #f4f5ff !important;
         }
 
         .pricing-card.featured:hover {
-            transform: scale(1.02) translateY(-8px);
+            transform: translateY(-6px);
+            background: #1b213d !important;
+            background-color: #1b213d !important;
         }
 
+        /* Badge links oben auf der Karte */
         .badge {
-            position: relative;
-            top: auto;
-            left: auto;
+            position: absolute;
+            top: 16px;
+            left: 20px;
+            right: auto;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             background: var(--primary-color);
-            color: white;
-            padding: var(--space-xs) var(--space-md);
+            color: #ffffff !important;
+            padding: 0.3rem 0.75rem;
             border-radius: 999px;
-            font-size: var(--font-size-sm);
+            font-size: 0.75rem;
             font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--space-sm);
+            letter-spacing: 0.04em;
+            z-index: 2;
+        }
+
+        .pricing-card .badge + .brand-logo,
+        .pricing-card .badge + .section-label,
+        .pricing-card .badge + .package-name,
+        .pricing-card .badge + .enterprise-grid {
+            margin-top: 1.5rem;
         }
 
         .package-name {
@@ -218,45 +242,54 @@
         }
 
         .price {
-            font-size: 3rem;
+            font-size: 2.75rem;
             font-weight: var(--font-weight-bold);
             color: var(--primary-color);
-            margin-bottom: var(--space-sm);
+            margin-bottom: var(--space-xs);
             text-align: center;
         }
 
         .price-period {
             color: var(--text-secondary);
-            font-size: var(--font-size-base);
+            font-size: var(--font-size-sm);
             margin-bottom: var(--space-xl);
             text-align: center;
         }
 
+        /* Aufzählungspunkte in Karten: zentrierter Block, innen sauber linksbündig */
         .features-list {
             list-style: none;
             padding: 0;
-            margin: 0 0 var(--space-xl);
+            margin: 0 auto var(--space-xl);
             flex-grow: 1;
             min-width: 0;
-            max-width: 100%;
+            max-width: 360px;
             width: 100%;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .enterprise-grid .features-list {
+            max-width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.35rem 1.25rem;
+            text-align: left;
         }
 
         .features-list li {
-            padding: var(--space-sm) 0;
+            padding: 0.45rem 0;
             color: var(--text-secondary);
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: var(--space-xs);
+            align-items: flex-start;
+            justify-content: flex-start;
+            gap: 0.55rem;
             font-size: var(--font-size-sm);
-            min-width: 0;
-            max-width: 100%;
-            text-align: center;
+            width: 100%;
+            text-align: left;
+            line-height: 1.45;
             overflow-wrap: anywhere;
             word-break: break-word;
         }
@@ -264,14 +297,9 @@
         .features-list li::before {
             content: "✓";
             color: var(--primary-color);
-            font-weight: bold;
-            flex-shrink: 0;
-        }
-
-        .features-list li a {
-            overflow-wrap: anywhere;
-            word-break: break-word;
-            max-width: 100%;
+            font-weight: 700;
+            flex: 0 0 auto;
+            line-height: 1.45;
         }
 
         .cta-lead {
@@ -283,36 +311,27 @@
 
         .cta-btn {
             width: auto;
-            min-width: 190px;
+            min-width: 185px;
             max-width: 100%;
             text-align: center;
             justify-content: center;
             margin-inline: auto;
         }
 
-        /* Calculator Section */
+        /* Calculator & gruppierte Dropdown-Extras */
         .calculator-section {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
             padding: var(--space-3xl);
             margin: 0 auto var(--space-4xl);
-            max-width: 100%;
             width: 100%;
-            text-align: center;
-        }
-
-        .calculator-section h2 {
-            margin-bottom: var(--space-lg);
             text-align: center;
         }
 
         .calculator-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-3xl);
-            align-items: stretch;
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+            width: 100%;
         }
 
         .calc-item {
@@ -322,15 +341,20 @@
             justify-content: center;
             text-align: center;
             min-width: 0;
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid var(--glass-border);
+            background: #171c31;
+            border: 1px solid rgba(148, 163, 184, 0.2);
             border-radius: var(--radius-xl);
             padding: var(--space-xl);
         }
 
+        [data-theme="light"] .calc-item {
+            background: #f4f6ff;
+            border-color: rgba(15, 23, 42, 0.12);
+        }
+
         .calc-label {
             font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--space-sm);
+            margin-bottom: var(--space-xs);
             color: var(--text-primary);
             text-align: center;
             width: 100%;
@@ -339,50 +363,111 @@
         .calc-label-hint {
             font-size: var(--font-size-sm);
             color: var(--text-secondary);
-            text-align: center;
         }
 
-        .checkbox-group {
+        .extras-groups-container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            width: 100%;
+            margin-top: 1.25rem;
+            text-align: left;
+        }
+
+        .extras-group {
+            background: #171c31;
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: border-color 0.25s ease;
+        }
+
+        [data-theme="light"] .extras-group {
+            background: #f4f6ff;
+            border-color: rgba(15, 23, 42, 0.14);
+        }
+
+        .extras-group[open] {
+            border-color: var(--primary-color);
+        }
+
+        .extras-group__summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.75rem;
+            font-weight: var(--font-weight-semibold);
+            color: var(--text-primary);
+            user-select: none;
+        }
+
+        .extras-group__summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .extras-group__meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: var(--font-size-xs);
+            color: var(--primary-color);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .extras-group__chevron {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.28s ease;
+            flex-shrink: 0;
+        }
+
+        .extras-group[open] .extras-group__chevron {
+            transform: rotate(180deg);
+        }
+
+        .extras-group__body {
+            padding: 0 1.15rem 1.15rem;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            gap: var(--space-md);
-            width: 100%;
-            max-width: 720px;
-            margin: 0 auto;
+            gap: 0.65rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.14);
+            padding-top: 0.9rem;
         }
 
         .extra-option-card {
             width: 100%;
-            padding: var(--space-md) var(--space-lg);
+            padding: 0.75rem 0.9rem;
             border-radius: var(--radius-lg);
-            border: 1px solid var(--glass-border);
-            background: rgba(255, 255, 255, 0.02);
-            transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
-            text-align: center;
+            border: 1px solid rgba(148, 163, 184, 0.18);
+            background: #121626;
+            transition: border-color 0.25s ease, background-color 0.25s ease;
+            text-align: left;
         }
 
-        .extra-option-card:hover {
-            border-color: var(--primary-color);
-            background: rgba(99, 102, 241, 0.08);
-            transform: translateY(-2px);
+        [data-theme="light"] .extra-option-card {
+            background: #ffffff;
+            border-color: rgba(15, 23, 42, 0.12);
         }
 
         .extra-option-card.is-selected {
             border-color: var(--primary-color);
-            background: rgba(99, 102, 241, 0.14);
-            box-shadow: 0 10px 24px rgba(99, 102, 241, 0.14);
+            background: #1a213d;
+        }
+
+        [data-theme="light"] .extra-option-card.is-selected {
+            background: #eef0ff;
         }
 
         .checkbox-item {
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: var(--space-sm);
-            padding: 0;
+            justify-content: flex-start;
+            gap: 0.75rem;
             cursor: pointer;
             width: 100%;
-            text-align: center;
         }
 
         .addon-checkbox {
@@ -395,22 +480,17 @@
 
         /* Animiertes SVG-Check-Symbol im Stil der Header-Buttons */
         .extra-check-svg {
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             flex-shrink: 0;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
             color: var(--text-secondary);
-            transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease;
         }
 
         .extra-check-svg__ring {
             stroke: currentColor;
             stroke-width: 2;
             fill: none;
-            stroke-dasharray: 64;
-            stroke-dashoffset: 0;
             transition: stroke 0.25s ease, fill 0.25s ease;
         }
 
@@ -427,7 +507,7 @@
         }
 
         .extra-option-card.is-selected .extra-check-svg {
-            transform: scale(1.14);
+            transform: scale(1.12);
             color: var(--primary-color);
         }
 
@@ -446,11 +526,11 @@
             flex: 1;
             min-width: 0;
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 0.2rem;
-            text-align: center;
+            gap: 0.4rem;
+            text-align: left;
         }
 
         .checkbox-price {
@@ -462,19 +542,16 @@
         .addon-description {
             font-size: var(--font-size-xs);
             color: var(--text-tertiary);
-            margin-top: 0.45rem;
+            margin-top: 0.35rem;
             margin-bottom: 0;
-            padding-left: 0;
-            line-height: 1.45;
-            max-width: 58ch;
-            margin-inline: auto;
-            text-align: center;
+            padding-left: 2.35rem;
+            line-height: 1.4;
+            text-align: left;
             word-wrap: break-word;
         }
 
         /* Calculator Result */
         .calc-result {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(118, 75, 162, 0.08) 100%);
             border: 1px solid var(--primary-color);
             border-radius: var(--radius-2xl);
             padding: var(--space-2xl);
@@ -492,14 +569,12 @@
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--text-secondary);
-            text-align: center;
         }
 
         .result-value {
             font-size: 2.5rem;
             font-weight: var(--font-weight-bold);
             color: var(--primary-color);
-            text-align: center;
         }
 
         .result-info {
@@ -507,18 +582,9 @@
             color: var(--text-secondary);
             max-width: 68ch;
             margin-inline: auto;
-            text-align: center;
         }
 
-        .calc-result .btn {
-            width: auto;
-            min-width: 190px;
-            max-width: 100%;
-            justify-content: center;
-            margin-inline: auto;
-        }
-
-        /* Table Section */
+        /* Table & Grids */
         .breakdown-section {
             margin-top: var(--space-4xl);
             overflow-x: auto;
@@ -528,23 +594,55 @@
 
         .breakdown-table {
             margin-inline: auto;
+            text-align: left;
+        }
+
+        .breakdown-table th:last-child,
+        .breakdown-table td:last-child {
+            text-align: right;
+        }
+
+        .codemasters-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .codemasters-card {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
         }
 
-        .breakdown-table th,
-        .breakdown-table td {
-            text-align: center !important;
+        .codemasters-card__icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.16);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
         }
 
-        .home-actions {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            gap: 0.85rem 1rem;
-            margin: 0.5rem auto 0;
-            max-width: 820px;
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
             width: 100%;
+        }
+
+        .card {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
         }
 
         #service-requests .values-grid {
@@ -566,12 +664,15 @@
             width: auto;
         }
 
-        @media (max-width: 960px) {
-            .pricing-grid {
+        @media (max-width: 1100px) {
+            .codemasters-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
+        }
 
-            .calculator-grid {
+        @media (max-width: 960px) {
+            .pricing-grid,
+            .extras-groups-container {
                 grid-template-columns: 1fr;
             }
         }
@@ -585,23 +686,22 @@
                 padding-top: 4.75rem;
             }
 
-            .pricing-grid {
+            .pricing-grid,
+            .codemasters-grid,
+            .grid-2 {
                 grid-template-columns: 1fr;
-                gap: var(--space-2xl);
+                gap: var(--space-xl);
             }
 
             .pricing-card {
-                padding: var(--space-lg);
+                padding: 2.5rem var(--space-lg) var(--space-lg);
                 transform: none;
             }
 
-            .pricing-card.featured {
-                transform: none;
-            }
-
+            .pricing-card.featured,
             .pricing-card:hover,
             .pricing-card.featured:hover {
-                transform: translateY(-4px);
+                transform: none;
             }
 
             .enterprise-grid {
@@ -609,13 +709,8 @@
                 gap: var(--space-xl) !important;
             }
 
-            .features-list {
-                columns: 1 !important;
-            }
-
-            .features-list li {
-                font-size: var(--font-size-xs);
-                line-height: 1.45;
+            .enterprise-grid .features-list {
+                grid-template-columns: 1fr;
             }
 
             .calculator-section {
@@ -623,9 +718,6 @@
             }
 
             .calc-result {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
                 padding: var(--space-lg);
             }
 
@@ -654,17 +746,25 @@
         }
 
         .package-radio {
-            border-color: var(--glass-border) !important;
+            border-color: rgba(148, 163, 184, 0.25) !important;
+            background: #121626 !important;
         }
 
-        .package-radio input[type="radio"]:checked + div,
+        [data-theme="light"] .package-radio {
+            background: #ffffff !important;
+        }
+
         .package-radio input[type="radio"]:checked {
             accent-color: var(--primary-color);
         }
 
         .package-radio:has(input[type="radio"]:checked) {
             border-color: var(--primary-color) !important;
-            background: rgba(99, 102, 241, 0.1);
+            background: #1a213d !important;
+        }
+
+        [data-theme="light"] .package-radio:has(input[type="radio"]:checked) {
+            background: #eef0ff !important;
         }
     </style>
 
@@ -754,29 +854,47 @@
         <section class="section">
             <div class="container">
                 <!-- Hero Section -->
-                <div class="pricing-hero"><p class="section-label">Dienstleistungen</p>
+                <div class="pricing-hero">
+                    <p class="section-label">Dienstleistungen</p>
                     <h1>Transparente <span class="text-gradient">Preise</span> für schnellere Ergebnisse</h1>
                     <p>Planbare Richtwerte, weniger Reibungsverluste in der Abstimmung und klare Transparenz von Beginn an. Wählen Sie ein passendes Paket oder kalkulieren Sie Ihren Umfang vorab – Details zu <a href="services.html">Leistungen</a>, <a href="modules.html">Modulen</a> und dem <a href="pilot-program.html">Pilotprogramm</a> helfen bei der Einordnung.</p>
                 </div>
-<article class="pricing-card featured" id="vezaiongen-enterprise" style="margin: 0 auto var(--space-3xl); max-width: 1000px; border-color: var(--primary-color);"><picture class="brand-logo brand-logo--pricing"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI Logo" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture><p class="section-label">FLAGSHIP INDUSTRIAL PLATFORM</p><h2>VezaionGen VI Enterprise</h2><p>Das separate Plattformangebot von NJB CodeMasters für vernetzte industrielle Abläufe, schnellere Entscheidungswege und durchgängige Transparenz.</p><ul class="features-list"><li>Modulare industrielle Plattformfunktionen aus <a href="modules.html">VezaionGen VI</a></li><li>On-Premise, Private Cloud oder SaaS als besprechbare Deployment-Modelle</li><li>Strukturierter Einstieg über das <a href="pilot-program.html">Pilotprogramm</a> zur klaren Einordnung eines Anwendungsfalls</li><li>Gezieltes Gespräch zu Funktionen, Schnittstellen und Betriebsmodell</li></ul><p><strong>Preis auf Anfrage</strong> · <a href="pilot-program.html">Pilotprogramm</a> verfügbar</p><p class="cta-lead">Klären Sie Einsatzszenario, Schnittstellen und Betriebsmodell direkt im Gespräch:</p><a class="btn btn--primary cta-btn" href="contact.html#vezaiongen-consultation">VezaionGen VI besprechen</a></article>
 
-                <!-- Pricing Cards -->
+                <article class="pricing-card featured" id="vezaiongen-enterprise" style="margin: 0 auto var(--space-3xl); max-width: 1000px; border-color: var(--primary-color);">
+                    <span class="badge">FLAGSHIP PLATFORM</span>
+                    <picture class="brand-logo brand-logo--pricing"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI Logo" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture>
+                    <p class="section-label">FLAGSHIP INDUSTRIAL PLATFORM</p>
+                    <h2>VezaionGen VI Enterprise</h2>
+                    <p>Das separate Plattformangebot von NJB CodeMasters für vernetzte industrielle Abläufe, schnellere Entscheidungswege und durchgängige Transparenz.</p>
+                    <ul class="features-list">
+                        <li>Modulare industrielle Plattformfunktionen aus <a href="modules.html">VezaionGen VI</a></li>
+                        <li>On-Premise, Private Cloud oder SaaS als besprechbare Deployment-Modelle</li>
+                        <li>Strukturierter Einstieg über das <a href="pilot-program.html">Pilotprogramm</a> zur klaren Einordnung eines Anwendungsfalls</li>
+                        <li>Gezieltes Gespräch zu Funktionen, Schnittstellen und Betriebsmodell</li>
+                    </ul>
+                    <p><strong>Preis auf Anfrage</strong> · <a href="pilot-program.html">Pilotprogramm</a> verfügbar</p>
+                    <p class="cta-lead">Klären Sie Einsatzszenario, Schnittstellen und Betriebsmodell direkt im Gespräch:</p>
+                    <a class="btn btn--primary cta-btn" href="contact.html#vezaiongen-consultation">VezaionGen VI besprechen</a>
+                </article>
+
+                <!-- Enterprise Services Heading -->
                 <div style="margin-bottom: var(--space-3xl); padding-bottom: var(--space-2xl); border-bottom: 1px solid var(--border-color); width: 100%;">
                     <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-lg); text-align: center;">🚀 <span class="text-gradient">Enterprise Services &amp; Entwicklung</span></h2>
                     <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Industrielle Softwareentwicklung, Systemintegration und Betrieb – für weniger Medienbrüche, reibungslosere Übergaben und verlässliche Abläufe.</p>
                 </div>
 
                 <aside class="pricing-scope-note"><strong>Klare Preisabgrenzung:</strong> Die folgenden EUR-Richtpreise gelten ausschließlich für NJB CodeMasters Services und individuell beauftragte Softwareprojekte. Der Richtwert ab €60.000 betrifft ein industrielles Serviceprojekt und ist kein Lizenz- oder Plattformpreis für VezaionGen VI. VezaionGen VI wird separat angeboten: Preis auf Anfrage, <a href="pilot-program.html">Pilotprogramm</a> verfügbar.</aside>
-<div class="pricing-grid">
+
+                <div class="pricing-grid">
                     <!-- Enterprise / Industrial OS (FLAGSHIP) -->
-                    <div class="pricing-card featured" style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.1));">
+                    <div class="pricing-card featured" style="grid-column: 1 / -1;">
                         <span class="badge">INDUSTRIAL SERVICES</span>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; width: 100%;" class="enterprise-grid">
                             <div>
-                                <h3 class="package-name" style="color: var(--primary-color); font-size: 2.5rem;">Industrielle Software<br>&amp; MES/ERP-Integration</h3>
+                                <h3 class="package-name" style="color: var(--primary-color); font-size: 2.25rem;">Industrielle Software<br>&amp; MES/ERP-Integration</h3>
                                 <p class="package-desc" style="font-size: var(--font-size-lg); color: var(--text-secondary);">Individuell abgestimmte Software, Datenintegration und operative Anwendungen für schnellere Abläufe, weniger Reibungsverluste und klare Transparenz im Betrieb.</p>
                                 
-                                <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: rgba(99, 102, 241, 0.1); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.35);">
+                                <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: rgba(99, 102, 241, 0.12); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.35);">
                                     <div style="margin-bottom: var(--space-sm);">
                                         <span style="font-size: var(--font-size-sm); color: var(--text-secondary); text-transform: uppercase;">Service-Projektimplementierung</span>
                                         <div style="font-size: 2rem; font-weight: bold; color: var(--primary-color);">ab €60.000</div>
@@ -790,7 +908,7 @@
                             </div>
                             
                             <div>
-                                <ul class="features-list" style="columns: 2;">
+                                <ul class="features-list">
                                     <li>Komplexe MES/ERP-Systeme</li>
                                     <li>Echtzeit-Datenerfassung</li>
                                     <li>Predictive Analytics</li>
@@ -823,6 +941,7 @@
                 <div class="pricing-grid">
                     <!-- Starter Paket -->
                     <div class="pricing-card">
+                        <span class="badge">EINSTIEG</span>
                         <h3 class="package-name">Starter</h3>
                         <p class="package-desc">Für den schnellen, strukturierten Auftritt kleiner Unternehmen und neuer Vorhaben</p>
                         <div class="price">€2.500</div>
@@ -862,6 +981,7 @@
 
                     <!-- Premium Paket -->
                     <div class="pricing-card">
+                        <span class="badge">SKALIERUNG</span>
                         <h3 class="package-name">Premium</h3>
                         <p class="package-desc">Für anspruchsvolle Plattformen mit individueller Architektur, Shop- oder Prozessanbindung</p>
                         <div class="price">€9.500</div>
@@ -881,31 +1001,31 @@
                     </div>
                 </div>
 
-                <!-- Pricing Calculator mit Paket-Auswahl -->
+                <!-- Pricing Calculator mit Paket-Auswahl & gruppierten Dropdown-Extras -->
                 <div class="calculator-section">
                     <h2>Individuelle Kalkulation</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: var(--space-3xl);">Schätzen Sie Ihren Projektumfang in wenigen Schritten ab – für mehr Kostentransparenz und weniger Abstimmungsschleifen vor dem Start.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-2xl);">Schätzen Sie Ihren Projektumfang in wenigen Schritten ab – für mehr Kostentransparenz und weniger Abstimmungsschleifen vor dem Start.</p>
 
                     <div class="calculator-grid">
                         <!-- Paket-Auswahl -->
-                        <div class="calc-item" style="grid-column: 1 / -1;">
+                        <div class="calc-item">
                             <label class="calc-label">Basis-Paket auswählen</label>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md); width: 100%;">
-                                <label style="display: flex; align-items: center; justify-content: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;" class="package-radio">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-md); width: 100%; margin-top: var(--space-sm);">
+                                <label style="display: flex; align-items: center; justify-content: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.25s ease;" class="package-radio">
                                     <input type="radio" name="package" value="2500" data-name="Starter" checked style="cursor: pointer;">
                                     <div style="margin-left: var(--space-sm); text-align: center;">
                                         <strong>Starter</strong>
                                         <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">€2.500</div>
                                     </div>
                                 </label>
-                                <label style="display: flex; align-items: center; justify-content: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;" class="package-radio">
+                                <label style="display: flex; align-items: center; justify-content: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.25s ease;" class="package-radio">
                                     <input type="radio" name="package" value="5500" data-name="Professional" style="cursor: pointer;">
                                     <div style="margin-left: var(--space-sm); text-align: center;">
                                         <strong>Professional</strong>
                                         <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">€5.500</div>
                                     </div>
                                 </label>
-                                <label style="display: flex; align-items: center; justify-content: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;" class="package-radio">
+                                <label style="display: flex; align-items: center; justify-content: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.25s ease;" class="package-radio">
                                     <input type="radio" name="package" value="9500" data-name="Premium" style="cursor: pointer;">
                                     <div style="margin-left: var(--space-sm); text-align: center;">
                                         <strong>Premium</strong>
@@ -916,12 +1036,12 @@
                         </div>
 
                         <!-- Timeline -->
-                        <div class="calc-item" style="grid-column: 1 / -1;">
-                            <label class="calc-label">
+                        <div class="calc-item">
+                            <label class="calc-label" for="timelineSelect">
                                 Gewünschtes Tempo
                                 <span class="calc-label-hint">(Lieferdauer)</span>
                             </label>
-                            <select id="timelineSelect" style="padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); border: 1px solid var(--glass-border); background: var(--bg-primary); color: var(--text-primary); cursor: pointer; text-align: center; margin-top: var(--space-xs);">
+                            <select id="timelineSelect" style="padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); border: 1px solid var(--glass-border); background: #121626; color: var(--text-primary); cursor: pointer; text-align: center; margin-top: var(--space-xs); max-width: 360px; width: 100%;">
                                 <option value="0">Standard (6-8 Wochen) - €0</option>
                                 <option value="500">Express (4-6 Wochen) - +€500</option>
                                 <option value="1200">Dringend (2-4 Wochen) - +€1.200</option>
@@ -929,363 +1049,398 @@
                         </div>
                     </div>
 
-                    <!-- Add-ons -->
-                    <div style="margin-top: var(--space-3xl); padding-top: var(--space-3xl); border-top: 1px solid var(--glass-border); text-align: center;">
-                        <h3 style="margin-bottom: var(--space-lg); text-align: center;">Optionale Extras</h3>
-                        <p>Wählen Sie die Zusatzleistungen, die Sie in Ihre Anfrage aufnehmen möchten. Ausgewählte Extras erscheinen im Anfrageformular, im E-Mail-Entwurf und im Betreff.</p>
-                        <p id="selectedExtras" role="status" aria-live="polite">Noch keine Extras ausgewählt.</p>
-                        <div class="checkbox-group" id="extrasGroup">
-                            <!-- Web Development -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="webdev">
-                                    <input type="checkbox" class="addon-checkbox" data-price="3500" id="webdev">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Web Development (Full-Stack)</span>
-                                        <span class="checkbox-price">+€3.500</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Moderne, responsive Websites mit HTML5, CSS3, JavaScript und Performance-Optimierung</p>
-                            </div>
+                    <!-- Gruppierte Dropdown-Karten für Optionale Extras -->
+                    <div style="margin-top: var(--space-2xl); padding-top: var(--space-2xl); border-top: 1px solid var(--glass-border); text-align: center;">
+                        <h3 style="margin-bottom: var(--space-sm); text-align: center;">Optionale Extras</h3>
+                        <p>Klappen Sie die gewünschten Kategorien auf und wählen Sie Extras aus – das animierte SVG-Symbol bestätigt Ihre Auswahl sofort und übernimmt sie in die Anfrage.</p>
+                        <p id="selectedExtras" role="status" aria-live="polite" style="margin-top: 0.5rem;">Noch keine Extras ausgewählt.</p>
 
-                            <!-- App Development -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="appdev">
-                                    <input type="checkbox" class="addon-checkbox" data-price="8500" id="appdev">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>App Development (iOS/Android)</span>
-                                        <span class="checkbox-price">+€8.500</span>
+                        <div class="extras-groups-container" id="extrasGroup">
+                            <!-- Gruppe 1: Entwicklung & Systeme -->
+                            <details class="extras-group">
+                                <summary class="extras-group__summary">
+                                    <span>Entwicklung &amp; Systeme</span>
+                                    <span class="extras-group__meta">
+                                        <span class="group-count" data-group="dev">0 gewählt</span>
+                                        <svg class="extras-group__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
                                     </span>
-                                </label>
-                                <p class="addon-description">Native oder Cross-Platform Mobile Apps mit modernem UX Design und Store-Deployment</p>
-                            </div>
+                                </summary>
+                                <div class="extras-group__body" data-group-body="dev">
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="webdev">
+                                            <input type="checkbox" class="addon-checkbox" data-price="3500" id="webdev">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Web Development (Full-Stack)</span>
+                                                <span class="checkbox-price">+€3.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Moderne, responsive Websites mit HTML5, CSS3, JavaScript und Performance-Optimierung</p>
+                                    </div>
 
-                            <!-- UI/UX Design -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="uiux">
-                                    <input type="checkbox" class="addon-checkbox" data-price="2500" id="uiux">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>UI/UX Design Professional</span>
-                                        <span class="checkbox-price">+€2.500</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Wireframing, Prototyping, User Research und Visual Design für optimale Usability</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="appdev">
+                                            <input type="checkbox" class="addon-checkbox" data-price="8500" id="appdev">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>App Development (iOS/Android)</span>
+                                                <span class="checkbox-price">+€8.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Native oder Cross-Platform Mobile Apps mit modernem UX Design und Store-Deployment</p>
+                                    </div>
 
-                            <!-- Backend Development -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="backend">
-                                    <input type="checkbox" class="addon-checkbox" data-price="4200" id="backend">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Backend Development</span>
-                                        <span class="checkbox-price">+€4.200</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Robuste Server-Architekturen, RESTful APIs, Database Design und Cloud Infrastructure</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="backend">
+                                            <input type="checkbox" class="addon-checkbox" data-price="4200" id="backend">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Backend Development</span>
+                                                <span class="checkbox-price">+€4.200</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Robuste Server-Architekturen, RESTful APIs, Database Design und Cloud Infrastructure</p>
+                                    </div>
 
-                            <!-- E-Commerce -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="ecommerce">
-                                    <input type="checkbox" class="addon-checkbox" data-price="5500" id="ecommerce">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>E-Commerce Lösung komplett</span>
-                                        <span class="checkbox-price">+€5.500</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Online-Shop mit Zahlungssystemen, Warenwirtschaft, Analytics und Reporting</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="ecommerce">
+                                            <input type="checkbox" class="addon-checkbox" data-price="5500" id="ecommerce">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>E-Commerce Lösung komplett</span>
+                                                <span class="checkbox-price">+€5.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Online-Shop mit Zahlungssystemen, Warenwirtschaft, Analytics und Reporting</p>
+                                    </div>
 
-                            <!-- Tech Consulting -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="consulting">
-                                    <input type="checkbox" class="addon-checkbox" data-price="1800" id="consulting">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Tech Consulting</span>
-                                        <span class="checkbox-price">+€1.800</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Strategische Beratung, Technology Stack Planning, Code Reviews und Team Training</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="cms">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1800" id="cms">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>CMS System (WordPress/Custom)</span>
+                                                <span class="checkbox-price">+€1.800</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Content-Management-System für einfache Inhaltsverwaltung ohne Programmierkenntnisse</p>
+                                    </div>
 
-                            <!-- SEO -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="seo">
-                                    <input type="checkbox" class="addon-checkbox" data-price="800" id="seo">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Erweiterte SEO &amp; SEM</span>
-                                        <span class="checkbox-price">+€800</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Suchmaschinenoptimierung, Keyword-Analyse, On-Page/Off-Page SEO und Google Ads Setup</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="api">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1500" id="api">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>API-Integrationen (Zahlungen, CRM)</span>
+                                                <span class="checkbox-price">+€1.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Anbindung externer Systeme wie Stripe, PayPal, Salesforce, HubSpot etc.</p>
+                                    </div>
 
-                            <!-- Animations -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="animation">
-                                    <input type="checkbox" class="addon-checkbox" data-price="1200" id="animation">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Animationen &amp; Interaktionen</span>
-                                        <span class="checkbox-price">+€1.200</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Moderne CSS/JavaScript Animationen, Scroll-Effekte und interaktive UI-Elemente</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="forms">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1100" id="forms">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Custom Formulare &amp; Tools</span>
+                                                <span class="checkbox-price">+€1.100</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Spezielle Formulare, Kalkulatoren, Konfiguratoren mit Validierung und Backend-Integration</p>
+                                    </div>
+                                </div>
+                            </details>
 
-                            <!-- Support -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="support">
-                                    <input type="checkbox" class="addon-checkbox" data-price="600" id="support">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>3 Monate Priority Support</span>
-                                        <span class="checkbox-price">+€600</span>
+                            <!-- Gruppe 2: Design, 3D & Medien -->
+                            <details class="extras-group">
+                                <summary class="extras-group__summary">
+                                    <span>Design, 3D &amp; Medien</span>
+                                    <span class="extras-group__meta">
+                                        <span class="group-count" data-group="design">0 gewählt</span>
+                                        <svg class="extras-group__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
                                     </span>
-                                </label>
-                                <p class="addon-description">Schnelle Reaktionszeiten, Bug-Fixes, Updates und technischer Support per E-Mail/Chat</p>
-                            </div>
+                                </summary>
+                                <div class="extras-group__body" data-group-body="design">
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="uiux">
+                                            <input type="checkbox" class="addon-checkbox" data-price="2500" id="uiux">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>UI/UX Design Professional</span>
+                                                <span class="checkbox-price">+€2.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Wireframing, Prototyping, User Research und Visual Design für optimale Usability</p>
+                                    </div>
 
-                            <!-- Newsletter -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="newsletter">
-                                    <input type="checkbox" class="addon-checkbox" data-price="400" id="newsletter">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Newsletter System Setup</span>
-                                        <span class="checkbox-price">+€400</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">E-Mail-Marketing Integration (Mailchimp/SendGrid), Templates und Automatisierung</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="animation">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1200" id="animation">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Animationen &amp; Interaktionen</span>
+                                                <span class="checkbox-price">+€1.200</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Moderne CSS/JavaScript Animationen, Scroll-Effekte und interaktive UI-Elemente</p>
+                                    </div>
 
-                            <!-- AI Chat -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="aichat">
-                                    <input type="checkbox" class="addon-checkbox" data-price="2500" id="aichat">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>AI-Chat Integration auf Website</span>
-                                        <span class="checkbox-price">+€2.500</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Intelligenter Chatbot mit KI für Kundensupport, FAQ-Beantwortung und Lead-Generierung</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="3d">
+                                            <input type="checkbox" class="addon-checkbox" data-price="3200" id="3d">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>3D-Modelle &amp; Animationen</span>
+                                                <span class="checkbox-price">+€3.200</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Basispaket: 3-5 einfache 3D-Produktmodelle ODER 1 komplexes interaktives 3D-Element mit WebGL-Animation. Weitere Modelle: ab €400/Stück</p>
+                                    </div>
 
-                            <!-- CMS -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="cms">
-                                    <input type="checkbox" class="addon-checkbox" data-price="1800" id="cms">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>CMS System (WordPress/Custom)</span>
-                                        <span class="checkbox-price">+€1.800</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Content-Management-System für einfache Inhaltsverwaltung ohne Programmierkenntnisse</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="video">
+                                            <input type="checkbox" class="addon-checkbox" data-price="2000" id="video">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Video-Produktion &amp; Integration</span>
+                                                <span class="checkbox-price">+€2.000</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Professionelle Videoproduktion, Schnitt, Optimierung und nahtlose Website-Integration</p>
+                                    </div>
 
-                            <!-- Analytics -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="analytics">
-                                    <input type="checkbox" class="addon-checkbox" data-price="900" id="analytics">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Analytics &amp; Tracking Setup</span>
-                                        <span class="checkbox-price">+€900</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Google Analytics 4, Conversion-Tracking, Heatmaps und detaillierte Performance-Reports</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="accessibility">
+                                            <input type="checkbox" class="addon-checkbox" data-price="950" id="accessibility">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Barrierefreiheit (WCAG 2.1)</span>
+                                                <span class="checkbox-price">+€950</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">WCAG 2.1-konforme Umsetzung für Screen-Reader, Tastaturnavigation und Kontrast-Standards</p>
+                                    </div>
+                                </div>
+                            </details>
 
-                            <!-- Multilang -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="multilang">
-                                    <input type="checkbox" class="addon-checkbox" data-price="1200" id="multilang">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Mehrsprachige Website</span>
-                                        <span class="checkbox-price">+€1.200</span>
+                            <!-- Gruppe 3: KI, Marketing & Wachstum -->
+                            <details class="extras-group">
+                                <summary class="extras-group__summary">
+                                    <span>KI, Marketing &amp; Wachstum</span>
+                                    <span class="extras-group__meta">
+                                        <span class="group-count" data-group="growth">0 gewählt</span>
+                                        <svg class="extras-group__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
                                     </span>
-                                </label>
-                                <p class="addon-description">Übersetzung in mehrere Sprachen, automatische Spracherkennung und SEO-Optimierung</p>
-                            </div>
+                                </summary>
+                                <div class="extras-group__body" data-group-body="growth">
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="aichat">
+                                            <input type="checkbox" class="addon-checkbox" data-price="2500" id="aichat">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>AI-Chat Integration auf Website</span>
+                                                <span class="checkbox-price">+€2.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Intelligenter Chatbot mit KI für Kundensupport, FAQ-Beantwortung und Lead-Generierung</p>
+                                    </div>
 
-                            <!-- Booking -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="booking">
-                                    <input type="checkbox" class="addon-checkbox" data-price="700" id="booking">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Buchungs-/Terminverwaltung</span>
-                                        <span class="checkbox-price">+€700</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Online-Terminbuchung, Kalender-Integration, automatische Bestätigungen und Erinnerungen</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="seo">
+                                            <input type="checkbox" class="addon-checkbox" data-price="800" id="seo">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Erweiterte SEO &amp; SEM</span>
+                                                <span class="checkbox-price">+€800</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Suchmaschinenoptimierung, Keyword-Analyse, On-Page/Off-Page SEO und Google Ads Setup</p>
+                                    </div>
 
-                            <!-- 3D -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="3d">
-                                    <input type="checkbox" class="addon-checkbox" data-price="3200" id="3d">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>3D-Modelle &amp; Animationen</span>
-                                        <span class="checkbox-price">+€3.200</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Basispaket: 3-5 einfache 3D-Produktmodelle ODER 1 komplexes interaktives 3D-Element mit WebGL-Animation. Weitere Modelle: ab €400/Stück</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="newsletter">
+                                            <input type="checkbox" class="addon-checkbox" data-price="400" id="newsletter">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Newsletter System Setup</span>
+                                                <span class="checkbox-price">+€400</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">E-Mail-Marketing Integration (Mailchimp/SendGrid), Templates und Automatisierung</p>
+                                    </div>
 
-                            <!-- Video -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="video">
-                                    <input type="checkbox" class="addon-checkbox" data-price="2000" id="video">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Video-Produktion &amp; Integration</span>
-                                        <span class="checkbox-price">+€2.000</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Professionelle Videoproduktion, Schnitt, Optimierung und nahtlose Website-Integration</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="analytics">
+                                            <input type="checkbox" class="addon-checkbox" data-price="900" id="analytics">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Analytics &amp; Tracking Setup</span>
+                                                <span class="checkbox-price">+€900</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Google Analytics 4, Conversion-Tracking, Heatmaps und detaillierte Performance-Reports</p>
+                                    </div>
 
-                            <!-- Social Media -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="social">
-                                    <input type="checkbox" class="addon-checkbox" data-price="500" id="social">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Social Media Integration</span>
-                                        <span class="checkbox-price">+€500</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Social-Feeds einbinden, Share-Buttons, automatische Posting-Funktionen</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="multilang">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1200" id="multilang">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Mehrsprachige Website</span>
+                                                <span class="checkbox-price">+€1.200</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Übersetzung in mehrere Sprachen, automatische Spracherkennung und SEO-Optimierung</p>
+                                    </div>
 
-                            <!-- API -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="api">
-                                    <input type="checkbox" class="addon-checkbox" data-price="1500" id="api">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>API-Integrationen (Zahlungen, CRM)</span>
-                                        <span class="checkbox-price">+€1.500</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Anbindung externer Systeme wie Stripe, PayPal, Salesforce, HubSpot etc.</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="social">
+                                            <input type="checkbox" class="addon-checkbox" data-price="500" id="social">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Social Media Integration</span>
+                                                <span class="checkbox-price">+€500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Social-Feeds einbinden, Share-Buttons, automatische Posting-Funktionen</p>
+                                    </div>
+                                </div>
+                            </details>
 
-                            <!-- Custom Forms -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="forms">
-                                    <input type="checkbox" class="addon-checkbox" data-price="1100" id="forms">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Custom Formulare &amp; Tools</span>
-                                        <span class="checkbox-price">+€1.100</span>
+                            <!-- Gruppe 4: Beratung, Betrieb & Prozesse -->
+                            <details class="extras-group">
+                                <summary class="extras-group__summary">
+                                    <span>Beratung, Betrieb &amp; Prozesse</span>
+                                    <span class="extras-group__meta">
+                                        <span class="group-count" data-group="ops">0 gewählt</span>
+                                        <svg class="extras-group__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
                                     </span>
-                                </label>
-                                <p class="addon-description">Spezielle Formulare, Kalkulatoren, Konfiguratoren mit Validierung und Backend-Integration</p>
-                            </div>
+                                </summary>
+                                <div class="extras-group__body" data-group-body="ops">
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="consulting">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1800" id="consulting">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Tech Consulting</span>
+                                                <span class="checkbox-price">+€1.800</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Strategische Beratung, Technology Stack Planning, Code Reviews und Team Training</p>
+                                    </div>
 
-                            <!-- Performance -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="performance">
-                                    <input type="checkbox" class="addon-checkbox" data-price="800" id="performance">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Performance-Optimierung Advanced</span>
-                                        <span class="checkbox-price">+€800</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">Caching, Lazy Loading, CDN-Setup, Code-Minifizierung für schnellste Ladezeiten</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="support">
+                                            <input type="checkbox" class="addon-checkbox" data-price="600" id="support">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>3 Monate Priority Support</span>
+                                                <span class="checkbox-price">+€600</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Schnelle Reaktionszeiten, Bug-Fixes, Updates und technischer Support per E-Mail/Chat</p>
+                                    </div>
 
-                            <!-- Accessibility -->
-                            <div class="extra-option-card">
-                                <label class="checkbox-item" for="accessibility">
-                                    <input type="checkbox" class="addon-checkbox" data-price="950" id="accessibility">
-                                    <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
-                                        <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
-                                        <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
-                                    </svg>
-                                    <span class="checkbox-label">
-                                        <span>Barrierefreiheit (WCAG 2.1)</span>
-                                        <span class="checkbox-price">+€950</span>
-                                    </span>
-                                </label>
-                                <p class="addon-description">WCAG 2.1-konforme Umsetzung für Screen-Reader, Tastaturnavigation und Kontrast-Standards</p>
-                            </div>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="booking">
+                                            <input type="checkbox" class="addon-checkbox" data-price="700" id="booking">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Buchungs-/Terminverwaltung</span>
+                                                <span class="checkbox-price">+€700</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Online-Terminbuchung, Kalender-Integration, automatische Bestätigungen und Erinnerungen</p>
+                                    </div>
+
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="performance">
+                                            <input type="checkbox" class="addon-checkbox" data-price="800" id="performance">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Performance-Optimierung Advanced</span>
+                                                <span class="checkbox-price">+€800</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Caching, Lazy Loading, CDN-Setup, Code-Minifizierung für schnellste Ladezeiten</p>
+                                    </div>
+                                </div>
+                            </details>
                         </div>
                     </div>
 
@@ -1302,7 +1457,7 @@
                             ✓ Unverbindlich &amp; ohne Versteckte Gebühren</p>
                         </div>
                         <p class="cta-lead">Übernehmen Sie Ihre Kalkulation direkt ins Anfrageformular:</p>
-                        <button type="button" class="btn btn--primary">Kalkulation anfragen</button>
+                        <button type="button" class="btn btn--primary cta-btn">Kalkulation anfragen</button>
                     </div>
                 </div>
 
@@ -1363,50 +1518,55 @@
                     <div class="codemasters-grid">
                         <div class="codemasters-card fade-in-up" style="animation-delay: 0.05s;">
                             <div class="codemasters-card__icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <line x1="18" y1="20" x2="18" y2="10"></line>
                                     <line x1="12" y1="20" x2="12" y2="4"></line>
                                     <line x1="6" y1="20" x2="6" y2="14"></line>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Industriebetrieb</h3><p class="codemasters-card__desc">Fabrikbetrieb, Material, Werkzeuge, Aufträge, Wartung und Qualität – für klarere Abläufe und weniger Reibungspunkte.</p>
+                            <h3 class="codemasters-card__title">Industriebetrieb</h3>
+                            <p class="codemasters-card__desc">Fabrikbetrieb, Material, Werkzeuge, Aufträge, Wartung und Qualität – für klarere Abläufe und weniger Reibungspunkte.</p>
                         </div>
 
                         <div class="codemasters-card fade-in-up" style="animation-delay: 0.1s;">
                             <div class="codemasters-card__icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                     <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Quality Intelligence</h3><p class="codemasters-card__desc">Qualitätsprozesse, Bild- und Qualitätssignale, Erkennung und Dashboards – für schnellere Prüfung und verlässliche Nachvollziehbarkeit.</p>
+                            <h3 class="codemasters-card__title">Quality Intelligence</h3>
+                            <p class="codemasters-card__desc">Qualitätsprozesse, Bild- und Qualitätssignale, Erkennung und Dashboards – für schnellere Prüfung und verlässliche Nachvollziehbarkeit.</p>
                         </div>
 
                         <div class="codemasters-card fade-in-up" style="animation-delay: 0.15s;">
                             <div class="codemasters-card__icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Energy &amp; ESG</h3><p class="codemasters-card__desc">Energie- und Emissionsdaten, CO2-Zuordnung und lokalisierte Berichte – für mehr Transparenz bei Verbrauch und Nachweisen.</p>
+                            <h3 class="codemasters-card__title">Energy &amp; ESG</h3>
+                            <p class="codemasters-card__desc">Energie- und Emissionsdaten, CO2-Zuordnung und lokalisierte Berichte – für mehr Transparenz bei Verbrauch und Nachweisen.</p>
                         </div>
 
                         <div class="codemasters-card fade-in-up" style="animation-delay: 0.2s;">
                             <div class="codemasters-card__icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                    <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M1 12h6m6 0h6M4.8 4.8l4.2 4.2m6 0l4.2-4.2M4.8 19.2l4.2 4.2m6 0l4.2-4.2"></path>
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 3v18h18"></path>
+                                    <path d="M7 14l4-4 3 3 5-6"></path>
+                                    <circle cx="19" cy="7" r="2"></circle>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Industrial Analytics</h3><p class="codemasters-card__desc">Analyse-, Anomalie- und Insight-Dashboards sowie Werkzeuglebensdauer-Schätzungen – für frühere Transparenz im laufenden Betrieb.</p>
+                            <h3 class="codemasters-card__title">Industrial Analytics</h3>
+                            <p class="codemasters-card__desc">Analyse-, Anomalie- und Insight-Dashboards sowie Werkzeuglebensdauer-Schätzungen – für frühere Transparenz im laufenden Betrieb.</p>
                         </div>
                     </div>
 
-                    <div class="section-cta fade-in-up" style="animation-delay: 0.25s;">
+                    <div class="section-cta fade-in-up" style="animation-delay: 0.25s; margin-top: 2rem;">
                         <p class="cta-lead">Sehen Sie sich Architektur und Funktionsbereiche von VezaionGen VI im Überblick an:</p>
                         <a href="vezaiongen-vi.html" class="btn btn--primary btn--large cta-btn">
                             <span>VezaionGen VI entdecken</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                                 <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </a>
@@ -1438,10 +1598,24 @@
             </div>
         </section>
 
-<section id="service-requests" class="section platform-content"><div class="container"><h2>Dienstleistungsanfragen</h2><p>Beschreiben Sie Ihr Ziel, den betrieblichen Kontext und die gewünschte Unterstützung. Wir besprechen passende Leistungen, transparente Annahmen und einen sinnvollen Projektumfang.</p><p class="cta-lead">Wählen Sie den passenden Anfragebereich für den direkten Einstieg:</p><div class="values-grid"><a class="btn btn--primary" href="contact.html#request-website">Website Development</a><a class="btn btn--primary" href="contact.html#request-mobile-apps">Mobile Apps</a><a class="btn btn--primary" href="contact.html#request-enterprise">Enterprise Development</a><a class="btn btn--primary" href="contact.html#request-consulting">Consulting</a><a class="btn btn--primary" href="contact.html#request-automation">Automation</a><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI</a></div></div></section></main>
+        <section id="service-requests" class="section platform-content">
+            <div class="container">
+                <h2>Dienstleistungsanfragen</h2>
+                <p>Beschreiben Sie Ihr Ziel, den betrieblichen Kontext und die gewünschte Unterstützung. Wir besprechen passende Leistungen, transparente Annahmen und einen sinnvollen Projektumfang.</p>
+                <p class="cta-lead">Wählen Sie den passenden Anfragebereich für den direkten Einstieg:</p>
+                <div class="values-grid">
+                    <a class="btn btn--primary" href="contact.html#request-website">Website Development</a>
+                    <a class="btn btn--primary" href="contact.html#request-mobile-apps">Mobile Apps</a>
+                    <a class="btn btn--primary" href="contact.html#request-enterprise">Enterprise Development</a>
+                    <a class="btn btn--primary" href="contact.html#request-consulting">Consulting</a>
+                    <a class="btn btn--primary" href="contact.html#request-automation">Automation</a>
+                    <a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI</a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script>
-        // Neue Preiskalkulator-Logik + animiertes SVG-Check-Symbol bei optionalen Extras
         const packageRadios = document.querySelectorAll('input[name="package"]');
         const timelineSelect = document.getElementById('timelineSelect');
         const totalPriceEl = document.getElementById('totalPrice');
@@ -1461,60 +1635,58 @@
                     card.classList.toggle('is-selected', checkbox.checked);
                 }
             });
+
+            document.querySelectorAll('.extras-group__body').forEach(body => {
+                const groupKey = body.dataset.groupBody;
+                const countBadge = document.querySelector(`.group-count[data-group="${groupKey}"]`);
+                const checkedCount = body.querySelectorAll('.addon-checkbox:checked').length;
+                if (countBadge) {
+                    countBadge.textContent = `${checkedCount} gewählt`;
+                }
+            });
         }
 
         function calculateTotal() {
             syncAddonStates();
 
-            // Paket auslesen
             const selectedPackage = document.querySelector('input[name="package"]:checked');
-            const packagePrice = parseInt(selectedPackage.value);
+            const packagePrice = parseInt(selectedPackage.value, 10);
             const packageName = selectedPackage.dataset.name;
+            const timelineValue = parseInt(timelineSelect.value, 10);
 
-            // Timeline Surcharge
-            const timelineValue = parseInt(timelineSelect.value);
-
-            // Add-ons
             let addonsTotal = 0;
             selectedAddons = [];
             addonCheckboxes.forEach(checkbox => {
                 if (checkbox.checked) {
-                    const price = parseInt(checkbox.dataset.price);
+                    const price = parseInt(checkbox.dataset.price, 10);
                     addonsTotal += price;
                     selectedAddons.push({
-                        name: checkbox.nextElementSibling.nextElementSibling.querySelector('span:first-child').textContent.trim(),
+                        name: checkbox.parentElement.querySelector('.checkbox-label span:first-child').textContent.trim(),
                         price
                     });
                 }
             });
 
             const total = packagePrice + timelineValue + addonsTotal;
-
             totalPriceEl.textContent = formatCurrency(total);
-            
-            // Breakdown anzeigen
+
             let breakdown = `${packageName} ${formatCurrency(packagePrice)}`;
             if (timelineValue > 0) breakdown += ` + Timeline ${formatCurrency(timelineValue)}`;
-            if (addonsTotal > 0) breakdown += ` + Extras: ${selectedAddons.map(extra => `${extra.name} (${formatCurrency(extra.price)})`).join(', ')}`;
+            if (addonsTotal > 0) {
+                breakdown += ` + Extras: ${selectedAddons.map(extra => `${extra.name} (${formatCurrency(extra.price)})`).join(', ')}`;
+            }
             packageBreakdown.textContent = breakdown;
             selectedExtrasEl.textContent = selectedAddons.length
                 ? `Ausgewählt: ${selectedAddons.map(extra => `${extra.name} (${formatCurrency(extra.price)})`).join(', ')}`
                 : 'Noch keine Extras ausgewählt.';
         }
 
-        packageRadios.forEach(radio => {
-            radio.addEventListener('change', calculateTotal);
-        });
-
+        packageRadios.forEach(radio => radio.addEventListener('change', calculateTotal));
         timelineSelect.addEventListener('change', calculateTotal);
-        addonCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', calculateTotal);
-        });
+        addonCheckboxes.forEach(checkbox => checkbox.addEventListener('change', calculateTotal));
 
-        // Initial calculation
         calculateTotal();
 
-        // Button funktionen anpassen
         const calcButton = document.querySelector('.calc-result .btn--primary');
         if (calcButton) {
             calcButton.addEventListener('click', (e) => {
@@ -1526,17 +1698,18 @@
                     ? ` + ${selectedAddons.map(extra => extra.name).join(', ')}`
                     : '';
                 const message = `Paket: ${packageName}\n\n${breakdown}\nGesamtschätzung: ${totalPriceEl.textContent}\n\nBitte kontaktieren Sie mich für ein detailliertes Angebot.`;
-                
+
                 const queryParams = new URLSearchParams({
                     subject: `Kalkulation: ${packageName}${extrasSubject}`,
                     package: packageName,
                     message: message
                 });
-                
+
                 window.location.href = `contact.html?${queryParams.toString()}#request-website`;
             });
         }
     </script>
+
     <!-- Footer wird automatisch geladen -->
     <div id="footer-placeholder"></div>
 
