@@ -54,6 +54,10 @@
         .article-content strong { color: var(--primary-color); font-weight: var(--font-weight-bold); }
         .article-content em { font-style: italic; color: var(--text-secondary); }
         .highlight { background: rgba(99, 102, 241, 0.1); padding: var(--space-lg); border-left: 4px solid var(--primary-color); border-radius: var(--radius-lg); margin: var(--space-2xl) 0; color: var(--text-primary); }
+        .article-next-links { margin-top: var(--space-2xl); display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-md); }
+        .article-next-link { display: inline-flex; align-items: center; gap: var(--space-xs); padding: 0.45rem 0.95rem; border-radius: 999px; text-decoration: none; font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm); color: #c7d2fe; background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(129, 140, 248, 0.48); transition: all 0.25s ease; }
+        .article-next-link:hover { color: #ffffff; background: rgba(99, 102, 241, 0.3); border-color: #a5b4fc; transform: translateX(3px); }
+        [data-theme="light"] .article-next-link { color: #1e1b4b !important; background: rgba(255, 255, 255, 0.92); border-color: rgba(79, 70, 229, 0.4); }
         .article-footer { border-top: 1px solid var(--glass-border); padding-top: var(--space-4xl); margin-top: var(--space-5xl); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-lg); }
         .article-author { color: var(--text-secondary); font-size: var(--font-size-base); }
         @media (max-width: 768px) { .article-hero { padding: var(--space-2xl); } .article-hero h1 { font-size: var(--font-size-2xl); } .article-meta { flex-direction: column; gap: var(--space-md); } .article-footer { flex-direction: column; align-items: flex-start; } }
@@ -182,6 +186,11 @@
                     <p>
                         Energy and ESG visibility does not need a single big-bang rollout. A practical starting point is a high-load line, a key transport lane, or a specific reporting requirement validated in a pilot setup before expanding further.
                     </p>
+
+                    <div class="article-next-links">
+                        <a href="modules.html" class="article-next-link">Explore Modules →</a>
+                        <a href="pilot-program.html" class="article-next-link">Join the Pilot Program →</a>
+                    </div>
                 </div>
 
                 <div class="article-footer">
@@ -211,25 +220,47 @@
     <script src="../js/ai-assistant.js" defer></script>
     <script>
 (function () {
-    function createProductBackLink(lang) {
+    function createSourceBackLink(targetType, lang) {
         const labels = {
-            de: '← Zurück zu VezaionGen VI',
-            en: '← Back to VezaionGen VI',
-            sr: '← Назад на VezaionGen VI'
+            vezaiongen: {
+                de: '← Zurück zu VezaionGen VI',
+                en: '← Back to VezaionGen VI',
+                sr: '← Назад на VezaionGen VI'
+            },
+            modules: {
+                de: '← Zurück zu den Modulen',
+                en: '← Back to Modules',
+                sr: '← Назад на модуле'
+            }
+        };
+        const hrefs = {
+            vezaiongen: 'vezaiongen-vi.html',
+            modules: 'modules.html'
         };
         const link = document.createElement('a');
-        link.href = 'vezaiongen-vi.html';
+        link.href = hrefs[targetType];
         link.className = 'vezaion-back-link';
-        link.textContent = labels[lang] || labels.de;
+        link.textContent = (labels[targetType] && (labels[targetType][lang] || labels[targetType].de)) || '← Zurück';
         return link;
     }
 
-    function initVezaionBackLinks() {
+    function detectOrigin() {
         const params = new URLSearchParams(window.location.search);
-        const cameFromProduct =
-            params.get('from') === 'vezaiongen' ||
-            /vezaiongen-vi\.html/i.test(document.referrer || '');
-        if (!cameFromProduct) return;
+        const fromParam = params.get('from');
+        const ref = document.referrer || '';
+
+        if (fromParam === 'modules' || /modules\.html/i.test(ref)) {
+            return 'modules';
+        }
+        if (fromParam === 'vezaiongen' || /vezaiongen-vi\.html/i.test(ref)) {
+            return 'vezaiongen';
+        }
+        return null;
+    }
+
+    function initOriginBackLinks() {
+        const origin = detectOrigin();
+        if (!origin) return;
 
         const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'de';
 
@@ -240,13 +271,13 @@
             topNav.className = 'top-back-nav';
             topBackLink.parentNode.insertBefore(topNav, topBackLink);
             topNav.appendChild(topBackLink);
-            topNav.appendChild(createProductBackLink(lang));
+            topNav.appendChild(createSourceBackLink(origin, lang));
         }
 
         const footer = document.querySelector('.article-footer');
         if (footer && !footer.querySelector('.vezaion-back-link')) {
             const footerBackLink = footer.querySelector('.back-link');
-            const productLinkBottom = createProductBackLink(lang);
+            const productLinkBottom = createSourceBackLink(origin, lang);
             if (footerBackLink) {
                 const wrap = document.createElement('div');
                 wrap.style.display = 'flex';
@@ -257,15 +288,15 @@
                 wrap.appendChild(productLinkBottom);
                 wrap.appendChild(footerBackLink);
             } else {
-                footer.appendChild(productLinkBottom);
+                footer.appendChild(originLinkBottom);
             }
         }
     }
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initVezaionBackLinks);
+        document.addEventListener('DOMContentLoaded', initOriginBackLinks);
     } else {
-        initVezaionBackLinks();
+        initOriginBackLinks();
     }
 })();
 </script>
