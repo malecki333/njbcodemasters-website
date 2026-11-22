@@ -23,14 +23,13 @@
 <style>
         html,
         body {
-            overflow-x: hidden;
+            overflow-x: clip;
             max-width: 100%;
         }
 
         .main,
         .section,
         .container {
-            overflow-x: hidden;
             max-width: 100%;
         }
 
@@ -92,6 +91,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: var(--space-3xl);
             margin-bottom: var(--space-5xl);
+            padding-top: 14px;
         }
 
         .pricing-card {
@@ -125,27 +125,27 @@
         }
 
         .badge {
-            position: relative;
-            display: inline-block;
-            align-self: flex-start;
-            top: auto;
-            left: auto;
-            margin-bottom: var(--space-sm);
+            position: absolute;
+            top: -12px;
+            left: 16px;
             background: var(--primary-color);
             color: white;
             padding: var(--space-xs) var(--space-md);
             border-radius: 999px;
             font-size: var(--font-size-sm);
             font-weight: var(--font-weight-semibold);
-            max-width: 100%;
-            z-index: 2;
+            max-width: calc(100% - 32px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            z-index: 5;
         }
 
         .package-name {
             font-size: var(--font-size-2xl);
             font-weight: var(--font-weight-bold);
             margin-bottom: var(--space-md);
-            margin-top: var(--space-xs);
+            margin-top: var(--space-md);
             overflow-wrap: break-word;
         }
 
@@ -403,6 +403,7 @@
             .pricing-grid {
                 grid-template-columns: 1fr;
                 gap: var(--space-2xl);
+                padding-top: 14px;
             }
 
             .pricing-card {
@@ -417,6 +418,12 @@
             .pricing-card:hover,
             .pricing-card.featured:hover {
                 transform: translateY(-4px);
+            }
+
+            .badge {
+                top: -11px;
+                left: 14px;
+                font-size: var(--font-size-xs);
             }
 
             .enterprise-grid {
