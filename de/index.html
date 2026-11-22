@@ -101,12 +101,12 @@ body {
 }
 .main .section .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 1.5rem;
     align-items: stretch;
     width: 100%;
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
+    margin-top: 0.85rem;
+    margin-bottom: 0.85rem;
 }
 .main .section .values-grid .pricing-card {
     display: flex;
@@ -114,6 +114,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100%;
+    min-height: 0;
     text-align: center;
 }
 .main .section .values-grid .pricing-card h3 {
@@ -144,14 +145,28 @@ body {
     color: transparent;
     -webkit-text-fill-color: transparent;
 }
+.home-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.35rem;
+    width: 100%;
+}
 .main .section .btn {
     margin-top: 0.25rem;
+    margin-inline: auto;
     justify-content: center;
     text-align: center;
 }
-.main .section .container > .btn + .btn,
-.main .section .container > a.btn + a.btn {
-    margin-left: 0.5rem;
+.home-actions .btn {
+    margin: 0;
+}
+@media (max-width: 960px) {
+    .main .section .values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 }
 @media (max-width: 768px) {
     .main .section {
@@ -164,7 +179,13 @@ body {
     .main .section .values-grid {
         grid-template-columns: 1fr;
     }
-    .main .section .btn {
+    .home-actions {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.65rem;
+    }
+    .main .section .btn,
+    .home-actions .btn {
         width: auto;
         max-width: 100%;
         min-height: 0;
@@ -173,11 +194,6 @@ body {
         font-size: 0.92rem;
         line-height: 1.3;
         flex: 0 0 auto;
-    }
-    .main .section .container > .btn + .btn,
-    .main .section .container > a.btn + a.btn {
-        margin-left: 0;
-        margin-top: 0.65rem;
     }
 }
 </style>
@@ -195,12 +211,12 @@ body {
 <p>Modulare Plattform für durchgängige Abläufe, klare Datenstrukturen und hohe Betriebssicherheit</p>
 <p class="cta-lead">Sehen Sie, wie VezaionGen VI Abläufe verbindet und Ihren Alltag entlastet:</p>
 <a class="btn btn--primary" href="vezaiongen-vi.html">VezaionGen VI entdecken</a>
-</div></div></section><section class="section bg-secondary"><div class="container"><h2>Was ist VezaionGen VI?</h2><p>VezaionGen VI ist die modulare Plattform von NJB CodeMasters für Ihren operativen Erfolg. Sie führt Informationen aus Fabrikbetrieb, Qualität, Instandhaltung, Energie, Robotik und Logistik an einem Ort zusammen – damit Teams schneller reagieren, Medienbrüche vermeiden und zuverlässige Entscheidungen treffen.</p><a href="modules.html">Module</a> · <a href="pilot-program.html">Pilotprogramm</a> · <a href="roadmap.html">Roadmap</a> · <a href="blog.html?from=vezaiongen">Fachartikel</a></div></section>
+</div></div></section><section class="section bg-secondary"><div class="container"><h2>Was ist VezaionGen VI?</h2><p>VezaionGen VI ist die modulare Plattform von NJB CodeMasters für Ihren operativen Erfolg. Sie führt Informationen aus Fabrikbetrieb, Qualität, Instandhaltung, Energie, Robotik und Logistik an einem Ort zusammen – damit Teams schneller reagieren, Medienbrüche vermeiden und zuverlässige Entscheidungen treffen.</p><p><a href="modules.html">Module</a> · <a href="pilot-program.html">Pilotprogramm</a> · <a href="roadmap.html">Roadmap</a> · <a href="blog.html?from=vezaiongen">Fachartikel</a></p></div></section>
 <section class="section platform-content"><div class="container"><h2>Warum Industry 6.0?</h2><p>Wenn Produktion, Transport, Qualität und Energie ineinandergreifen, entstehen spürbare Vorteile für Ihren Betrieb: kürzere Durchlaufzeiten, bessere Planbarkeit, geringere Ausfallrisiken und ein Arbeitsumfeld, das Menschen gezielt unterstützt statt überfordert.</p></div></section>
 <section class="section platform-content"><div class="container"><h2>Vernetzte Industrie im Überblick</h2><p>Von gemeinsamen Datenmodellen bis zu flexiblen Einsatzszenarien bringt VezaionGen VI Ihre Prozesse auf eine gemeinsame Linie – inklusive sicherer, unabhängiger Betriebsmöglichkeiten vor Ort.</p><p class="cta-lead">Alle Funktionen, Einsatzmodelle und Vorteile im Überblick finden Sie auf der Produktseite:</p><a class="btn btn--primary" href="vezaiongen-vi.html">VezaionGen VI entdecken</a></div></section>
 <section class="section platform-content"><div class="container"><h2>Modulübersicht</h2><p>Jeder Funktionsbereich löst konkrete Engpässe im Tagesgeschäft und lässt sich passgenau auf Ihren Betrieb zuschneiden:</p><div class="values-grid"><article class="pricing-card"><h3>Industrial Core</h3><p>Mehr Klarheit in Fabrikbetrieb, Material, Werkzeugen, Aufträgen, Wartung und Qualität.</p></article><article class="pricing-card"><h3>Digital Twin &amp; Robotics</h3><p>Räumliche Übersicht über Anlagen, Zonen und Robotikaufgaben für sichere und planbare Abläufe.</p></article><article class="pricing-card"><h3>Logistics &amp; Transport</h3><p>Reibungslose Touren, Ladungen, Flotten und Fahrerprozesse ohne Informationsverlust.</p></article><article class="pricing-card"><h3>ESG &amp; Sustainability</h3><p>Energie- und Emissionswerte direkt am Prozess erfassen und für Berichte und Nachweise nutzen.</p></article><article class="pricing-card"><h3>Autonomy &amp; Self-Healing</h3><p>Frühzeitige Signale bei Abweichungen und klare Reaktionspfade für hohe Verfügbarkeit.</p></article><article class="pricing-card"><h3>Integration Ecosystem</h3><p>Saubere Anbindung an bestehende Systeme und Datenquellen ohne unnötige Systembrüche.</p></article></div><p class="cta-lead">Wählen Sie die Bausteine, die zu Ihren Zielen und Prozessen passen:</p><a class="btn btn--primary" href="modules.html">Modulübersicht</a></div></section>
 <section class="section platform-content"><div class="container"><h2>Pilotprogramm</h2><p>Mit dem Pilotprogramm prüfen Sie den konkreten Nutzen von VezaionGen VI direkt an Ihren eigenen Anforderungen und Prozessen. Gemeinsam legen wir Anwendungsfälle, Ziele und den nächsten Schritt fest – praxisnah, fokussiert und auf messbaren Mehrwert ausgerichtet.</p><p class="cta-lead">Prüfen Sie Ablauf und Mehrwert für Ihr Unternehmen im Detail:</p><a class="btn btn--primary" href="pilot-program.html">Pilotprogramm</a></div></section>
-<section class="section platform-content"><div class="container"><h2>Kontakt</h2><p>Sie möchten prüfen, wie VezaionGen VI Ihre Prozesse entlastet, bestehende Systeme anbindet oder welche Bausteine für Ihr Unternehmen den größten Hebel bieten? In einem direkten Gespräch klären wir Ihren Bedarf und die passenden nächsten Schritte.</p><p class="cta-lead">Vereinbaren Sie jetzt Ihre unverbindliche Produktberatung:</p><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI Beratung anfordern</a></div></section><section id="organization-focus" class="section platform-content"><div class="container"><h2>NJB CodeMasters: Software, Beratung und industrielle Entwicklung</h2><p>Neben VezaionGen VI unterstützt NJB CodeMasters Unternehmen mit maßgeschneiderter Softwareentwicklung, technischer Beratung und Systemintegration. Je nach Anliegen finden Sie hier den direkten Einstieg in unsere Leistungen, Referenzen und Anfragen:</p><a class="btn btn--primary" href="services.html">Dienstleistungen</a> <a class="btn btn--primary" href="portfolio.html">Portfolio</a> <a class="btn btn--primary" href="contact.html#request-consulting">Consulting</a> <a class="btn btn--primary" href="contact.html#request-enterprise">Enterprise Development</a></div></section><section id="trust-layer" class="section platform-content"><div class="container"><h2>NJB CodeMasters d.o.o.</h2><p>NJB CodeMasters d.o.o. unter der Leitung von Nenad Baralić entwickelt Software, Beratung und individuelle Systemlösungen für anspruchsvolle industrielle Anforderungen.</p><div class="values-grid"><article class="pricing-card"><h3>Industry 6.0</h3><p>Intelligente, vernetzte und menschenorientierte industrielle Entwicklung.</p></article><article class="pricing-card"><h3>VezaionGen VI</h3><p>Die Plattform für integrierte Abläufe, klare Entscheidungen und verlässliche Betriebsinformationen.</p></article><article class="pricing-card"><h3>Digital Twin &amp; Industrial AI</h3><p>Digitale Modelle, Prozessdaten und intelligente Auswertung für fundierte Entscheidungen.</p></article></div><p><a href="about.html">Über NJB CodeMasters</a> · <a href="vezaiongen-vi.html">VezaionGen VI</a> · <a href="modules.html">Module</a> · <a href="pilot-program.html">Pilotprogramm</a> · <a href="roadmap.html">Roadmap</a> · <a href="blog.html?from=vezaiongen">Blog</a> · <a href="contact.html">Kontakt</a> · <a href="impressum.html">Rechtliche Informationen</a> · <a href="datenschutz.html">Datenschutz</a></p><p><a href="mailto:nenad@njbcodemasters.com">nenad@njbcodemasters.com</a></p></div></section></main>
+<section class="section platform-content"><div class="container"><h2>Kontakt</h2><p>Sie möchten prüfen, wie VezaionGen VI Ihre Prozesse entlastet, bestehende Systeme anbindet oder welche Bausteine für Ihr Unternehmen den größten Hebel bieten? In einem direkten Gespräch klären wir Ihren Bedarf und die passenden nächsten Schritte.</p><p class="cta-lead">Vereinbaren Sie jetzt Ihre unverbindliche Produktberatung:</p><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI Beratung anfordern</a></div></section><section id="organization-focus" class="section platform-content"><div class="container"><h2>NJB CodeMasters: Software, Beratung und industrielle Entwicklung</h2><p>Neben VezaionGen VI unterstützt NJB CodeMasters Unternehmen mit maßgeschneiderter Softwareentwicklung, technischer Beratung und Systemintegration. Je nach Anliegen finden Sie hier den direkten Einstieg in unsere Leistungen, Referenzen und Anfragen:</p><div class="home-actions"><a class="btn btn--primary" href="services.html">Dienstleistungen</a><a class="btn btn--primary" href="portfolio.html">Portfolio</a><a class="btn btn--primary" href="contact.html#request-consulting">Consulting</a><a class="btn btn--primary" href="contact.html#request-enterprise">Enterprise Development</a></div></div></section><section id="trust-layer" class="section platform-content"><div class="container"><h2>NJB CodeMasters d.o.o.</h2><p>NJB CodeMasters d.o.o. unter der Leitung von Nenad Baralić entwickelt Software, Beratung und individuelle Systemlösungen für anspruchsvolle industrielle Anforderungen.</p><div class="values-grid"><article class="pricing-card"><h3>Industry 6.0</h3><p>Intelligente, vernetzte und menschenorientierte industrielle Entwicklung.</p></article><article class="pricing-card"><h3>VezaionGen VI</h3><p>Die Plattform für integrierte Abläufe, klare Entscheidungen und verlässliche Betriebsinformationen.</p></article><article class="pricing-card"><h3>Digital Twin &amp; Industrial AI</h3><p>Digitale Modelle, Prozessdaten und intelligente Auswertung für fundierte Entscheidungen.</p></article></div><p><a href="about.html">Über NJB CodeMasters</a> · <a href="vezaiongen-vi.html">VezaionGen VI</a> · <a href="modules.html">Module</a> · <a href="pilot-program.html">Pilotprogramm</a> · <a href="roadmap.html">Roadmap</a> · <a href="blog.html?from=vezaiongen">Blog</a> · <a href="contact.html">Kontakt</a> · <a href="impressum.html">Rechtliche Informationen</a> · <a href="datenschutz.html">Datenschutz</a></p><p><a href="mailto:nenad@njbcodemasters.com">nenad@njbcodemasters.com</a></p></div></section></main>
 <div id="footer-placeholder"></div>
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script><script src="../js/ai-assistant.js" defer></script>
 </body></html>
