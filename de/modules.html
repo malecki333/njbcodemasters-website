@@ -88,6 +88,21 @@ body {
 .platform-content .values-grid .pricing-card > p:last-child {
     margin-bottom: 0;
 }
+.platform-content .values-grid .pricing-card > p strong {
+    background: linear-gradient(90deg, #ff2bd6 0%, #c026d3 48%, #8b5cf6 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-weight: var(--font-weight-semibold, 600);
+}
+[data-theme="light"] .platform-content .values-grid .pricing-card > p strong {
+    background: linear-gradient(90deg, #c026d3 0%, #9333ea 50%, #6d28d9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
 .main .section .cta-lead {
     max-width: 74ch;
     margin-top: 1.75rem;
