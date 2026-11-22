@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Транспарентне оријентационе цене и пакети компаније NJB CodeMasters: бржа реализација, мање застоја у координацији и јасна процена за веб, пословне и индустријске пројекте.">
     <title>Цене и услуге | NJB CodeMasters</title>
-    
+
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/variables.css">
     <link rel="stylesheet" href="../css/global.css">
@@ -17,12 +17,13 @@
     <link rel="stylesheet" href="../css/pricing.css">
     <link rel="stylesheet" href="../css/i18n.css">
     <link rel="stylesheet" href="../css/performance.css">
-    
+    <link rel="stylesheet" href="../css/platform-content.css">
+
     <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192x192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
-    
+
     <style>
         html,
         body,
@@ -31,11 +32,63 @@
         .container {
             overflow-x: clip;
             max-width: 100%;
+            text-align: center;
+        }
+
+        .nowrap {
+            white-space: nowrap !important;
+        }
+
+        .main .section {
+            padding-block: 3rem;
+        }
+
+        .main .section:first-child {
+            padding-top: 5.75rem;
+        }
+
+        .main .section .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .main .section h1,
+        .main .section h2,
+        .main .section h3,
+        .main .section p,
+        .main .section .section-label,
+        .main .section .section-description,
+        .main .section .cta-lead {
+            margin-inline: auto;
+            text-align: center;
+        }
+
+        /* Magenta-zu-Violett Verlauf auf strong */
+        .main .section strong {
+            background: linear-gradient(90deg, #ff2bd6 0%, #c026d3 48%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            font-weight: var(--font-weight-semibold, 600);
+        }
+
+        [data-theme="light"] .main .section strong {
+            background: linear-gradient(90deg, #c026d3 0%, #9333ea 50%, #6d28d9 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
         }
 
         .pricing-hero {
             text-align: center;
-            margin-bottom: var(--space-5xl);
+            margin-bottom: var(--space-4xl);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .pricing-hero h1 {
@@ -46,194 +99,300 @@
         .pricing-hero p {
             font-size: var(--font-size-lg);
             color: var(--text-secondary);
-            max-width: 700px;
+            max-width: 720px;
             margin: 0 auto;
         }
 
-        /* Pricing Toggle */
-        .toggle-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: var(--space-md);
-            margin: var(--space-3xl) 0 var(--space-5xl);
+        .pricing-scope-note {
+            max-width: 820px;
+            margin: 0 auto var(--space-3xl);
+            text-align: center;
+            background: #141829 !important;
+            background-color: #141829 !important;
+            border: 1px solid rgba(139, 92, 246, 0.35);
+            border-radius: var(--radius-xl);
+            padding: var(--space-lg) var(--space-xl);
+            opacity: 1 !important;
         }
 
-        .pricing-toggle {
-            display: inline-flex;
-            align-items: center;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 999px;
-            padding: 4px;
-            cursor: pointer;
+        [data-theme="light"] .pricing-scope-note {
+            background: #f8f9ff !important;
+            background-color: #f8f9ff !important;
         }
 
-        .toggle-btn {
-            padding: var(--space-sm) var(--space-lg);
-            border: none;
-            background: transparent;
-            color: var(--text-secondary);
-            cursor: pointer;
-            border-radius: 999px;
-            transition: all 0.3s ease;
-            font-weight: var(--font-weight-semibold);
+        .pricing-price-note {
+            text-align: center;
+            margin-inline: auto;
         }
 
-        .toggle-btn.active {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* Pricing Cards */
+        /* Karten: solide Oberflächen & kein Transparent-Bug beim Hover */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: var(--space-3xl);
-            margin-bottom: var(--space-5xl);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: var(--space-2xl);
+            margin: 0 auto var(--space-4xl);
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .main .section .pricing-card,
+        .main .section .codemasters-card,
+        .main .section .calculator-section,
+        .main .section .calc-result,
+        .main .section .card {
+            position: relative !important;
+            background: #121626 !important;
+            background-color: #121626 !important;
+            border: 1px solid rgba(148, 163, 184, 0.24);
+            border-radius: var(--radius-2xl);
+            transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+            min-width: 0;
+            max-width: 100%;
+            opacity: 1 !important;
+        }
+
+        [data-theme="light"] .main .section .pricing-card,
+        [data-theme="light"] .main .section .codemasters-card,
+        [data-theme="light"] .main .section .calculator-section,
+        [data-theme="light"] .main .section .calc-result,
+        [data-theme="light"] .main .section .card {
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            border-color: rgba(15, 23, 42, 0.14);
+        }
+
+        .main .section .pricing-card:hover,
+        .main .section .pricing-card:hover *,
+        .main .section .codemasters-card:hover,
+        .main .section .codemasters-card:hover *,
+        .main .section .card:hover,
+        .main .section .card:hover * {
+            opacity: 1 !important;
+        }
+
+        .main .section .pricing-card:hover,
+        .main .section .codemasters-card:hover,
+        .main .section .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 18px 34px rgba(10, 14, 26, 0.55);
+            background: #171c31 !important;
+            background-color: #171c31 !important;
+        }
+
+        [data-theme="light"] .main .section .pricing-card:hover,
+        [data-theme="light"] .main .section .codemasters-card:hover,
+        [data-theme="light"] .main .section .card:hover {
+            background: #f4f6ff !important;
+            background-color: #f4f6ff !important;
+            box-shadow: 0 14px 28px rgba(99, 102, 241, 0.15);
+        }
+
+        .main .section .pricing-card.featured {
+            border-color: var(--primary-color);
+            background: #161b30 !important;
+            background-color: #161b30 !important;
+        }
+
+        [data-theme="light"] .main .section .pricing-card.featured {
+            background: #f3f5ff !important;
+            background-color: #f3f5ff !important;
+        }
+
+        .main .section .pricing-card.featured:hover {
+            background: #1b223d !important;
+            background-color: #1b223d !important;
         }
 
         .pricing-card {
-            position: relative;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-2xl);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 2.25rem var(--space-2xl) var(--space-2xl);
             display: flex;
             flex-direction: column;
-            min-width: 0;
-            max-width: 100%;
+            align-items: center;
+            text-align: center;
         }
 
-        .pricing-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary-color);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
-        }
-
-        .pricing-card.featured {
-            border-color: var(--primary-color);
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(118, 75, 162, 0.06) 100%);
-            transform: scale(1.02);
-        }
-
-        .pricing-card.featured:hover {
-            transform: scale(1.02) translateY(-8px);
-        }
-
-        .badge {
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            background: var(--primary-color);
-            color: white;
-            padding: var(--space-xs) var(--space-md);
+        /* Badge oben links auf der Kante */
+        .main .section .badge {
+            position: absolute !important;
+            top: 0 !important;
+            left: 24px !important;
+            right: auto !important;
+            transform: translateY(-50%) !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #7c85ff !important;
+            color: #ffffff !important;
+            padding: 0.34rem 0.85rem;
             border-radius: 999px;
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-semibold);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            z-index: 4;
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
         }
 
         .package-name {
             font-size: var(--font-size-2xl);
             font-weight: var(--font-weight-bold);
             margin-bottom: var(--space-md);
-            margin-top: var(--space-md);
+            margin-top: var(--space-xs);
             overflow-wrap: break-word;
+            text-align: center;
+            width: 100%;
         }
 
         .package-desc {
             color: var(--text-secondary);
             font-size: var(--font-size-sm);
-            margin-bottom: var(--space-2xl);
+            margin-bottom: var(--space-xl);
             overflow-wrap: break-word;
+            text-align: center;
+            max-width: 56ch;
         }
 
         .price {
-            font-size: 3rem;
+            font-size: 2.75rem;
             font-weight: var(--font-weight-bold);
             color: var(--primary-color);
-            margin-bottom: var(--space-sm);
+            margin-bottom: var(--space-xs);
+            text-align: center;
         }
 
         .price-period {
             color: var(--text-secondary);
-            font-size: var(--font-size-base);
-            margin-bottom: var(--space-2xl);
+            font-size: var(--font-size-sm);
+            margin-bottom: var(--space-xl);
+            text-align: center;
         }
 
-        .features-list {
-            list-style: none;
+        /* Aufzählungen in Karten: zentrierter Block, innen fließend und linksbündig */
+        .main .section .features-list {
+            list-style: none !important;
+            columns: unset !important;
+            column-count: unset !important;
             padding: 0;
-            margin: 0 0 var(--space-2xl);
+            margin: 0 auto var(--space-xl);
             flex-grow: 1;
             min-width: 0;
-            max-width: 100%;
+            max-width: 420px;
+            width: 100%;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+            text-align: left !important;
         }
 
-        .features-list li {
-            padding: var(--space-sm) 0;
+        .main .section .enterprise-grid .features-list {
+            max-width: 100%;
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.25rem 1.5rem;
+            text-align: left !important;
+        }
+
+        .main .section .features-list li {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            gap: 0.65rem;
+            padding: 0.55rem 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.12);
             color: var(--text-secondary);
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            gap: var(--space-sm);
             font-size: var(--font-size-sm);
-            min-width: 0;
-            max-width: 100%;
-            overflow-wrap: anywhere;
-            word-break: break-word;
+            line-height: 1.45;
+            text-align: left !important;
+            width: 100%;
         }
 
-        .features-list li::before {
+        .main .section .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .main .section .features-list li::before {
             content: "✓";
             color: var(--primary-color);
-            font-weight: bold;
-            flex-shrink: 0;
+            font-weight: 700;
+            flex: 0 0 auto;
+            margin-top: 0.05rem;
         }
 
-        .features-list li a {
-            overflow-wrap: anywhere;
-            word-break: break-word;
-            max-width: 100%;
+        .main .section .features-list li span {
+            flex: 1 1 auto;
+            min-width: 0;
+            text-align: left !important;
+            display: inline !important;
+        }
+
+        .cta-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0.5rem auto 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .cta-lead {
+            text-align: center;
+            margin: 0 auto;
+            max-width: 60ch;
         }
 
         .cta-btn {
+            width: auto;
+            min-width: 185px;
+            max-width: 100%;
+            text-align: center;
+            justify-content: center;
+            margin: 0 auto;
+        }
+
+        /* Calculator & gruppierte Dropdown-Extras */
+        .calculator-section {
+            padding: var(--space-3xl);
+            margin: 0 auto var(--space-4xl);
             width: 100%;
             text-align: center;
         }
 
-        /* Calculator Section */
-        .calculator-section {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-3xl);
-            margin-bottom: var(--space-5xl);
-            max-width: 100%;
-        }
-
-        .calculator-section h2 {
-            margin-bottom: var(--space-2xl);
-        }
-
         .calculator-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: var(--space-2xl);
-            margin-bottom: var(--space-3xl);
+            grid-template-columns: 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-2xl);
+            width: 100%;
         }
 
         .calc-item {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             min-width: 0;
+            background: #171c31;
+            border: 1px solid rgba(148, 163, 184, 0.22);
+            border-radius: var(--radius-xl);
+            padding: var(--space-xl);
+        }
+
+        [data-theme="light"] .calc-item {
+            background: #f4f6ff;
+            border-color: rgba(15, 23, 42, 0.14);
         }
 
         .calc-label {
             font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--space-sm);
+            margin-bottom: var(--space-xs);
             color: var(--text-primary);
+            text-align: center;
+            width: 100%;
         }
 
         .calc-label-hint {
@@ -241,88 +400,159 @@
             color: var(--text-secondary);
         }
 
-        .slider-group {
+        .extras-groups-container {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1rem;
+            width: 100%;
+            margin-top: 1.25rem;
+            text-align: left;
+        }
+
+        .extras-group {
+            background: #171c31;
+            border: 1px solid rgba(148, 163, 184, 0.24);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            transition: border-color 0.25s ease;
+        }
+
+        [data-theme="light"] .extras-group {
+            background: #f4f6ff;
+            border-color: rgba(15, 23, 42, 0.14);
+        }
+
+        .extras-group[open] {
+            border-color: var(--primary-color);
+        }
+
+        .extras-group__summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1rem 1.25rem;
             display: flex;
-            gap: var(--space-md);
             align-items: center;
-        }
-
-        input[type="range"] {
-            flex: 1;
-            height: 6px;
-            border-radius: 3px;
-            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-            outline: none;
-            -webkit-appearance: none;
-            appearance: none;
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: white;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        input[type="range"]::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.6);
-        }
-
-        input[type="range"]::-moz-range-thumb {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background: white;
-            cursor: pointer;
-            border: none;
-            box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
-            transition: all 0.3s ease;
-        }
-
-        input[type="range"]::-moz-range-thumb:hover {
-            transform: scale(1.2);
-            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.6);
-        }
-
-        .slider-value {
-            min-width: 60px;
-            text-align: right;
+            justify-content: space-between;
+            gap: 0.75rem;
             font-weight: var(--font-weight-semibold);
-            color: var(--primary-color);
+            color: var(--text-primary);
+            user-select: none;
         }
 
-        .checkbox-group {
+        .extras-group__summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .extras-group__meta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: var(--font-size-xs);
+            color: var(--primary-color);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .extras-group__chevron {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.28s ease;
+            flex-shrink: 0;
+        }
+
+        .extras-group[open] .extras-group__chevron {
+            transform: rotate(180deg);
+        }
+
+        .extras-group__body {
+            padding: 0.9rem 1.15rem 1.15rem;
             display: flex;
             flex-direction: column;
-            gap: var(--space-sm);
+            gap: 0.65rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.14);
+        }
+
+        .extra-option-card {
+            width: 100%;
+            padding: 0.75rem 0.9rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            background: #121626;
+            transition: border-color 0.25s ease, background-color 0.25s ease;
+            text-align: left;
+        }
+
+        [data-theme="light"] .extra-option-card {
+            background: #ffffff;
+            border-color: rgba(15, 23, 42, 0.12);
+        }
+
+        .extra-option-card.is-selected {
+            border-color: var(--primary-color);
+            background: #1a213d;
+        }
+
+        [data-theme="light"] .extra-option-card.is-selected {
+            background: #eef0ff;
         }
 
         .checkbox-item {
             display: flex;
             align-items: center;
-            gap: var(--space-sm);
-            padding: var(--space-sm);
-            border-radius: var(--radius-md);
+            justify-content: flex-start;
+            gap: 0.75rem;
             cursor: pointer;
-            transition: all 0.2s ease;
+            width: 100%;
         }
 
-        .checkbox-item:hover {
-            background: rgba(99, 102, 241, 0.1);
+        .addon-checkbox {
+            position: absolute;
+            opacity: 0;
+            width: 1px;
+            height: 1px;
+            pointer-events: none;
         }
 
-        .checkbox-item input[type="checkbox"] {
-            cursor: pointer;
-            width: 18px;
-            height: 18px;
-            accent-color: var(--primary-color);
+        /* Animiertes SVG-Check-Symbol */
+        .extra-check-svg {
+            width: 26px;
+            height: 26px;
             flex-shrink: 0;
+            color: var(--text-secondary);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease;
+        }
+
+        .extra-check-svg__ring {
+            stroke: currentColor;
+            stroke-width: 2;
+            fill: none;
+            transition: stroke 0.25s ease, fill 0.25s ease;
+        }
+
+        .extra-check-svg__tick {
+            stroke: #ffffff;
+            stroke-width: 2.4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            stroke-dasharray: 22;
+            stroke-dashoffset: 22;
+            opacity: 0;
+            transition: stroke-dashoffset 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
+        }
+
+        .extra-option-card.is-selected .extra-check-svg {
+            transform: scale(1.12);
+            color: var(--primary-color);
+        }
+
+        .extra-option-card.is-selected .extra-check-svg__ring {
+            fill: var(--primary-color);
+            stroke: var(--primary-color);
+        }
+
+        .extra-option-card.is-selected .extra-check-svg__tick {
+            stroke-dashoffset: 0;
+            opacity: 1;
         }
 
         .checkbox-label {
@@ -333,7 +563,8 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: var(--space-xs);
+            gap: 0.4rem;
+            text-align: left;
         }
 
         .checkbox-price {
@@ -345,25 +576,26 @@
         .addon-description {
             font-size: var(--font-size-xs);
             color: var(--text-tertiary);
-            margin-top: 2px;
-            margin-bottom: 8px;
-            padding-left: 26px;
-            line-height: 1.3;
-            max-width: 100%;
+            margin-top: 0.35rem;
+            margin-bottom: 0;
+            padding-left: 2.35rem;
+            line-height: 1.4;
+            text-align: left;
             word-wrap: break-word;
         }
 
         /* Calculator Result */
         .calc-result {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15) 0%, rgba(118, 75, 162, 0.08) 100%);
-            border: 1px solid var(--primary-color);
+            border: 1px solid var(--primary-color) !important;
             border-radius: var(--radius-2xl);
             padding: var(--space-2xl);
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
-            gap: var(--space-2xl);
+            text-align: center;
+            gap: var(--space-md);
+            margin: 0 auto;
         }
 
         .result-label {
@@ -382,34 +614,208 @@
         .result-info {
             font-size: var(--font-size-sm);
             color: var(--text-secondary);
-            flex: 1;
-            min-width: 0;
+            max-width: 68ch;
+            margin-inline: auto;
         }
 
-        /* Table Section */
+        /* Детаљи услуга и оријентационе цене: klares, solides 3-Spalten-Grid ohne Hover-Transparenz */
         .breakdown-section {
-            margin-top: var(--space-5xl);
-            overflow-x: auto;
+            margin-top: var(--space-4xl);
+            width: 100%;
+            text-align: center;
+        }
+
+        .main .section .breakdown-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 1.5rem !important;
+            margin-top: 2rem !important;
+            width: 100% !important;
+            align-items: stretch !important;
+        }
+
+        .main .section .breakdown-card {
+            position: relative !important;
+            background: #121626 !important;
+            background-color: #121626 !important;
+            border: 1px solid rgba(148, 163, 184, 0.24) !important;
+            border-radius: var(--radius-xl) !important;
+            padding: 1.6rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            align-items: flex-start !important;
+            text-align: left !important;
+            opacity: 1 !important;
+            transform: none !important;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+        }
+
+        [data-theme="light"] .main .section .breakdown-card {
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            border-color: rgba(15, 23, 42, 0.14) !important;
+        }
+
+        .main .section .breakdown-card:hover,
+        .main .section .breakdown-card:hover * {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .main .section .breakdown-card:hover {
+            background: #171c31 !important;
+            background-color: #171c31 !important;
+            border-color: var(--primary-color) !important;
+            box-shadow: 0 12px 24px rgba(10, 14, 26, 0.45) !important;
+        }
+
+        [data-theme="light"] .main .section .breakdown-card:hover {
+            background: #f4f6ff !important;
+            background-color: #f4f6ff !important;
+        }
+
+        .breakdown-card__eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 0.35rem;
+            text-align: left !important;
+            width: 100%;
+        }
+
+        .breakdown-card__title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-align: left !important;
+            width: 100%;
+        }
+
+        .breakdown-card__desc {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+            text-align: left !important;
+            width: 100%;
+        }
+
+        .breakdown-card__price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: left !important;
+            width: 100%;
+        }
+
+        /* CodeMasters OS & FAQ Grids */
+        .codemasters-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            align-items: stretch;
+        }
+
+        .codemasters-card {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .codemasters-card__icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(99, 102, 241, 0.16);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .card {
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        #service-requests .values-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.85rem 1rem;
+            max-width: 820px;
+            margin: 0.5rem auto 0;
+            width: 100%;
+        }
+
+        #service-requests .values-grid .btn {
+            margin: 0;
+            min-width: 175px;
+            padding: 0.75rem 1.35rem;
+            flex: 0 0 auto;
+            width: auto;
+        }
+
+        @media (max-width: 1100px) {
+            .codemasters-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 960px) {
+            .pricing-grid,
+            .extras-groups-container,
+            .main .section .breakdown-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            }
         }
 
         @media (max-width: 768px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-2xl);
+            .main .section {
+                padding-block: 2.25rem;
+            }
+
+            .main .section:first-child {
+                padding-top: 4.75rem;
+            }
+
+            .pricing-grid,
+            .extras-groups-container,
+            .main .section .breakdown-grid,
+            .codemasters-grid,
+            .grid-2 {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-xl) !important;
             }
 
             .pricing-card {
-                padding: var(--space-lg);
-                transform: none;
+                padding: 2.25rem var(--space-lg) var(--space-lg);
+                transform: none !important;
             }
 
-            .pricing-card.featured {
-                transform: none;
-            }
-
-            .pricing-card:hover,
-            .pricing-card.featured:hover {
-                transform: translateY(-4px);
+            .main .section .pricing-card:hover,
+            .main .section .codemasters-card:hover,
+            .main .section .card:hover {
+                transform: none !important;
             }
 
             .enterprise-grid {
@@ -417,13 +823,12 @@
                 gap: var(--space-xl) !important;
             }
 
-            .features-list {
-                columns: 1 !important;
+            .enterprise-grid .features-list {
+                grid-template-columns: 1fr !important;
             }
 
-            .features-list li {
-                font-size: var(--font-size-xs);
-                line-height: 1.45;
+            .main .section .features-list li {
+                flex-wrap: wrap;
             }
 
             .calculator-section {
@@ -431,43 +836,55 @@
             }
 
             .calc-result {
-                flex-direction: column;
-                align-items: stretch;
                 padding: var(--space-lg);
             }
 
-            .calc-result .btn {
-                width: 100%;
-                justify-content: center;
-            }
-
-            .slider-group {
+            #service-requests .values-grid {
                 flex-direction: column;
-                align-items: stretch;
+                align-items: center;
+                gap: 0.65rem;
+                max-width: 100%;
             }
 
-            .slider-value {
-                text-align: left;
+            .main .section .btn,
+            .calc-result .btn,
+            .cta-btn,
+            #service-requests .values-grid .btn {
+                width: auto;
+                min-width: 0;
+                max-width: 100%;
+                min-height: 0;
+                height: auto;
+                padding: 0.72rem 1.25rem;
+                font-size: 0.92rem;
+                line-height: 1.3;
+                flex: 0 0 auto;
+                justify-content: center;
             }
         }
 
         .package-radio {
-            border-color: var(--glass-border) !important;
+            border-color: rgba(148, 163, 184, 0.25) !important;
+            background: #121626 !important;
         }
 
-        .package-radio input[type="radio"]:checked + div,
+        [data-theme="light"] .package-radio {
+            background: #ffffff !important;
+        }
+
         .package-radio input[type="radio"]:checked {
             accent-color: var(--primary-color);
         }
 
         .package-radio:has(input[type="radio"]:checked) {
             border-color: var(--primary-color) !important;
-            background: rgba(99, 102, 241, 0.1);
+            background: #1a213d !important;
+        }
+
+        [data-theme="light"] .package-radio:has(input[type="radio"]:checked) {
+            background: #eef0ff !important;
         }
     </style>
-
-    <!-- i18n & Internationalization -->
-    <link rel="stylesheet" href="../css/i18n.css">
 
     <link rel="canonical" href="https://www.njbcodemasters.com/sr/pricing.html">
     <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/pricing.html">
@@ -485,7 +902,6 @@
     <meta name="twitter:description" content="Транспарентне оријентационе цене и пакети компаније NJB CodeMasters: бржа реализација, мање застоја у координацији и јасна процена за веб, пословне и индустријске пројекте.">
     <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
-<link rel="stylesheet" href="../css/platform-content.css">
 </head>
 <body data-language="sr">
     <!-- Header & Navigation -->
@@ -495,14 +911,12 @@
                 <a href="index.html" aria-label="На почетну страну">
                     <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
                 </a>
-                
-                <!-- Menu Toggle Button -->
+
                 <button class="nav__toggle" id="navToggle" aria-label="Отвори навигацију" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
             </div>
 
-            <!-- Desktop Navigation -->
             <ul class="nav__menu" id="navMenu">
                 <li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li>
                 <li class="nav__item"><a href="about.html" class="nav__link">О нама</a></li>
@@ -514,17 +928,15 @@
             </ul>
 
             <div class="nav__actions">
-                <!-- Language Switcher -->
                 <div class="language-switcher">
                     <label for="languageSelect">🌐</label>
                     <select id="languageSelect" aria-label="Одаберите језик">
                         <option value="de">Немачки</option>
                         <option value="en">Енглески</option>
-                        <option value="sr">Српски</option>
+                        <option value="sr" selected>Српски</option>
                     </select>
                 </div>
 
-                <!-- Theme Toggle -->
                 <button class="theme-toggle" id="themeToggle" aria-label="Промени тему">
                     <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="4"></circle>
@@ -552,29 +964,50 @@
         <section class="section">
             <div class="container">
                 <!-- Hero Section -->
-                <div class="pricing-hero"><p class="section-label">Услуге</p>
+                <div class="pricing-hero">
+                    <p class="section-label">Услуге</p>
                     <h1>Транспарентне <span class="text-gradient">цене</span> за брже резултате</h1>
                     <p>Предвидљиве процене, мање застоја у координацији и јасна прегледност трошкова од самог почетка. Изаберите пакет или процените обим унапред – детаљи у секцијама <a href="services.html">Услуге</a>, <a href="modules.html">Модули</a> и кроз <a href="pilot-program.html">Пилот програм</a> помажу при процени.</p>
                 </div>
-<article class="pricing-card featured" id="vezaiongen-enterprise" style="margin: 0 auto var(--space-3xl); max-width: 1000px; border-color: var(--primary-color);"><picture class="brand-logo brand-logo--pricing"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI лого" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture><p class="section-label">ВОДЕЋА ИНДУСТРИЈСКА ПЛАТФОРМА</p><h2>VezaionGen VI за предузећа</h2><p>Посебна платформска понуда NJB CodeMasters за повезане индустријске токове рада, брже одлучивање и пуну оперативну прегледност.</p><ul class="features-list"><li>Модуларне индустријске функције платформе у оквиру <a href="modules.html">VezaionGen VI</a></li><li>Модели примене за договор: локална инфраструктура, приватни облак или софтвер као услуга</li><li>Структуриран почетак кроз <a href="pilot-program.html">Пилот програм</a> за заједничко дефинисање случаја употребе</li><li>Циљани разговор о функцијама, интерфејсима и оперативном моделу</li></ul><p><strong>Цена на упит</strong> · <a href="pilot-program.html">Пилот програм</a> је доступан</p><p class="cta-lead">Усагласите сценарио примене, интерфејсе и оперативни модел директно у разговору:</p><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">Разговарајте о VezaionGen VI</a></article>
 
-                <!-- Pricing Cards -->
-                <div style="margin-bottom: var(--space-3xl); padding-bottom: var(--space-2xl); border-bottom: 1px solid var(--border-color);">
+                <!-- VezaionGen VI Enterprise Card -->
+                <article class="pricing-card featured" id="vezaiongen-enterprise" style="margin: 0 auto var(--space-3xl); max-width: 1000px;">
+                    <span class="badge">ВОДЕЋА ПЛАТФОРМА</span>
+                    <picture class="brand-logo brand-logo--pricing"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI лого" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture>
+                    <p class="section-label">ВОДЕЋА ИНДУСТРИЈСКА ПЛАТФОРМА</p>
+                    <h2><span class="nowrap">VezaionGen VI</span> за предузећа</h2>
+                    <p>Посебна платформска понуда NJB CodeMasters за повезане индустријске токове рада, брже одлучивање и пуну оперативну прегледност.</p>
+                    <ul class="features-list">
+                        <li><span>Модуларне индустријске функције платформе у оквиру <a href="modules.html" class="nowrap">VezaionGen VI</a></span></li>
+                        <li><span>Модели примене за договор: локална инфраструктура, приватни облак или софтвер као услуга</span></li>
+                        <li><span>Структуриран почетак кроз <a href="pilot-program.html">Пилот програм</a> за заједничко дефинисање случаја употребе</span></li>
+                        <li><span>Циљани разговор о функцијама, интерфејсима и оперативном моделу</span></li>
+                    </ul>
+                    <p><strong>Цена на упит</strong> · <a href="pilot-program.html">Пилот програм</a> је доступан</p>
+                    <div class="cta-block">
+                        <p class="cta-lead">Усагласите сценарио примене, интерфејсе и оперативни модел директно у разговору:</p>
+                        <a class="btn btn--primary cta-btn" href="contact.html#vezaiongen-consultation">Разговарајте о <span class="nowrap">VezaionGen VI</span></a>
+                    </div>
+                </article>
+
+                <!-- Enterprise Services Heading -->
+                <div style="margin-bottom: var(--space-3xl); padding-bottom: var(--space-2xl); border-bottom: 1px solid var(--border-color); width: 100%;">
                     <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-lg); text-align: center;">🚀 <span class="text-gradient">Услуге и развој за предузећа</span></h2>
                     <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Развој индустријског софтвера, системске интеграције и оперативна подршка – за мање прекида у току података, глаткије примопредаје и поуздан свакодневни рад.</p>
                 </div>
 
-                <aside class="pricing-scope-note"><strong>Јасно раздвајање цена:</strong> Следећи EUR распони важе само за услуге NJB CodeMasters и наменски развој софтвера по поруџбини. Оријентациона цена од €60.000 односи се на индустријски сервисни пројекат, а не на платформу или лиценцу VezaionGen VI. VezaionGen VI се нуди одвојено: цена на упит, <a href="pilot-program.html">Пилот програм</a> је доступан.</aside>
-<div class="pricing-grid">
-                    <!-- Enterprise / Industrial OS (FLAGSHIP) -->
-                    <div class="pricing-card featured" style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.1));">
-                        <span class="badge" style="left: 20px;">ИНДУСТРИЈСКЕ УСЛУГЕ</span>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center;" class="enterprise-grid">
+                <aside class="pricing-scope-note"><strong>Јасно раздвајање цена:</strong> Следећи EUR распони важе само за услуге NJB CodeMasters и наменски развој софтвера по поруџбини. Оријентациона цена од €60.000 односи се на индустријски сервисни пројекат, а не на платформу или лиценцу <span class="nowrap">VezaionGen VI</span>. <span class="nowrap">VezaionGen VI</span> се нуди одвојено: цена на упит, <a href="pilot-program.html">Пилот програм</a> је доступан.</aside>
+
+                <div class="pricing-grid">
+                    <!-- Enterprise / Industrial OS -->
+                    <div class="pricing-card featured" style="grid-column: 1 / -1;">
+                        <span class="badge">ИНДУСТРИЈСКЕ УСЛУГЕ</span>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; width: 100%;" class="enterprise-grid">
                             <div>
-                                <h3 class="package-name" style="color: var(--primary-color); font-size: 2.5rem;">Индустријски софтвер<br>&amp; MES/ERP интеграција</h3>
+                                <h3 class="package-name" style="color: var(--primary-color); font-size: 2.25rem;">Индустријски софтвер<br>&amp; MES/ERP интеграција</h3>
                                 <p class="package-desc" style="font-size: var(--font-size-lg); color: var(--text-secondary);">Наменски прилагођен софтвер, интеграција података и оперативне апликације за брже процесе, мање застоја и јасну прегледност у раду.</p>
-                                
-                                <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: rgba(99, 102, 241, 0.1); border-radius: var(--radius-lg); border-left: 4px solid var(--primary-color);">
+
+                                <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: rgba(99, 102, 241, 0.14); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.35);">
                                     <div style="margin-bottom: var(--space-sm);">
                                         <span style="font-size: var(--font-size-sm); color: var(--text-secondary); text-transform: uppercase;">Имплементација сервисног пројекта</span>
                                         <div style="font-size: 2rem; font-weight: bold; color: var(--primary-color);">од €60.000</div>
@@ -584,28 +1017,28 @@
                                         <div style="font-size: 1.5rem; font-weight: bold; color: var(--text-primary);">€3.000 – €10.000/месец</div>
                                     </div>
                                 </div>
-                                <p class="pricing-price-note">Оријентациона цена услуга и реализације пројекта – није цена платформе или лиценце VezaionGen VI.</p>
+                                <p class="pricing-price-note" style="margin-top: var(--space-md);">Оријентациона цена услуга и реализације пројекта – није цена платформе или лиценце <span class="nowrap">VezaionGen VI</span>.</p>
                             </div>
-                            
+
                             <div>
-                                <ul class="features-list" style="columns: 2;">
-                                    <li>Комплексни MES/ERP системи</li>
-                                    <li>Прикупљање података у реалном времену</li>
-                                    <li>Предиктивна анализа</li>
-                                    <li>IoT интеграција</li>
-                                    <li>Праћење енергије</li>
-                                    <li>CO2 праћење</li>
-                                    <li>Напредни QC системи</li>
-                                    <li>Прилагођени модули</li>
-                                    <li>24/7 посвећена подршка</li>
-                                    <li>Редовна ажурирања</li>
-                                    <li>Прилагођене интеграције</li>
-                                    <li>Оптимизација перформанси</li>
+                                <ul class="features-list">
+                                    <li><span>Комплексни MES/ERP системи</span></li>
+                                    <li><span>Прикупљање података у реалном времену</span></li>
+                                    <li><span>Предиктивна анализа</span></li>
+                                    <li><span>IoT интеграција</span></li>
+                                    <li><span>Праћење енергије</span></li>
+                                    <li><span>CO2 праћење</span></li>
+                                    <li><span>Напредни QC системи</span></li>
+                                    <li><span>Прилагођени модули</span></li>
+                                    <li><span>24/7 посвећена подршка</span></li>
+                                    <li><span>Редовна ажурирања</span></li>
+                                    <li><span>Прилагођене интеграције</span></li>
+                                    <li><span>Оптимизација перформанси</span></li>
                                 </ul>
-                                
-                                <div style="margin-top: var(--space-2xl);">
+
+                                <div class="cta-block">
                                     <p class="cta-lead">Усагласите системско окружење, интерфејсе и циљни обим директно са нама:</p>
-                                    <a class="btn btn--secondary" style="width: 100%; justify-content: center; margin-top: var(--space-md);" href="contact.html#request-enterprise">Затражите детаљну понуду</a>
+                                    <a class="btn btn--secondary cta-btn" href="contact.html#request-enterprise">Затражите детаљну понуду</a>
                                 </div>
                             </div>
                         </div>
@@ -613,31 +1046,34 @@
                 </div>
 
                 <!-- Standard Web Development Packages -->
-                <div style="margin-top: var(--space-3xl); margin-bottom: var(--space-3xl); padding-top: var(--space-3xl); padding-bottom: var(--space-2xl); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+                <div style="margin-top: var(--space-3xl); margin-bottom: var(--space-3xl); padding-top: var(--space-3xl); padding-bottom: var(--space-2xl); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); width: 100%;">
                     <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-lg); text-align: center;">💻 <span class="text-gradient">Пакети за веб развој</span></h2>
                     <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Одзивни веб-сајтови и веб апликације са јасним обимом за брзу испоруку и поуздане резултате</p>
                 </div>
 
                 <div class="pricing-grid">
-                    <!-- Starter Paket -->
+                    <!-- Почетни Paket -->
                     <div class="pricing-card">
+                        <span class="badge">ПОЧЕТАК</span>
                         <h3 class="package-name">Почетни</h3>
                         <p class="package-desc">За брз и уредан веб наступ мањих тимова и нових иницијатива</p>
                         <div class="price">€2.500</div>
                         <p class="price-period">Једнократна накнада</p>
                         <ul class="features-list">
-                            <li>Саветовање и концепт</li>
-                            <li>Модеран дизајн (до 3 странице)</li>
-                            <li>Одзивна имплементација</li>
-                            <li>CMS интеграција (WordPress)</li>
-                            <li>Основни SEO</li>
-                            <li>Тестирање и лансирање</li>
+                            <li><span>Саветовање и концепт</span></li>
+                            <li><span>Модеран дизајн (до 3 странице)</span></li>
+                            <li><span>Одзивна имплементација</span></li>
+                            <li><span>CMS интеграција (WordPress)</span></li>
+                            <li><span>Основни SEO</span></li>
+                            <li><span>Тестирање и лансирање</span></li>
                         </ul>
-                        <p class="cta-lead">Пренесите овај пакет директно у упит:</p>
-                        <a class="btn btn--primary cta-btn" href="contact.html?package=%D0%9F%D0%BE%D1%87%D0%B5%D1%82%D0%BD%D0%B8#request-website">Пошаљите захтев</a>
+                        <div class="cta-block">
+                            <p class="cta-lead">Пренесите овај пакет директно у упит:</p>
+                            <a class="btn btn--primary cta-btn" href="contact.html?package=%D0%9F%D0%BE%D1%87%D0%B5%D1%82%D0%BD%D0%B8#request-website">Пошаљите захтев</a>
+                        </div>
                     </div>
 
-                    <!-- Professional Paket (Featured) -->
+                    <!-- Професионални Paket -->
                     <div class="pricing-card featured">
                         <span class="badge">Најпопуларнији избор</span>
                         <h3 class="package-name">Професионални</h3>
@@ -645,67 +1081,71 @@
                         <div class="price">€5.500</div>
                         <p class="price-period">Једнократна накнада</p>
                         <ul class="features-list">
-                            <li>Саветовање и концепт</li>
-                            <li>Прилагођен дизајн (до 6 страница)</li>
-                            <li>Одзиван и оптимизован</li>
-                            <li>CMS са проширењима</li>
-                            <li>SEO и перформансе</li>
-                            <li>Интеграција блога</li>
-                            <li>Поставка аналитике</li>
-                            <li>1 месец подршке</li>
+                            <li><span>Саветовање и концепт</span></li>
+                            <li><span>Прилагођен дизајн (до 6 страница)</span></li>
+                            <li><span>Одзиван и оптимизован</span></li>
+                            <li><span>CMS са проширењима</span></li>
+                            <li><span>SEO и перформансе</span></li>
+                            <li><span>Интеграција блога</span></li>
+                            <li><span>Поставка аналитике</span></li>
+                            <li><span>1 месец подршке</span></li>
                         </ul>
-                        <p class="cta-lead">Покрените упит са већ унетим обимом:</p>
-                        <a class="btn btn--primary cta-btn" href="contact.html?package=%D0%9F%D1%80%D0%BE%D1%84%D0%B5%D1%81%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%B8#request-website">Пошаљите захтев</a>
+                        <div class="cta-block">
+                            <p class="cta-lead">Покрените упит са већ унетим обимом:</p>
+                            <a class="btn btn--primary cta-btn" href="contact.html?package=%D0%9F%D1%80%D0%BE%D1%84%D0%B5%D1%81%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%B8#request-website">Пошаљите захтев</a>
+                        </div>
                     </div>
 
-                    <!-- Premium Paket -->
+                    <!-- Премијум Paket -->
                     <div class="pricing-card">
+                        <span class="badge">РАСТ</span>
                         <h3 class="package-name">Премијум</h3>
                         <p class="package-desc">За захтевне платформе са прилагођеном архитектуром, продавницом или интеграцијом процеса</p>
                         <div class="price">€9.500</div>
                         <p class="price-period">Једнократна накнада</p>
                         <ul class="features-list">
-                            <li>Свеобухватно стратешко саветовање</li>
-                            <li>Систем визуелног идентитета</li>
-                            <li>Прилагођен развој</li>
-                            <li>Интеграција електронске трговине</li>
-                            <li>Напредни SEO и CRO</li>
-                            <li>Интеграција билтена</li>
-                            <li>Подршка за видео/анимацију</li>
-                            <li>3 месеца подршке и одржавања</li>
+                            <li><span>Свеобухватно стратешко саветовање</span></li>
+                            <li><span>Систем визуелног идентитета</span></li>
+                            <li><span>Прилагођен развој</span></li>
+                            <li><span>Интеграција електронске трговине</span></li>
+                            <li><span>Напредни SEO и CRO</span></li>
+                            <li><span>Интеграција билтена</span></li>
+                            <li><span>Подршка за видео/анимацију</span></li>
+                            <li><span>3 месеца подршке и одржавања</span></li>
                         </ul>
-                        <p class="cta-lead">Затражите прилагођен обим директно:</p>
-                        <a class="btn btn--primary cta-btn" href="contact.html?package=%D0%9F%D1%80%D0%B5%D0%BC%D0%B8%D1%98%D1%83%D0%BC#request-website">Пошаљите захтев</a>
+                        <div class="cta-block">
+                            <p class="cta-lead">Затражите прилагођен обим директно:</p>
+                            <a class="btn btn--primary cta-btn" href="contact.html?package=%D0%9F%D1%80%D0%B5%D0%BC%D0%B8%D1%98%D1%83%D0%BC#request-website">Пошаљите захтев</a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Pricing Calculator mit Paket-Auswahl -->
+                <!-- Pricing Calculator mit Paket-Auswahl & gruppierten Dropdown-Extras -->
                 <div class="calculator-section">
                     <h2>Индивидуална калкулација</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: var(--space-3xl);">Процените обим пројекта у неколико корака – за већу прегледност буџета и мање кругова усаглашавања пре почетка.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-2xl);">Процените обим пројекта у неколико корака – за већу прегледност буџета и мање кругова усаглашавања пре почетка.</p>
 
                     <div class="calculator-grid">
-                        <!-- Paket-Auswahl -->
-                        <div class="calc-item" style="grid-column: 1 / -1;">
+                        <div class="calc-item">
                             <label class="calc-label">Изаберите основни пакет</label>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-md);">
-                                <label style="display: flex; align-items: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;" class="package-radio">
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-md); width: 100%; margin-top: var(--space-sm);">
+                                <label style="display: flex; align-items: center; justify-content: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.25s ease;" class="package-radio">
                                     <input type="radio" name="package" value="2500" data-name="Почетни" checked style="cursor: pointer;">
-                                    <div style="margin-left: var(--space-sm);">
+                                    <div style="margin-left: var(--space-sm); text-align: center;">
                                         <strong>Почетни</strong>
                                         <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">€2.500</div>
                                     </div>
                                 </label>
-                                <label style="display: flex; align-items: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;" class="package-radio">
+                                <label style="display: flex; align-items: center; justify-content: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.25s ease;" class="package-radio">
                                     <input type="radio" name="package" value="5500" data-name="Професионални" style="cursor: pointer;">
-                                    <div style="margin-left: var(--space-sm);">
+                                    <div style="margin-left: var(--space-sm); text-align: center;">
                                         <strong>Професионални</strong>
                                         <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">€5.500</div>
                                     </div>
                                 </label>
-                                <label style="display: flex; align-items: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.3s ease;" class="package-radio">
+                                <label style="display: flex; align-items: center; justify-content: center; padding: var(--space-md); border: 2px solid var(--glass-border); border-radius: var(--radius-md); cursor: pointer; transition: all 0.25s ease;" class="package-radio">
                                     <input type="radio" name="package" value="9500" data-name="Премијум" style="cursor: pointer;">
-                                    <div style="margin-left: var(--space-sm);">
+                                    <div style="margin-left: var(--space-sm); text-align: center;">
                                         <strong>Премијум</strong>
                                         <div style="font-size: var(--font-size-sm); color: var(--text-secondary);">€9.500</div>
                                     </div>
@@ -713,245 +1153,411 @@
                             </div>
                         </div>
 
-                        <!-- Timeline -->
                         <div class="calc-item">
-                            <label class="calc-label">
+                            <label class="calc-label" for="timelineSelect">
                                 Жељени рок
                                 <span class="calc-label-hint">(трајање испоруке)</span>
                             </label>
-                            <select id="timelineSelect" style="padding: var(--space-sm); border-radius: var(--radius-md); border: 1px solid var(--glass-border); background: var(--bg-primary); color: var(--text-primary); cursor: pointer;">
-                                <option value="0">Стандард (6-8 недеља) - €0</option>
-                                <option value="500">Експрес (4-6 недеља) - +€500</option>
-                                <option value="1200">Хитно (2-4 недеље) - +€1.200</option>
+                            <select id="timelineSelect" style="padding: var(--space-sm) var(--space-md); border-radius: var(--radius-md); border: 1px solid var(--glass-border); background: #121626; color: var(--text-primary); cursor: pointer; text-align: center; margin-top: var(--space-xs); max-width: 360px; width: 100%;">
+                                <option value="0">Стандард (6–8 недеља) - €0</option>
+                                <option value="500">Експрес (4–6 недеља) - +€500</option>
+                                <option value="1200">Хитно (2–4 недеље) - +€1.200</option>
                             </select>
                         </div>
                     </div>
 
-                    <!-- Add-ons -->
-                    <div style="margin-top: var(--space-3xl); padding-top: var(--space-3xl); border-top: 1px solid var(--glass-border);">
-                        <h3 style="margin-bottom: var(--space-lg);">Опционални додаци</h3>
-                        <p>Изаберите додатне услуге које желите да укључите у упит. Изабрани додаци биће приказани у обрасцу, нацрту е-поште и наслову поруке.</p>
-                        <p id="selectedExtras" role="status" aria-live="polite">Још увек нису изабрани додаци.</p>
-                        <div class="checkbox-group">
-                            <!-- Web Development -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="3500" id="webdev">
-                                <span class="checkbox-label">
-                                    <span>Веб развој (клијентски и серверски део)</span>
-                                    <span class="checkbox-price">+€3.500</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Модерне одзивне веб-странице са HTML5, CSS3, JavaScript и оптимизацијом перформанси</p>
+                    <!-- Gruppierte Dropdown-Karten für Опционални додаци -->
+                    <div style="margin-top: var(--space-2xl); padding-top: var(--space-2xl); border-top: 1px solid var(--glass-border); text-align: center;">
+                        <h3 style="margin-bottom: var(--space-sm); text-align: center;">Опционални додаци</h3>
+                        <p>Расклопите жељене категорије и изаберите додатке – анимирани SVG симбол одмах потврђује избор и преноси га у упит.</p>
+                        <p id="selectedExtras" role="status" aria-live="polite" style="margin-top: 0.5rem;">Још увек нису изабрани додаци.</p>
 
-                            <!-- App Development -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="8500" id="appdev">
-                                <span class="checkbox-label">
-                                    <span>Развој апликација (iOS/Android)</span>
-                                    <span class="checkbox-price">+€8.500</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Изворне или вишеплатформске мобилне апликације са савременим корисничким искуством и објављивањем у продавницама апликација</p>
+                        <div class="extras-groups-container" id="extrasGroup">
+                            <!-- Група 1 -->
+                            <details class="extras-group">
+                                <summary class="extras-group__summary">
+                                    <span>Развој и системи</span>
+                                    <span class="extras-group__meta">
+                                        <span class="group-count" data-group="dev">0 изабрано</span>
+                                        <svg class="extras-group__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <div class="extras-group__body" data-group-body="dev">
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="webdev">
+                                            <input type="checkbox" class="addon-checkbox" data-price="3500" id="webdev">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Веб развој (клијентски и серверски део)</span>
+                                                <span class="checkbox-price">+€3.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Модерне одзивне веб-странице са HTML5, CSS3, JavaScript и оптимизацијом перформанси</p>
+                                    </div>
 
-                            <!-- UI/UX Design -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="2500" id="uiux">
-                                <span class="checkbox-label">
-                                    <span>Професионални дизајн интерфејса и корисничког искуства</span>
-                                    <span class="checkbox-price">+€2.500</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Структурне скице екрана, прототипи, истраживање корисника и визуелни дизајн за оптималну употребљивост</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="appdev">
+                                            <input type="checkbox" class="addon-checkbox" data-price="8500" id="appdev">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Развој апликација (iOS/Android)</span>
+                                                <span class="checkbox-price">+€8.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Изворне или вишеплатформске мобилне апликације са савременим корисничким искуством и објављивањем у продавницама апликација</p>
+                                    </div>
 
-                            <!-- Backend Development -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="4200" id="backend">
-                                <span class="checkbox-label">
-                                    <span>Серверски развој</span>
-                                    <span class="checkbox-price">+€4.200</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Робустне серверске архитектуре, RESTful API-ји, пројектовање базе података и облачна инфраструктура</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="backend">
+                                            <input type="checkbox" class="addon-checkbox" data-price="4200" id="backend">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Серверски развој</span>
+                                                <span class="checkbox-price">+€4.200</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Робустне серверске архитектуре, RESTful API-ји, пројектовање базе података и облачна инфраструктура</p>
+                                    </div>
 
-                            <!-- E-Commerce -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="5500" id="ecommerce">
-                                <span class="checkbox-label">
-                                    <span>Комплетно решење за електронску трговину</span>
-                                    <span class="checkbox-price">+€5.500</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Интернет продавница са системима плаћања, управљањем залихама, анализом и извештавањем</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="ecommerce">
+                                            <input type="checkbox" class="addon-checkbox" data-price="5500" id="ecommerce">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Комплетно решење за електронску трговину</span>
+                                                <span class="checkbox-price">+€5.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Интернет продавница са системима плаћања, управљањем залихама, анализом и извештавањем</p>
+                                    </div>
 
-                            <!-- Tech Consulting -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="1800" id="consulting">
-                                <span class="checkbox-label">
-                                    <span>Технолошко саветовање</span>
-                                    <span class="checkbox-price">+€1.800</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Стратешко саветовање, планирање технолошког стека, прегледи кода и обука тима</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="cms">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1800" id="cms">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>CMS систем (WordPress/прилагођен)</span>
+                                                <span class="checkbox-price">+€1.800</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Систем за управљање садржајем за лако управљање без програмских знања</p>
+                                    </div>
 
-                            <!-- SEO -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="800" id="seo">
-                                <span class="checkbox-label">
-                                    <span>Напредни SEO и SEM</span>
-                                    <span class="checkbox-price">+€800</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Оптимизација за претраживаче, анализа кључних речи, On-Page/Off-Page SEO и Google Ads поставка</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="api">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1500" id="api">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>API интеграције (плаћања, CRM)</span>
+                                                <span class="checkbox-price">+€1.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Повезивање спољних система попут Stripe, PayPal, Salesforce, HubSpot итд.</p>
+                                    </div>
 
-                            <!-- Animations -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="1200" id="animation">
-                                <span class="checkbox-label">
-                                    <span>Анимације и интеракције</span>
-                                    <span class="checkbox-price">+€1.200</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Модерне CSS/JavaScript анимације, скрол ефекти и интерактивни UI елементи</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="forms">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1100" id="forms">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Прилагођени формулари и алати</span>
+                                                <span class="checkbox-price">+€1.100</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Специјални формулари, калкулатори, конфигуратори са валидацијом и повезивањем са серверским системом</p>
+                                    </div>
+                                </div>
+                            </details>
 
-                            <!-- Support -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="600" id="support">
-                                <span class="checkbox-label">
-                                    <span>3 месеца приоритетне подршке</span>
-                                    <span class="checkbox-price">+€600</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Брзо време одзива, отклањање грешака, ажурирања и техничка подршка путем е-поште/чета</p>
+                            <!-- Група 2 -->
+                            <details class="extras-group">
+                                <summary class="extras-group__summary">
+                                    <span>Дизајн, 3D и медији</span>
+                                    <span class="extras-group__meta">
+                                        <span class="group-count" data-group="design">0 изабрано</span>
+                                        <svg class="extras-group__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <div class="extras-group__body" data-group-body="design">
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="uiux">
+                                            <input type="checkbox" class="addon-checkbox" data-price="2500" id="uiux">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Професионални дизајн интерфејса и корисничког искуства</span>
+                                                <span class="checkbox-price">+€2.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Структурне скице екрана, прототипи, истраживање корисника и визуелни дизајн за оптималну употребљивост</p>
+                                    </div>
 
-                            <!-- Newsletter -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="400" id="newsletter">
-                                <span class="checkbox-label">
-                                    <span>Подешавање система за билтен</span>
-                                    <span class="checkbox-price">+€400</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Интеграција маркетинга путем е-поште (Mailchimp/SendGrid), шаблони и аутоматизација</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="animation">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1200" id="animation">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Анимације и интеракције</span>
+                                                <span class="checkbox-price">+€1.200</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Модерне CSS/JavaScript анимације, скрол ефекти и интерактивни UI елементи</p>
+                                    </div>
 
-                            <!-- AI Chat -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="2500" id="aichat">
-                                <span class="checkbox-label">
-                                    <span>Интеграција асистента са вештачком интелигенцијом на веб-сајт</span>
-                                    <span class="checkbox-price">+€2.500</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Интелигентни асистент за корисничку подршку, одговоре на честа питања и прикупљање упита потенцијалних клијената</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="3d">
+                                            <input type="checkbox" class="addon-checkbox" data-price="3200" id="3d">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>3D модели и анимације</span>
+                                                <span class="checkbox-price">+€3.200</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Основни пакет: 3–5 једноставних 3D производних модела ИЛИ 1 комплексан интерактиван 3D елемент са WebGL анимацијом. Даљи модели: од €400/ком</p>
+                                    </div>
 
-                            <!-- CMS -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="1800" id="cms">
-                                <span class="checkbox-label">
-                                    <span>CMS систем (WordPress/прилагођен)</span>
-                                    <span class="checkbox-price">+€1.800</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Систем за управљање садржајем за лако управљање без програмских знања</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="video">
+                                            <input type="checkbox" class="addon-checkbox" data-price="2000" id="video">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Продукција и интеграција видеа</span>
+                                                <span class="checkbox-price">+€2.000</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Професионална продукција видеа, монтажа, оптимизација и беспрекорна интеграција на веб-страницу</p>
+                                    </div>
 
-                            <!-- Analytics -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="900" id="analytics">
-                                <span class="checkbox-label">
-                                    <span>Поставка аналитике и праћења</span>
-                                    <span class="checkbox-price">+€900</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Google Analytics 4, праћење конверзија, топлотне мапе и детаљни извештаји о перформансама</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="accessibility">
+                                            <input type="checkbox" class="addon-checkbox" data-price="950" id="accessibility">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Приступачност (WCAG 2.1)</span>
+                                                <span class="checkbox-price">+€950</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Имплементација у складу са смерницама WCAG 2.1, уз подршку за читаче екрана, навигацију тастатуром и одговарајући контраст</p>
+                                    </div>
+                                </div>
+                            </details>
 
-                            <!-- Multilang -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="1200" id="multilang">
-                                <span class="checkbox-label">
-                                    <span>Вишејезична веб-страница</span>
-                                    <span class="checkbox-price">+€1.200</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Превод на више језика, аутоматско препознавање језика и SEO оптимизација</p>
+                            <!-- Група 3 -->
+                            <details class="extras-group">
+                                <summary class="extras-group__summary">
+                                    <span>Вештачка интелигенција, маркетинг и раст</span>
+                                    <span class="extras-group__meta">
+                                        <span class="group-count" data-group="growth">0 изабрано</span>
+                                        <svg class="extras-group__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <div class="extras-group__body" data-group-body="growth">
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="aichat">
+                                            <input type="checkbox" class="addon-checkbox" data-price="2500" id="aichat">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Интеграција асистента са вештачком интелигенцијом на веб-сајт</span>
+                                                <span class="checkbox-price">+€2.500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Интелигентни асистент за корисничку подршку, одговоре на честа питања и прикупљање упита потенцијалних клијената</p>
+                                    </div>
 
-                            <!-- Booking -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="700" id="booking">
-                                <span class="checkbox-label">
-                                    <span>Резервација/управљање терминима</span>
-                                    <span class="checkbox-price">+€700</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Интернет резервација термина, интеграција календара, аутоматске потврде и подсетници</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="seo">
+                                            <input type="checkbox" class="addon-checkbox" data-price="800" id="seo">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Напредни SEO и SEM</span>
+                                                <span class="checkbox-price">+€800</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Оптимизација за претраживаче, анализа кључних речи, On-Page/Off-Page SEO и Google Ads поставка</p>
+                                    </div>
 
-                            <!-- 3D -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="3200" id="3d">
-                                <span class="checkbox-label">
-                                    <span>3D модели и анимације</span>
-                                    <span class="checkbox-price">+€3.200</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Основни пакет: 3-5 једноставних 3D производних модела ИЛИ 1 комплексан интерактиван 3D елемент са WebGL анимацијом. Даљи модели: од €400/ком</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="newsletter">
+                                            <input type="checkbox" class="addon-checkbox" data-price="400" id="newsletter">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Подешавање система за билтен</span>
+                                                <span class="checkbox-price">+€400</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Интеграција маркетинга путем е-поште (Mailchimp/SendGrid), шаблони и аутоматизација</p>
+                                    </div>
 
-                            <!-- Video -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="2000" id="video">
-                                <span class="checkbox-label">
-                                    <span>Продукција и интеграција видеа</span>
-                                    <span class="checkbox-price">+€2.000</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Професионална продукција видеа, монтажа, оптимизација и беспрекорна интеграција на веб-страницу</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="analytics">
+                                            <input type="checkbox" class="addon-checkbox" data-price="900" id="analytics">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Поставка аналитике и праћења</span>
+                                                <span class="checkbox-price">+€900</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Google Analytics 4, праћење конверзија, топлотне мапе и детаљни извештаји о перформансама</p>
+                                    </div>
 
-                            <!-- Social Media -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="500" id="social">
-                                <span class="checkbox-label">
-                                    <span>Интеграција друштвених мрежа</span>
-                                    <span class="checkbox-price">+€500</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Уградња објава са друштвених мрежа, дугмади за дељење и функција аутоматског објављивања</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="multilang">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1200" id="multilang">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Вишејезична веб-страница</span>
+                                                <span class="checkbox-price">+€1.200</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Превод на више језика, аутоматско препознавање језика и SEO оптимизација</p>
+                                    </div>
 
-                            <!-- API -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="1500" id="api">
-                                <span class="checkbox-label">
-                                    <span>API интеграције (плаћања, CRM)</span>
-                                    <span class="checkbox-price">+€1.500</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Повезивање спољних система попут Stripe, PayPal, Salesforce, HubSpot итд.</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="social">
+                                            <input type="checkbox" class="addon-checkbox" data-price="500" id="social">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Интеграција друштвених мрежа</span>
+                                                <span class="checkbox-price">+€500</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Уградња објава са друштвених мрежа, дугмади за дељење и функција аутоматског објављивања</p>
+                                    </div>
+                                </div>
+                            </details>
 
-                            <!-- Custom Forms -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="1100" id="forms">
-                                <span class="checkbox-label">
-                                    <span>Прилагођени формулари и алати</span>
-                                    <span class="checkbox-price">+€1.100</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Специјални формулари, калкулатори, конфигуратори са валидацијом и повезивањем са серверским системом</p>
+                            <!-- Група 4 -->
+                            <details class="extras-group">
+                                <summary class="extras-group__summary">
+                                    <span>Саветовање, рад и процеси</span>
+                                    <span class="extras-group__meta">
+                                        <span class="group-count" data-group="ops">0 изабрано</span>
+                                        <svg class="extras-group__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                            <polyline points="6 9 12 15 18 9"></polyline>
+                                        </svg>
+                                    </span>
+                                </summary>
+                                <div class="extras-group__body" data-group-body="ops">
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="consulting">
+                                            <input type="checkbox" class="addon-checkbox" data-price="1800" id="consulting">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Технолошко саветовање</span>
+                                                <span class="checkbox-price">+€1.800</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Стратешко саветовање, планирање технолошког стека, прегледи кода и обука тима</p>
+                                    </div>
 
-                            <!-- Performance -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="800" id="performance">
-                                <span class="checkbox-label">
-                                    <span>Напредна оптимизација перформанси</span>
-                                    <span class="checkbox-price">+€800</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Кеширање, одложено учитавање, подешавање мреже за испоруку садржаја, минификација кода за најбржа времена учитавања</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="support">
+                                            <input type="checkbox" class="addon-checkbox" data-price="600" id="support">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>3 месеца приоритетне подршке</span>
+                                                <span class="checkbox-price">+€600</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Брзо време одзива, отклањање грешака, ажурирања и техничка подршка путем е-поште/чета</p>
+                                    </div>
 
-                            <!-- Accessibility -->
-                            <label class="checkbox-item">
-                                <input type="checkbox" class="addon-checkbox" data-price="950" id="accessibility">
-                                <span class="checkbox-label">
-                                    <span>Приступачност (WCAG 2.1)</span>
-                                    <span class="checkbox-price">+€950</span>
-                                </span>
-                            </label>
-                            <p class="addon-description">Имплементација у складу са смерницама WCAG 2.1, уз подршку за читаче екрана, навигацију тастатуром и одговарајући контраст</p>
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="booking">
+                                            <input type="checkbox" class="addon-checkbox" data-price="700" id="booking">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Резервација/управљање терминима</span>
+                                                <span class="checkbox-price">+€700</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Интернет резервација термина, интеграција календара, аутоматске потврде и подсетници</p>
+                                    </div>
+
+                                    <div class="extra-option-card">
+                                        <label class="checkbox-item" for="performance">
+                                            <input type="checkbox" class="addon-checkbox" data-price="800" id="performance">
+                                            <svg class="extra-check-svg" viewBox="0 0 28 28" aria-hidden="true">
+                                                <circle class="extra-check-svg__ring" cx="14" cy="14" r="10"></circle>
+                                                <path class="extra-check-svg__tick" d="M9.5 14.5L12.6 17.6L19 10.8"></path>
+                                            </svg>
+                                            <span class="checkbox-label">
+                                                <span>Напредна оптимизација перформанси</span>
+                                                <span class="checkbox-price">+€800</span>
+                                            </span>
+                                        </label>
+                                        <p class="addon-description">Кеширање, одложено учитавање, подешавање мреже за испоруку садржаја, минификација кода за најбржа времена учитавања</p>
+                                    </div>
+                                </div>
+                            </details>
                         </div>
                     </div>
 
@@ -967,112 +1573,133 @@
                             ✓ Коначни трошкови након детаљне анализе<br>
                             ✓ Необавезујуће и без скривених накнада</p>
                         </div>
-                        <p class="cta-lead">Пренесите процену директно у образац за упит:</p>
-                        <button class="btn btn--primary">Затражите калкулацију</button>
+                        <div class="cta-block">
+                            <p class="cta-lead">Пренесите процену директно у образац за упит:</p>
+                            <button type="button" class="btn btn--primary cta-btn">Затражите калкулацију</button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Breakdown Table -->
+                <!-- Детаљи услуга и оријентационе цене -->
                 <div class="breakdown-section">
                     <h2>Детаљи услуга и оријентационе цене</h2>
-                    <table class="breakdown-table">
-                        <thead>
-                            <tr>
-                                <th>Позиција</th>
-                                <th>Опис</th>
-                                <th style="text-align: right;">Оријентациона цена</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>1. Саветовање и концепт</strong></td>
-                                <td>Почетни разговор, анализа захтева, планирање структуре и техничке препоруке</td>
-                                <td class="price">€500 – €1.500</td>
-                            </tr>
-                            <tr>
-                                <td><strong>2. Дизајн</strong></td>
-                                <td>Прилагођен дизајн интерфејса и корисничког искуства, одзиван распоред у складу са вашим визуелним идентитетом</td>
-                                <td class="price">€1.000 – €3.000</td>
-                            </tr>
-                            <tr>
-                                <td><strong>3. Развој</strong></td>
-                                <td>HTML/CSS/JavaScript или CMS интеграција (нпр. WordPress), одзивна имплементација</td>
-                                <td class="price">€2.000 – €7.000</td>
-                            </tr>
-                            <tr>
-                                <td><strong>4. Креирање садржаја</strong></td>
-                                <td>Оптимизација текста, избор слика, SEO-оптимизована интеграција у систем</td>
-                                <td class="price">€500 – €2.000</td>
-                            </tr>
-                            <tr>
-                                <td><strong>5. Тестирање и лансирање</strong></td>
-                                <td>Тестови прегледача, оптимизација перформанси, провера функционалности, објављивање веб-сајта</td>
-                                <td class="price">€300 – €800</td>
-                            </tr>
-                            <tr>
-                                <td><strong>6. Одржавање и подршка</strong></td>
-                                <td>Текућа ажурирања, безбедност, резервне копије, прилагођавање садржаја</td>
-                                <td class="price">€50 – €300/месец</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="breakdown-grid">
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Позиција 01 · Услуга</div>
+                                <h3 class="breakdown-card__title">1. Саветовање и концепт</h3>
+                                <p class="breakdown-card__desc">Почетни разговор, анализа захтева, планирање структуре и техничке препоруке</p>
+                            </div>
+                            <div class="breakdown-card__price">€500 – €1.500</div>
+                        </div>
+
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Позиција 02 · Услуга</div>
+                                <h3 class="breakdown-card__title">2. Дизајн</h3>
+                                <p class="breakdown-card__desc">Прилагођен дизајн интерфејса и корисничког искуства, одзиван распоред у складу са вашим визуелним идентитетом</p>
+                            </div>
+                            <div class="breakdown-card__price">€1.000 – €3.000</div>
+                        </div>
+
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Позиција 03 · Услуга</div>
+                                <h3 class="breakdown-card__title">3. Развој</h3>
+                                <p class="breakdown-card__desc">HTML/CSS/JavaScript или CMS интеграција (нпр. WordPress), одзивна имплементација</p>
+                            </div>
+                            <div class="breakdown-card__price">€2.000 – €7.000</div>
+                        </div>
+
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Позиција 04 · Услуга</div>
+                                <h3 class="breakdown-card__title">4. Креирање садржаја</h3>
+                                <p class="breakdown-card__desc">Оптимизација текста, избор слика, SEO-оптимизована интеграција у систем</p>
+                            </div>
+                            <div class="breakdown-card__price">€500 – €2.000</div>
+                        </div>
+
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Позиција 05 · Услуга</div>
+                                <h3 class="breakdown-card__title">5. Тестирање и лансирање</h3>
+                                <p class="breakdown-card__desc">Тестови прегледача, оптимизација перформанси, провера функционалности, објављивање веб-сајта</p>
+                            </div>
+                            <div class="breakdown-card__price">€300 – €800</div>
+                        </div>
+
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Позиција 06 · Услуга</div>
+                                <h3 class="breakdown-card__title">6. Одржавање и подршка</h3>
+                                <p class="breakdown-card__desc">Текућа ажурирања, безбедност, резервне копије, прилагођавање садржаја</p>
+                            </div>
+                            <div class="breakdown-card__price">€50 – €300/месец</div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- CodeMasters OS Features on Pricing Page -->
-                <section style="margin-top: var(--space-5xl); margin-bottom: var(--space-5xl);">
-                    <div class="section-header text-center fade-in-up">
+                <section style="margin-top: var(--space-5xl); margin-bottom: var(--space-5xl); width: 100%;">
+                    <div class="section-header text-center">
                         <span class="section-label">Такође занимљиво</span>
-                        <h2 class="section-title" style="font-size: var(--font-size-4xl);">VezaionGen <span class="text-gradient">VI</span></h2>
+                        <h2 class="section-title" style="font-size: var(--font-size-4xl);"><span class="nowrap">VezaionGen <span class="text-gradient">VI</span></span></h2>
                         <p class="section-description">Цена на упит — Индустријска платформа за предузећа. Додатни контекст доступан је и на страници <a href="blog.html?from=pricing">Блог</a>.</p>
                     </div>
 
                     <div class="codemasters-grid">
-                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.05s;">
+                        <div class="codemasters-card">
                             <div class="codemasters-card__icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <line x1="18" y1="20" x2="18" y2="10"></line>
                                     <line x1="12" y1="20" x2="12" y2="4"></line>
                                     <line x1="6" y1="20" x2="6" y2="14"></line>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Индустријске операције</h3><p class="codemasters-card__desc">Фабричке операције, материјали, алати, налози, одржавање и квалитет – за јасније токове рада и мање застоја.</p>
+                            <h3 class="codemasters-card__title">Индустријске операције</h3>
+                            <p class="codemasters-card__desc">Фабричке операције, материјали, алати, налози, одржавање и квалитет – за јасније токове рада и мање застоја.</p>
                         </div>
 
-                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.1s;">
+                        <div class="codemasters-card">
                             <div class="codemasters-card__icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                                     <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Интелигентно управљање квалитетом</h3><p class="codemasters-card__desc">Процеси квалитета, сигнали из слика и података о квалитету, детекција и контролне табле – за бржу проверу и поуздану следљивост.</p>
+                            <h3 class="codemasters-card__title">Интелигентно управљање квалитетом</h3>
+                            <p class="codemasters-card__desc">Процеси квалитета, сигнали из слика и података о квалитету, детекција и контролне табле – за бржу проверу и поуздану следљивост.</p>
                         </div>
 
-                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.15s;">
+                        <div class="codemasters-card">
                             <div class="codemasters-card__icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Енергија и одрживост</h3><p class="codemasters-card__desc">Подаци о енергији и емисијама, расподела CO2 и локализовани ESG извештаји – за јаснији увид у потрошњу и извештавање.</p>
+                            <h3 class="codemasters-card__title">Енергија и одрживост</h3>
+                            <p class="codemasters-card__desc">Подаци о енергији и емисијама, расподела CO2 и локализовани ESG извештаји – за јаснији увид у потрошњу и извештавање.</p>
                         </div>
 
-                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="codemasters-card">
                             <div class="codemasters-card__icon">
-                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="3"></circle>
-                                    <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M1 12h6m6 0h6M4.8 4.8l4.2 4.2m6 0l4.2-4.2M4.8 19.2l4.2 4.2m6 0l4.2-4.2"></path>
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M3 3v18h18"></path>
+                                    <path d="M7 14l4-4 3 3 5-6"></path>
+                                    <circle cx="19" cy="7" r="2"></circle>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Индустријска аналитика</h3><p class="codemasters-card__desc">Контролне табле за анализе, аномалије и увиде и процене века алата – за ранији увид у текући рад.</p>
+                            <h3 class="codemasters-card__title">Индустријска аналитика</h3>
+                            <p class="codemasters-card__desc">Контролне табле за анализе, аномалије и увиде и процене века алата – за ранији увид у текући рад.</p>
                         </div>
                     </div>
 
-                    <div class="section-cta fade-in-up" style="animation-delay: 0.25s;">
-                        <p class="cta-lead">Погледајте преглед архитектуре и функционалних области платформе VezaionGen VI:</p>
-                        <a href="vezaiongen-vi.html" class="btn btn--primary btn--large">
-                            <span>Откријте VezaionGen VI</span>
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <div class="section-cta cta-block" style="margin-top: 2.25rem;">
+                        <p class="cta-lead">Погледајте преглед архитектуре и функционалних области платформе <span class="nowrap">VezaionGen VI</span>:</p>
+                        <a href="vezaiongen-vi.html" class="btn btn--primary btn--large cta-btn">
+                            <span>Откријте <span class="nowrap">VezaionGen VI</span></span>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                                 <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                             </svg>
                         </a>
@@ -1080,7 +1707,7 @@
                 </section>
 
                 <!-- FAQ / Info -->
-                <section style="margin-top: var(--space-5xl);">
+                <section style="margin-top: var(--space-5xl); width: 100%;">
                     <h2>Често постављана питања</h2>
                     <div class="grid-2" style="margin-top: var(--space-3xl);">
                         <div class="card">
@@ -1093,7 +1720,7 @@
                         </div>
                         <div class="card">
                             <h3>Колико дуго траје пројекат?</h3>
-                            <p>Стандардни пројекти трају 6-8 недеља. Убрзана испорука (4–6 недеља) или хитна испорука (2–4 недеље) могуће су уз доплату.</p>
+                            <p>Стандардни пројекти трају <span class="nowrap">6–8 недеља</span>. Убрзана испорука <span class="nowrap">(4–6 недеља)</span> или хитна испорука <span class="nowrap">(2–4 недеље)</span> могуће су уз доплату.</p>
                         </div>
                         <div class="card">
                             <h3>Да ли постоје скривени трошкови?</h3>
@@ -1104,13 +1731,29 @@
             </div>
         </section>
 
-<section id="service-requests" class="section platform-content"><div class="container"><h2>Упити за услуге</h2><p>Опишите циљ, оперативни контекст и потребну подршку. Разговараћемо о одговарајућим услугама, транспарентним претпоставкама и одговарајућем обиму пројекта.</p><p class="cta-lead">Изаберите одговарајућу област упита за директан почетак:</p><div class="values-grid"><a class="btn btn--primary" href="contact.html#request-website">Развој веб-сајтова</a> <a class="btn btn--primary" href="contact.html#request-mobile-apps">Мобилне апликације</a> <a class="btn btn--primary" href="contact.html#request-enterprise">Развој пословних система</a> <a class="btn btn--primary" href="contact.html#request-consulting">Консалтинг</a> <a class="btn btn--primary" href="contact.html#request-automation">Аутоматизација</a> <a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI</a></div></div></section></main>
+        <section id="service-requests" class="section platform-content">
+            <div class="container">
+                <h2>Упити за услуге</h2>
+                <p>Опишите циљ, оперативни контекст и потребну подршку. Разговараћемо о одговарајућим услугама, транспарентним претпоставкама и одговарајућем обиму пројекта.</p>
+                <div class="cta-block">
+                    <p class="cta-lead">Изаберите одговарајућу област упита за директан почетак:</p>
+                    <div class="values-grid">
+                        <a class="btn btn--primary" href="contact.html#request-website">Развој веб-сајтова</a>
+                        <a class="btn btn--primary" href="contact.html#request-mobile-apps">Мобилне апликације</a>
+                        <a class="btn btn--primary" href="contact.html#request-enterprise">Развој пословних система</a>
+                        <a class="btn btn--primary" href="contact.html#request-consulting">Консалтинг</a>
+                        <a class="btn btn--primary" href="contact.html#request-automation">Аутоматизација</a>
+                        <a class="btn btn--primary" href="contact.html#vezaiongen-consultation"><span class="nowrap">VezaionGen VI</span></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer се аутоматски учитава -->
     <div id="footer-placeholder"></div>
 
     <script>
-        // Neue Preiskalkulator-Logik
         const packageRadios = document.querySelectorAll('input[name="package"]');
         const timelineSelect = document.getElementById('timelineSelect');
         const totalPriceEl = document.getElementById('totalPrice');
@@ -1123,56 +1766,65 @@
             return '€' + Math.round(value).toLocaleString('de-DE');
         }
 
+        function syncAddonStates() {
+            addonCheckboxes.forEach(checkbox => {
+                const card = checkbox.closest('.extra-option-card');
+                if (card) {
+                    card.classList.toggle('is-selected', checkbox.checked);
+                }
+            });
+
+            document.querySelectorAll('.extras-group__body').forEach(body => {
+                const groupKey = body.dataset.groupBody;
+                const countBadge = document.querySelector(`.group-count[data-group="${groupKey}"]`);
+                const checkedCount = body.querySelectorAll('.addon-checkbox:checked').length;
+                if (countBadge) {
+                    countBadge.textContent = `${checkedCount} изабрано`;
+                }
+            });
+        }
+
         function calculateTotal() {
-            // Paket auslesen
+            syncAddonStates();
+
             const selectedPackage = document.querySelector('input[name="package"]:checked');
-            const packagePrice = parseInt(selectedPackage.value);
+            const packagePrice = parseInt(selectedPackage.value, 10);
             const packageName = selectedPackage.dataset.name;
+            const timelineValue = parseInt(timelineSelect.value, 10);
 
-            // Timeline Surcharge
-            const timelineValue = parseInt(timelineSelect.value);
-
-            // Add-ons
             let addonsTotal = 0;
             selectedAddons = [];
             addonCheckboxes.forEach(checkbox => {
                 if (checkbox.checked) {
-                    const price = parseInt(checkbox.dataset.price);
+                    const price = parseInt(checkbox.dataset.price, 10);
                     addonsTotal += price;
                     selectedAddons.push({
-                        name: checkbox.nextElementSibling.querySelector('span:first-child').textContent.trim(),
+                        name: checkbox.parentElement.querySelector('.checkbox-label span:first-child').textContent.trim(),
                         price
                     });
                 }
             });
 
             const total = packagePrice + timelineValue + addonsTotal;
-
             totalPriceEl.textContent = formatCurrency(total);
-            
-            // Breakdown anzeigen
+
             let breakdown = `${packageName} ${formatCurrency(packagePrice)}`;
             if (timelineValue > 0) breakdown += ` + Доплата за рок испоруке ${formatCurrency(timelineValue)}`;
-            if (addonsTotal > 0) breakdown += ` + Додаци: ${selectedAddons.map(extra => `${extra.name} (${formatCurrency(extra.price)})`).join(', ')}`;
+            if (addonsTotal > 0) {
+                breakdown += ` + Додаци: ${selectedAddons.map(extra => `${extra.name} (${formatCurrency(extra.price)})`).join(', ')}`;
+            }
             packageBreakdown.textContent = breakdown;
             selectedExtrasEl.textContent = selectedAddons.length
                 ? `Изабрано: ${selectedAddons.map(extra => `${extra.name} (${formatCurrency(extra.price)})`).join(', ')}`
                 : 'Још увек нису изабрани додаци.';
         }
 
-        packageRadios.forEach(radio => {
-            radio.addEventListener('change', calculateTotal);
-        });
-
+        packageRadios.forEach(radio => radio.addEventListener('change', calculateTotal));
         timelineSelect.addEventListener('change', calculateTotal);
-        addonCheckboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', calculateTotal);
-        });
+        addonCheckboxes.forEach(checkbox => checkbox.addEventListener('change', calculateTotal));
 
-        // Initial calculation
         calculateTotal();
 
-        // Button funktionen anpassen
         const calcButton = document.querySelector('.calc-result .btn--primary');
         if (calcButton) {
             calcButton.addEventListener('click', (e) => {
@@ -1184,17 +1836,18 @@
                     ? ` + ${selectedAddons.map(extra => extra.name).join(', ')}`
                     : '';
                 const message = `Пакет: ${packageName}\n\n${breakdown}\nПроцењени укупан износ: ${totalPriceEl.textContent}\n\nМолим контактирајте ме за детаљну понуду.`;
-                
+
                 const queryParams = new URLSearchParams({
                     subject: `Калкулација: ${packageName}${extrasSubject}`,
                     package: packageName,
                     message: message
                 });
-                
+
                 window.location.href = `contact.html?${queryParams.toString()}#request-website`;
             });
         }
     </script>
+
     <!-- Scripts -->
     <script src="../js/i18n.js" defer></script>
     <script src="../js/language-switcher.js" defer></script>
