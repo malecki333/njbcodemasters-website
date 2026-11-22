@@ -21,6 +21,19 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="stylesheet" href="../css/pricing.css">
 <style>
+        html,
+        body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        .main,
+        .section,
+        .container {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
         .pricing-hero {
             text-align: center;
             margin-bottom: var(--space-5xl);
@@ -76,7 +89,7 @@
         /* Pricing Cards */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: var(--space-3xl);
             margin-bottom: var(--space-5xl);
         }
@@ -92,6 +105,7 @@
             flex-direction: column;
             min-width: 0;
             max-width: 100%;
+            overflow: visible;
         }
 
         .pricing-card:hover {
@@ -111,28 +125,35 @@
         }
 
         .badge {
-            position: absolute;
-            top: -12px;
-            left: 20px;
+            position: relative;
+            display: inline-block;
+            align-self: flex-start;
+            top: auto;
+            left: auto;
+            margin-bottom: var(--space-sm);
             background: var(--primary-color);
             color: white;
             padding: var(--space-xs) var(--space-md);
             border-radius: 999px;
             font-size: var(--font-size-sm);
             font-weight: var(--font-weight-semibold);
+            max-width: 100%;
+            z-index: 2;
         }
 
         .package-name {
             font-size: var(--font-size-2xl);
             font-weight: var(--font-weight-bold);
             margin-bottom: var(--space-md);
-            margin-top: var(--space-md);
+            margin-top: var(--space-xs);
+            overflow-wrap: break-word;
         }
 
         .package-desc {
             color: var(--text-secondary);
             font-size: var(--font-size-sm);
             margin-bottom: var(--space-2xl);
+            overflow-wrap: break-word;
         }
 
         .price {
@@ -162,7 +183,7 @@
             color: var(--text-secondary);
             display: flex;
             flex-wrap: wrap;
-            align-items: baseline;
+            align-items: flex-start;
             gap: var(--space-sm);
             font-size: var(--font-size-sm);
             min-width: 0;
@@ -196,6 +217,7 @@
             border-radius: var(--radius-2xl);
             padding: var(--space-3xl);
             margin-bottom: var(--space-5xl);
+            max-width: 100%;
         }
 
         .calculator-section h2 {
@@ -204,7 +226,7 @@
 
         .calculator-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: var(--space-2xl);
             margin-bottom: var(--space-3xl);
         }
@@ -212,6 +234,7 @@
         .calc-item {
             display: flex;
             flex-direction: column;
+            min-width: 0;
         }
 
         .calc-label {
@@ -306,14 +329,18 @@
             width: 18px;
             height: 18px;
             accent-color: var(--primary-color);
+            flex-shrink: 0;
         }
 
         .checkbox-label {
             cursor: pointer;
             flex: 1;
+            min-width: 0;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            gap: var(--space-xs);
         }
 
         .checkbox-price {
@@ -363,29 +390,46 @@
             font-size: var(--font-size-sm);
             color: var(--text-secondary);
             flex: 1;
+            min-width: 0;
         }
 
         /* Table Section */
         .breakdown-section {
             margin-top: var(--space-5xl);
+            overflow-x: auto;
         }
 
         @media (max-width: 768px) {
             .pricing-grid {
                 grid-template-columns: 1fr;
+                gap: var(--space-2xl);
             }
 
             .pricing-card {
                 padding: var(--space-lg);
-                overflow: hidden;
+                transform: none;
             }
 
             .pricing-card.featured {
-                transform: scale(1);
+                transform: none;
             }
 
+            .pricing-card:hover,
             .pricing-card.featured:hover {
-                transform: translateY(-8px);
+                transform: translateY(-4px);
+            }
+
+            .enterprise-grid {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-xl) !important;
+            }
+
+            .enterprise-grid .package-name {
+                font-size: 1.75rem !important;
+            }
+
+            .features-list {
+                columns: 1 !important;
             }
 
             .features-list li {
@@ -394,12 +438,18 @@
             }
 
             .calculator-section {
-                padding: var(--space-2xl);
+                padding: var(--space-lg);
             }
 
             .calc-result {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
+                padding: var(--space-lg);
+            }
+
+            .calc-result .btn {
+                width: 100%;
+                justify-content: center;
             }
 
             .slider-group {
@@ -409,6 +459,10 @@
 
             .slider-value {
                 text-align: left;
+            }
+
+            .main {
+                padding-bottom: 5.5rem;
             }
         }
 
@@ -450,7 +504,7 @@
 <div class="pricing-grid">
                     <!-- Enterprise / Industrial OS (FLAGSHIP) -->
                     <div class="pricing-card featured" style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.1));">
-                        <span class="badge" style="left: 20px;">INDUSTRIAL SERVICES</span>
+                        <span class="badge">INDUSTRIAL SERVICES</span>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center;" class="enterprise-grid">
                             <div>
                                 <h3 class="package-name" style="color: var(--primary-color); font-size: 2.5rem;">Industrial Software<br>&amp; MES/ERP Integration</h3>
@@ -943,7 +997,7 @@
                             <div class="codemasters-card__icon">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <circle cx="12" cy="12" r="3"></circle>
-                                    <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M1 12h6m6 0h6M4.8 4.8l4.2 4.2m6 0l4.2-4.2M4.8 19.2l4.2 4.2m6 0l4.2 4.2"></path>
+                                    <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M1 12h6m6 0h6M4.8 4.8l4.2 4.2m6 0l4.2-4.2M4.8 19.2l4.2 4.2m6 0l4.2-4.2"></path>
                                 </svg>
                             </div>
                             <h3 class="codemasters-card__title">Industrial Analytics</h3><p class="codemasters-card__desc">Analytics, anomaly and insight dashboards, and tool-life estimates—for earlier visibility into running operations.</p>
