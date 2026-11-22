@@ -81,12 +81,12 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Entwicklungsfelder Grid */
+        /* Entwicklungsfelder Grid mit vertikalem Abstand für die oberen Badges */
         .main .section .values-grid {
             display: grid !important;
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-            gap: 1.75rem !important;
-            margin-top: 2rem !important;
+            gap: 2.35rem 1.75rem !important;
+            margin-top: 2.35rem !important;
             width: 100% !important;
             align-items: stretch !important;
         }
@@ -95,11 +95,12 @@
         .main .section .pricing-card,
         .main .section .portfolio-card {
             position: relative !important;
+            overflow: visible !important;
             background: #121626 !important;
             background-color: #121626 !important;
             border: 1px solid rgba(148, 163, 184, 0.24) !important;
             border-radius: var(--radius-2xl) !important;
-            padding: 2.25rem var(--space-2xl) !important;
+            padding: 2.35rem var(--space-2xl) var(--space-2xl) !important;
             display: flex !important;
             flex-direction: column !important;
             align-items: center !important;
@@ -141,14 +142,14 @@
             box-shadow: 0 14px 28px rgba(99, 102, 241, 0.15) !important;
         }
 
-        /* Überschrifts-Badge direkt über der Karte-Überschrift innerhalb der Karte */
+        /* Badge oben links auf der oberen Kante der Karte */
         .main .section .pricing-card .badge,
         .main .section .portfolio-card .badge {
-            position: static !important;
-            top: auto !important;
-            left: auto !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 24px !important;
             right: auto !important;
-            transform: none !important;
+            transform: translateY(-50%) !important;
             display: inline-flex !important;
             align-items: center;
             justify-content: center;
@@ -160,13 +161,14 @@
             font-weight: 700;
             letter-spacing: 0.05em;
             text-transform: uppercase;
-            margin: 0 auto 0.9rem !important;
-            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.32);
+            margin: 0 !important;
+            z-index: 5;
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
         }
 
         .main .section .pricing-card h3 {
             font-size: var(--font-size-xl);
-            margin-top: 0;
+            margin-top: 0.25rem;
             margin-bottom: 0.75rem;
             text-align: center;
             width: 100%;
@@ -203,12 +205,13 @@
 
             .main .section .values-grid {
                 grid-template-columns: 1fr !important;
-                gap: 1.25rem !important;
+                gap: 2.1rem !important;
+                margin-top: 2rem !important;
             }
 
             .main .section .pricing-card,
             .main .section .portfolio-card {
-                padding: 1.75rem var(--space-lg) !important;
+                padding: 2.15rem var(--space-lg) var(--space-lg) !important;
             }
 
             .main .section .pricing-card:hover,
