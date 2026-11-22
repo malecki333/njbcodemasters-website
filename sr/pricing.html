@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Транспарентне калкулације цена за веб пројекте - од основног до премијум пакета">
+    <meta name="description" content="Транспарентне оријентационе цене и пакети компаније NJB CodeMasters: бржа реализација, мање застоја у координацији и јасна процена за веб, пословне и индустријске пројекте.">
     <title>Цене и услуге | NJB CodeMasters</title>
     
     <link rel="stylesheet" href="../css/reset.css">
@@ -18,12 +18,21 @@
     <link rel="stylesheet" href="../css/i18n.css">
     <link rel="stylesheet" href="../css/performance.css">
     
-        <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
     
     <style>
+        html,
+        body,
+        .main,
+        .section,
+        .container {
+            overflow-x: clip;
+            max-width: 100%;
+        }
+
         .pricing-hero {
             text-align: center;
             margin-bottom: var(--space-5xl);
@@ -79,7 +88,7 @@
         /* Pricing Cards */
         .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: var(--space-3xl);
             margin-bottom: var(--space-5xl);
         }
@@ -93,6 +102,8 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
+            min-width: 0;
+            max-width: 100%;
         }
 
         .pricing-card:hover {
@@ -128,12 +139,14 @@
             font-weight: var(--font-weight-bold);
             margin-bottom: var(--space-md);
             margin-top: var(--space-md);
+            overflow-wrap: break-word;
         }
 
         .package-desc {
             color: var(--text-secondary);
             font-size: var(--font-size-sm);
             margin-bottom: var(--space-2xl);
+            overflow-wrap: break-word;
         }
 
         .price {
@@ -154,15 +167,22 @@
             padding: 0;
             margin: 0 0 var(--space-2xl);
             flex-grow: 1;
+            min-width: 0;
+            max-width: 100%;
         }
 
         .features-list li {
             padding: var(--space-sm) 0;
             color: var(--text-secondary);
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            align-items: flex-start;
             gap: var(--space-sm);
             font-size: var(--font-size-sm);
+            min-width: 0;
+            max-width: 100%;
+            overflow-wrap: anywhere;
+            word-break: break-word;
         }
 
         .features-list li::before {
@@ -170,6 +190,12 @@
             color: var(--primary-color);
             font-weight: bold;
             flex-shrink: 0;
+        }
+
+        .features-list li a {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            max-width: 100%;
         }
 
         .cta-btn {
@@ -184,6 +210,7 @@
             border-radius: var(--radius-2xl);
             padding: var(--space-3xl);
             margin-bottom: var(--space-5xl);
+            max-width: 100%;
         }
 
         .calculator-section h2 {
@@ -192,7 +219,7 @@
 
         .calculator-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: var(--space-2xl);
             margin-bottom: var(--space-3xl);
         }
@@ -200,6 +227,7 @@
         .calc-item {
             display: flex;
             flex-direction: column;
+            min-width: 0;
         }
 
         .calc-label {
@@ -294,14 +322,18 @@
             width: 18px;
             height: 18px;
             accent-color: var(--primary-color);
+            flex-shrink: 0;
         }
 
         .checkbox-label {
             cursor: pointer;
             flex: 1;
+            min-width: 0;
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            gap: var(--space-xs);
         }
 
         .checkbox-price {
@@ -351,33 +383,62 @@
             font-size: var(--font-size-sm);
             color: var(--text-secondary);
             flex: 1;
+            min-width: 0;
         }
 
         /* Table Section */
         .breakdown-section {
             margin-top: var(--space-5xl);
+            overflow-x: auto;
         }
 
         @media (max-width: 768px) {
             .pricing-grid {
                 grid-template-columns: 1fr;
+                gap: var(--space-2xl);
+            }
+
+            .pricing-card {
+                padding: var(--space-lg);
+                transform: none;
             }
 
             .pricing-card.featured {
-                transform: scale(1);
+                transform: none;
             }
 
+            .pricing-card:hover,
             .pricing-card.featured:hover {
-                transform: translateY(-8px);
+                transform: translateY(-4px);
+            }
+
+            .enterprise-grid {
+                grid-template-columns: 1fr !important;
+                gap: var(--space-xl) !important;
+            }
+
+            .features-list {
+                columns: 1 !important;
+            }
+
+            .features-list li {
+                font-size: var(--font-size-xs);
+                line-height: 1.45;
             }
 
             .calculator-section {
-                padding: var(--space-2xl);
+                padding: var(--space-lg);
             }
 
             .calc-result {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: stretch;
+                padding: var(--space-lg);
+            }
+
+            .calc-result .btn {
+                width: 100%;
+                justify-content: center;
             }
 
             .slider-group {
@@ -417,11 +478,11 @@
     <meta property="og:locale" content="sr_RS">
     <meta property="og:url" content="https://www.njbcodemasters.com/sr/pricing.html">
     <meta property="og:title" content="Цене и услуге | NJB CodeMasters">
-    <meta property="og:description" content="Транспарентне калкулације цена за веб пројекте - од основног до премијум пакета">
+    <meta property="og:description" content="Транспарентне оријентационе цене и пакети компаније NJB CodeMasters: бржа реализација, мање застоја у координацији и јасна процена за веб, пословне и индустријске пројекте.">
     <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Цене и услуге | NJB CodeMasters">
-    <meta name="twitter:description" content="Транспарентне калкулације цена за веб пројекте - од основног до премијум пакета">
+    <meta name="twitter:description" content="Транспарентне оријентационе цене и пакети компаније NJB CodeMasters: бржа реализација, мање застоја у координацији и јасна процена за веб, пословне и индустријске пројекте.">
     <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
 <link rel="stylesheet" href="../css/platform-content.css">
@@ -492,18 +553,18 @@
             <div class="container">
                 <!-- Hero Section -->
                 <div class="pricing-hero"><p class="section-label">Услуге</p>
-                    <h1>Транспарентне <span class="text-gradient">цене</span> за ваш пројекат</h1>
-                    <p>Изаберите из наших проверених пакета или затражите процену за решење по мери. Све цене су оријентационе и могу се прилагодити према захтевима.</p>
+                    <h1>Транспарентне <span class="text-gradient">цене</span> за брже резултате</h1>
+                    <p>Предвидљиве процене, мање застоја у координацији и јасна прегледност трошкова од самог почетка. Изаберите пакет или процените обим унапред – детаљи у секцијама <a href="services.html">Услуге</a>, <a href="modules.html">Модули</a> и кроз <a href="pilot-program.html">Пилот програм</a> помажу при процени.</p>
                 </div>
-<article class="pricing-card featured" id="vezaiongen-enterprise" style="margin: 0 auto var(--space-3xl); max-width: 1000px; border-color: var(--primary-color);"><picture class="brand-logo brand-logo--pricing"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI лого" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture><p class="section-label">ВОДЕЋА ИНДУСТРИЈСКА ПЛАТФОРМА</p><h2>VezaionGen VI за предузећа</h2><p>Посебна платформска понуда NJB CodeMasters за повезане индустријске процесе.</p><ul class="features-list"><li>Модуларне индустријске функције платформе</li><li>Модели примене за разматрање: локална инфраструктура, приватни облак или софтвер као услуга</li><li>Пилот иницијатива за заједничко разматрање случаја употребе</li><li>Разговор о функцијама, интеграцијама и оперативном моделу</li></ul><p><strong>Цена на упит</strong> · Доступан пилот програм</p><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">Разговарајте о VezaionGen VI</a></article>
+<article class="pricing-card featured" id="vezaiongen-enterprise" style="margin: 0 auto var(--space-3xl); max-width: 1000px; border-color: var(--primary-color);"><picture class="brand-logo brand-logo--pricing"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI лого" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture><p class="section-label">ВОДЕЋА ИНДУСТРИЈСКА ПЛАТФОРМА</p><h2>VezaionGen VI за предузећа</h2><p>Посебна платформска понуда NJB CodeMasters за повезане индустријске токове рада, брже одлучивање и пуну оперативну прегледност.</p><ul class="features-list"><li>Модуларне индустријске функције платформе у оквиру <a href="modules.html">VezaionGen VI</a></li><li>Модели примене за договор: локална инфраструктура, приватни облак или софтвер као услуга</li><li>Структуриран почетак кроз <a href="pilot-program.html">Пилот програм</a> за заједничко дефинисање случаја употребе</li><li>Циљани разговор о функцијама, интерфејсима и оперативном моделу</li></ul><p><strong>Цена на упит</strong> · <a href="pilot-program.html">Пилот програм</a> је доступан</p><p class="cta-lead">Усагласите сценарио примене, интерфејсе и оперативни модел директно у разговору:</p><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">Разговарајте о VezaionGen VI</a></article>
 
                 <!-- Pricing Cards -->
                 <div style="margin-bottom: var(--space-3xl); padding-bottom: var(--space-2xl); border-bottom: 1px solid var(--border-color);">
                     <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-lg); text-align: center;">🚀 <span class="text-gradient">Услуге и развој за предузећа</span></h2>
-                    <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Развој индустријског софтвера, системске интеграције и оперативна подршка сложеним производним и пословним окружењима.</p>
+                    <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Развој индустријског софтвера, системске интеграције и оперативна подршка – за мање прекида у току података, глаткије примопредаје и поуздан свакодневни рад.</p>
                 </div>
 
-                <aside class="pricing-scope-note"><strong>Јасно раздвајање цена:</strong> Следећи EUR распони важе само за услуге NJB CodeMasters и развој софтвера по мери. Оријентациона цена од €60.000 односи се на индустријски сервисни пројекат, а не на платформу или лиценцу VezaionGen VI. VezaionGen VI се нуди одвојено: цена на упит, пилот програм је доступан.</aside>
+                <aside class="pricing-scope-note"><strong>Јасно раздвајање цена:</strong> Следећи EUR распони важе само за услуге NJB CodeMasters и наменски развој софтвера по поруџбини. Оријентациона цена од €60.000 односи се на индустријски сервисни пројекат, а не на платформу или лиценцу VezaionGen VI. VezaionGen VI се нуди одвојено: цена на упит, <a href="pilot-program.html">Пилот програм</a> је доступан.</aside>
 <div class="pricing-grid">
                     <!-- Enterprise / Industrial OS (FLAGSHIP) -->
                     <div class="pricing-card featured" style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.1));">
@@ -511,7 +572,7 @@
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center;" class="enterprise-grid">
                             <div>
                                 <h3 class="package-name" style="color: var(--primary-color); font-size: 2.5rem;">Индустријски софтвер<br>&amp; MES/ERP интеграција</h3>
-                                <p class="package-desc" style="font-size: var(--font-size-lg); color: var(--text-secondary);">Софтвер, интеграција података и оперативне апликације прилагођене индустријском окружењу.</p>
+                                <p class="package-desc" style="font-size: var(--font-size-lg); color: var(--text-secondary);">Наменски прилагођен софтвер, интеграција података и оперативне апликације за брже процесе, мање застоја и јасну прегледност у раду.</p>
                                 
                                 <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: rgba(99, 102, 241, 0.1); border-radius: var(--radius-lg); border-left: 4px solid var(--primary-color);">
                                     <div style="margin-bottom: var(--space-sm);">
@@ -523,7 +584,7 @@
                                         <div style="font-size: 1.5rem; font-weight: bold; color: var(--text-primary);">€3.000 – €10.000/месец</div>
                                     </div>
                                 </div>
-                                <p class="pricing-price-note">Оријентациона цена услуга и имплементације пројекта — није цена платформе или лиценце VezaionGen VI.</p>
+                                <p class="pricing-price-note">Оријентациона цена услуга и реализације пројекта – није цена платформе или лиценце VezaionGen VI.</p>
                             </div>
                             
                             <div>
@@ -543,6 +604,7 @@
                                 </ul>
                                 
                                 <div style="margin-top: var(--space-2xl);">
+                                    <p class="cta-lead">Усагласите системско окружење, интерфејсе и циљни обим директно са нама:</p>
                                     <a class="btn btn--secondary" style="width: 100%; justify-content: center; margin-top: var(--space-md);" href="contact.html#request-enterprise">Затражите детаљну понуду</a>
                                 </div>
                             </div>
@@ -553,14 +615,14 @@
                 <!-- Standard Web Development Packages -->
                 <div style="margin-top: var(--space-3xl); margin-bottom: var(--space-3xl); padding-top: var(--space-3xl); padding-bottom: var(--space-2xl); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
                     <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-lg); text-align: center;">💻 <span class="text-gradient">Пакети за веб развој</span></h2>
-                    <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Одзивни веб-сајтови и веб апликације за сваку потребу</p>
+                    <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Одзивни веб-сајтови и веб апликације са јасним обимом за брзу испоруку и поуздане резултате</p>
                 </div>
 
                 <div class="pricing-grid">
                     <!-- Starter Paket -->
                     <div class="pricing-card">
                         <h3 class="package-name">Почетни</h3>
-                        <p class="package-desc">Савршено за мале пројекте и стартапе</p>
+                        <p class="package-desc">За брз и уредан веб наступ мањих тимова и нових иницијатива</p>
                         <div class="price">€2.500</div>
                         <p class="price-period">Једнократна накнада</p>
                         <ul class="features-list">
@@ -571,6 +633,7 @@
                             <li>Основни SEO</li>
                             <li>Тестирање и лансирање</li>
                         </ul>
+                        <p class="cta-lead">Пренесите овај пакет директно у упит:</p>
                         <a class="btn btn--primary cta-btn" href="contact.html?package=%D0%9F%D0%BE%D1%87%D0%B5%D1%82%D0%BD%D0%B8#request-website">Пошаљите захтев</a>
                     </div>
 
@@ -578,7 +641,7 @@
                     <div class="pricing-card featured">
                         <span class="badge">Најпопуларнији избор</span>
                         <h3 class="package-name">Професионални</h3>
-                        <p class="package-desc">За амбициозне пројекте раста</p>
+                        <p class="package-desc">За тимове у расту са јасним циљевима, бољом видљивошћу и бржим током рада</p>
                         <div class="price">€5.500</div>
                         <p class="price-period">Једнократна накнада</p>
                         <ul class="features-list">
@@ -591,13 +654,14 @@
                             <li>Поставка аналитике</li>
                             <li>1 месец подршке</li>
                         </ul>
+                        <p class="cta-lead">Покрените упит са већ унетим обимом:</p>
                         <a class="btn btn--primary cta-btn" href="contact.html?package=%D0%9F%D1%80%D0%BE%D1%84%D0%B5%D1%81%D0%B8%D0%BE%D0%BD%D0%B0%D0%BB%D0%BD%D0%B8#request-website">Пошаљите захтев</a>
                     </div>
 
                     <!-- Premium Paket -->
                     <div class="pricing-card">
                         <h3 class="package-name">Премијум</h3>
-                        <p class="package-desc">Свеобухватно решење за предузећа</p>
+                        <p class="package-desc">За захтевне платформе са прилагођеном архитектуром, продавницом или интеграцијом процеса</p>
                         <div class="price">€9.500</div>
                         <p class="price-period">Једнократна накнада</p>
                         <ul class="features-list">
@@ -610,6 +674,7 @@
                             <li>Подршка за видео/анимацију</li>
                             <li>3 месеца подршке и одржавања</li>
                         </ul>
+                        <p class="cta-lead">Затражите прилагођен обим директно:</p>
                         <a class="btn btn--primary cta-btn" href="contact.html?package=%D0%9F%D1%80%D0%B5%D0%BC%D0%B8%D1%98%D1%83%D0%BC#request-website">Пошаљите захтев</a>
                     </div>
                 </div>
@@ -617,7 +682,7 @@
                 <!-- Pricing Calculator mit Paket-Auswahl -->
                 <div class="calculator-section">
                     <h2>Индивидуална калкулација</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: var(--space-3xl);">Изаберите основни пакет и додајте по жељи додатке.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-3xl);">Процените обим пројекта у неколико корака – за већу прегледност буџета и мање кругова усаглашавања пре почетка.</p>
 
                     <div class="calculator-grid">
                         <!-- Paket-Auswahl -->
@@ -902,6 +967,7 @@
                             ✓ Коначни трошкови након детаљне анализе<br>
                             ✓ Необавезујуће и без скривених накнада</p>
                         </div>
+                        <p class="cta-lead">Пренесите процену директно у образац за упит:</p>
                         <button class="btn btn--primary">Затражите калкулацију</button>
                     </div>
                 </div>
@@ -957,7 +1023,7 @@
                     <div class="section-header text-center fade-in-up">
                         <span class="section-label">Такође занимљиво</span>
                         <h2 class="section-title" style="font-size: var(--font-size-4xl);">VezaionGen <span class="text-gradient">VI</span></h2>
-                        <p class="section-description">Цена на упит — Индустријска платформа за предузећа</p>
+                        <p class="section-description">Цена на упит — Индустријска платформа за предузећа. Додатни контекст доступан је и на страници <a href="blog.html?from=pricing">Блог</a>.</p>
                     </div>
 
                     <div class="codemasters-grid">
@@ -969,7 +1035,7 @@
                                     <line x1="6" y1="20" x2="6" y2="14"></line>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Индустријске операције</h3><p class="codemasters-card__desc">Фабричке операције, материјали, алати, налози, одржавање и квалитет.</p>
+                            <h3 class="codemasters-card__title">Индустријске операције</h3><p class="codemasters-card__desc">Фабричке операције, материјали, алати, налози, одржавање и квалитет – за јасније токове рада и мање застоја.</p>
                         </div>
 
                         <div class="codemasters-card fade-in-up" style="animation-delay: 0.1s;">
@@ -979,7 +1045,7 @@
                                     <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Интелигентно управљање квалитетом</h3><p class="codemasters-card__desc">Процеси квалитета, сигнали из слика и података о квалитету, детекција и контролне табле. Засебно обучен модел за VezaionGen VI није доказан.</p>
+                            <h3 class="codemasters-card__title">Интелигентно управљање квалитетом</h3><p class="codemasters-card__desc">Процеси квалитета, сигнали из слика и података о квалитету, детекција и контролне табле – за бржу проверу и поуздану следљивост.</p>
                         </div>
 
                         <div class="codemasters-card fade-in-up" style="animation-delay: 0.15s;">
@@ -988,21 +1054,22 @@
                                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Енергија и одрживост</h3><p class="codemasters-card__desc">Подаци о енергији и емисијама, расподела CO2 и локализовани ESG извештаји. Регулаторна усклађеност захтева стручну проверу.</p>
+                            <h3 class="codemasters-card__title">Енергија и одрживост</h3><p class="codemasters-card__desc">Подаци о енергији и емисијама, расподела CO2 и локализовани ESG извештаји – за јаснији увид у потрошњу и извештавање.</p>
                         </div>
 
                         <div class="codemasters-card fade-in-up" style="animation-delay: 0.2s;">
                             <div class="codemasters-card__icon">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <circle cx="12" cy="12" r="3"></circle>
-                                    <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M1 12h6m6 0h6M4.8 4.8l4.2 4.2m6 0l4.2-4.2M4.8 19.2l4.2-4.2m6 0l4.2 4.2"></path>
+                                    <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M1 12h6m6 0h6M4.8 4.8l4.2 4.2m6 0l4.2-4.2M4.8 19.2l4.2 4.2m6 0l4.2-4.2"></path>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Индустријска аналитика</h3><p class="codemasters-card__desc">Контролне табле за анализе, аномалије и увиде и процене века алата. Тачност предвиђања није опште потврђена.</p>
+                            <h3 class="codemasters-card__title">Индустријска аналитика</h3><p class="codemasters-card__desc">Контролне табле за анализе, аномалије и увиде и процене века алата – за ранији увид у текући рад.</p>
                         </div>
                     </div>
 
                     <div class="section-cta fade-in-up" style="animation-delay: 0.25s;">
+                        <p class="cta-lead">Погледајте преглед архитектуре и функционалних области платформе VezaionGen VI:</p>
                         <a href="vezaiongen-vi.html" class="btn btn--primary btn--large">
                             <span>Откријте VezaionGen VI</span>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -1037,7 +1104,7 @@
             </div>
         </section>
 
-<section id="service-requests" class="section platform-content"><div class="container"><h2>Упити за услуге</h2><p>Опишите циљ, оперативни контекст и потребну подршку. Разговараћемо о одговарајућим услугама и обиму пројекта.</p><div class="values-grid"><a class="btn btn--primary" href="contact.html#request-website">Развој веб-сајтова</a> <a class="btn btn--primary" href="contact.html#request-mobile-apps">Мобилне апликације</a> <a class="btn btn--primary" href="contact.html#request-enterprise">Развој пословних система</a> <a class="btn btn--primary" href="contact.html#request-consulting">Консалтинг</a> <a class="btn btn--primary" href="contact.html#request-automation">Аутоматизација</a> <a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI</a></div></div></section></main>
+<section id="service-requests" class="section platform-content"><div class="container"><h2>Упити за услуге</h2><p>Опишите циљ, оперативни контекст и потребну подршку. Разговараћемо о одговарајућим услугама, транспарентним претпоставкама и одговарајућем обиму пројекта.</p><p class="cta-lead">Изаберите одговарајућу област упита за директан почетак:</p><div class="values-grid"><a class="btn btn--primary" href="contact.html#request-website">Развој веб-сајтова</a> <a class="btn btn--primary" href="contact.html#request-mobile-apps">Мобилне апликације</a> <a class="btn btn--primary" href="contact.html#request-enterprise">Развој пословних система</a> <a class="btn btn--primary" href="contact.html#request-consulting">Консалтинг</a> <a class="btn btn--primary" href="contact.html#request-automation">Аутоматизација</a> <a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI</a></div></div></section></main>
 
     <!-- Footer се аутоматски учитава -->
     <div id="footer-placeholder"></div>
