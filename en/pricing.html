@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="NJB CodeMasters | Pricing. Service packages, a cost calculator and VezaionGen VI enterprise consultation."><meta name="robots" content="index,follow">
+<meta name="description" content="NJB CodeMasters pricing: faster delivery, fewer friction points and clear cost transparency across web, enterprise and industrial projects."><meta name="robots" content="index,follow">
 <title>Pricing | NJB CodeMasters</title>
 <link rel="canonical" href="https://www.njbcodemasters.com/en/pricing.html">
     <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/pricing.html">
@@ -11,12 +11,12 @@
     <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
     <meta property="og:type" content="website"><meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://www.njbcodemasters.com/en/pricing.html"><meta property="og:title" content="Pricing | NJB CodeMasters">
-    <meta property="og:description" content="NJB CodeMasters | Pricing. Service packages, a cost calculator and VezaionGen VI enterprise consultation."><meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta property="og:description" content="NJB CodeMasters pricing: faster delivery, fewer friction points and clear cost transparency across web, enterprise and industrial projects."><meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Pricing | NJB CodeMasters">
-    <meta name="twitter:description" content="NJB CodeMasters | Pricing. Service packages, a cost calculator and VezaionGen VI enterprise consultation."><meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:description" content="NJB CodeMasters pricing: faster delivery, fewer friction points and clear cost transparency across web, enterprise and industrial projects."><meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
 <link rel="stylesheet" href="../css/reset.css"><link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/global.css"><link rel="stylesheet" href="../css/background.css"><link rel="stylesheet" href="../css/header.css"><link rel="stylesheet" href="../css/footer.css"><link rel="stylesheet" href="../css/hero.css"><link rel="stylesheet" href="../css/home.css"><link rel="stylesheet" href="../css/about.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/button-animations.css"><link rel="stylesheet" href="../css/i18n.css"><link rel="stylesheet" href="../css/performance.css"><link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
-<link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192x192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
 <link rel="stylesheet" href="../css/pricing.css">
@@ -90,6 +90,8 @@
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
+            min-width: 0;
+            max-width: 100%;
         }
 
         .pricing-card:hover {
@@ -151,15 +153,22 @@
             padding: 0;
             margin: 0 0 var(--space-2xl);
             flex-grow: 1;
+            min-width: 0;
+            max-width: 100%;
         }
 
         .features-list li {
             padding: var(--space-sm) 0;
             color: var(--text-secondary);
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            align-items: baseline;
             gap: var(--space-sm);
             font-size: var(--font-size-sm);
+            min-width: 0;
+            max-width: 100%;
+            overflow-wrap: anywhere;
+            word-break: break-word;
         }
 
         .features-list li::before {
@@ -167,6 +176,12 @@
             color: var(--primary-color);
             font-weight: bold;
             flex-shrink: 0;
+        }
+
+        .features-list li a {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+            max-width: 100%;
         }
 
         .cta-btn {
@@ -360,12 +375,22 @@
                 grid-template-columns: 1fr;
             }
 
+            .pricing-card {
+                padding: var(--space-lg);
+                overflow: hidden;
+            }
+
             .pricing-card.featured {
                 transform: scale(1);
             }
 
             .pricing-card.featured:hover {
                 transform: translateY(-8px);
+            }
+
+            .features-list li {
+                font-size: var(--font-size-xs);
+                line-height: 1.45;
             }
 
             .calculator-section {
@@ -410,18 +435,18 @@
             <div class="container">
                 <!-- Hero Section -->
                 <div class="pricing-hero"><p class="section-label">Services</p>
-                    <h1>Transparent <span class="text-gradient">Pricing</span> for your project</h1>
-                    <p>Choose from our established packages or calculate your individual solution. All prices are estimates and may be adjusted to your requirements.</p>
+                    <h1>Transparent <span class="text-gradient">Pricing</span> for faster outcomes</h1>
+                    <p>Predictable estimates, fewer alignment loops and clear cost visibility from day one. Choose a package or calculate your scope upfront—details in <a href="services.html">Services</a>, <a href="modules.html">Modules</a> and the <a href="pilot-program.html">Pilot Program</a> help clarify fit.</p>
                 </div>
-<article class="pricing-card featured" id="vezaiongen-enterprise" style="margin: 0 auto var(--space-3xl); max-width: 1000px; border-color: var(--primary-color);"><picture class="brand-logo brand-logo--pricing"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI logo" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture><p class="section-label">FLAGSHIP INDUSTRIAL PLATFORM</p><h2>VezaionGen VI Enterprise</h2><p>NJB CodeMasters’ dedicated platform offer for connected industrial workflows.</p><ul class="features-list"><li>Modular industrial platform capabilities</li><li>On-Premise, Private Cloud or SaaS deployment models for discussion</li><li>Pilot initiative to explore a use case together</li><li>Discussion of capabilities, integrations and operating model</li></ul><p><strong>Price on request</strong> · Pilot program available</p><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">Discuss VezaionGen VI</a></article>
+<article class="pricing-card featured" id="vezaiongen-enterprise" style="margin: 0 auto var(--space-3xl); max-width: 1000px; border-color: var(--primary-color);"><picture class="brand-logo brand-logo--pricing"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI logo" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture><p class="section-label">FLAGSHIP INDUSTRIAL PLATFORM</p><h2>VezaionGen VI Enterprise</h2><p>NJB CodeMasters’ dedicated platform offer for connected industrial workflows, faster decisions and end-to-end operational visibility.</p><ul class="features-list"><li>Modular industrial platform capabilities across <a href="modules.html">VezaionGen VI</a></li><li>On-Premise, Private Cloud or SaaS deployment models for discussion</li><li>Structured entry via the <a href="pilot-program.html">Pilot Program</a> to scope a use case together</li><li>Focused discussion of capabilities, interfaces and operating model</li></ul><p><strong>Price on request</strong> · <a href="pilot-program.html">Pilot Program</a> available</p><p class="cta-lead">Align on your use case, interfaces and operating model directly in a consultation:</p><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">Discuss VezaionGen VI</a></article>
 
                 <!-- Pricing Cards -->
                 <div style="margin-bottom: var(--space-3xl); padding-bottom: var(--space-2xl); border-bottom: 1px solid var(--border-color);">
-                    <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-lg); text-align: center;">🚀 <span class="text-gradient">Enterprise Services & Development</span></h2>
-                    <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Industrial software development, system integration and operations for complex production and enterprise environments.</p>
+                    <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-lg); text-align: center;">🚀 <span class="text-gradient">Enterprise Services &amp; Development</span></h2>
+                    <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Industrial software development, system integration and operations—for fewer handoff gaps, smoother workflows and reliable day-to-day execution.</p>
                 </div>
 
-                <aside class="pricing-scope-note"><strong>Clear price distinction:</strong> The following EUR ranges apply only to NJB CodeMasters services and commissioned custom software projects. The from €60,000 estimate is for an industrial services project, not a VezaionGen VI platform or licence price. VezaionGen VI is offered separately: price on request; pilot program available.</aside>
+                <aside class="pricing-scope-note"><strong>Clear price distinction:</strong> The following EUR ranges apply only to NJB CodeMasters services and commissioned custom software projects. The from €60,000 estimate is for an industrial services project, not a VezaionGen VI platform or licence price. VezaionGen VI is offered separately: price on request; <a href="pilot-program.html">Pilot Program</a> available.</aside>
 <div class="pricing-grid">
                     <!-- Enterprise / Industrial OS (FLAGSHIP) -->
                     <div class="pricing-card featured" style="grid-column: 1 / -1; background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(236, 72, 153, 0.1));">
@@ -429,7 +454,7 @@
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center;" class="enterprise-grid">
                             <div>
                                 <h3 class="package-name" style="color: var(--primary-color); font-size: 2.5rem;">Industrial Software<br>&amp; MES/ERP Integration</h3>
-                                <p class="package-desc" style="font-size: var(--font-size-lg); color: var(--text-secondary);">Custom software, data integration and operational applications shaped for industrial environments.</p>
+                                <p class="package-desc" style="font-size: var(--font-size-lg); color: var(--text-secondary);">Custom software, data integration and operational applications shaped for faster workflows, fewer friction points and clear operational visibility.</p>
                                 
                                 <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: rgba(99, 102, 241, 0.1); border-radius: var(--radius-lg); border-left: 4px solid var(--primary-color);">
                                     <div style="margin-bottom: var(--space-sm);">
@@ -461,6 +486,7 @@
                                 </ul>
                                 
                                 <div style="margin-top: var(--space-2xl);">
+                                    <p class="cta-lead">Clarify your system landscape, interfaces and target scope directly:</p>
                                     <a class="btn btn--secondary" style="width: 100%; justify-content: center; margin-top: var(--space-md);" href="contact.html#request-enterprise">Request a detailed quotation</a>
                                 </div>
                             </div>
@@ -471,14 +497,14 @@
                 <!-- Standard Web Development Packages -->
                 <div style="margin-top: var(--space-3xl); margin-bottom: var(--space-3xl); padding-top: var(--space-3xl); padding-bottom: var(--space-2xl); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
                     <h2 style="font-size: var(--font-size-2xl); margin-bottom: var(--space-lg); text-align: center;">💻 <span class="text-gradient">Web Development Packages</span></h2>
-                    <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Responsive websites and web apps for every requirement</p>
+                    <p style="text-align: center; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">Responsive websites and web apps with defined scope for fast delivery and dependable execution</p>
                 </div>
 
                 <div class="pricing-grid">
                     <!-- Starter Paket -->
                     <div class="pricing-card">
                         <h3 class="package-name">Starter</h3>
-                        <p class="package-desc">Ideal for small projects and startups</p>
+                        <p class="package-desc">For a fast, structured web presence for small teams and new initiatives</p>
                         <div class="price">€2,500</div>
                         <p class="price-period">One-time fee</p>
                         <ul class="features-list">
@@ -487,8 +513,9 @@
                             <li>Responsive implementation</li>
                             <li>CMS Integration (WordPress)</li>
                             <li>Basic SEO</li>
-                            <li>Testing & Launch</li>
+                            <li>Testing &amp; Launch</li>
                         </ul>
+                        <p class="cta-lead">Carry this package straight into your enquiry:</p>
                         <a class="btn btn--primary cta-btn" href="contact.html?package=Starter#request-website">Send an enquiry</a>
                     </div>
 
@@ -496,7 +523,7 @@
                     <div class="pricing-card featured">
                         <span class="badge">Most popular</span>
                         <h3 class="package-name">Professional</h3>
-                        <p class="package-desc">For ambitious growth projects</p>
+                        <p class="package-desc">For growing organizations seeking stronger visibility and smoother daily workflows</p>
                         <div class="price">€5,500</div>
                         <p class="price-period">One-time fee</p>
                         <ul class="features-list">
@@ -509,13 +536,14 @@
                             <li>Analytics Setup</li>
                             <li>1 month of support</li>
                         </ul>
+                        <p class="cta-lead">Start your enquiry with this scope prefilled:</p>
                         <a class="btn btn--primary cta-btn" href="contact.html?package=Professional#request-website">Send an enquiry</a>
                     </div>
 
                     <!-- Premium Paket -->
                     <div class="pricing-card">
                         <h3 class="package-name">Premium</h3>
-                        <p class="package-desc">A comprehensive enterprise solution</p>
+                        <p class="package-desc">For demanding platforms with custom architecture, shop or process integration</p>
                         <div class="price">€9,500</div>
                         <p class="price-period">One-time fee</p>
                         <ul class="features-list">
@@ -523,11 +551,12 @@
                             <li>Brand Design System</li>
                             <li>Custom Development</li>
                             <li>E-Commerce Integration</li>
-                            <li>Advanced SEO & CRO</li>
+                            <li>Advanced SEO &amp; CRO</li>
                             <li>Newsletter Integration</li>
                             <li>Video/Animation Support</li>
                             <li>3 months of support and maintenance</li>
                         </ul>
+                        <p class="cta-lead">Request a tailored scope directly:</p>
                         <a class="btn btn--primary cta-btn" href="contact.html?package=Premium#request-website">Send an enquiry</a>
                     </div>
                 </div>
@@ -535,7 +564,7 @@
                 <!-- Pricing Calculator mit Paket-Auswahl -->
                 <div class="calculator-section">
                     <h2>Custom Cost Calculator</h2>
-                    <p style="color: var(--text-secondary); margin-bottom: var(--space-3xl);">Choose a base package and add the extras you need.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: var(--space-3xl);">Estimate your project scope in a few steps—for greater budget clarity and fewer back-and-forth loops before kickoff.</p>
 
                     <div class="calculator-grid">
                         <!-- Paket-Auswahl -->
@@ -710,7 +739,7 @@
                             <label class="checkbox-item">
                                 <input type="checkbox" class="addon-checkbox" data-price="900" id="analytics">
                                 <span class="checkbox-label">
-                                    <span>Analytics & Tracking Setup</span>
+                                    <span>Analytics &amp; Tracking Setup</span>
                                     <span class="checkbox-price">+€900</span>
                                 </span>
                             </label>
@@ -820,6 +849,7 @@
                             ✓ Final cost following a detailed assessment<br>
                             ✓ Non-binding, with no hidden fees</p>
                         </div>
+                        <p class="cta-lead">Transfer your estimate straight into the enquiry form:</p>
                         <button class="btn btn--primary">Request this estimate</button>
                     </div>
                 </div>
@@ -875,7 +905,7 @@
                     <div class="section-header text-center fade-in-up">
                         <span class="section-label">Also of Interest</span>
                         <h2 class="section-title" style="font-size: var(--font-size-4xl);">VezaionGen <span class="text-gradient">VI</span></h2>
-                        <p class="section-description">Pricing on Request — Enterprise Industrial Platform</p>
+                        <p class="section-description">Pricing on Request — Enterprise Industrial Platform. Additional context is also available in the <a href="blog.html?from=pricing">Blog</a>.</p>
                     </div>
 
                     <div class="codemasters-grid">
@@ -887,7 +917,7 @@
                                     <line x1="6" y1="20" x2="6" y2="14"></line>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Industrial Operations</h3><p class="codemasters-card__desc">Factory operations, materials, tools, orders, maintenance and quality.</p>
+                            <h3 class="codemasters-card__title">Industrial Operations</h3><p class="codemasters-card__desc">Factory operations, materials, tools, orders, maintenance and quality—for clearer workflows and fewer friction points.</p>
                         </div>
 
                         <div class="codemasters-card fade-in-up" style="animation-delay: 0.1s;">
@@ -897,7 +927,7 @@
                                     <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Quality Intelligence</h3><p class="codemasters-card__desc">Quality workflows, image/quality signals, detection and dashboards. A separately trained VezaionGen model is not evidenced.</p>
+                            <h3 class="codemasters-card__title">Quality Intelligence</h3><p class="codemasters-card__desc">Quality workflows, image/quality signals, detection and dashboards—for faster inspection and dependable traceability.</p>
                         </div>
 
                         <div class="codemasters-card fade-in-up" style="animation-delay: 0.15s;">
@@ -906,21 +936,22 @@
                                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Energy &amp; ESG</h3><p class="codemasters-card__desc">Energy and emissions data, carbon allocation and localized ESG reports. Regulatory compliance requires expert review.</p>
+                            <h3 class="codemasters-card__title">Energy &amp; ESG</h3><p class="codemasters-card__desc">Energy and emissions data, carbon allocation and localized ESG reports—for clearer visibility across consumption and reporting.</p>
                         </div>
 
                         <div class="codemasters-card fade-in-up" style="animation-delay: 0.2s;">
                             <div class="codemasters-card__icon">
                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <circle cx="12" cy="12" r="3"></circle>
-                                    <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M1 12h6m6 0h6M4.8 4.8l4.2 4.2m6 0l4.2-4.2M4.8 19.2l4.2-4.2m6 0l4.2 4.2"></path>
+                                    <path d="M12 1v6m0 6v6m5.2-13.2l-4.2 4.2m0 6l4.2 4.2M1 12h6m6 0h6M4.8 4.8l4.2 4.2m6 0l4.2-4.2M4.8 19.2l4.2 4.2m6 0l4.2 4.2"></path>
                                 </svg>
                             </div>
-                            <h3 class="codemasters-card__title">Industrial Analytics</h3><p class="codemasters-card__desc">Analytics, anomaly and insight dashboards, and tool-life estimates. Prediction accuracy is not generally verified.</p>
+                            <h3 class="codemasters-card__title">Industrial Analytics</h3><p class="codemasters-card__desc">Analytics, anomaly and insight dashboards, and tool-life estimates—for earlier visibility into running operations.</p>
                         </div>
                     </div>
 
                     <div class="section-cta fade-in-up" style="animation-delay: 0.25s;">
+                        <p class="cta-lead">Review the architecture and functional areas of VezaionGen VI at a glance:</p>
                         <a href="vezaiongen-vi.html" class="btn btn--primary btn--large">
                             <span>Explore VezaionGen VI</span>
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
@@ -955,7 +986,7 @@
             </div>
         </section>
 
-<section id="service-requests" class="section platform-content"><div class="container"><h2>Service Enquiries</h2><p>Tell us about your objective, operational context and the support you are looking for. We can discuss relevant services and a suitable scope.</p><div class="values-grid"><a class="btn btn--primary" href="contact.html#request-website">Website Development</a> <a class="btn btn--primary" href="contact.html#request-mobile-apps">Mobile Apps</a> <a class="btn btn--primary" href="contact.html#request-enterprise">Enterprise Development</a> <a class="btn btn--primary" href="contact.html#request-consulting">Consulting</a> <a class="btn btn--primary" href="contact.html#request-automation">Automation</a> <a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI</a></div></div></section></main>
+<section id="service-requests" class="section platform-content"><div class="container"><h2>Service Enquiries</h2><p>Tell us about your objective, operational context and the support you are looking for. We can discuss relevant services, transparent assumptions and a suitable scope.</p><p class="cta-lead">Select the matching enquiry area to get started directly:</p><div class="values-grid"><a class="btn btn--primary" href="contact.html#request-website">Website Development</a> <a class="btn btn--primary" href="contact.html#request-mobile-apps">Mobile Apps</a> <a class="btn btn--primary" href="contact.html#request-enterprise">Enterprise Development</a> <a class="btn btn--primary" href="contact.html#request-consulting">Consulting</a> <a class="btn btn--primary" href="contact.html#request-automation">Automation</a> <a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI</a></div></div></section></main>
 <script>
         // Neue Preiskalkulator-Logik
         const packageRadios = document.querySelectorAll('input[name="package"]');
