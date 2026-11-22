@@ -207,7 +207,7 @@
             text-align: center;
         }
 
-        /* Badge oben links auf der Kante wie in Bild 4 */
+        /* Badge oben links auf der Kante */
         .main .section .badge {
             position: absolute !important;
             top: 0 !important;
@@ -320,6 +320,10 @@
             min-width: 0;
             text-align: left !important;
             display: inline !important;
+        }
+
+        .main .section .features-list li a[href*="modules.html"] {
+            white-space: nowrap !important;
         }
 
         .cta-block {
@@ -822,6 +826,14 @@
                 grid-template-columns: 1fr !important;
             }
 
+            .main .section .features-list li {
+                flex-wrap: wrap;
+            }
+
+            .main .section .features-list li a[href*="modules.html"] {
+                white-space: nowrap !important;
+            }
+
             .calculator-section {
                 padding: var(--space-lg);
             }
@@ -969,7 +981,7 @@
                     <h2>VezaionGen VI Enterprise</h2>
                     <p>Das separate Plattformangebot von NJB CodeMasters für vernetzte industrielle Abläufe, schnellere Entscheidungswege und durchgängige Transparenz.</p>
                     <ul class="features-list">
-                        <li><span>Modulare industrielle Plattformfunktionen aus <a href="modules.html">VezaionGen VI</a></span></li>
+                        <li><span>Modulare industrielle Plattformfunktionen aus <a href="modules.html" style="white-space: nowrap;">VezaionGen VI</a></span></li>
                         <li><span>On-Premise, Private Cloud oder SaaS als besprechbare Deployment-Modelle</span></li>
                         <li><span>Strukturierter Einstieg über das <a href="pilot-program.html">Pilotprogramm</a> zur klaren Einordnung eines Anwendungsfalls</span></li>
                         <li><span>Gezieltes Gespräch zu Funktionen, Schnittstellen und Betriebsmodell</span></li>
