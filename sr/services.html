@@ -18,164 +18,200 @@
     <link rel="stylesheet" href="../css/performance.css">
     
     <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192x192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
     
     <style>
-        .services-hero {
-            text-align: center;
-            margin-bottom: var(--space-5xl);
+        html,
+        body {
+            overflow-x: clip;
+            max-width: 100%;
         }
 
-        .services-hero h1 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            margin-bottom: var(--space-lg);
+        .main,
+        .section,
+        .container {
+            max-width: 100%;
         }
 
-        .services-hero p {
-            font-size: var(--font-size-lg);
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin: 0 auto;
+        .main .section {
+            padding-block: 3rem;
         }
 
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: var(--space-3xl);
-            margin-bottom: var(--space-5xl);
+        .main .section:first-child {
+            padding-top: 5.75rem;
         }
 
-        .service-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-2xl);
-            padding: var(--space-2xl);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--primary-color);
-            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: var(--radius-lg);
+        .main .section .container {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: var(--space-lg);
+            text-align: center;
         }
 
-        .service-card h3 {
-            font-size: var(--font-size-2xl);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-md);
+        .main .section .section-label,
+        .main .section h1,
+        .main .section h2,
+        .main .section .section-description,
+        .main .section .container > p,
+        .main .section .container > div > p {
+            margin-inline: auto;
+            text-align: center;
         }
 
-        .service-card p {
-            color: var(--text-secondary);
+        .main .section h1,
+        .main .section h2 {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            margin-top: 0;
+            margin-bottom: 0.75rem;
+            line-height: 1.18;
+        }
+
+        .main .section h1 {
+            line-height: 1.15;
+        }
+
+        .main .section .container > p,
+        .main .section .section-description {
+            max-width: 72ch;
+            margin-bottom: 0.85rem;
+            line-height: 1.65;
+        }
+
+        .main .section .cta-lead {
+            max-width: 70ch;
+            margin-top: 0.65rem;
+            margin-bottom: 0.85rem;
+            font-weight: var(--font-weight-medium);
             line-height: 1.6;
-            margin-bottom: var(--space-lg);
-        }
-
-        .service-features {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .service-features li {
-            padding: var(--space-sm) 0;
-            padding-left: var(--space-lg);
-            position: relative;
-            color: var(--text-secondary);
-            font-size: var(--font-size-sm);
-        }
-
-        .service-features li:before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--primary-color);
-            font-weight: var(--font-weight-bold);
-        }
-
-        /* Process Section */
-        .process-section {
-            margin-bottom: var(--space-5xl);
-        }
-
-        .process-section h2 {
             text-align: center;
-            margin-bottom: var(--space-3xl);
-            font-size: clamp(2rem, 3vw, 2.5rem);
+            margin-inline: auto;
         }
 
-        .process-steps {
+        .main .section .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-2xl);
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.5rem;
+            align-items: stretch;
+            width: 100%;
+            margin-top: 0.85rem;
+            margin-bottom: 0.85rem;
         }
 
-        .process-step {
-            text-align: center;
-            position: relative;
-        }
-
-        .step-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            border-radius: 50%;
+        .main .section .values-grid .pricing-card {
             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            min-height: 0;
+            text-align: center;
+        }
+
+        .main .section .values-grid .pricing-card h3 {
+            margin-top: 0;
+            margin-bottom: 0.6rem;
+            line-height: 1.3;
+            text-align: center;
+            width: 100%;
+        }
+
+        .main .section .values-grid .pricing-card > p {
+            margin-bottom: 0;
+            line-height: 1.65;
+            text-align: center;
+            width: 100%;
+        }
+
+        .main .section strong {
+            background: linear-gradient(90deg, #ff2bd6 0%, #c026d3 48%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+            font-weight: var(--font-weight-semibold, 600);
+        }
+
+        [data-theme="light"] .main .section strong {
+            background: linear-gradient(90deg, #c026d3 0%, #9333ea 50%, #6d28d9 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .home-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.85rem 1rem;
+            margin: 0.45rem auto 0;
+            max-width: 720px;
+            width: 100%;
+        }
+
+        .main .section .btn {
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-weight: var(--font-weight-bold);
-            font-size: var(--font-size-2xl);
-            margin: 0 auto var(--space-lg);
-            color: white;
-        }
-
-        .process-step h3 {
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--space-sm);
-        }
-
-        .process-step p {
-            color: var(--text-secondary);
-            font-size: var(--font-size-sm);
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--radius-3xl);
-            padding: var(--space-3xl);
+            width: auto;
+            min-width: 170px;
+            max-width: 100%;
+            padding: 0.78rem 1.45rem;
+            margin-top: 0.25rem;
+            margin-inline: auto;
             text-align: center;
-            margin-top: var(--space-5xl);
+            flex: 0 0 auto;
         }
 
-        .cta-section h2 {
-            font-size: clamp(1.5rem, 3vw, 2.5rem);
-            margin-bottom: var(--space-lg);
+        .home-actions .btn {
+            margin: 0;
+            min-width: 170px;
+            padding: 0.75rem 1.35rem;
         }
 
-        .cta-section p {
-            color: var(--text-secondary);
-            margin-bottom: var(--space-2xl);
-            font-size: var(--font-size-lg);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+        @media (max-width: 960px) {
+            .main .section .values-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main .section {
+                padding-block: 2.25rem;
+            }
+
+            .main .section:first-child {
+                padding-top: 4.75rem;
+            }
+
+            .main .section .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .home-actions {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.65rem;
+                max-width: 100%;
+            }
+
+            .main .section .btn,
+            .home-actions .btn {
+                width: auto;
+                min-width: 0;
+                max-width: 100%;
+                min-height: 0;
+                height: auto;
+                padding: 0.72rem 1.25rem;
+                font-size: 0.92rem;
+                line-height: 1.3;
+                flex: 0 0 auto;
+            }
         }
     </style>
 
@@ -262,7 +298,7 @@
     <main class="main">
 <section class="section platform-content"><div class="container"><p class="section-label">NJB CODEMASTERS</p><h1>Софтвер за индустрију и дигиталне производе</h1><p class="section-description">Бржи токови рада, мање застоја и поуздана оперативна прегледност — NJB CodeMasters повезује развој пословног софтвера и индустријске технологије са потребама стварних тимова и процеса.</p></div></section>
 <section class="section platform-content"><div class="container"><h2>Подршка за пословање</h2><div class="values-grid"><article class="pricing-card"><h3>Индустрија 6.0 и индустријска вештачка интелигенција</h3><p>Обликовање интелигентних индустријских решења усмерених на људе и прилагођених радном окружењу — за брже одлуке и јасније одговорности.</p></article><article class="pricing-card"><h3>Развој пословних система</h3><p>Развој софтвера, модела података и интерфејса за сложене процесе, улоге и постојеће системе — уз мање ручних прелаза и сигурнији рад тимова.</p></article><article class="pricing-card"><h3>Дигитални близанац</h3><p>Повезивање дигиталних модела и оперативних информација ради бољег разумевања постројења и процеса — за ранији увид у уска грла и међузависности.</p></article><article class="pricing-card"><h3>Аутоматизација</h3><p>Обликовање поновљивих токова рада и системских веза уз јасно дефинисане прелазе између корака и људски надзор — за мање рутинског оптерећења и стабилније извршење.</p></article><article class="pricing-card"><h3>Консалтинг</h3><p>Заједничко структурирање техничких одлука, архитектуре и циљева производа, уз договор о наредним корацима — без непотребних застоја пре почетка рада.</p></article><article class="pricing-card"><h3>Дигитални производи</h3><p>Развој веб и мобилних апликација према конкретним захтевима. Рад на платформи <a href="vezaiongen-vi.html">VezaionGen VI</a> и њеним <a href="modules.html">модулима</a> повезује ово искуство са индустријским токовима рада — уз додатне теме у рубрици <a href="blog.html?from=services">Блог</a>.</p></article></div></div></section>
-<section class="section platform-content"><div class="container"><h2>Сарадња са јасним фокусом</h2><p>На почетку усаглашавамо циљеве, кориснике, радно окружење и техничке интерфејсе. То је основа за одговарајући обим, јасне претпоставке, предвидиве кораке и — где је то оправдано — укључивање кроз <a href="pilot-program.html">пилот програм</a>.</p><p class="cta-lead">Усагласите захтеве директно у разговору или најпре упоредите оријентационе цене:</p><a class="btn btn--primary" href="contact.html">Разговарајте о пројекту</a> <a class="btn btn--secondary" href="pricing.html">Погледајте цене услуга</a></div></section>
+<section class="section platform-content"><div class="container"><h2>Сарадња са јасним фокусом</h2><p>На почетку усаглашавамо циљеве, кориснике, радно окружење и техничке интерфејсе. То је основа за одговарајући обим, јасне претпоставке, предвидиве кораке и — где је то оправдано — укључивање кроз <a href="pilot-program.html">пилот програм</a>.</p><p class="cta-lead">Усагласите захтеве директно у разговору или најпре упоредите оријентационе цене:</p><div class="home-actions"><a class="btn btn--primary" href="contact.html">Разговарајте о пројекту</a><a class="btn btn--secondary" href="pricing.html">Погледајте цене услуга</a></div></div></section>
 </main>
 
     <!-- Footer будет аутоматски учитан -->
