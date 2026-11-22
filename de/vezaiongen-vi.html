@@ -21,22 +21,93 @@
 <link rel="manifest" href="../site.webmanifest">
 <link rel="stylesheet" href="../css/platform-content.css">
 <style>
+html,
+body {
+    overflow-x: clip;
+    max-width: 100%;
+}
+.main,
+.section,
+.container {
+    max-width: 100%;
+}
+.main .section {
+    padding-block: clamp(2.75rem, 5vw, 4.5rem);
+}
+.main .section:first-of-type {
+    padding-top: clamp(5.5rem, 9vw, 7.5rem);
+    padding-bottom: clamp(2.75rem, 5vw, 4rem);
+}
+.main .section h1 {
+    margin-top: var(--space-xs);
+    margin-bottom: var(--space-md);
+    line-height: 1.15;
+}
+.main .section h2 {
+    margin-top: 0;
+    margin-bottom: var(--space-sm);
+    line-height: 1.25;
+}
+.main .section .container > p {
+    max-width: 72ch;
+    margin-bottom: var(--space-md);
+    line-height: 1.65;
+}
+.main .section .container > p:last-child {
+    margin-bottom: 0;
+}
+.brand-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
+}
+.brand-logo img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.brand-logo--product img {
+    width: min(100%, 340px);
+}
+.brand-logo--demo {
+    margin-top: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+.brand-logo--demo img {
+    width: min(100%, 260px);
+}
+.platform-content .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.1rem, 2.2vw, 1.75rem);
+    align-items: stretch;
+    margin-top: var(--space-lg);
+}
 .platform-content .values-grid .pricing-card {
     display: flex;
     flex-direction: column;
+    height: 100%;
+}
+.platform-content .values-grid .pricing-card h3 {
+    margin-top: 0;
+    margin-bottom: var(--space-xs);
 }
 .platform-content .values-grid .pricing-card > p {
     flex-grow: 1;
+    margin-bottom: var(--space-md);
+    line-height: 1.6;
 }
 .card-blog-links {
-    margin-top: var(--space-lg);
+    margin-top: auto;
     padding-top: var(--space-md);
     border-top: 1px solid var(--glass-border);
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
-    gap: var(--space-sm) var(--space-md);
+    gap: 0.5rem 0.85rem;
 }
 .blog-ref-link {
     color: #818cf8;
@@ -58,10 +129,10 @@
 }
 .section-blog-links {
     margin-top: var(--space-md);
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-sm) var(--space-md);
+    gap: 0.6rem 0.75rem;
     align-items: center;
 }
 .section-blog-links .blog-ref-link {
@@ -91,6 +162,74 @@
 [data-theme="light"] .section-blog-links .blog-ref-link:hover {
     color: #1e1b4b;
     background: rgba(79, 70, 229, 0.18);
+}
+.main .section .cta-lead {
+    margin-top: var(--space-lg);
+    margin-bottom: var(--space-md);
+    font-weight: var(--font-weight-medium);
+}
+.main .section .btn {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.demo-video {
+    display: grid;
+    grid-template-columns: minmax(240px, 340px) minmax(0, 1fr);
+    gap: clamp(1.25rem, 3vw, 2.25rem);
+    align-items: center;
+    margin-top: var(--space-md);
+}
+.demo-video__visual {
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 0.35rem;
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg, 14px);
+}
+.demo-video__copy {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+.demo-video__copy h3 {
+    margin: 0;
+}
+.demo-video__copy p {
+    margin: 0;
+    line-height: 1.6;
+}
+@media (max-width: 992px) {
+    .platform-content .values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .demo-video {
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 768px) {
+    .main .section {
+        padding-block: 2.25rem;
+    }
+    .main .section:first-of-type {
+        padding-top: 5rem;
+        padding-bottom: 2.25rem;
+    }
+    .platform-content .values-grid {
+        grid-template-columns: 1fr;
+    }
+    .card-blog-links {
+        justify-content: flex-start;
+    }
+    .section-blog-links .blog-ref-link,
+    .main .section > .container > .btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
 }
 </style>
 </head>
