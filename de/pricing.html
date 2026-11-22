@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/button-animations.css">
     <link rel="stylesheet" href="../css/pricing.css">
+    <link rel="stylesheet" href="../css/i18n.css">
+    <link rel="stylesheet" href="../css/platform-content.css">
     
     <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
     <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192x192.png">
@@ -101,13 +103,16 @@
             margin: 0 auto var(--space-3xl);
             text-align: center;
             background: #141829 !important;
+            background-color: #141829 !important;
             border: 1px solid rgba(139, 92, 246, 0.35);
             border-radius: var(--radius-xl);
             padding: var(--space-lg) var(--space-xl);
+            opacity: 1 !important;
         }
 
         [data-theme="light"] .pricing-scope-note {
             background: #f8f9ff !important;
+            background-color: #f8f9ff !important;
         }
 
         .pricing-price-note {
@@ -115,7 +120,7 @@
             margin-inline: auto;
         }
 
-        /* Pricing Cards & solide Hover-Oberflächen (kein Transparent-Bug) */
+        /* Karten: solide Oberflächen & kein Transparent-Bug beim Hover */
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -125,101 +130,103 @@
             align-items: stretch;
         }
 
-        .pricing-card,
-        .codemasters-card,
-        .calculator-section,
-        .calc-result,
-        .card {
-            position: relative;
+        .main .section .pricing-card,
+        .main .section .codemasters-card,
+        .main .section .calculator-section,
+        .main .section .calc-result,
+        .main .section .card {
+            position: relative !important;
             background: #121626 !important;
             background-color: #121626 !important;
-            border: 1px solid rgba(148, 163, 184, 0.22);
+            border: 1px solid rgba(148, 163, 184, 0.24);
             border-radius: var(--radius-2xl);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
             min-width: 0;
             max-width: 100%;
             opacity: 1 !important;
         }
 
-        [data-theme="light"] .pricing-card,
-        [data-theme="light"] .codemasters-card,
-        [data-theme="light"] .calculator-section,
-        [data-theme="light"] .calc-result,
-        [data-theme="light"] .card {
+        [data-theme="light"] .main .section .pricing-card,
+        [data-theme="light"] .main .section .codemasters-card,
+        [data-theme="light"] .main .section .calculator-section,
+        [data-theme="light"] .main .section .calc-result,
+        [data-theme="light"] .main .section .card {
             background: #ffffff !important;
             background-color: #ffffff !important;
-            border-color: rgba(15, 23, 42, 0.12);
+            border-color: rgba(15, 23, 42, 0.14);
+        }
+
+        .main .section .pricing-card:hover,
+        .main .section .pricing-card:hover *,
+        .main .section .codemasters-card:hover,
+        .main .section .codemasters-card:hover *,
+        .main .section .card:hover,
+        .main .section .card:hover * {
+            opacity: 1 !important;
+        }
+
+        .main .section .pricing-card:hover,
+        .main .section .codemasters-card:hover,
+        .main .section .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 18px 34px rgba(10, 14, 26, 0.55);
+            background: #171c31 !important;
+            background-color: #171c31 !important;
+        }
+
+        [data-theme="light"] .main .section .pricing-card:hover,
+        [data-theme="light"] .main .section .codemasters-card:hover,
+        [data-theme="light"] .main .section .card:hover {
+            background: #f4f6ff !important;
+            background-color: #f4f6ff !important;
+            box-shadow: 0 14px 28px rgba(99, 102, 241, 0.15);
+        }
+
+        .main .section .pricing-card.featured {
+            border-color: var(--primary-color);
+            background: #161b30 !important;
+            background-color: #161b30 !important;
+        }
+
+        [data-theme="light"] .main .section .pricing-card.featured {
+            background: #f3f5ff !important;
+            background-color: #f3f5ff !important;
+        }
+
+        .main .section .pricing-card.featured:hover {
+            background: #1b223d !important;
+            background-color: #1b223d !important;
         }
 
         .pricing-card {
-            padding: 2.5rem var(--space-2xl) var(--space-2xl);
+            padding: 2.25rem var(--space-2xl) var(--space-2xl);
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
         }
 
-        .pricing-card:hover,
-        .codemasters-card:hover,
-        .card:hover {
-            transform: translateY(-6px);
-            border-color: var(--primary-color);
-            box-shadow: 0 18px 36px rgba(15, 23, 42, 0.45);
-            background: #161b30 !important;
-            background-color: #161b30 !important;
-            opacity: 1 !important;
-        }
-
-        [data-theme="light"] .pricing-card:hover,
-        [data-theme="light"] .codemasters-card:hover,
-        [data-theme="light"] .card:hover {
-            background: #f5f7ff !important;
-            background-color: #f5f7ff !important;
-            box-shadow: 0 16px 32px rgba(99, 102, 241, 0.14);
-            opacity: 1 !important;
-        }
-
-        .pricing-card.featured {
-            border-color: var(--primary-color);
-            background: #171c33 !important;
-            background-color: #171c33 !important;
-        }
-
-        [data-theme="light"] .pricing-card.featured {
-            background: #f4f5ff !important;
-            background-color: #f4f5ff !important;
-        }
-
-        .pricing-card.featured:hover {
-            transform: translateY(-6px);
-            background: #1b213d !important;
-            background-color: #1b213d !important;
-        }
-
-        /* Badge links oben auf der Karte */
-        .badge {
-            position: absolute;
-            top: 16px;
-            left: 20px;
-            right: auto;
+        /* Badge oben links auf der Kante wie in Bild 4 */
+        .main .section .badge {
+            position: absolute !important;
+            top: 0 !important;
+            left: 24px !important;
+            right: auto !important;
+            transform: translateY(-50%) !important;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: var(--primary-color);
+            background: #7c85ff !important;
             color: #ffffff !important;
-            padding: 0.3rem 0.75rem;
+            padding: 0.34rem 0.85rem;
             border-radius: 999px;
-            font-size: 0.75rem;
-            font-weight: var(--font-weight-semibold);
-            letter-spacing: 0.04em;
-            z-index: 2;
-        }
-
-        .pricing-card .badge + .brand-logo,
-        .pricing-card .badge + .section-label,
-        .pricing-card .badge + .package-name,
-        .pricing-card .badge + .enterprise-grid {
-            margin-top: 1.5rem;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            z-index: 4;
+            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
         }
 
         .package-name {
@@ -256,57 +263,80 @@
             text-align: center;
         }
 
-        /* Aufzählungspunkte in Karten: zentrierter Block, innen sauber linksbündig */
-        .features-list {
-            list-style: none;
+        /* Aufzählungen in Karten: zentrierter Block, innen fließend und linksbündig */
+        .main .section .features-list {
+            list-style: none !important;
+            columns: unset !important;
+            column-count: unset !important;
             padding: 0;
             margin: 0 auto var(--space-xl);
             flex-grow: 1;
             min-width: 0;
-            max-width: 360px;
+            max-width: 420px;
             width: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: left;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: stretch !important;
+            text-align: left !important;
         }
 
-        .enterprise-grid .features-list {
+        .main .section .enterprise-grid .features-list {
             max-width: 100%;
-            display: grid;
+            display: grid !important;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.35rem 1.25rem;
-            text-align: left;
+            gap: 0.25rem 1.5rem;
+            text-align: left !important;
         }
 
-        .features-list li {
-            padding: 0.45rem 0;
+        .main .section .features-list li {
+            display: flex !important;
+            flex-direction: row !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            gap: 0.65rem;
+            padding: 0.55rem 0;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.12);
             color: var(--text-secondary);
-            display: flex;
-            align-items: flex-start;
-            justify-content: flex-start;
-            gap: 0.55rem;
             font-size: var(--font-size-sm);
-            width: 100%;
-            text-align: left;
             line-height: 1.45;
-            overflow-wrap: anywhere;
-            word-break: break-word;
+            text-align: left !important;
+            width: 100%;
         }
 
-        .features-list li::before {
+        .main .section .features-list li:last-child {
+            border-bottom: none;
+        }
+
+        .main .section .features-list li::before {
             content: "✓";
             color: var(--primary-color);
             font-weight: 700;
             flex: 0 0 auto;
-            line-height: 1.45;
+            margin-top: 0.05rem;
+        }
+
+        .main .section .features-list li span {
+            flex: 1 1 auto;
+            min-width: 0;
+            text-align: left !important;
+            display: inline !important;
+        }
+
+        .cta-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 0.5rem auto 0;
+            text-align: center;
+            width: 100%;
         }
 
         .cta-lead {
             text-align: center;
-            margin-inline: auto;
+            margin: 0 auto;
             max-width: 60ch;
-            margin-bottom: var(--space-md);
         }
 
         .cta-btn {
@@ -315,7 +345,7 @@
             max-width: 100%;
             text-align: center;
             justify-content: center;
-            margin-inline: auto;
+            margin: 0 auto;
         }
 
         /* Calculator & gruppierte Dropdown-Extras */
@@ -342,14 +372,14 @@
             text-align: center;
             min-width: 0;
             background: #171c31;
-            border: 1px solid rgba(148, 163, 184, 0.2);
+            border: 1px solid rgba(148, 163, 184, 0.22);
             border-radius: var(--radius-xl);
             padding: var(--space-xl);
         }
 
         [data-theme="light"] .calc-item {
             background: #f4f6ff;
-            border-color: rgba(15, 23, 42, 0.12);
+            border-color: rgba(15, 23, 42, 0.14);
         }
 
         .calc-label {
@@ -376,7 +406,7 @@
 
         .extras-group {
             background: #171c31;
-            border: 1px solid rgba(148, 163, 184, 0.22);
+            border: 1px solid rgba(148, 163, 184, 0.24);
             border-radius: var(--radius-xl);
             overflow: hidden;
             transition: border-color 0.25s ease;
@@ -429,19 +459,18 @@
         }
 
         .extras-group__body {
-            padding: 0 1.15rem 1.15rem;
+            padding: 0.9rem 1.15rem 1.15rem;
             display: flex;
             flex-direction: column;
             gap: 0.65rem;
             border-top: 1px solid rgba(148, 163, 184, 0.14);
-            padding-top: 0.9rem;
         }
 
         .extra-option-card {
             width: 100%;
             padding: 0.75rem 0.9rem;
             border-radius: var(--radius-lg);
-            border: 1px solid rgba(148, 163, 184, 0.18);
+            border: 1px solid rgba(148, 163, 184, 0.2);
             background: #121626;
             transition: border-color 0.25s ease, background-color 0.25s ease;
             text-align: left;
@@ -478,7 +507,7 @@
             pointer-events: none;
         }
 
-        /* Animiertes SVG-Check-Symbol im Stil der Header-Buttons */
+        /* Animiertes SVG-Check-Symbol */
         .extra-check-svg {
             width: 26px;
             height: 26px;
@@ -552,7 +581,7 @@
 
         /* Calculator Result */
         .calc-result {
-            border: 1px solid var(--primary-color);
+            border: 1px solid var(--primary-color) !important;
             border-radius: var(--radius-2xl);
             padding: var(--space-2xl);
             display: flex;
@@ -560,7 +589,7 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            gap: var(--space-lg);
+            gap: var(--space-md);
             margin: 0 auto;
         }
 
@@ -584,24 +613,101 @@
             margin-inline: auto;
         }
 
-        /* Table & Grids */
+        /* Leistungsdetails & Richtpreise: klares, solides 3-Spalten-Grid ohne Hover-Transparenz */
         .breakdown-section {
             margin-top: var(--space-4xl);
-            overflow-x: auto;
+            width: 100%;
             text-align: center;
+        }
+
+        .main .section .breakdown-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            gap: 1.5rem !important;
+            margin-top: 2rem !important;
+            width: 100% !important;
+            align-items: stretch !important;
+        }
+
+        .main .section .breakdown-card {
+            position: relative !important;
+            background: #121626 !important;
+            background-color: #121626 !important;
+            border: 1px solid rgba(148, 163, 184, 0.24) !important;
+            border-radius: var(--radius-xl) !important;
+            padding: 1.6rem !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: space-between !important;
+            align-items: flex-start !important;
+            text-align: left !important;
+            opacity: 1 !important;
+            transform: none !important;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+        }
+
+        [data-theme="light"] .main .section .breakdown-card {
+            background: #ffffff !important;
+            background-color: #ffffff !important;
+            border-color: rgba(15, 23, 42, 0.14) !important;
+        }
+
+        .main .section .breakdown-card:hover,
+        .main .section .breakdown-card:hover * {
+            opacity: 1 !important;
+            transform: none !important;
+        }
+
+        .main .section .breakdown-card:hover {
+            background: #171c31 !important;
+            background-color: #171c31 !important;
+            border-color: var(--primary-color) !important;
+            box-shadow: 0 12px 24px rgba(10, 14, 26, 0.45) !important;
+        }
+
+        [data-theme="light"] .main .section .breakdown-card:hover {
+            background: #f4f6ff !important;
+            background-color: #f4f6ff !important;
+        }
+
+        .breakdown-card__eyebrow {
+            font-size: 0.7rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            margin-bottom: 0.35rem;
+            text-align: left !important;
             width: 100%;
         }
 
-        .breakdown-table {
-            margin-inline: auto;
-            text-align: left;
+        .breakdown-card__title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            text-align: left !important;
+            width: 100%;
         }
 
-        .breakdown-table th:last-child,
-        .breakdown-table td:last-child {
-            text-align: right;
+        .breakdown-card__desc {
+            font-size: var(--font-size-sm);
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+            text-align: left !important;
+            width: 100%;
         }
 
+        .breakdown-card__price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: left !important;
+            width: 100%;
+        }
+
+        /* CodeMasters OS & FAQ Grids */
         .codemasters-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -672,8 +778,9 @@
 
         @media (max-width: 960px) {
             .pricing-grid,
-            .extras-groups-container {
-                grid-template-columns: 1fr;
+            .extras-groups-container,
+            .main .section .breakdown-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
             }
         }
 
@@ -687,21 +794,23 @@
             }
 
             .pricing-grid,
+            .extras-groups-container,
+            .main .section .breakdown-grid,
             .codemasters-grid,
             .grid-2 {
-                grid-template-columns: 1fr;
-                gap: var(--space-xl);
+                grid-template-columns: 1fr !important;
+                gap: var(--space-xl) !important;
             }
 
             .pricing-card {
-                padding: 2.5rem var(--space-lg) var(--space-lg);
-                transform: none;
+                padding: 2.25rem var(--space-lg) var(--space-lg);
+                transform: none !important;
             }
 
-            .pricing-card.featured,
-            .pricing-card:hover,
-            .pricing-card.featured:hover {
-                transform: none;
+            .main .section .pricing-card:hover,
+            .main .section .codemasters-card:hover,
+            .main .section .card:hover {
+                transform: none !important;
             }
 
             .enterprise-grid {
@@ -710,7 +819,7 @@
             }
 
             .enterprise-grid .features-list {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
             }
 
             .calculator-section {
@@ -768,9 +877,6 @@
         }
     </style>
 
-    <!-- i18n & Internationalization -->
-    <link rel="stylesheet" href="../css/i18n.css">
-
     <link rel="canonical" href="https://www.njbcodemasters.com/de/pricing.html">
     <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/pricing.html">
     <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/pricing.html">
@@ -787,7 +893,6 @@
     <meta name="twitter:description" content="Transparente Richtpreise und Pakete von NJB CodeMasters: schnellere Umsetzung, weniger Reibungsverluste und klare Kalkulation für Web-, Enterprise- und Industrieprojekte.">
     <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
-<link rel="stylesheet" href="../css/platform-content.css">
 </head>
 <body data-language="de">
     <!-- Header & Navigation -->
@@ -798,13 +903,11 @@
                     <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
                 </a>
                 
-                <!-- Menu Toggle Button -->
                 <button class="nav__toggle" id="navToggle" aria-label="Navigation öffnen" aria-expanded="false">
                     <span class="hamburger"></span>
                 </button>
             </div>
 
-            <!-- Desktop Navigation -->
             <ul class="nav__menu" id="navMenu">
                 <li class="nav__item"><a href="index.html" class="nav__link">Startseite</a></li>
                 <li class="nav__item"><a href="about.html" class="nav__link">Über uns</a></li>
@@ -816,7 +919,6 @@
             </ul>
 
             <div class="nav__actions">
-                <!-- Language Switcher -->
                 <div class="language-switcher">
                     <label for="languageSelect">🌐</label>
                     <select id="languageSelect" aria-label="Sprache wählen">
@@ -826,7 +928,6 @@
                     </select>
                 </div>
 
-                <!-- Theme Toggle -->
                 <button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">
                     <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="12" cy="12" r="4"></circle>
@@ -860,21 +961,24 @@
                     <p>Planbare Richtwerte, weniger Reibungsverluste in der Abstimmung und klare Transparenz von Beginn an. Wählen Sie ein passendes Paket oder kalkulieren Sie Ihren Umfang vorab – Details zu <a href="services.html">Leistungen</a>, <a href="modules.html">Modulen</a> und dem <a href="pilot-program.html">Pilotprogramm</a> helfen bei der Einordnung.</p>
                 </div>
 
-                <article class="pricing-card featured" id="vezaiongen-enterprise" style="margin: 0 auto var(--space-3xl); max-width: 1000px; border-color: var(--primary-color);">
+                <!-- VezaionGen VI Enterprise Card -->
+                <article class="pricing-card featured" id="vezaiongen-enterprise" style="margin: 0 auto var(--space-3xl); max-width: 1000px;">
                     <span class="badge">FLAGSHIP PLATFORM</span>
                     <picture class="brand-logo brand-logo--pricing"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI Logo" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture>
                     <p class="section-label">FLAGSHIP INDUSTRIAL PLATFORM</p>
                     <h2>VezaionGen VI Enterprise</h2>
                     <p>Das separate Plattformangebot von NJB CodeMasters für vernetzte industrielle Abläufe, schnellere Entscheidungswege und durchgängige Transparenz.</p>
                     <ul class="features-list">
-                        <li>Modulare industrielle Plattformfunktionen aus <a href="modules.html">VezaionGen VI</a></li>
-                        <li>On-Premise, Private Cloud oder SaaS als besprechbare Deployment-Modelle</li>
-                        <li>Strukturierter Einstieg über das <a href="pilot-program.html">Pilotprogramm</a> zur klaren Einordnung eines Anwendungsfalls</li>
-                        <li>Gezieltes Gespräch zu Funktionen, Schnittstellen und Betriebsmodell</li>
+                        <li><span>Modulare industrielle Plattformfunktionen aus <a href="modules.html">VezaionGen VI</a></span></li>
+                        <li><span>On-Premise, Private Cloud oder SaaS als besprechbare Deployment-Modelle</span></li>
+                        <li><span>Strukturierter Einstieg über das <a href="pilot-program.html">Pilotprogramm</a> zur klaren Einordnung eines Anwendungsfalls</span></li>
+                        <li><span>Gezieltes Gespräch zu Funktionen, Schnittstellen und Betriebsmodell</span></li>
                     </ul>
                     <p><strong>Preis auf Anfrage</strong> · <a href="pilot-program.html">Pilotprogramm</a> verfügbar</p>
-                    <p class="cta-lead">Klären Sie Einsatzszenario, Schnittstellen und Betriebsmodell direkt im Gespräch:</p>
-                    <a class="btn btn--primary cta-btn" href="contact.html#vezaiongen-consultation">VezaionGen VI besprechen</a>
+                    <div class="cta-block">
+                        <p class="cta-lead">Klären Sie Einsatzszenario, Schnittstellen und Betriebsmodell direkt im Gespräch:</p>
+                        <a class="btn btn--primary cta-btn" href="contact.html#vezaiongen-consultation">VezaionGen VI besprechen</a>
+                    </div>
                 </article>
 
                 <!-- Enterprise Services Heading -->
@@ -886,7 +990,7 @@
                 <aside class="pricing-scope-note"><strong>Klare Preisabgrenzung:</strong> Die folgenden EUR-Richtpreise gelten ausschließlich für NJB CodeMasters Services und individuell beauftragte Softwareprojekte. Der Richtwert ab €60.000 betrifft ein industrielles Serviceprojekt und ist kein Lizenz- oder Plattformpreis für VezaionGen VI. VezaionGen VI wird separat angeboten: Preis auf Anfrage, <a href="pilot-program.html">Pilotprogramm</a> verfügbar.</aside>
 
                 <div class="pricing-grid">
-                    <!-- Enterprise / Industrial OS (FLAGSHIP) -->
+                    <!-- Enterprise / Industrial OS -->
                     <div class="pricing-card featured" style="grid-column: 1 / -1;">
                         <span class="badge">INDUSTRIAL SERVICES</span>
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3xl); align-items: center; width: 100%;" class="enterprise-grid">
@@ -894,7 +998,7 @@
                                 <h3 class="package-name" style="color: var(--primary-color); font-size: 2.25rem;">Industrielle Software<br>&amp; MES/ERP-Integration</h3>
                                 <p class="package-desc" style="font-size: var(--font-size-lg); color: var(--text-secondary);">Individuell abgestimmte Software, Datenintegration und operative Anwendungen für schnellere Abläufe, weniger Reibungsverluste und klare Transparenz im Betrieb.</p>
                                 
-                                <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: rgba(99, 102, 241, 0.12); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.35);">
+                                <div style="margin-top: var(--space-2xl); padding: var(--space-lg); background: rgba(99, 102, 241, 0.14); border-radius: var(--radius-lg); border: 1px solid rgba(99, 102, 241, 0.35);">
                                     <div style="margin-bottom: var(--space-sm);">
                                         <span style="font-size: var(--font-size-sm); color: var(--text-secondary); text-transform: uppercase;">Service-Projektimplementierung</span>
                                         <div style="font-size: 2rem; font-weight: bold; color: var(--primary-color);">ab €60.000</div>
@@ -904,26 +1008,26 @@
                                         <div style="font-size: 1.5rem; font-weight: bold; color: var(--text-primary);">€3.000 – €10.000/Monat</div>
                                     </div>
                                 </div>
-                                <p class="pricing-price-note">Richtpreis für Services und Projektumsetzung – kein Plattform- oder Lizenzpreis für VezaionGen VI.</p>
+                                <p class="pricing-price-note" style="margin-top: var(--space-md);">Richtpreis für Services und Projektumsetzung – kein Plattform- oder Lizenzpreis für VezaionGen VI.</p>
                             </div>
                             
                             <div>
                                 <ul class="features-list">
-                                    <li>Komplexe MES/ERP-Systeme</li>
-                                    <li>Echtzeit-Datenerfassung</li>
-                                    <li>Predictive Analytics</li>
-                                    <li>IoT Integration</li>
-                                    <li>Energiemonitoring</li>
-                                    <li>CO2-Tracking</li>
-                                    <li>Advanced QC Systeme</li>
-                                    <li>Benutzerdefinierte Module</li>
-                                    <li>24/7 Dedicated Support</li>
-                                    <li>Regelmäßige Updates</li>
-                                    <li>Custom Integrations</li>
-                                    <li>Performance Optimization</li>
+                                    <li><span>Komplexe MES/ERP-Systeme</span></li>
+                                    <li><span>Echtzeit-Datenerfassung</span></li>
+                                    <li><span>Predictive Analytics</span></li>
+                                    <li><span>IoT Integration</span></li>
+                                    <li><span>Energiemonitoring</span></li>
+                                    <li><span>CO2-Tracking</span></li>
+                                    <li><span>Advanced QC Systeme</span></li>
+                                    <li><span>Benutzerdefinierte Module</span></li>
+                                    <li><span>24/7 Dedicated Support</span></li>
+                                    <li><span>Regelmäßige Updates</span></li>
+                                    <li><span>Custom Integrations</span></li>
+                                    <li><span>Performance Optimization</span></li>
                                 </ul>
                                 
-                                <div style="margin-top: var(--space-2xl);">
+                                <div class="cta-block">
                                     <p class="cta-lead">Klären Sie Systemlandschaft, Schnittstellen und Zielumfang direkt mit uns:</p>
                                     <a class="btn btn--secondary cta-btn" href="contact.html#request-enterprise">Detailliertes Angebot anfordern</a>
                                 </div>
@@ -947,18 +1051,20 @@
                         <div class="price">€2.500</div>
                         <p class="price-period">Einmalgebühr</p>
                         <ul class="features-list">
-                            <li>Beratung &amp; Konzeption</li>
-                            <li>Modernes Design (bis 3 Seiten)</li>
-                            <li>Responsive Umsetzung</li>
-                            <li>CMS Integration (WordPress)</li>
-                            <li>Basis SEO</li>
-                            <li>Testing &amp; Launch</li>
+                            <li><span>Beratung &amp; Konzeption</span></li>
+                            <li><span>Modernes Design (bis 3 Seiten)</span></li>
+                            <li><span>Responsive Umsetzung</span></li>
+                            <li><span>CMS Integration (WordPress)</span></li>
+                            <li><span>Basis SEO</span></li>
+                            <li><span>Testing &amp; Launch</span></li>
                         </ul>
-                        <p class="cta-lead">Direkt in die Anfrage übernehmen:</p>
-                        <a class="btn btn--primary cta-btn" href="contact.html?package=Starter#request-website">Anfrage stellen</a>
+                        <div class="cta-block">
+                            <p class="cta-lead">Direkt in die Anfrage übernehmen:</p>
+                            <a class="btn btn--primary cta-btn" href="contact.html?package=Starter#request-website">Anfrage stellen</a>
+                        </div>
                     </div>
 
-                    <!-- Professional Paket (Featured) -->
+                    <!-- Professional Paket -->
                     <div class="pricing-card featured">
                         <span class="badge">Beliebteste Wahl</span>
                         <h3 class="package-name">Professional</h3>
@@ -966,17 +1072,19 @@
                         <div class="price">€5.500</div>
                         <p class="price-period">Einmalgebühr</p>
                         <ul class="features-list">
-                            <li>Beratung &amp; Konzeption</li>
-                            <li>Custom Design (bis 6 Seiten)</li>
-                            <li>Responsive &amp; optimiert</li>
-                            <li>CMS mit Erweiterungen</li>
-                            <li>SEO &amp; Performance</li>
-                            <li>Blog Integration</li>
-                            <li>Analytics Setup</li>
-                            <li>1 Monat Support</li>
+                            <li><span>Beratung &amp; Konzeption</span></li>
+                            <li><span>Custom Design (bis 6 Seiten)</span></li>
+                            <li><span>Responsive &amp; optimiert</span></li>
+                            <li><span>CMS mit Erweiterungen</span></li>
+                            <li><span>SEO &amp; Performance</span></li>
+                            <li><span>Blog Integration</span></li>
+                            <li><span>Analytics Setup</span></li>
+                            <li><span>1 Monat Support</span></li>
                         </ul>
-                        <p class="cta-lead">Umfang direkt als Anfrage starten:</p>
-                        <a class="btn btn--primary cta-btn" href="contact.html?package=Professional#request-website">Anfrage stellen</a>
+                        <div class="cta-block">
+                            <p class="cta-lead">Umfang direkt als Anfrage starten:</p>
+                            <a class="btn btn--primary cta-btn" href="contact.html?package=Professional#request-website">Anfrage stellen</a>
+                        </div>
                     </div>
 
                     <!-- Premium Paket -->
@@ -987,17 +1095,19 @@
                         <div class="price">€9.500</div>
                         <p class="price-period">Einmalgebühr</p>
                         <ul class="features-list">
-                            <li>Umfassende Strategieberatung</li>
-                            <li>Brand Design System</li>
-                            <li>Custom Development</li>
-                            <li>E-Commerce Integration</li>
-                            <li>Advanced SEO &amp; CRO</li>
-                            <li>Newsletter Integration</li>
-                            <li>Video/Animation Support</li>
-                            <li>3 Monate Support &amp; Wartung</li>
+                            <li><span>Umfassende Strategieberatung</span></li>
+                            <li><span>Brand Design System</span></li>
+                            <li><span>Custom Development</span></li>
+                            <li><span>E-Commerce Integration</span></li>
+                            <li><span>Advanced SEO &amp; CRO</span></li>
+                            <li><span>Newsletter Integration</span></li>
+                            <li><span>Video/Animation Support</span></li>
+                            <li><span>3 Monate Support &amp; Wartung</span></li>
                         </ul>
-                        <p class="cta-lead">Individuellen Bedarf direkt anfragen:</p>
-                        <a class="btn btn--primary cta-btn" href="contact.html?package=Premium#request-website">Anfrage stellen</a>
+                        <div class="cta-block">
+                            <p class="cta-lead">Individuellen Bedarf direkt anfragen:</p>
+                            <a class="btn btn--primary cta-btn" href="contact.html?package=Premium#request-website">Anfrage stellen</a>
+                        </div>
                     </div>
                 </div>
 
@@ -1007,7 +1117,6 @@
                     <p style="color: var(--text-secondary); margin-bottom: var(--space-2xl);">Schätzen Sie Ihren Projektumfang in wenigen Schritten ab – für mehr Kostentransparenz und weniger Abstimmungsschleifen vor dem Start.</p>
 
                     <div class="calculator-grid">
-                        <!-- Paket-Auswahl -->
                         <div class="calc-item">
                             <label class="calc-label">Basis-Paket auswählen</label>
                             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: var(--space-md); width: 100%; margin-top: var(--space-sm);">
@@ -1035,7 +1144,6 @@
                             </div>
                         </div>
 
-                        <!-- Timeline -->
                         <div class="calc-item">
                             <label class="calc-label" for="timelineSelect">
                                 Gewünschtes Tempo
@@ -1056,7 +1164,7 @@
                         <p id="selectedExtras" role="status" aria-live="polite" style="margin-top: 0.5rem;">Noch keine Extras ausgewählt.</p>
 
                         <div class="extras-groups-container" id="extrasGroup">
-                            <!-- Gruppe 1: Entwicklung & Systeme -->
+                            <!-- Gruppe 1 -->
                             <details class="extras-group">
                                 <summary class="extras-group__summary">
                                     <span>Entwicklung &amp; Systeme</span>
@@ -1175,7 +1283,7 @@
                                 </div>
                             </details>
 
-                            <!-- Gruppe 2: Design, 3D & Medien -->
+                            <!-- Gruppe 2 -->
                             <details class="extras-group">
                                 <summary class="extras-group__summary">
                                     <span>Design, 3D &amp; Medien</span>
@@ -1264,7 +1372,7 @@
                                 </div>
                             </details>
 
-                            <!-- Gruppe 3: KI, Marketing & Wachstum -->
+                            <!-- Gruppe 3 -->
                             <details class="extras-group">
                                 <summary class="extras-group__summary">
                                     <span>KI, Marketing &amp; Wachstum</span>
@@ -1368,7 +1476,7 @@
                                 </div>
                             </details>
 
-                            <!-- Gruppe 4: Beratung, Betrieb & Prozesse -->
+                            <!-- Gruppe 4 -->
                             <details class="extras-group">
                                 <summary class="extras-group__summary">
                                     <span>Beratung, Betrieb &amp; Prozesse</span>
@@ -1456,67 +1564,83 @@
                             ✓ Finale Kosten nach detaillierter Analyse<br>
                             ✓ Unverbindlich &amp; ohne Versteckte Gebühren</p>
                         </div>
-                        <p class="cta-lead">Übernehmen Sie Ihre Kalkulation direkt ins Anfrageformular:</p>
-                        <button type="button" class="btn btn--primary cta-btn">Kalkulation anfragen</button>
+                        <div class="cta-block">
+                            <p class="cta-lead">Übernehmen Sie Ihre Kalkulation direkt ins Anfrageformular:</p>
+                            <button type="button" class="btn btn--primary cta-btn">Kalkulation anfragen</button>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Breakdown Table -->
+                <!-- Leistungsdetails & Richtpreise -->
                 <div class="breakdown-section">
                     <h2>Leistungsdetails &amp; Richtpreise</h2>
-                    <table class="breakdown-table">
-                        <thead>
-                            <tr>
-                                <th>Position</th>
-                                <th>Beschreibung</th>
-                                <th>Richtpreis</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>1. Beratung &amp; Konzeption</strong></td>
-                                <td>Erstgespräch, Anforderungsanalyse, Strukturplanung und technische Empfehlung</td>
-                                <td class="price">€500 – €1.500</td>
-                            </tr>
-                            <tr>
-                                <td><strong>2. Design</strong></td>
-                                <td>Individuelles Screendesign (UX/UI), responsive Layout, basierend auf dein Corporate Design</td>
-                                <td class="price">€1.000 – €3.000</td>
-                            </tr>
-                            <tr>
-                                <td><strong>3. Entwicklung</strong></td>
-                                <td>HTML/CSS/JavaScript oder CMS Integration (z.B. WordPress), responsive Umsetzung</td>
-                                <td class="price">€2.000 – €7.000</td>
-                            </tr>
-                            <tr>
-                                <td><strong>4. Inhaltserstellung</strong></td>
-                                <td>Textoptimierung, Bildauswahl, SEO-optimierte Einpflege ins System</td>
-                                <td class="price">€500 – €2.000</td>
-                            </tr>
-                            <tr>
-                                <td><strong>5. Testing &amp; Launch</strong></td>
-                                <td>Browser-Tests, Performance-Optimierung, Funktionsprüfung, Live-Schaltung</td>
-                                <td class="price">€300 – €800</td>
-                            </tr>
-                            <tr>
-                                <td><strong>6. Wartung &amp; Support</strong></td>
-                                <td>Laufende Updates, Sicherheit, Backups, Inhaltsanpassungen</td>
-                                <td class="price">€50 – €300/Monat</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="breakdown-grid">
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Position 01 · Leistung</div>
+                                <h3 class="breakdown-card__title">1. Beratung &amp; Konzeption</h3>
+                                <p class="breakdown-card__desc">Erstgespräch, Anforderungsanalyse, Strukturplanung und technische Empfehlung</p>
+                            </div>
+                            <div class="breakdown-card__price">€500 – €1.500</div>
+                        </div>
+
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Position 02 · Leistung</div>
+                                <h3 class="breakdown-card__title">2. Design</h3>
+                                <p class="breakdown-card__desc">Individuelles Screendesign (UX/UI), responsive Layout, basierend auf dein Corporate Design</p>
+                            </div>
+                            <div class="breakdown-card__price">€1.000 – €3.000</div>
+                        </div>
+
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Position 03 · Leistung</div>
+                                <h3 class="breakdown-card__title">3. Entwicklung</h3>
+                                <p class="breakdown-card__desc">HTML/CSS/JavaScript oder CMS Integration (z.B. WordPress), responsive Umsetzung</p>
+                            </div>
+                            <div class="breakdown-card__price">€2.000 – €7.000</div>
+                        </div>
+
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Position 04 · Leistung</div>
+                                <h3 class="breakdown-card__title">4. Inhaltserstellung</h3>
+                                <p class="breakdown-card__desc">Textoptimierung, Bildauswahl, SEO-optimierte Einpflege ins System</p>
+                            </div>
+                            <div class="breakdown-card__price">€500 – €2.000</div>
+                        </div>
+
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Position 05 · Leistung</div>
+                                <h3 class="breakdown-card__title">5. Testing &amp; Launch</h3>
+                                <p class="breakdown-card__desc">Browser-Tests, Performance-Optimierung, Funktionsprüfung, Live-Schaltung</p>
+                            </div>
+                            <div class="breakdown-card__price">€300 – €800</div>
+                        </div>
+
+                        <div class="breakdown-card">
+                            <div>
+                                <div class="breakdown-card__eyebrow">Position 06 · Leistung</div>
+                                <h3 class="breakdown-card__title">6. Wartung &amp; Support</h3>
+                                <p class="breakdown-card__desc">Laufende Updates, Sicherheit, Backups, Inhaltsanpassungen</p>
+                            </div>
+                            <div class="breakdown-card__price">€50 – €300/Monat</div>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- CodeMasters OS Features on Pricing Page -->
                 <section style="margin-top: var(--space-5xl); margin-bottom: var(--space-5xl); width: 100%;">
-                    <div class="section-header text-center fade-in-up">
+                    <div class="section-header text-center">
                         <span class="section-label">Auch interessant</span>
                         <h2 class="section-title" style="font-size: var(--font-size-4xl);">VezaionGen <span class="text-gradient">VI</span></h2>
                         <p class="section-description">Preis auf Anfrage — Enterprise Industrial Platform. Vertiefende Hintergründe finden Sie auch im <a href="blog.html?from=pricing">Blog</a>.</p>
                     </div>
 
                     <div class="codemasters-grid">
-                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.05s;">
+                        <div class="codemasters-card">
                             <div class="codemasters-card__icon">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <line x1="18" y1="20" x2="18" y2="10"></line>
@@ -1528,7 +1652,7 @@
                             <p class="codemasters-card__desc">Fabrikbetrieb, Material, Werkzeuge, Aufträge, Wartung und Qualität – für klarere Abläufe und weniger Reibungspunkte.</p>
                         </div>
 
-                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.1s;">
+                        <div class="codemasters-card">
                             <div class="codemasters-card__icon">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
@@ -1539,7 +1663,7 @@
                             <p class="codemasters-card__desc">Qualitätsprozesse, Bild- und Qualitätssignale, Erkennung und Dashboards – für schnellere Prüfung und verlässliche Nachvollziehbarkeit.</p>
                         </div>
 
-                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.15s;">
+                        <div class="codemasters-card">
                             <div class="codemasters-card__icon">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
@@ -1549,7 +1673,7 @@
                             <p class="codemasters-card__desc">Energie- und Emissionsdaten, CO2-Zuordnung und lokalisierte Berichte – für mehr Transparenz bei Verbrauch und Nachweisen.</p>
                         </div>
 
-                        <div class="codemasters-card fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="codemasters-card">
                             <div class="codemasters-card__icon">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                     <path d="M3 3v18h18"></path>
@@ -1562,7 +1686,7 @@
                         </div>
                     </div>
 
-                    <div class="section-cta fade-in-up" style="animation-delay: 0.25s; margin-top: 2rem;">
+                    <div class="section-cta cta-block" style="margin-top: 2.25rem;">
                         <p class="cta-lead">Sehen Sie sich Architektur und Funktionsbereiche von VezaionGen VI im Überblick an:</p>
                         <a href="vezaiongen-vi.html" class="btn btn--primary btn--large cta-btn">
                             <span>VezaionGen VI entdecken</span>
@@ -1602,14 +1726,16 @@
             <div class="container">
                 <h2>Dienstleistungsanfragen</h2>
                 <p>Beschreiben Sie Ihr Ziel, den betrieblichen Kontext und die gewünschte Unterstützung. Wir besprechen passende Leistungen, transparente Annahmen und einen sinnvollen Projektumfang.</p>
-                <p class="cta-lead">Wählen Sie den passenden Anfragebereich für den direkten Einstieg:</p>
-                <div class="values-grid">
-                    <a class="btn btn--primary" href="contact.html#request-website">Website Development</a>
-                    <a class="btn btn--primary" href="contact.html#request-mobile-apps">Mobile Apps</a>
-                    <a class="btn btn--primary" href="contact.html#request-enterprise">Enterprise Development</a>
-                    <a class="btn btn--primary" href="contact.html#request-consulting">Consulting</a>
-                    <a class="btn btn--primary" href="contact.html#request-automation">Automation</a>
-                    <a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI</a>
+                <div class="cta-block">
+                    <p class="cta-lead">Wählen Sie den passenden Anfragebereich für den direkten Einstieg:</p>
+                    <div class="values-grid">
+                        <a class="btn btn--primary" href="contact.html#request-website">Website Development</a>
+                        <a class="btn btn--primary" href="contact.html#request-mobile-apps">Mobile Apps</a>
+                        <a class="btn btn--primary" href="contact.html#request-enterprise">Enterprise Development</a>
+                        <a class="btn btn--primary" href="contact.html#request-consulting">Consulting</a>
+                        <a class="btn btn--primary" href="contact.html#request-automation">Automation</a>
+                        <a class="btn btn--primary" href="contact.html#vezaiongen-consultation">VezaionGen VI</a>
+                    </div>
                 </div>
             </div>
         </section>
