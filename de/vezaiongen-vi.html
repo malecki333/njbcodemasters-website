@@ -37,36 +37,31 @@ body {
 .main .section:first-of-type {
     padding-top: 5.75rem;
     padding-bottom: 2.5rem;
+}
+.main .section .container {
     text-align: center;
 }
-.main .section:first-of-type .section-label {
-    margin-bottom: 0.5rem;
-}
-.main .section:first-of-type h1 {
+.main .section h1 {
     margin-top: 0;
     margin-bottom: 0.75rem;
     line-height: 1.15;
-}
-.main .section:first-of-type .section-description {
-    margin-inline: auto;
-    margin-bottom: 0.85rem;
-    max-width: 68ch;
-    line-height: 1.6;
-}
-.main .section:first-of-type .container > p:not(.section-label):not(.section-description) {
-    margin-inline: auto;
-    margin-bottom: 1.5rem;
-    max-width: 74ch;
-    line-height: 1.65;
+    text-align: center;
 }
 .main .section h2 {
     margin-top: 0;
     margin-bottom: 0.65rem;
     line-height: 1.25;
+    text-align: center;
 }
 .main .section .container > p {
+    margin-inline: auto;
     margin-bottom: 0.85rem;
+    max-width: 74ch;
     line-height: 1.65;
+    text-align: center;
+}
+.main .section .container > p:last-child {
+    margin-bottom: 0;
 }
 .brand-logo {
     display: flex;
@@ -80,16 +75,24 @@ body {
     display: block;
     max-width: 100%;
     height: auto;
+    margin-inline: auto;
 }
 .brand-logo--product img {
     width: min(100%, 340px);
 }
 .brand-logo--demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    max-width: 100%;
+    margin-inline: auto;
     margin-top: 0.75rem;
     margin-bottom: 1.25rem;
 }
 .brand-logo--demo img {
     width: min(100%, 260px);
+    margin-inline: auto;
 }
 #demo-video .demo-video {
     margin-inline: auto;
@@ -101,6 +104,7 @@ body {
     gap: 1.5rem;
     align-items: stretch;
     margin-top: 1.25rem;
+    text-align: left;
 }
 .platform-content .values-grid .pricing-card {
     display: flex;
@@ -111,11 +115,13 @@ body {
     margin-top: 0;
     margin-bottom: 0.5rem;
     line-height: 1.3;
+    text-align: center;
 }
 .platform-content .values-grid .pricing-card > p {
     flex-grow: 1;
     margin-bottom: 1rem;
     line-height: 1.6;
+    text-align: center;
 }
 .card-blog-links {
     margin-top: auto;
@@ -123,7 +129,7 @@ body {
     border-top: 1px solid var(--glass-border);
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     gap: 0.5rem 0.85rem;
 }
@@ -150,12 +156,14 @@ body {
     margin-bottom: 0;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 0.6rem 0.75rem;
     align-items: center;
 }
 .section-blog-links .blog-ref-link {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.35rem;
     padding: 0.45rem 0.95rem;
     border-radius: 999px;
@@ -183,12 +191,14 @@ body {
 }
 .main .section .cta-lead {
     margin-top: 1.25rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.45rem;
     font-weight: var(--font-weight-medium);
+    text-align: center;
 }
 .main .section .btn {
     margin-top: 0;
     margin-bottom: 0;
+    margin-inline: auto;
 }
 @media (max-width: 992px) {
     .platform-content .values-grid {
@@ -205,9 +215,6 @@ body {
     }
     .platform-content .values-grid {
         grid-template-columns: 1fr;
-    }
-    .card-blog-links {
-        justify-content: flex-start;
     }
     .section-blog-links .blog-ref-link,
     .main .section > .container > .btn {
