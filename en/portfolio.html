@@ -20,10 +20,266 @@
 <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
 <link rel="manifest" href="../site.webmanifest">
 <link rel="stylesheet" href="../css/platform-content.css">
+
+<style>
+    html,
+    body,
+    .main,
+    .section,
+    .container {
+        overflow-x: clip;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .nowrap {
+        white-space: nowrap !important;
+    }
+
+    .main .section {
+        padding-block: 3rem;
+    }
+
+    .main .section:first-child {
+        padding-top: 5.75rem;
+    }
+
+    .main .section .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .main .section h1,
+    .main .section h2,
+    .main .section h3,
+    .main .section p,
+    .main .section .section-label,
+    .main .section .section-description {
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .main .section strong {
+        background: linear-gradient(90deg, #ff2bd6 0%, #c026d3 48%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        font-weight: var(--font-weight-semibold, 600);
+    }
+
+    [data-theme="light"] .main .section strong {
+        background: linear-gradient(90deg, #c026d3 0%, #9333ea 50%, #6d28d9 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .main .section .values-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 2.35rem 1.75rem !important;
+        margin-top: 2.35rem !important;
+        width: 100% !important;
+        align-items: stretch !important;
+    }
+
+    .main .section .pricing-card,
+    .main .section .portfolio-card {
+        position: relative !important;
+        overflow: visible !important;
+        background: #121626 !important;
+        background-color: #121626 !important;
+        border: 1px solid rgba(148, 163, 184, 0.24) !important;
+        border-radius: var(--radius-2xl) !important;
+        padding: 2.35rem var(--space-2xl) var(--space-2xl) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        text-align: center !important;
+        min-width: 0;
+        max-width: 100%;
+        opacity: 1 !important;
+        transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease !important;
+    }
+
+    [data-theme="light"] .main .section .pricing-card,
+    [data-theme="light"] .main .section .portfolio-card {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        border-color: rgba(15, 23, 42, 0.14) !important;
+    }
+
+    .main .section .pricing-card:hover,
+    .main .section .pricing-card:hover *,
+    .main .section .portfolio-card:hover,
+    .main .section .portfolio-card:hover * {
+        opacity: 1 !important;
+    }
+
+    .main .section .pricing-card:hover,
+    .main .section .portfolio-card:hover {
+        transform: translateY(-5px) !important;
+        border-color: var(--primary-color) !important;
+        background: #171c31 !important;
+        background-color: #171c31 !important;
+        box-shadow: 0 18px 34px rgba(10, 14, 26, 0.55) !important;
+    }
+
+    [data-theme="light"] .main .section .pricing-card:hover,
+    [data-theme="light"] .main .section .portfolio-card:hover {
+        background: #f4f6ff !important;
+        background-color: #f4f6ff !important;
+        box-shadow: 0 14px 28px rgba(99, 102, 241, 0.15) !important;
+    }
+
+    .main .section .pricing-card .badge,
+    .main .section .portfolio-card .badge {
+        position: absolute !important;
+        top: 0 !important;
+        left: 24px !important;
+        right: auto !important;
+        transform: translateY(-50%) !important;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        background: #7c85ff !important;
+        color: #ffffff !important;
+        padding: 0.34rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin: 0 !important;
+        z-index: 5;
+        box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+    }
+
+    .main .section .pricing-card h3 {
+        font-size: var(--font-size-xl);
+        margin-top: 0.25rem;
+        margin-bottom: 0.75rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .main .section .pricing-card p {
+        color: var(--text-secondary);
+        font-size: var(--font-size-sm);
+        line-height: 1.6;
+        margin: 0 auto;
+        max-width: 52ch;
+        text-align: center;
+    }
+
+    .cta-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.85rem;
+        margin: 0.5rem auto 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    @media (max-width: 768px) {
+        .main .section {
+            padding-block: 2.25rem;
+        }
+
+        .main .section:first-child {
+            padding-top: 4.75rem;
+        }
+
+        .main .section .values-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2.1rem !important;
+            margin-top: 2rem !important;
+        }
+
+        .main .section .pricing-card,
+        .main .section .portfolio-card {
+            padding: 2.15rem var(--space-lg) var(--space-lg) !important;
+        }
+
+        .main .section .pricing-card:hover,
+        .main .section .portfolio-card:hover {
+            transform: none !important;
+        }
+
+        .main .section .btn {
+            width: auto;
+            min-width: 0;
+            max-width: 100%;
+            min-height: 0;
+            height: auto;
+            padding: 0.72rem 1.25rem;
+            font-size: 0.92rem;
+            line-height: 1.3;
+            flex: 0 0 auto;
+            justify-content: center;
+        }
+    }
+</style>
 </head>
 <body data-language="en">
-<header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Home"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Home</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Modules</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilot Program</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Privacy Policy</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Legal Notice</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Legacy Content</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Services</a></li><li><a class="nav__link" href="pricing.html">Pricing</a></li><li><a class="nav__link" href="portfolio.html">Portfolio</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Choose language"><option value="de">Deutsch</option><option value="en">English</option><option value="sr">Srpski</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Sound"><span class="sound-label">Sound</span></button></div></nav></header>
-<main class="main"><section class="section platform-content"><div class="container"><p class="section-label">NJB CODEMASTERS</p><h1>Areas of expertise</h1><p class="section-description">An overview of the product and development areas NJB CodeMasters focuses on.</p></div></section><section class="section platform-content"><div class="container"><h2>Areas of work</h2><div class="values-grid"><article class="pricing-card"><h3>VezaionGen VI</h3><p>Our industrial platform initiative for connected capabilities across production, quality, maintenance, energy, robotics and logistics.</p></article><article class="pricing-card"><h3>Industrial Data &amp; Analytics</h3><p>Data models, operational dashboards and Digital Twin approaches for a shared view of industrial information.</p></article><article class="pricing-card"><h3>Enterprise Software &amp; Integration</h3><p>Software development and interfaces shaped around users, requirements and existing systems.</p></article><article class="pricing-card"><h3>Web &amp; Mobile Products</h3><p>Digital applications and interfaces for specific product and business needs.</p></article></div></div></section><section class="section platform-content"><div class="container"><h2>Discuss a development project</h2><p>We welcome conversations about goals that align with these areas of expertise.</p><a class="btn btn--primary" href="contact.html">Discuss a project</a></div></section></main>
+<header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Home"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Home</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Modules</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilot Program</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Privacy Policy</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Legal Notice</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Legacy Content</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Services</a></li><li><a class="nav__link" href="pricing.html">Pricing</a></li><li><a class="nav__link" href="portfolio.html">Portfolio</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Choose language"><option value="de">Deutsch</option><option value="en" selected>English</option><option value="sr">Srpski</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Sound"><span class="sound-label">Sound</span></button></div></nav></header>
+<main class="main">
+    <section class="section platform-content">
+        <div class="container">
+            <p class="section-label">NJB CODEMASTERS</p>
+            <h1>Areas of expertise</h1>
+            <p class="section-description">An overview of the product and development areas <strong>NJB CodeMasters</strong> focuses on.</p>
+        </div>
+    </section>
+
+    <section class="section platform-content">
+        <div class="container">
+            <h2>Areas of work</h2>
+            <div class="values-grid">
+                <article class="pricing-card">
+                    <span class="badge">PLATFORM</span>
+                    <h3><span class="nowrap">VezaionGen VI</span></h3>
+                    <p>Our industrial platform initiative for connected capabilities across production, quality, maintenance, energy, robotics and logistics.</p>
+                </article>
+
+                <article class="pricing-card">
+                    <span class="badge">DATA &amp; ANALYTICS</span>
+                    <h3>Industrial Data &amp; Analytics</h3>
+                    <p>Data models, operational dashboards and Digital Twin approaches for a shared view of industrial information.</p>
+                </article>
+
+                <article class="pricing-card">
+                    <span class="badge">ENTERPRISE &amp; INTEGRATION</span>
+                    <h3>Enterprise Software &amp; Integration</h3>
+                    <p>Software development and interfaces shaped around users, requirements and existing systems.</p>
+                </article>
+
+                <article class="pricing-card">
+                    <span class="badge">WEB &amp; MOBILE</span>
+                    <h3>Web &amp; Mobile Products</h3>
+                    <p>Digital applications and interfaces for specific product and business needs.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="section platform-content">
+        <div class="container">
+            <h2>Discuss a development project</h2>
+            <div class="cta-block">
+                <p>We welcome conversations about goals that align with these areas of expertise.</p>
+                <a class="btn btn--primary" href="contact.html">Discuss a project</a>
+            </div>
+        </div>
+    </section>
+</main>
 <div id="footer-placeholder"></div>
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/ai-assistant.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
 </body></html>
