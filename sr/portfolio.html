@@ -25,13 +25,54 @@
 
     <style>
         html,
-        body,
+        body {
+            overflow-x: clip;
+            max-width: 100%;
+        }
+
         .main,
-        .section,
-        .container {
+        .main .section,
+        .main .container {
             overflow-x: clip;
             max-width: 100%;
             text-align: center;
+        }
+
+        /* Footer: kolone levo, prva centrirana, copyright ispod linije centriran */
+        .footer,
+        .footer .container,
+        .footer .footer__grid,
+        .footer .footer__row,
+        .footer .footer__content,
+        .footer .footer__col:not(:first-child),
+        .footer .footer__col:not(:first-child) *,
+        .footer .footer__column:not(:first-child),
+        .footer .footer__column:not(:first-child) * {
+            text-align: left !important;
+        }
+
+        .footer .footer__col:first-child,
+        .footer .footer__col:first-child *,
+        .footer .footer__column:first-child,
+        .footer .footer__column:first-child * {
+            text-align: center !important;
+        }
+
+        .footer .footer__col:first-child img,
+        .footer .footer__col:first-child picture,
+        .footer .footer__col:first-child .footer__logo,
+        .footer .footer__col:first-child .logo-theme {
+            margin-inline: auto !important;
+        }
+
+        .footer .footer__bottom,
+        .footer .footer__bottom *,
+        .footer .footer__copyright,
+        .footer .footer__copyright *,
+        .footer .container > div:last-child,
+        .footer .container > div:last-child * {
+            text-align: center !important;
+            margin-inline: auto !important;
         }
 
         .nowrap {
@@ -194,6 +235,12 @@
         }
 
         @media (max-width: 768px) {
+            .footer,
+            .footer .footer__bottom,
+            .footer .container > div:last-child {
+                padding-bottom: 5.5rem !important;
+            }
+
             .main .section {
                 padding-block: 2.25rem;
             }
