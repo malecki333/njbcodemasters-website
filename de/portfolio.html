@@ -38,25 +38,35 @@
             text-align: center;
         }
 
-        #footer-placeholder,
+        /* Footer: sve osim prve kolone levo poravnato */
         .footer,
-        .footer * {
-            text-align: initial;
+        .footer .container,
+        .footer .footer__grid,
+        .footer .footer__row,
+        .footer .footer__content,
+        .footer .footer__col:not(:first-child),
+        .footer .footer__col:not(:first-child) *,
+        .footer .footer__column:not(:first-child),
+        .footer .footer__column:not(:first-child) *,
+        .footer .footer__bottom,
+        .footer .footer__bottom * {
+            text-align: left !important;
         }
 
-        .footer > .container > :first-child,
-        .footer > .container > :first-child *,
-        .footer .footer__brand,
-        .footer .footer__brand *,
+        /* Prva kolona u footeru (logo / brend) ostaje centrirana */
         .footer .footer__col:first-child,
-        .footer .footer__col:first-child * {
+        .footer .footer__col:first-child *,
+        .footer .footer__column:first-child,
+        .footer .footer__column:first-child * {
             text-align: center !important;
         }
 
-        .footer > .container > :first-child img,
-        .footer > .container > :first-child picture,
-        .footer .footer__brand img,
-        .footer .footer__brand picture {
+        .footer .footer__col:first-child img,
+        .footer .footer__col:first-child picture,
+        .footer .footer__column:first-child .footer__logo,
+        .footer .footer__column:first-child .logo-theme,
+        .footer .footer__column:first-child img,
+        .footer .footer__column:first-child picture {
             margin-inline: auto !important;
         }
 
