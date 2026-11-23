@@ -39,16 +39,28 @@
             text-align: center;
         }
 
-        #footer-placeholder,
         .footer,
-        .footer * {
-            text-align: initial;
+        .footer .container,
+        .footer .footer__content,
+        .footer .footer__column:not(:first-child),
+        .footer .footer__column:not(:first-child) * {
+            text-align: left !important;
+        }
+
+        .footer .footer__column:first-child,
+        .footer .footer__column:first-child * {
+            text-align: center !important;
+        }
+
+        .footer .footer__column:first-child .footer__logo,
+        .footer .footer__column:first-child .logo-theme,
+        .footer .footer__column:first-child img,
+        .footer .footer__column:first-child picture {
+            margin-inline: auto !important;
         }
 
         .nowrap {
             white-space: nowrap !important;
-            overflow-wrap: normal !important;
-            word-break: normal !important;
         }
 
         .main .section {
@@ -95,7 +107,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .main .pricing-hero {
+        .pricing-hero {
             text-align: center;
             margin-bottom: var(--space-4xl);
             display: flex;
@@ -103,19 +115,19 @@
             align-items: center;
         }
 
-        .main .pricing-hero h1 {
+        .pricing-hero h1 {
             font-size: clamp(2rem, 4vw, 3.5rem);
             margin-bottom: var(--space-lg);
         }
 
-        .main .pricing-hero p {
+        .pricing-hero p {
             font-size: var(--font-size-lg);
             color: var(--text-secondary);
             max-width: 720px;
             margin: 0 auto;
         }
 
-        .main .pricing-scope-note {
+        .pricing-scope-note {
             max-width: 820px;
             margin: 0 auto var(--space-3xl);
             text-align: center;
@@ -127,18 +139,18 @@
             opacity: 1 !important;
         }
 
-        [data-theme="light"] .main .pricing-scope-note {
+        [data-theme="light"] .pricing-scope-note {
             background: #f8f9ff !important;
             background-color: #f8f9ff !important;
         }
 
-        .main .pricing-price-note {
+        .pricing-price-note {
             text-align: center;
             margin-inline: auto;
         }
 
         /* Karten: solide Oberflächen & kein Transparent-Bug beim Hover */
-        .main .pricing-grid {
+        .pricing-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: var(--space-2xl);
@@ -216,7 +228,7 @@
             background-color: #1b223d !important;
         }
 
-        .main .pricing-card {
+        .pricing-card {
             padding: 2.25rem var(--space-2xl) var(--space-2xl);
             display: flex;
             flex-direction: column;
@@ -246,7 +258,7 @@
             box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
         }
 
-        .main .package-name {
+        .package-name {
             font-size: var(--font-size-2xl);
             font-weight: var(--font-weight-bold);
             margin-bottom: var(--space-md);
@@ -256,7 +268,7 @@
             width: 100%;
         }
 
-        .main .package-desc {
+        .package-desc {
             color: var(--text-secondary);
             font-size: var(--font-size-sm);
             margin-bottom: var(--space-xl);
@@ -265,7 +277,7 @@
             max-width: 56ch;
         }
 
-        .main .price {
+        .price {
             font-size: 2.75rem;
             font-weight: var(--font-weight-bold);
             color: var(--primary-color);
@@ -273,7 +285,7 @@
             text-align: center;
         }
 
-        .main .price-period {
+        .price-period {
             color: var(--text-secondary);
             font-size: var(--font-size-sm);
             margin-bottom: var(--space-xl);
@@ -339,7 +351,7 @@
             display: inline !important;
         }
 
-        .main .cta-block {
+        .cta-block {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -350,13 +362,13 @@
             width: 100%;
         }
 
-        .main .cta-lead {
+        .cta-lead {
             text-align: center;
             margin: 0 auto;
             max-width: 60ch;
         }
 
-        .main .cta-btn {
+        .cta-btn {
             width: auto;
             min-width: 185px;
             max-width: 100%;
@@ -366,14 +378,14 @@
         }
 
         /* Calculator & gruppierte Dropdown-Extras */
-        .main .calculator-section {
+        .calculator-section {
             padding: var(--space-3xl);
             margin: 0 auto var(--space-4xl);
             width: 100%;
             text-align: center;
         }
 
-        .main .calculator-grid {
+        .calculator-grid {
             display: grid;
             grid-template-columns: 1fr;
             gap: var(--space-xl);
@@ -381,7 +393,7 @@
             width: 100%;
         }
 
-        .main .calc-item {
+        .calc-item {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -394,12 +406,12 @@
             padding: var(--space-xl);
         }
 
-        [data-theme="light"] .main .calc-item {
+        [data-theme="light"] .calc-item {
             background: #f4f6ff;
             border-color: rgba(15, 23, 42, 0.14);
         }
 
-        .main .calc-label {
+        .calc-label {
             font-weight: var(--font-weight-semibold);
             margin-bottom: var(--space-xs);
             color: var(--text-primary);
@@ -407,12 +419,12 @@
             width: 100%;
         }
 
-        .main .calc-label-hint {
+        .calc-label-hint {
             font-size: var(--font-size-sm);
             color: var(--text-secondary);
         }
 
-        .main .extras-groups-container {
+        .extras-groups-container {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 1rem;
@@ -421,7 +433,7 @@
             text-align: left;
         }
 
-        .main .extras-group {
+        .extras-group {
             background: #171c31;
             border: 1px solid rgba(148, 163, 184, 0.24);
             border-radius: var(--radius-xl);
@@ -429,16 +441,16 @@
             transition: border-color 0.25s ease;
         }
 
-        [data-theme="light"] .main .extras-group {
+        [data-theme="light"] .extras-group {
             background: #f4f6ff;
             border-color: rgba(15, 23, 42, 0.14);
         }
 
-        .main .extras-group[open] {
+        .extras-group[open] {
             border-color: var(--primary-color);
         }
 
-        .main .extras-group__summary {
+        .extras-group__summary {
             list-style: none;
             cursor: pointer;
             padding: 1rem 1.25rem;
@@ -451,11 +463,11 @@
             user-select: none;
         }
 
-        .main .extras-group__summary::-webkit-details-marker {
+        .extras-group__summary::-webkit-details-marker {
             display: none;
         }
 
-        .main .extras-group__meta {
+        .extras-group__meta {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
@@ -464,18 +476,18 @@
             font-weight: var(--font-weight-semibold);
         }
 
-        .main .extras-group__chevron {
+        .extras-group__chevron {
             width: 18px;
             height: 18px;
             transition: transform 0.28s ease;
             flex-shrink: 0;
         }
 
-        .main .extras-group[open] .extras-group__chevron {
+        .extras-group[open] .extras-group__chevron {
             transform: rotate(180deg);
         }
 
-        .main .extras-group__body {
+        .extras-group__body {
             padding: 0.9rem 1.15rem 1.15rem;
             display: flex;
             flex-direction: column;
@@ -483,7 +495,7 @@
             border-top: 1px solid rgba(148, 163, 184, 0.14);
         }
 
-        .main .extra-option-card {
+        .extra-option-card {
             width: 100%;
             padding: 0.75rem 0.9rem;
             border-radius: var(--radius-lg);
@@ -493,21 +505,21 @@
             text-align: left;
         }
 
-        [data-theme="light"] .main .extra-option-card {
+        [data-theme="light"] .extra-option-card {
             background: #ffffff;
             border-color: rgba(15, 23, 42, 0.12);
         }
 
-        .main .extra-option-card.is-selected {
+        .extra-option-card.is-selected {
             border-color: var(--primary-color);
             background: #1a213d;
         }
 
-        [data-theme="light"] .main .extra-option-card.is-selected {
+        [data-theme="light"] .extra-option-card.is-selected {
             background: #eef0ff;
         }
 
-        .main .checkbox-item {
+        .checkbox-item {
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -516,7 +528,7 @@
             width: 100%;
         }
 
-        .main .addon-checkbox {
+        .addon-checkbox {
             position: absolute;
             opacity: 0;
             width: 1px;
@@ -525,7 +537,7 @@
         }
 
         /* Animiertes SVG-Check-Symbol */
-        .main .extra-check-svg {
+        .extra-check-svg {
             width: 26px;
             height: 26px;
             flex-shrink: 0;
@@ -533,14 +545,14 @@
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.25s ease;
         }
 
-        .main .extra-check-svg__ring {
+        .extra-check-svg__ring {
             stroke: currentColor;
             stroke-width: 2;
             fill: none;
             transition: stroke 0.25s ease, fill 0.25s ease;
         }
 
-        .main .extra-check-svg__tick {
+        .extra-check-svg__tick {
             stroke: #ffffff;
             stroke-width: 2.4;
             stroke-linecap: round;
@@ -552,22 +564,22 @@
             transition: stroke-dashoffset 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.2s ease;
         }
 
-        .main .extra-option-card.is-selected .extra-check-svg {
+        .extra-option-card.is-selected .extra-check-svg {
             transform: scale(1.12);
             color: var(--primary-color);
         }
 
-        .main .extra-option-card.is-selected .extra-check-svg__ring {
+        .extra-option-card.is-selected .extra-check-svg__ring {
             fill: var(--primary-color);
             stroke: var(--primary-color);
         }
 
-        .main .extra-option-card.is-selected .extra-check-svg__tick {
+        .extra-option-card.is-selected .extra-check-svg__tick {
             stroke-dashoffset: 0;
             opacity: 1;
         }
 
-        .main .checkbox-label {
+        .checkbox-label {
             cursor: pointer;
             flex: 1;
             min-width: 0;
@@ -579,13 +591,13 @@
             text-align: left;
         }
 
-        .main .checkbox-price {
+        .checkbox-price {
             font-size: var(--font-size-sm);
             color: var(--primary-color);
             font-weight: var(--font-weight-semibold);
         }
 
-        .main .addon-description {
+        .addon-description {
             font-size: var(--font-size-xs);
             color: var(--text-tertiary);
             margin-top: 0.35rem;
@@ -597,7 +609,7 @@
         }
 
         /* Calculator Result */
-        .main .calc-result {
+        .calc-result {
             border: 1px solid var(--primary-color) !important;
             border-radius: var(--radius-2xl);
             padding: var(--space-2xl);
@@ -610,20 +622,20 @@
             margin: 0 auto;
         }
 
-        .main .result-label {
+        .result-label {
             font-size: var(--font-size-sm);
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: var(--text-secondary);
         }
 
-        .main .result-value {
+        .result-value {
             font-size: 2.5rem;
             font-weight: var(--font-weight-bold);
             color: var(--primary-color);
         }
 
-        .main .result-info {
+        .result-info {
             font-size: var(--font-size-sm);
             color: var(--text-secondary);
             max-width: 68ch;
@@ -631,7 +643,7 @@
         }
 
         /* Детаљи услуга и оријентационе цене: klares, solides 3-Spalten-Grid ohne Hover-Transparenz */
-        .main .breakdown-section {
+        .breakdown-section {
             margin-top: var(--space-4xl);
             width: 100%;
             text-align: center;
@@ -687,7 +699,7 @@
             background-color: #f4f6ff !important;
         }
 
-        .main .breakdown-card__eyebrow {
+        .breakdown-card__eyebrow {
             font-size: 0.7rem;
             letter-spacing: 0.08em;
             text-transform: uppercase;
@@ -697,7 +709,7 @@
             width: 100%;
         }
 
-        .main .breakdown-card__title {
+        .breakdown-card__title {
             font-size: 1.15rem;
             font-weight: 700;
             margin-bottom: 0.75rem;
@@ -705,7 +717,7 @@
             width: 100%;
         }
 
-        .main .breakdown-card__desc {
+        .breakdown-card__desc {
             font-size: var(--font-size-sm);
             color: var(--text-secondary);
             line-height: 1.5;
@@ -716,7 +728,7 @@
             width: 100%;
         }
 
-        .main .breakdown-card__price {
+        .breakdown-card__price {
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary-color);
@@ -725,7 +737,7 @@
         }
 
         /* CodeMasters OS & FAQ Grids */
-        .main .codemasters-grid {
+        .codemasters-grid {
             display: grid;
             grid-template-columns: repeat(4, minmax(0, 1fr));
             gap: 1.5rem;
@@ -733,7 +745,7 @@
             align-items: stretch;
         }
 
-        .main .codemasters-card {
+        .codemasters-card {
             padding: 1.75rem;
             display: flex;
             flex-direction: column;
@@ -741,7 +753,7 @@
             text-align: center;
         }
 
-        .main .codemasters-card__icon {
+        .codemasters-card__icon {
             width: 56px;
             height: 56px;
             border-radius: 14px;
@@ -753,14 +765,14 @@
             margin-bottom: 1rem;
         }
 
-        .main .grid-2 {
+        .grid-2 {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 1.5rem;
             width: 100%;
         }
 
-        .main .card {
+        .card {
             padding: 1.75rem;
             display: flex;
             flex-direction: column;
@@ -768,7 +780,7 @@
             text-align: center;
         }
 
-        .main #service-requests .values-grid {
+        #service-requests .values-grid {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
@@ -779,7 +791,7 @@
             width: 100%;
         }
 
-        .main #service-requests .values-grid .btn {
+        #service-requests .values-grid .btn {
             margin: 0;
             min-width: 175px;
             padding: 0.75rem 1.35rem;
@@ -788,14 +800,14 @@
         }
 
         @media (max-width: 1100px) {
-            .main .codemasters-grid {
+            .codemasters-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
         }
 
         @media (max-width: 960px) {
-            .main .pricing-grid,
-            .main .extras-groups-container,
+            .pricing-grid,
+            .extras-groups-container,
             .main .section .breakdown-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
             }
@@ -810,16 +822,16 @@
                 padding-top: 4.75rem;
             }
 
-            .main .pricing-grid,
-            .main .extras-groups-container,
+            .pricing-grid,
+            .extras-groups-container,
             .main .section .breakdown-grid,
-            .main .codemasters-grid,
-            .main .grid-2 {
+            .codemasters-grid,
+            .grid-2 {
                 grid-template-columns: 1fr !important;
                 gap: var(--space-xl) !important;
             }
 
-            .main .pricing-card {
+            .pricing-card {
                 padding: 2.25rem var(--space-lg) var(--space-lg);
                 transform: none !important;
             }
@@ -830,12 +842,12 @@
                 transform: none !important;
             }
 
-            .main .enterprise-grid {
+            .enterprise-grid {
                 grid-template-columns: 1fr !important;
                 gap: var(--space-xl) !important;
             }
 
-            .main .enterprise-grid .features-list {
+            .enterprise-grid .features-list {
                 grid-template-columns: 1fr !important;
             }
 
@@ -843,15 +855,15 @@
                 flex-wrap: wrap;
             }
 
-            .main .calculator-section {
+            .calculator-section {
                 padding: var(--space-lg);
             }
 
-            .main .calc-result {
+            .calc-result {
                 padding: var(--space-lg);
             }
 
-            .main #service-requests .values-grid {
+            #service-requests .values-grid {
                 flex-direction: column;
                 align-items: center;
                 gap: 0.65rem;
@@ -859,9 +871,9 @@
             }
 
             .main .section .btn,
-            .main .calc-result .btn,
-            .main .cta-btn,
-            .main #service-requests .values-grid .btn {
+            .calc-result .btn,
+            .cta-btn,
+            #service-requests .values-grid .btn {
                 width: auto;
                 min-width: 0;
                 max-width: 100%;
@@ -875,25 +887,25 @@
             }
         }
 
-        .main .package-radio {
+        .package-radio {
             border-color: rgba(148, 163, 184, 0.25) !important;
             background: #121626 !important;
         }
 
-        [data-theme="light"] .main .package-radio {
+        [data-theme="light"] .package-radio {
             background: #ffffff !important;
         }
 
-        .main .package-radio input[type="radio"]:checked {
+        .package-radio input[type="radio"]:checked {
             accent-color: var(--primary-color);
         }
 
-        .main .package-radio:has(input[type="radio"]:checked) {
+        .package-radio:has(input[type="radio"]:checked) {
             border-color: var(--primary-color) !important;
             background: #1a213d !important;
         }
 
-        [data-theme="light"] .main .package-radio:has(input[type="radio"]:checked) {
+        [data-theme="light"] .package-radio:has(input[type="radio"]:checked) {
             background: #eef0ff !important;
         }
     </style>
