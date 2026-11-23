@@ -38,7 +38,7 @@
             text-align: center;
         }
 
-        /* Footer: sve osim prve kolone levo poravnato */
+        /* Footer: kolone levo, prva centrirana, copyright ispod linije centriran */
         .footer,
         .footer .container,
         .footer .footer__grid,
@@ -47,13 +47,10 @@
         .footer .footer__col:not(:first-child),
         .footer .footer__col:not(:first-child) *,
         .footer .footer__column:not(:first-child),
-        .footer .footer__column:not(:first-child) *,
-        .footer .footer__bottom,
-        .footer .footer__bottom * {
+        .footer .footer__column:not(:first-child) * {
             text-align: left !important;
         }
 
-        /* Prva kolona u footeru (logo / brend) ostaje centrirana */
         .footer .footer__col:first-child,
         .footer .footer__col:first-child *,
         .footer .footer__column:first-child,
@@ -64,9 +61,17 @@
         .footer .footer__col:first-child img,
         .footer .footer__col:first-child picture,
         .footer .footer__column:first-child .footer__logo,
-        .footer .footer__column:first-child .logo-theme,
-        .footer .footer__column:first-child img,
-        .footer .footer__column:first-child picture {
+        .footer .footer__column:first-child .logo-theme {
+            margin-inline: auto !important;
+        }
+
+        .footer .footer__bottom,
+        .footer .footer__bottom *,
+        .footer .footer__copyright,
+        .footer .footer__copyright *,
+        .footer .container > div:last-child,
+        .footer .container > div:last-child * {
+            text-align: center !important;
             margin-inline: auto !important;
         }
 
@@ -233,6 +238,12 @@
         }
 
         @media (max-width: 768px) {
+            .footer,
+            .footer .footer__bottom,
+            .footer .container > div:last-child {
+                padding-bottom: 5.5rem !important;
+            }
+
             .main .section {
                 padding-block: 2.25rem;
             }
