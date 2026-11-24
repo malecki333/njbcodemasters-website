@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Services from NJB CodeMasters: faster workflows, fewer friction points and clear operational visibility for connected sites and digital products."><meta name="robots" content="index,follow">
+<meta name="description" content="Services from NJB CodeMasters: website development, digital products, enterprise development, automation and industrial software for faster workflows."><meta name="robots" content="index,follow">
 <title>Services | NJB CodeMasters</title>
 <link rel="canonical" href="https://www.njbcodemasters.com/en/services.html">
     <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/services.html">
@@ -11,9 +11,9 @@
     <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
     <meta property="og:type" content="website"><meta property="og:locale" content="en_US">
     <meta property="og:url" content="https://www.njbcodemasters.com/en/services.html"><meta property="og:title" content="Services | NJB CodeMasters">
-    <meta property="og:description" content="Services from NJB CodeMasters: faster workflows, fewer friction points and clear operational visibility for connected sites and digital products."><meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta property="og:description" content="Services from NJB CodeMasters: website development, digital products, enterprise development, automation and industrial software for faster workflows."><meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Services | NJB CodeMasters">
-    <meta name="twitter:description" content="Services from NJB CodeMasters: faster workflows, fewer friction points and clear operational visibility for connected sites and digital products."><meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:description" content="Services from NJB CodeMasters: website development, digital products, enterprise development, automation and industrial software for faster workflows."><meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
 <link rel="stylesheet" href="../css/reset.css"><link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/global.css"><link rel="stylesheet" href="../css/background.css"><link rel="stylesheet" href="../css/header.css"><link rel="stylesheet" href="../css/footer.css"><link rel="stylesheet" href="../css/hero.css"><link rel="stylesheet" href="../css/home.css"><link rel="stylesheet" href="../css/about.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/button-animations.css"><link rel="stylesheet" href="../css/i18n.css"><link rel="stylesheet" href="../css/performance.css"><link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
 <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192x192.png">
@@ -81,7 +81,7 @@ body {
 
 .main .section .cta-lead {
     max-width: 70ch;
-    margin-top: 0.65rem;
+    margin-top: 1.1rem;
     margin-bottom: 0.85rem;
     font-weight: var(--font-weight-medium);
     line-height: 1.6;
@@ -95,21 +95,43 @@ body {
     gap: 1.5rem;
     align-items: stretch;
     width: 100%;
-    margin-top: 0.85rem;
+    margin-top: 1rem;
     margin-bottom: 0.85rem;
 }
 
-.main .section .values-grid .pricing-card {
+.main .section .values-grid .service-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
     min-height: 0;
+    padding: 2rem var(--space-xl);
+    background: #121626;
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: var(--radius-2xl);
+    transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease;
     text-align: center;
 }
 
-.main .section .values-grid .pricing-card h3 {
+[data-theme="light"] .main .section .values-grid .service-card {
+    background: #ffffff;
+    border-color: rgba(15, 23, 42, 0.14);
+}
+
+.main .section .values-grid .service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: 0 16px 30px rgba(10, 14, 26, 0.45);
+    background: #171c31;
+}
+
+[data-theme="light"] .main .section .values-grid .service-card:hover {
+    background: #f4f6ff;
+    box-shadow: 0 12px 24px rgba(99, 102, 241, 0.14);
+}
+
+.main .section .values-grid .service-card h3 {
     margin-top: 0;
     margin-bottom: 0.6rem;
     line-height: 1.3;
@@ -117,11 +139,89 @@ body {
     width: 100%;
 }
 
-.main .section .values-grid .pricing-card > p {
-    margin-bottom: 0;
+.main .section .values-grid .service-card > p {
+    flex-grow: 1;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
     line-height: 1.65;
     text-align: center;
     width: 100%;
+}
+
+.card-blog-links {
+    width: 100%;
+    margin-top: auto;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.card-blog-links .blog-ref-link {
+    display: inline-block;
+    text-align: center;
+    color: #818cf8;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.card-blog-links .blog-ref-link:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+    transform: translateX(2px);
+}
+
+[data-theme="light"] .card-blog-links .blog-ref-link {
+    color: #4f46e5;
+}
+
+[data-theme="light"] .card-blog-links .blog-ref-link:hover {
+    color: #0284c7;
+}
+
+.section-blog-links {
+    margin-top: 0.9rem;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem 0.75rem;
+    align-items: center;
+    width: 100%;
+}
+
+.section-blog-links .blog-ref-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.45rem 0.95rem;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #c7d2fe;
+    background: rgba(99, 102, 241, 0.18);
+    border: 1px solid rgba(129, 140, 248, 0.48);
+    transition: all 0.25s ease;
+}
+
+.section-blog-links .blog-ref-link:hover {
+    color: #ffffff;
+    background: rgba(99, 102, 241, 0.3);
+    border-color: #a5b4fc;
+    text-decoration: none;
+    transform: translateX(3px);
+}
+
+[data-theme="light"] .section-blog-links .blog-ref-link {
+    color: #3730a3;
+    background: rgba(79, 70, 229, 0.1);
+    border-color: rgba(79, 70, 229, 0.3);
+}
+
+[data-theme="light"] .section-blog-links .blog-ref-link:hover {
+    color: #1e1b4b;
+    background: rgba(79, 70, 229, 0.18);
 }
 
 .main .section strong {
@@ -191,6 +291,21 @@ body {
         grid-template-columns: 1fr;
     }
 
+    .main .section .values-grid .service-card:hover {
+        transform: none;
+    }
+
+    .section-blog-links .blog-ref-link {
+        width: 100%;
+        height: auto;
+        min-height: 2.5rem;
+        padding: 0.55rem 1rem;
+        line-height: 1.35;
+        white-space: normal;
+        overflow-wrap: break-word;
+        hyphens: none;
+    }
+
     .home-actions {
         flex-direction: column;
         align-items: center;
@@ -220,26 +335,78 @@ body {
         <div class="container">
             <p class="section-label">NJB CodeMasters</p>
             <h1>Software for industry and digital products</h1>
-            <p class="section-description">Faster workflows, fewer friction points and clear operational visibility—NJB CodeMasters brings enterprise development and industrial technology together around the needs of real teams and processes.</p>
+            <p class="section-description">Faster workflows, fewer friction points and clear operational visibility—NJB CodeMasters brings website development, enterprise development and industrial technology together around the needs of real teams and processes.</p>
+            <div class="section-blog-links">
+                <a class="blog-ref-link" href="blog.html?from=services">Blog articles&nbsp;&rarr;</a>
+                <a class="blog-ref-link" href="portfolio.html?from=services">Delivered projects&nbsp;&rarr;</a>
+            </div>
         </div>
     </section>
     <section class="section platform-content">
         <div class="container">
             <h2>How we support organizations</h2>
             <div class="values-grid">
-                <article class="pricing-card"><h3>Industry 6.0 &amp; Industrial AI</h3><p>Shape intelligent, human-centred industrial applications for existing operating environments—for faster decisions and clearer ownership.</p></article>
-                <article class="pricing-card"><h3>Enterprise Development</h3><p>Develop software, data models and interfaces around complex workflows, roles and system landscapes—reducing handoff gaps and keeping teams aligned.</p></article>
-                <article class="pricing-card"><h3>Digital Twin</h3><p>Bring digital models and operational information together to explore assets and processes in context—for earlier visibility into bottlenecks and dependencies.</p></article>
-                <article class="pricing-card"><h3>Automation</h3><p>Design repeatable workflows and system connections with clear hand-offs and human oversight—cutting routine overhead and strengthening process reliability.</p></article>
-                <article class="pricing-card"><h3>Consulting</h3><p>Structure technical decisions, architecture and product goals, then agree practical next steps—without unnecessary detours before execution.</p></article>
-                <article class="pricing-card"><h3>Digital Products</h3><p>Develop web and mobile applications around defined needs. Our work on <a href="vezaiongen-vi.html">VezaionGen VI</a> and its <a href="modules.html">modules</a> connects this experience with industrial workflows—with further context in the <a href="blog.html?from=services">Blog</a>.</p></article>
+                <article class="service-card">
+                    <h3>Industry 6.0 &amp; Industrial AI</h3>
+                    <p>Shape intelligent, human-centred industrial applications for existing operating environments—for faster decisions and clearer ownership.</p>
+                    <div class="card-blog-links">
+                        <a class="blog-ref-link" href="vezaiongen-vi.html?from=services">VezaionGen VI platform&nbsp;&rarr;</a>
+                        <a class="blog-ref-link" href="blog-article-4.html?from=services">AI agents &amp; federated learning&nbsp;&rarr;</a>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <h3>Enterprise Development</h3>
+                    <p>Develop software, data models and interfaces around complex workflows, roles and system landscapes—reducing handoff gaps and keeping teams aligned.</p>
+                    <div class="card-blog-links">
+                        <a class="blog-ref-link" href="blog-article-2.html?from=services">Modular platforms&nbsp;&rarr;</a>
+                        <a class="blog-ref-link" href="blog-article-9.html?from=services">System integration &amp; APIs&nbsp;&rarr;</a>
+                        <a class="blog-ref-link" href="pricing.html?from=services">Indicative pricing &amp; packages&nbsp;&rarr;</a>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <h3>Digital Twin</h3>
+                    <p>Bring digital models and operational information together to explore assets and processes in context—for earlier visibility into bottlenecks and dependencies.</p>
+                    <div class="card-blog-links">
+                        <a class="blog-ref-link" href="blog-article-7.html?from=services">3D digital twins &amp; robotics&nbsp;&rarr;</a>
+                        <a class="blog-ref-link" href="modules.html?from=services">Functional modules&nbsp;&rarr;</a>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <h3>Automation</h3>
+                    <p>Design repeatable workflows and system connections with clear hand-offs and human oversight—cutting routine overhead and strengthening process reliability.</p>
+                    <div class="card-blog-links">
+                        <a class="blog-ref-link" href="blog-article-6.html?from=services">Industrial analytics &amp; metrics&nbsp;&rarr;</a>
+                        <a class="blog-ref-link" href="modules.html?from=services">Control modules&nbsp;&rarr;</a>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <h3>Consulting</h3>
+                    <p>Structure technical decisions, architecture and product goals, then agree practical next steps—without unnecessary detours before execution.</p>
+                    <div class="card-blog-links">
+                        <a class="blog-ref-link" href="about.html?from=services">About NJB CodeMasters&nbsp;&rarr;</a>
+                        <a class="blog-ref-link" href="pilot-program.html?from=services">Pilot program&nbsp;&rarr;</a>
+                    </div>
+                </article>
+                <article class="service-card">
+                    <h3>Website Development &amp; Digital Products</h3>
+                    <p>Build websites, responsive web applications, mobile apps, e-commerce solutions, integrations and ongoing support—tailored to real requirements and everyday operations.</p>
+                    <div class="card-blog-links">
+                        <a class="blog-ref-link" href="pricing.html?from=services">Web packages &amp; pricing&nbsp;&rarr;</a>
+                        <a class="blog-ref-link" href="portfolio.html?from=services">Web &amp; product examples&nbsp;&rarr;</a>
+                    </div>
+                </article>
             </div>
         </div>
     </section>
     <section class="section platform-content">
         <div class="container">
             <h2>Focused collaboration</h2>
-            <p>We start by aligning on objectives, users, operating context and technical interfaces. That provides a clear basis for a suitable scope, transparent assumptions, predictable steps and—where fitting—entry via the <a href="pilot-program.html">Pilot Program</a>.</p>
+            <p>We start by aligning on objectives, users, operating context and technical interfaces. That provides a clear basis for a suitable scope, transparent assumptions, predictable steps and—where fitting—entry via the pilot program.</p>
+            <div class="section-blog-links">
+                <a class="blog-ref-link" href="pilot-program.html?from=services">Pilot program details&nbsp;&rarr;</a>
+                <a class="blog-ref-link" href="blog-article-9.html?from=services">Step-by-step integration&nbsp;&rarr;</a>
+                <a class="blog-ref-link" href="about.html?from=services">Approach &amp; background&nbsp;&rarr;</a>
+            </div>
             <p class="cta-lead">Align on your requirements directly or compare indicative pricing first:</p>
             <div class="home-actions"><a class="btn btn--primary" href="contact.html">Discuss a project</a><a class="btn btn--secondary" href="pricing.html">View service pricing</a></div>
         </div>
