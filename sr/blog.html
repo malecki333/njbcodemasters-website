@@ -216,6 +216,50 @@
             margin-bottom: var(--space-3xl);
         }
 
+        .services-backlink-wrap {
+            margin-top: var(--space-lg);
+            display: flex;
+            justify-content: center;
+        }
+
+        .services-backlink-wrap[hidden] {
+            display: none;
+        }
+
+        .services-backlink {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1.05rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-semibold);
+            color: #c7d2fe;
+            background: rgba(99, 102, 241, 0.18);
+            border: 1px solid rgba(129, 140, 248, 0.48);
+            transition: all 0.25s ease;
+        }
+
+        .services-backlink:hover {
+            color: #ffffff;
+            background: rgba(99, 102, 241, 0.3);
+            border-color: #a5b4fc;
+            transform: translateX(-3px);
+        }
+
+        [data-theme="light"] .services-backlink {
+            color: #3730a3;
+            background: rgba(79, 70, 229, 0.1);
+            border-color: rgba(79, 70, 229, 0.3);
+        }
+
+        [data-theme="light"] .services-backlink:hover {
+            color: #1e1b4b;
+            background: rgba(79, 70, 229, 0.18);
+        }
+
         @media (max-width: 768px) {
             .blog-hero {
                 margin-bottom: var(--space-2xl);
@@ -319,6 +363,9 @@
                     <p class="page-hero__description">
                         Практични погледи на руковођење, модуларни индустријски софтвер, Zero&#8209;Trust безбедност, логистику и вештачку интелигенцију.
                     </p>
+                    <div id="servicesBacklinkWrap" class="services-backlink-wrap" hidden>
+                        <a href="services.html?from=blog" class="services-backlink">&larr;&nbsp;Назад на услуге</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -515,6 +562,14 @@
     <div id="footer-placeholder"></div>
 
     <script>
+        (function initServicesBacklink() {
+            const params = new URLSearchParams(window.location.search);
+            const backlinkWrap = document.getElementById('servicesBacklinkWrap');
+            if (backlinkWrap && params.get('from') === 'services') {
+                backlinkWrap.hidden = false;
+            }
+        })();
+
         const categoryFilter = document.getElementById('blogCategoryFilter');
         const blogCards = document.querySelectorAll('.blog-card');
         const blogSearch = document.getElementById('blogSearch');
