@@ -76,9 +76,12 @@
         }
 
         .nowrap {
+            display: inline-block;
             white-space: nowrap !important;
             overflow-wrap: normal !important;
             word-break: normal !important;
+            hyphens: none !important;
+            -webkit-hyphens: none !important;
         }
 
         .main .section {
@@ -106,8 +109,13 @@
             text-align: center;
         }
 
-        /* Magenta-zu-Violett Verlauf auf strong */
+        /* Magenta-zu-Violett Verlauf auf strong ohne Wortumbruch */
         .main .section strong {
+            display: inline-block;
+            white-space: nowrap;
+            word-break: normal;
+            hyphens: none;
+            -webkit-hyphens: none;
             background: linear-gradient(90deg, #ff2bd6 0%, #c026d3 48%, #8b5cf6 100%);
             -webkit-background-clip: text;
             background-clip: text;
@@ -403,9 +411,9 @@
     <main class="main">
         <section class="section platform-content">
             <div class="container">
-                <p class="section-label">NJB CODEMASTERS</p>
+                <p class="section-label"><span class="nowrap">NJB CODEMASTERS</span></p>
                 <h1>Области компетенција</h1>
-                <p class="section-description">Преглед производних и развојних области на које се <strong>NJB CodeMasters</strong> фокусира.</p>
+                <p class="section-description">Преглед производних и развојних области на које се <strong><span class="nowrap">NJB CodeMasters</span></strong> фокусира.</p>
                 <div id="servicesBacklinkWrap" class="services-backlink-wrap" hidden>
                     <a href="services.html?from=portfolio" class="services-backlink">&larr;&nbsp;Назад на услуге</a>
                 </div>
