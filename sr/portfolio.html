@@ -1,424 +1,391 @@
-<!DOCTYPE html>
-<html lang="sr">
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Области развоја NJB CodeMasters у индустријском софтверу, VezaionGen VI, интеграцији пословних система и дигиталним производима.">
-    <title>Портфолио и области развоја | NJB CodeMasters</title>
-
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/background.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/button-animations.css">
-    <link rel="stylesheet" href="../css/i18n.css">
-    <link rel="stylesheet" href="../css/performance.css">
-    <link rel="stylesheet" href="../css/platform-content.css">
-
-    <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192x192.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
-    <link rel="manifest" href="../site.webmanifest">
-
-    <style>
-        html,
-        body {
-            overflow-x: clip;
-            max-width: 100%;
-        }
-
-        .main,
-        .main .section,
-        .main .container {
-            overflow-x: clip;
-            max-width: 100%;
-            text-align: center;
-        }
-
-        /* Footer: kolone levo, prva centrirana, copyright ispod linije centriran */
-        .footer,
-        .footer .container,
-        .footer .footer__grid,
-        .footer .footer__row,
-        .footer .footer__content,
-        .footer .footer__col:not(:first-child),
-        .footer .footer__col:not(:first-child) *,
-        .footer .footer__column:not(:first-child),
-        .footer .footer__column:not(:first-child) * {
-            text-align: left !important;
-        }
-
-        .footer .footer__col:first-child,
-        .footer .footer__col:first-child *,
-        .footer .footer__column:first-child,
-        .footer .footer__column:first-child * {
-            text-align: center !important;
-        }
-
-        .footer .footer__col:first-child img,
-        .footer .footer__col:first-child picture,
-        .footer .footer__col:first-child .footer__logo,
-        .footer .footer__col:first-child .logo-theme {
-            margin-inline: auto !important;
-        }
-
-        .footer .footer__bottom,
-        .footer .footer__bottom *,
-        .footer .footer__copyright,
-        .footer .footer__copyright *,
-        .footer .container > div:last-child,
-        .footer .container > div:last-child * {
-            text-align: center !important;
-            margin-inline: auto !important;
-        }
-
-        .nowrap {
-            white-space: nowrap !important;
-            overflow-wrap: normal !important;
-            word-break: normal !important;
-            display: inline-block;
-        }
-
-        .main .section {
-            padding-block: 3rem;
-        }
-
-        .main .section:first-child {
-            padding-top: 5.75rem;
-        }
-
-        .main .section .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .main .section h1,
-        .main .section h2,
-        .main .section h3,
-        .main .section p,
-        .main .section .section-label,
-        .main .section .section-description {
-            margin-inline: auto;
-            text-align: center;
-        }
-
-        .main .section strong {
-            background: linear-gradient(90deg, #ff2bd6 0%, #c026d3 48%, #8b5cf6 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-            font-weight: var(--font-weight-semibold, 600);
-        }
-
-        [data-theme="light"] .main .section strong {
-            background: linear-gradient(90deg, #c026d3 0%, #9333ea 50%, #6d28d9 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .main .section .values-grid {
-            display: grid !important;
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-            gap: 2.35rem 1.75rem !important;
-            margin-top: 2.35rem !important;
-            width: 100% !important;
-            align-items: stretch !important;
-        }
-
-        .main .section .pricing-card,
-        .main .section .portfolio-card {
-            position: relative !important;
-            overflow: visible !important;
-            background: #121626 !important;
-            background-color: #121626 !important;
-            border: 1px solid rgba(148, 163, 184, 0.24) !important;
-            border-radius: var(--radius-2xl) !important;
-            padding: 2.35rem var(--space-2xl) var(--space-2xl) !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: flex-start !important;
-            text-align: center !important;
-            min-width: 0;
-            max-width: 100%;
-            opacity: 1 !important;
-            transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease !important;
-        }
-
-        [data-theme="light"] .main .section .pricing-card,
-        [data-theme="light"] .main .section .portfolio-card {
-            background: #ffffff !important;
-            background-color: #ffffff !important;
-            border-color: rgba(15, 23, 42, 0.14) !important;
-        }
-
-        .main .section .pricing-card:hover,
-        .main .section .pricing-card:hover *,
-        .main .section .portfolio-card:hover,
-        .main .section .portfolio-card:hover * {
-            opacity: 1 !important;
-        }
-
-        .main .section .pricing-card:hover,
-        .main .section .portfolio-card:hover {
-            transform: translateY(-5px) !important;
-            border-color: var(--primary-color) !important;
-            background: #171c31 !important;
-            background-color: #171c31 !important;
-            box-shadow: 0 18px 34px rgba(10, 14, 26, 0.55) !important;
-        }
-
-        [data-theme="light"] .main .section .pricing-card:hover,
-        [data-theme="light"] .main .section .portfolio-card:hover {
-            background: #f4f6ff !important;
-            background-color: #f4f6ff !important;
-            box-shadow: 0 14px 28px rgba(99, 102, 241, 0.15) !important;
-        }
-
-        .main .section .pricing-card .badge,
-        .main .section .portfolio-card .badge {
-            position: absolute !important;
-            top: 0 !important;
-            left: 24px !important;
-            right: auto !important;
-            transform: translateY(-50%) !important;
-            display: inline-flex !important;
-            align-items: center;
-            justify-content: center;
-            background: #7c85ff !important;
-            color: #ffffff !important;
-            padding: 0.34rem 0.85rem;
-            border-radius: 999px;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
-            margin: 0 !important;
-            z-index: 5;
-            box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
-        }
-
-        .main .section .pricing-card h3 {
-            font-size: var(--font-size-xl);
-            margin-top: 0.25rem;
-            margin-bottom: 0.75rem;
-            text-align: center;
-            width: 100%;
-        }
-
-        .main .section .pricing-card p {
-            color: var(--text-secondary);
-            font-size: var(--font-size-sm);
-            line-height: 1.6;
-            margin: 0 auto;
-            max-width: 52ch;
-            text-align: center;
-        }
-
-        .cta-block {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.85rem;
-            margin: 0.5rem auto 0;
-            text-align: center;
-            width: 100%;
-        }
-
-        @media (max-width: 768px) {
-            .footer,
-            .footer .footer__bottom,
-            .footer .container > div:last-child {
-                padding-bottom: 5.5rem !important;
-            }
-
-            .main .section {
-                padding-block: 2.25rem;
-            }
-
-            .main .section:first-child {
-                padding-top: 4.75rem;
-            }
-
-            .main .section .values-grid {
-                grid-template-columns: 1fr !important;
-                gap: 2.1rem !important;
-                margin-top: 2rem !important;
-            }
-
-            .main .section .pricing-card,
-            .main .section .portfolio-card {
-                padding: 2.15rem var(--space-lg) var(--space-lg) !important;
-            }
-
-            .main .section .pricing-card:hover,
-            .main .section .portfolio-card:hover {
-                transform: none !important;
-            }
-
-            .main .section .btn {
-                width: auto;
-                min-width: 0;
-                max-width: 100%;
-                min-height: 0;
-                height: auto;
-                padding: 0.72rem 1.25rem;
-                font-size: 0.92rem;
-                line-height: 1.3;
-                flex: 0 0 auto;
-                justify-content: center;
-            }
-        }
-    </style>
-
-    <link rel="canonical" href="https://www.njbcodemasters.com/sr/portfolio.html">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="NJB CodeMasters development focus areas in industrial software, VezaionGen VI, enterprise integration and digital products."><meta name="robots" content="index,follow">
+<title>Portfolio & Development Focus | NJB CodeMasters</title>
+<link rel="canonical" href="https://www.njbcodemasters.com/en/portfolio.html">
     <link rel="alternate" hreflang="de" href="https://www.njbcodemasters.com/de/portfolio.html">
     <link rel="alternate" hreflang="en" href="https://www.njbcodemasters.com/en/portfolio.html">
     <link rel="alternate" hreflang="sr" href="https://www.njbcodemasters.com/sr/portfolio.html">
     <link rel="alternate" hreflang="x-default" href="https://www.njbcodemasters.com/">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="sr_RS">
-    <meta property="og:url" content="https://www.njbcodemasters.com/sr/portfolio.html">
-    <meta property="og:title" content="Портфолио и области развоја | NJB CodeMasters">
-    <meta property="og:description" content="Области развоја NJB CodeMasters у индустријском софтверу, VezaionGen VI, интеграцији пословних система и дигиталним производима.">
-    <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Портфолио и области развоја | NJB CodeMasters">
-    <meta name="twitter:description" content="Области развоја NJB CodeMasters у индустријском софтверу, VezaionGen VI, интеграцији пословних система и дигиталним производима.">
-    <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta property="og:type" content="website"><meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://www.njbcodemasters.com/en/portfolio.html"><meta property="og:title" content="Portfolio & Development Focus | NJB CodeMasters">
+    <meta property="og:description" content="NJB CodeMasters development focus areas in industrial software, VezaionGen VI, enterprise integration and digital products."><meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
+    <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Portfolio & Development Focus | NJB CodeMasters">
+    <meta name="twitter:description" content="NJB CodeMasters development focus areas in industrial software, VezaionGen VI, enterprise integration and digital products."><meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
+<link rel="stylesheet" href="../css/reset.css"><link rel="stylesheet" href="../css/variables.css"><link rel="stylesheet" href="../css/global.css"><link rel="stylesheet" href="../css/background.css"><link rel="stylesheet" href="../css/header.css"><link rel="stylesheet" href="../css/footer.css"><link rel="stylesheet" href="../css/hero.css"><link rel="stylesheet" href="../css/home.css"><link rel="stylesheet" href="../css/about.css"><link rel="stylesheet" href="../css/animations.css"><link rel="stylesheet" href="../css/button-animations.css"><link rel="stylesheet" href="../css/i18n.css"><link rel="stylesheet" href="../css/performance.css"><link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
+<link rel="manifest" href="../site.webmanifest">
+<link rel="stylesheet" href="../css/platform-content.css">
+
+<style>
+    html,
+    body {
+        overflow-x: clip;
+        max-width: 100%;
+    }
+
+    .main,
+    .main .section,
+    .main .container {
+        overflow-x: clip;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    /* Footer: kolone levo, prva centrirana, copyright ispod linije centriran */
+    .footer,
+    .footer .container,
+    .footer .footer__grid,
+    .footer .footer__row,
+    .footer .footer__content,
+    .footer .footer__col:not(:first-child),
+    .footer .footer__col:not(:first-child) *,
+    .footer .footer__column:not(:first-child),
+    .footer .footer__column:not(:first-child) * {
+        text-align: left !important;
+    }
+
+    .footer .footer__col:first-child,
+    .footer .footer__col:first-child *,
+    .footer .footer__column:first-child,
+    .footer .footer__column:first-child * {
+        text-align: center !important;
+    }
+
+    .footer .footer__col:first-child img,
+    .footer .footer__col:first-child picture,
+    .footer .footer__col:first-child .footer__logo,
+    .footer .footer__col:first-child .logo-theme {
+        margin-inline: auto !important;
+    }
+
+    .footer .footer__bottom,
+    .footer .footer__bottom *,
+    .footer .footer__copyright,
+    .footer .footer__copyright *,
+    .footer .container > div:last-child,
+    .footer .container > div:last-child * {
+        text-align: center !important;
+        margin-inline: auto !important;
+    }
+
+    .nowrap {
+        white-space: nowrap !important;
+        overflow-wrap: normal !important;
+        word-break: normal !important;
+        display: inline-block;
+    }
+
+    .main .section {
+        padding-block: 3rem;
+    }
+
+    .main .section:first-child {
+        padding-top: 5.75rem;
+    }
+
+    .main .section .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .main .section h1,
+    .main .section h2,
+    .main .section h3,
+    .main .section p,
+    .main .section .section-label,
+    .main .section .section-description {
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .main .section strong {
+        background: linear-gradient(90deg, #ff2bd6 0%, #c026d3 48%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+        font-weight: var(--font-weight-semibold, 600);
+    }
+
+    [data-theme="light"] .main .section strong {
+        background: linear-gradient(90deg, #c026d3 0%, #9333ea 50%, #6d28d9 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .main .section .values-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 2.35rem 1.75rem !important;
+        margin-top: 2.35rem !important;
+        width: 100% !important;
+        align-items: stretch !important;
+    }
+
+    .main .section .pricing-card,
+    .main .section .portfolio-card {
+        position: relative !important;
+        overflow: visible !important;
+        background: #121626 !important;
+        background-color: #121626 !important;
+        border: 1px solid rgba(148, 163, 184, 0.24) !important;
+        border-radius: var(--radius-2xl) !important;
+        padding: 2.35rem var(--space-2xl) var(--space-2xl) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        text-align: center !important;
+        min-width: 0;
+        max-width: 100%;
+        opacity: 1 !important;
+        transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease, background-color 0.28s ease !important;
+    }
+
+    [data-theme="light"] .main .section .pricing-card,
+    [data-theme="light"] .main .section .portfolio-card {
+        background: #ffffff !important;
+        background-color: #ffffff !important;
+        border-color: rgba(15, 23, 42, 0.14) !important;
+    }
+
+    .main .section .pricing-card:hover,
+    .main .section .pricing-card:hover *,
+    .main .section .portfolio-card:hover,
+    .main .section .portfolio-card:hover * {
+        opacity: 1 !important;
+    }
+
+    .main .section .pricing-card:hover,
+    .main .section .portfolio-card:hover {
+        transform: translateY(-5px) !important;
+        border-color: var(--primary-color) !important;
+        background: #171c31 !important;
+        background-color: #171c31 !important;
+        box-shadow: 0 18px 34px rgba(10, 14, 26, 0.55) !important;
+    }
+
+    [data-theme="light"] .main .section .pricing-card:hover,
+    [data-theme="light"] .main .section .portfolio-card:hover {
+        background: #f4f6ff !important;
+        background-color: #f4f6ff !important;
+        box-shadow: 0 14px 28px rgba(99, 102, 241, 0.15) !important;
+    }
+
+    .main .section .pricing-card .badge,
+    .main .section .portfolio-card .badge {
+        position: absolute !important;
+        top: 0 !important;
+        left: 24px !important;
+        right: auto !important;
+        transform: translateY(-50%) !important;
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+        background: #7c85ff !important;
+        color: #ffffff !important;
+        padding: 0.34rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin: 0 !important;
+        z-index: 5;
+        box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+    }
+
+    .main .section .pricing-card h3 {
+        font-size: var(--font-size-xl);
+        margin-top: 0.25rem;
+        margin-bottom: 0.75rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .main .section .pricing-card p {
+        color: var(--text-secondary);
+        font-size: var(--font-size-sm);
+        line-height: 1.6;
+        margin: 0 auto;
+        max-width: 52ch;
+        text-align: center;
+    }
+
+    .cta-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.85rem;
+        margin: 0.5rem auto 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .services-backlink-wrap {
+        margin-top: var(--space-lg);
+        display: flex;
+        justify-content: center;
+    }
+
+    .services-backlink-wrap[hidden] {
+        display: none;
+    }
+
+    .services-backlink {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+        padding: 0.5rem 1.05rem;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: var(--font-size-sm);
+        font-weight: var(--font-weight-semibold);
+        color: #c7d2fe;
+        background: rgba(99, 102, 241, 0.18);
+        border: 1px solid rgba(129, 140, 248, 0.48);
+        transition: all 0.25s ease;
+    }
+
+    .services-backlink:hover {
+        color: #ffffff;
+        background: rgba(99, 102, 241, 0.3);
+        border-color: #a5b4fc;
+        transform: translateX(-3px);
+    }
+
+    [data-theme="light"] .services-backlink {
+        color: #3730a3;
+        background: rgba(79, 70, 229, 0.1);
+        border-color: rgba(79, 70, 229, 0.3);
+    }
+
+    [data-theme="light"] .services-backlink:hover {
+        color: #1e1b4b;
+        background: rgba(79, 70, 229, 0.18);
+    }
+
+    @media (max-width: 768px) {
+        .footer,
+        .footer .footer__bottom,
+        .footer .container > div:last-child {
+            padding-bottom: 5.5rem !important;
+        }
+
+        .main .section {
+            padding-block: 2.25rem;
+        }
+
+        .main .section:first-child {
+            padding-top: 4.75rem;
+        }
+
+        .main .section .values-grid {
+            grid-template-columns: 1fr !important;
+            gap: 2.1rem !important;
+            margin-top: 2rem !important;
+        }
+
+        .main .section .pricing-card,
+        .main .section .portfolio-card {
+            padding: 2.15rem var(--space-lg) var(--space-lg) !important;
+        }
+
+        .main .section .pricing-card:hover,
+        .main .section .portfolio-card:hover {
+            transform: none !important;
+        }
+
+        .main .section .btn {
+            width: auto;
+            min-width: 0;
+            max-width: 100%;
+            min-height: 0;
+            height: auto;
+            padding: 0.72rem 1.25rem;
+            font-size: 0.92rem;
+            line-height: 1.3;
+            flex: 0 0 auto;
+            justify-content: center;
+        }
+    }
+</style>
 </head>
-<body data-language="sr">
-    <!-- Header & Navigation -->
-    <header class="header" id="header">
-        <nav class="nav container">
-            <div class="nav__logo">
-                <a href="index.html" aria-label="На почетну страну">
-                    <picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture>
-                </a>
-
-                <button class="nav__toggle" id="navToggle" aria-label="Отвори навигацију" aria-expanded="false">
-                    <span class="hamburger"></span>
-                </button>
+<body data-language="en">
+<header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Home"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Home</a></li><li class="nav__item"><a href="about.html" class="nav__link"><span class="nowrap">NJB CodeMasters</span></a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Modules</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilot Program</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Privacy Policy</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Legal Notice</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Legacy Content</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Services</a></li><li><a class="nav__link" href="pricing.html">Pricing</a></li><li><a class="nav__link" href="portfolio.html">Portfolio</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Choose language"><option value="de">Deutsch</option><option value="en" selected>English</option><option value="sr">Srpski</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Sound"><span class="sound-label">Sound</span></button></div></nav></header>
+<main class="main">
+    <section class="section platform-content">
+        <div class="container">
+            <p class="section-label"><span class="nowrap">NJB CODEMASTERS</span></p>
+            <h1>Areas of expertise</h1>
+            <p class="section-description">An overview of the product and development areas <strong><span class="nowrap">NJB CodeMasters</span></strong> focuses on.</p>
+            <div id="servicesBacklinkWrap" class="services-backlink-wrap" hidden>
+                <a href="services.html?from=portfolio" class="services-backlink">&larr;&nbsp;Back to Services</a>
             </div>
+        </div>
+    </section>
 
-            <ul class="nav__menu" id="navMenu">
-                <li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li>
-                <li class="nav__item"><a href="about.html" class="nav__link">О нама</a></li>
-                <li class="nav__item"><a href="services.html" class="nav__link">Услуге</a></li>
-                <li class="nav__item"><a href="pricing.html" class="nav__link">Цене</a></li>
-                <li class="nav__item"><a href="portfolio.html" class="nav__link active">Портфолио</a></li>
-                <li class="nav__item"><a href="blog.html" class="nav__link">Блог</a></li>
-                <li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li>
-            </ul>
+    <section class="section platform-content">
+        <div class="container">
+            <h2>Areas of work</h2>
+            <div class="values-grid">
+                <article class="pricing-card">
+                    <span class="badge">PLATFORM</span>
+                    <h3><span class="nowrap">VezaionGen VI</span></h3>
+                    <p>Our industrial platform initiative for connected capabilities across production, quality, maintenance, energy, robotics and logistics.</p>
+                </article>
 
-            <div class="nav__actions">
-                <div class="language-switcher">
-                    <label for="languageSelect">🌐</label>
-                    <select id="languageSelect" aria-label="Одаберите језик">
-                        <option value="de">Немачки</option>
-                        <option value="en">Енглески</option>
-                        <option value="sr" selected>Српски</option>
-                    </select>
-                </div>
+                <article class="pricing-card">
+                    <span class="badge">DATA &amp; ANALYTICS</span>
+                    <h3>Industrial Data &amp; Analytics</h3>
+                    <p>Data models, operational dashboards and Digital Twin approaches for a shared view of industrial information.</p>
+                </article>
 
-                <button class="theme-toggle" id="themeToggle" aria-label="Промени тему">
-                    <svg class="sun-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="4"></circle>
-                        <line class="sun-ray" x1="12" y1="1" x2="12" y2="5"></line>
-                        <line class="sun-ray" x1="12" y1="19" x2="12" y2="23"></line>
-                        <line class="sun-ray" x1="4.22" y1="4.22" x2="6.34" y2="6.34"></line>
-                        <line class="sun-ray" x1="17.66" y1="17.66" x2="19.78" y2="19.78"></line>
-                        <line class="sun-ray" x1="1" y1="12" x2="5" y2="12"></line>
-                        <line class="sun-ray" x1="19" y1="12" x2="23" y2="12"></line>
-                        <line class="sun-ray" x1="4.22" y1="19.78" x2="6.34" y2="17.66"></line>
-                        <line class="sun-ray" x1="17.66" y1="6.34" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="moon-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path class="moon-crescent" d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        <circle class="moon-full" cx="12" cy="12" r="9" opacity="0"></circle>
-                    </svg>
-                    <span class="toggle-label">Тема</span>
-                </button>
+                <article class="pricing-card">
+                    <span class="badge">ENTERPRISE &amp; INTEGRATION</span>
+                    <h3>Enterprise Software &amp; Integration</h3>
+                    <p>Software development and interfaces shaped around users, requirements and existing systems.</p>
+                </article>
+
+                <article class="pricing-card">
+                    <span class="badge">WEB &amp; MOBILE</span>
+                    <h3>Web &amp; Mobile Products</h3>
+                    <p>Digital applications and interfaces for specific product and business needs.</p>
+                </article>
             </div>
-        </nav>
-    </header>
+        </div>
+    </section>
 
-    <main class="main">
-        <section class="section platform-content">
-            <div class="container">
-                <p class="section-label"><span class="nowrap">NJB CODEMASTERS</span></p>
-                <h1>Области стручности</h1>
-                <p class="section-description">Преглед производа и области развоја на које је <strong><span class="nowrap">NJB CodeMasters</span></strong> усмерен.</p>
+    <section class="section platform-content">
+        <div class="container">
+            <h2>Discuss a development project</h2>
+            <div class="cta-block">
+                <p>We welcome conversations about goals that align with these areas of expertise.</p>
+                <a class="btn btn--primary" href="contact.html">Discuss a project</a>
             </div>
-        </section>
-
-        <section class="section platform-content">
-            <div class="container">
-                <h2>Области рада</h2>
-                <div class="values-grid">
-                    <article class="pricing-card">
-                        <span class="badge">ПЛАТФОРМА</span>
-                        <h3><span class="nowrap">VezaionGen VI</span></h3>
-                        <p>Иницијатива индустријске платформе за повезане функције у производњи, квалитету, одржавању, енергији, роботици и логистици.</p>
-                    </article>
-
-                    <article class="pricing-card">
-                        <span class="badge">ПОДАЦИ И АНАЛИТИКА</span>
-                        <h3>Индустријски подаци и аналитика</h3>
-                        <p>Модели података, оперативне контролне табле и приступи засновани на дигиталним близанцима за заједнички преглед индустријских информација.</p>
-                    </article>
-
-                    <article class="pricing-card">
-                        <span class="badge">ПОСЛОВНИ СИСТЕМИ</span>
-                        <h3>Пословни софтвер и интеграције</h3>
-                        <p>Развој софтвера и интерфејса према корисницима, захтевима и постојећим системима.</p>
-                    </article>
-
-                    <article class="pricing-card">
-                        <span class="badge">ВЕБ И МОБИЛНЕ АПЛИКАЦИЈЕ</span>
-                        <h3>Веб и мобилни производи</h3>
-                        <p>Дигиталне апликације и интерфејси за конкретне потребе производа и пословања.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section class="section platform-content">
-            <div class="container">
-                <h2>Разговор о развојном пројекту</h2>
-                <div class="cta-block">
-                    <p>Разговараћемо о циљевима који се уклапају у ове области стручности.</p>
-                    <a class="btn btn--primary" href="contact.html">Разговарајте о пројекту</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer се аутоматски учитава -->
-    <div id="footer-placeholder"></div>
-
-    <!-- Scripts -->
-    <script src="../js/i18n.js" defer></script>
-    <script src="../js/language-switcher.js" defer></script>
-    <script src="../js/performance.js" defer></script>
-    <script src="../js/footer.js" defer></script>
-    <script src="../js/theme.js"></script>
-    <script src="../js/navigation.js"></script>
-    <script src="../js/animations.js" defer></script>
-    <script src="../js/testimonials.js" defer></script>
-    <script src="../js/stats-counter.js" defer></script>
-    <script src="../js/hero-canvas.js" defer></script>
-    <script src="../js/main.js" defer></script>
-    <script src="../js/ai-assistant.js" defer></script>
-</body>
-</html>
+        </div>
+    </section>
+</main>
+<div id="footer-placeholder"></div>
+<script>
+    (function initServicesBacklink() {
+        const params = new URLSearchParams(window.location.search);
+        const backlinkWrap = document.getElementById('servicesBacklinkWrap');
+        if (backlinkWrap && params.get('from') === 'services') {
+            backlinkWrap.hidden = false;
+        }
+    })();
+</script>
+<script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/ai-assistant.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
+</body></html>
