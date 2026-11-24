@@ -225,6 +225,11 @@
 (function () {
     function createSourceBackLink(targetType, lang) {
         const labels = {
+            services: {
+                de: '← Zurück zu Leistungen',
+                en: '← Back to Services',
+                sr: '← Назад на услуге'
+            },
             vezaiongen: {
                 de: '← Zurück zu VezaionGen VI',
                 en: '← Back to VezaionGen VI',
@@ -237,13 +242,14 @@
             }
         };
         const hrefs = {
+            services: 'services.html',
             vezaiongen: 'vezaiongen-vi.html',
             modules: 'modules.html'
         };
         const link = document.createElement('a');
         link.href = hrefs[targetType];
         link.className = 'vezaion-back-link';
-        link.textContent = (labels[targetType] && (labels[targetType][lang] || labels[targetType].de)) || '← Zurück';
+        link.textContent = (labels[targetType] && (labels[targetType][lang] || labels[targetType].en)) || '← Back';
         return link;
     }
 
@@ -252,6 +258,9 @@
         const fromParam = params.get('from');
         const ref = document.referrer || '';
 
+        if (fromParam === 'services' || /services\.html/i.test(ref)) {
+            return 'services';
+        }
         if (fromParam === 'modules' || /modules\.html/i.test(ref)) {
             return 'modules';
         }
@@ -265,7 +274,7 @@
         const origin = detectOrigin();
         if (!origin) return;
 
-        const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'de';
+        const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'en';
 
         const articleContainer = document.querySelector('.article-container');
         const topBackLink = articleContainer ? articleContainer.querySelector(':scope > .back-link') : null;
@@ -291,7 +300,7 @@
                 wrap.appendChild(productLinkBottom);
                 wrap.appendChild(footerBackLink);
             } else {
-                footer.appendChild(originLinkBottom);
+                footer.appendChild(productLinkBottom);
             }
         }
     }
