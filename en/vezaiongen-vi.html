@@ -202,6 +202,44 @@ body {
     color: #1e1b4b;
     background: rgba(79, 70, 229, 0.18);
 }
+.services-backlink-wrap {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+}
+.services-backlink-wrap[hidden] {
+    display: none;
+}
+.services-backlink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.5rem 1.05rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: #c7d2fe;
+    background: rgba(99, 102, 241, 0.18);
+    border: 1px solid rgba(129, 140, 248, 0.48);
+    transition: all 0.25s ease;
+}
+.services-backlink:hover {
+    color: #ffffff;
+    background: rgba(99, 102, 241, 0.3);
+    border-color: #a5b4fc;
+    transform: translateX(-3px);
+}
+[data-theme="light"] .services-backlink {
+    color: #3730a3;
+    background: rgba(79, 70, 229, 0.1);
+    border-color: rgba(79, 70, 229, 0.3);
+}
+[data-theme="light"] .services-backlink:hover {
+    color: #1e1b4b;
+    background: rgba(79, 70, 229, 0.18);
+}
 .main .section .cta-lead {
     margin-top: 1.25rem;
     margin-bottom: 0.45rem;
@@ -249,8 +287,8 @@ body {
 </style>
 </head>
 <body data-language="en">
-<header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Home"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Home</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Modules</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilot Program</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Privacy Policy</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Legal Notice</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Legacy Content</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Services</a></li><li><a class="nav__link" href="pricing.html">Pricing</a></li><li><a class="nav__link" href="portfolio.html">Portfolio</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Choose language"><option value="de">Deutsch</option><option value="en">English</option><option value="sr">Srpski</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Sound"><span class="sound-label">Sound</span></button></div></nav></header>
-<main class="main"><section class="section"><div class="container"><p class="section-label">INDUSTRIAL INTELLIGENCE PLATFORM</p><h1>VezaionGen VI</h1><p class="section-description">Clearer visibility, faster decisions and smoother workflows for connected operations.</p><p>VezaionGen VI unifies production, quality, maintenance, logistics and energy in one shared working context—so teams spot bottlenecks earlier, avoid data silos and act with confidence.</p><picture class="brand-logo brand-logo--product"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI logo" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture></div></section>
+<header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Home"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Home</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Modules</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilot Program</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Privacy Policy</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Legal Notice</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Legacy Content</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Services</a></li><li><a class="nav__link" href="pricing.html">Pricing</a></li><li><a class="nav__link" href="portfolio.html">Portfolio</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Choose language"><option value="de">Deutsch</option><option value="en" selected>English</option><option value="sr">Srpski</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Sound"><span class="sound-label">Sound</span></button></div></nav></header>
+<main class="main"><section class="section"><div class="container"><p class="section-label">INDUSTRIAL INTELLIGENCE PLATFORM</p><h1>VezaionGen VI</h1><p class="section-description">Clearer visibility, faster decisions and smoother workflows for connected operations.</p><p>VezaionGen VI unifies production, quality, maintenance, logistics and energy in one shared working context—so teams spot bottlenecks earlier, avoid data silos and act with confidence.</p><div id="servicesBacklinkWrap" class="services-backlink-wrap" hidden><a href="services.html?from=vezaiongen" class="services-backlink">&larr;&nbsp;Back to Services</a></div><picture class="brand-logo brand-logo--product"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI logo" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture></div></section>
 <section class="section platform-content"><div class="container"><h2>Core Capabilities</h2><p>Each capability delivers tangible operational value—from clear order and quality oversight to proactive process control:</p><div class="values-grid">
 <article class="pricing-card"><h3>Industrial Core</h3><p>Production, materials, orders and quality data work together seamlessly—for shorter lead times and clear accountability.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-2.html?from=vezaiongen">Modular Platforms&nbsp;→</a></div></article>
 <article class="pricing-card"><h3>Digital Twin &amp; Robotics</h3><p>Digital equipment and plant models bring spatial clarity and make robotic workflows safer and more predictable.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-7.html?from=vezaiongen">3D Digital Twins &amp; Robotics&nbsp;→</a></div></article>
@@ -265,5 +303,14 @@ body {
 <section id="demo-video" class="section platform-content"><div class="container"><h2>See VezaionGen VI in Action</h2><picture class="brand-logo brand-logo--demo"><img src="../assets/brand/vezaiongen-vi-light.png" alt="VezaionGen VI logo" class="brand-logo__light" width="832" height="405"><img src="../assets/brand/vezaiongen-vi.png" alt="" class="brand-logo__dark" width="832" height="405"></picture><div class="demo-video"><div class="demo-video__visual" aria-hidden="true"><span>VEZAIONGEN VI</span><strong>INDUSTRY 6.0</strong></div><div class="demo-video__copy"><h3>Demo Video Coming Soon</h3><p>Industrial demonstration recording is currently in preparation.</p><p>The showcase will present an end-to-end industrial workflow, flexible deployment models and analytics in VezaionGen VI.</p></div></div></div></section>
 <section class="section platform-content"><div class="container"><h2>Explore VezaionGen VI</h2><p>Want to see how VezaionGen VI streamlines your workflows, connects existing systems or delivers the greatest value for your plant? Let’s align on your goals and practical next steps.</p><p class="cta-lead">Schedule your non-binding product discussion today:</p><a class="btn btn--primary" href="contact.html?from=vezaiongen#vezaiongen-consultation">Request a product discussion</a></div></section></main>
 <div id="footer-placeholder"></div>
+<script>
+(function initServicesBacklink() {
+    const params = new URLSearchParams(window.location.search);
+    const backlinkWrap = document.getElementById('servicesBacklinkWrap');
+    if (backlinkWrap && params.get('from') === 'services') {
+        backlinkWrap.hidden = false;
+    }
+})();
+</script>
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
 </body></html>
