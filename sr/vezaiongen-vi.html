@@ -148,23 +148,20 @@ body {
     align-items: center;
     gap: 0.45rem;
 }
-}
-.blog-ref-link {
+.card-blog-links .blog-ref-link {
+    display: inline-block;
+    text-align: center;
     color: #818cf8;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    text-decoration: none;
-    transition: color 0.25s ease, transform 0.25s ease;
 }
-.blog-ref-link:hover {
+.card-blog-links .blog-ref-link:hover {
     color: #38bdf8;
     text-decoration: underline;
     transform: translateX(2px);
 }
-[data-theme="light"] .blog-ref-link {
+[data-theme="light"] .card-blog-links .blog-ref-link {
     color: #4f46e5;
 }
-[data-theme="light"] .blog-ref-link:hover {
+[data-theme="light"] .card-blog-links .blog-ref-link:hover {
     color: #0284c7;
 }
 .section-blog-links {
