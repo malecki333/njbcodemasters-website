@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Blog - Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero-Trust-Sicherheit, Logistik und KI.">
+    <meta name="description" content="Blog – Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero-Trust-Sicherheit, Logistik und KI von NJB CodeMasters.">
     <title>Blog | NJB CodeMasters</title>
 
     <link rel="stylesheet" href="../css/reset.css">
@@ -19,19 +19,26 @@
     <link rel="stylesheet" href="../css/platform-content.css">
 
     <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192x192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
 
     <style>
+        html,
+        body {
+            overflow-x: clip;
+            max-width: 100%;
+        }
+
         .blog-hero {
             text-align: center;
-            margin-bottom: var(--space-5xl);
+            margin-bottom: var(--space-4xl);
         }
 
         .blog-hero h2 {
-            font-size: clamp(2rem, 4vw, 3.5rem);
-            margin-bottom: var(--space-lg);
+            font-size: clamp(1.85rem, 3.6vw, 3rem);
+            margin-bottom: var(--space-md);
+            line-height: 1.2;
         }
 
         .blog-hero p {
@@ -39,14 +46,15 @@
             color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto;
+            line-height: 1.65;
         }
 
         /* Blog Grid */
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: var(--space-3xl);
-            margin-bottom: var(--space-5xl);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-2xl);
+            margin-bottom: var(--space-4xl);
         }
 
         .blog-card {
@@ -54,30 +62,31 @@
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-2xl);
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
+            min-width: 0;
         }
 
         .blog-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-6px);
             border-color: var(--primary-color);
             box-shadow: 0 20px 40px rgba(99, 102, 241, 0.15);
         }
 
         .blog-card__header {
             width: 100%;
-            height: 200px;
+            height: 180px;
             background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: white;
+            font-size: 3.5rem;
+            color: #ffffff;
         }
 
         .blog-card__content {
-            padding: var(--space-2xl);
+            padding: var(--space-xl);
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -85,15 +94,17 @@
 
         .blog-card__meta {
             display: flex;
-            gap: var(--space-lg);
-            margin-bottom: var(--space-lg);
+            flex-wrap: wrap;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
             font-size: var(--font-size-sm);
             color: var(--text-secondary);
         }
 
         .blog-card__tag {
             display: inline-block;
-            background: rgba(99, 102, 241, 0.1);
+            align-self: flex-start;
+            background: rgba(99, 102, 241, 0.12);
             color: var(--primary-color);
             padding: var(--space-xs) var(--space-md);
             border-radius: 999px;
@@ -102,24 +113,27 @@
         }
 
         .blog-card h3 {
-            font-size: var(--font-size-2xl);
-            margin: var(--space-lg) 0;
-            flex-grow: 1;
+            font-size: var(--font-size-xl);
+            margin: var(--space-md) 0 var(--space-sm);
+            line-height: 1.3;
+            overflow-wrap: anywhere;
         }
 
         .blog-card p {
             color: var(--text-secondary);
             font-size: var(--font-size-sm);
-            line-height: 1.6;
+            line-height: 1.65;
             margin-bottom: var(--space-lg);
+            flex-grow: 1;
         }
 
         .blog-card__footer {
             border-top: 1px solid var(--glass-border);
-            padding-top: var(--space-lg);
+            padding-top: var(--space-md);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: var(--space-md);
         }
 
         .blog-card__author {
@@ -131,26 +145,28 @@
             color: var(--primary-color);
             text-decoration: none;
             font-weight: var(--font-weight-semibold);
-            transition: all 0.3s ease;
+            white-space: nowrap;
+            transition: opacity 0.25s ease;
         }
 
         .blog-card__link:hover {
             text-decoration: underline;
+            opacity: 0.9;
         }
 
         /* Search & Dropdown Filter */
         .blog-controls {
-            margin-bottom: var(--space-5xl);
+            margin-bottom: var(--space-3xl);
             display: flex;
-            gap: var(--space-lg);
+            gap: var(--space-md);
             flex-wrap: wrap;
             align-items: stretch;
         }
 
         .blog-controls input {
             flex: 2;
-            min-width: 250px;
-            padding: var(--space-lg);
+            min-width: 240px;
+            padding: var(--space-md) var(--space-lg);
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-lg);
@@ -164,8 +180,8 @@
 
         .blog-controls select {
             flex: 1;
-            min-width: 230px;
-            padding: var(--space-lg);
+            min-width: 220px;
+            padding: var(--space-md) var(--space-lg);
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
             border-radius: var(--radius-lg);
@@ -192,6 +208,34 @@
             background: #ffffff;
             color: #0f172a;
         }
+
+        .blog-empty {
+            text-align: center;
+            color: var(--text-secondary);
+            padding: var(--space-2xl) var(--space-lg);
+            margin-bottom: var(--space-3xl);
+        }
+
+        @media (max-width: 768px) {
+            .blog-hero {
+                margin-bottom: var(--space-2xl);
+            }
+
+            .blog-controls {
+                flex-direction: column;
+                margin-bottom: var(--space-2xl);
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+            }
+
+            .blog-card__header {
+                height: 150px;
+                font-size: 3rem;
+            }
+        }
     </style>
 
     <link rel="canonical" href="https://www.njbcodemasters.com/de/blog.html">
@@ -203,11 +247,11 @@
     <meta property="og:locale" content="de_DE">
     <meta property="og:url" content="https://www.njbcodemasters.com/de/blog.html">
     <meta property="og:title" content="Blog | NJB CodeMasters">
-    <meta property="og:description" content="Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero-Trust-Sicherheit, Logistik und KI.">
+    <meta property="og:description" content="Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero-Trust-Sicherheit, Logistik und KI von NJB CodeMasters.">
     <meta property="og:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Blog | NJB CodeMasters">
-    <meta name="twitter:description" content="Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero-Trust-Sicherheit, Logistik und KI.">
+    <meta name="twitter:description" content="Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero-Trust-Sicherheit, Logistik und KI von NJB CodeMasters.">
     <meta name="twitter:image" content="https://www.njbcodemasters.com/assets/images/PNG%20LOGO%20Wei%C3%9F%20PS.png">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"NJB CodeMasters","url":"https://www.njbcodemasters.com/","logo":"https://www.njbcodemasters.com/assets/brand/njb-codemasters-logo-512.png"}</script>
 </head>
@@ -273,7 +317,7 @@
                         Unser <span class="text-gradient">Blog</span>
                     </h1>
                     <p class="page-hero__description">
-                        Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero-Trust-Sicherheit, Logistik und KI.
+                        Praxisnahe Einblicke zu Unternehmensführung, modularer Industriesoftware, Zero&#8209;Trust&#8209;Sicherheit, Logistik und KI.
                     </p>
                 </div>
             </div>
@@ -282,7 +326,7 @@
         <section class="section container">
             <div class="blog-hero">
                 <h2>Aktuelle Artikel</h2>
-                <p>Gedanken aus der Praxis zum Aufbau von NJB CodeMasters und den Modulen von VezaionGen VI</p>
+                <p>Gedanken aus der Praxis zum Aufbau von NJB CodeMasters und den Modulen von VezaionGen&nbsp;VI</p>
             </div>
 
             <div class="blog-controls">
@@ -294,7 +338,7 @@
                     <option value="robotics">Digital Twin &amp; Robotik</option>
                     <option value="logistics">Logistik &amp; TMS</option>
                     <option value="esg">ESG &amp; Energie</option>
-                    <option value="integration">Integration &amp; On-Premise</option>
+                    <option value="integration">Integration &amp; On&#8209;Premise</option>
                     <option value="security">Sicherheit</option>
                     <option value="ai">KI &amp; Analytics</option>
                 </select>
@@ -310,11 +354,11 @@
                             <span>⏱️ 6 Min.</span>
                         </div>
                         <span class="blog-card__tag">Unternehmensführung &amp; Gründung</span>
-                        <h3>Hürden als Brücken: Gründung und der Weg zu VezaionGen VI</h3>
+                        <h3>Hürden als Brücken: Gründung und der Weg zu VezaionGen&nbsp;VI</h3>
                         <p>Wie reale Anforderungen aus der Fertigung, Zeit- und Kostendisziplin sowie alltägliche Hürden zu einer modularen Lösung geführt haben.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
-                            <a href="blog-article-1.html" class="blog-card__link">Lesen →</a>
+                            <a href="blog-article-1.html?from=blog" class="blog-card__link">Lesen&nbsp;&rarr;</a>
                         </div>
                     </div>
                 </article>
@@ -327,12 +371,12 @@
                             <span>📅 November 2026</span>
                             <span>⏱️ 5 Min.</span>
                         </div>
-                        <span class="blog-card__tag">Plattform-Architektur</span>
-                        <h3>Warum modulare Software-Plattformen die Zukunft der Industrie sind</h3>
+                        <span class="blog-card__tag">Plattform&#8209;Architektur</span>
+                        <h3>Warum modulare Software&#8209;Plattformen die Zukunft der Industrie sind</h3>
                         <p>Weshalb starre Systeme und Insellösungen den Betrieb ausbremsen und modulare Strukturen langfristig handlungsfähig halten.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
-                            <a href="blog-article-2.html" class="blog-card__link">Lesen →</a>
+                            <a href="blog-article-2.html?from=blog" class="blog-card__link">Lesen&nbsp;&rarr;</a>
                         </div>
                     </div>
                 </article>
@@ -346,11 +390,11 @@
                             <span>⏱️ 5 Min.</span>
                         </div>
                         <span class="blog-card__tag">Sicherheit &amp; Vertrauen</span>
-                        <h3>Zero-Trust-Sicherheit in industriellen Architekturen</h3>
+                        <h3>Zero&#8209;Trust&#8209;Sicherheit in industriellen Architekturen</h3>
                         <p>Klare Prinzipien für Entscheider: Wie saubere Zugriffsgrenzen und Nachvollziehbarkeit den laufenden Betrieb schützen.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
-                            <a href="blog-article-3.html" class="blog-card__link">Lesen →</a>
+                            <a href="blog-article-3.html?from=blog" class="blog-card__link">Lesen&nbsp;&rarr;</a>
                         </div>
                     </div>
                 </article>
@@ -364,11 +408,11 @@
                             <span>⏱️ 6 Min.</span>
                         </div>
                         <span class="blog-card__tag">KI &amp; Zusammenarbeit</span>
-                        <h3>KI-Agenten &amp; Federated Learning: Gemeinsam wachsen ohne Datenpreisgabe</h3>
+                        <h3>KI&#8209;Agenten &amp; Federated Learning: Gemeinsam wachsen ohne Datenpreisgabe</h3>
                         <p>Wie Unternehmen von geteilten Erkenntnissen und intelligenter Unterstützung profitieren, ohne sensible Betriebsdaten preiszugeben.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
-                            <a href="blog-article-4.html" class="blog-card__link">Lesen →</a>
+                            <a href="blog-article-4.html?from=blog" class="blog-card__link">Lesen&nbsp;&rarr;</a>
                         </div>
                     </div>
                 </article>
@@ -382,11 +426,11 @@
                             <span>⏱️ 6 Min.</span>
                         </div>
                         <span class="blog-card__tag">Logistik &amp; Module</span>
-                        <h3>TMS, Logistik und digitale Zwillinge in VezaionGen VI</h3>
+                        <h3>TMS, Logistik und digitale Zwillinge in VezaionGen&nbsp;VI</h3>
                         <p>Wie Transport Management System, Routen, Kapazitäten, Lagerfluss und schrittweise Automatisierung im Alltag zusammenwirken.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
-                            <a href="blog-article-5.html" class="blog-card__link">Lesen →</a>
+                            <a href="blog-article-5.html?from=blog" class="blog-card__link">Lesen&nbsp;&rarr;</a>
                         </div>
                     </div>
                 </article>
@@ -404,7 +448,7 @@
                         <p>Wie verständliche Kennzahlen, Frühwarnungen und geschützte Testläufe den Betrieb im Alltag sicherer machen.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
-                            <a href="blog-article-6.html" class="blog-card__link">Lesen →</a>
+                            <a href="blog-article-6.html?from=blog" class="blog-card__link">Lesen&nbsp;&rarr;</a>
                         </div>
                     </div>
                 </article>
@@ -418,11 +462,11 @@
                             <span>⏱️ 6 Min.</span>
                         </div>
                         <span class="blog-card__tag">Digital Twin &amp; Robotik</span>
-                        <h3>3D Digital Twins &amp; Robotik-Orchestrierung: Humanoide Roboter, AMR und Anlagen im Einklang</h3>
-                        <p>Wie 3D-Digital-Twins und Robotik-Orchestrierung – einschließlich humanoider Roboter und AMR – in VezaionGen VI aufgebaut sind und für den Piloteinsatz bereitstehen.</p>
+                        <h3>3D&#8209;Digital&#8209;Twins &amp; Robotik&#8209;Orchestrierung: Humanoide Roboter, AMR und Anlagen im Einklang</h3>
+                        <p>Wie 3D&#8209;Digital&#8209;Twins und Robotik&#8209;Orchestrierung – einschließlich humanoider Roboter und AMR – in VezaionGen&nbsp;VI aufgebaut sind und für den Piloteinsatz bereitstehen.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
-                            <a href="blog-article-7.html" class="blog-card__link">Lesen →</a>
+                            <a href="blog-article-7.html?from=blog" class="blog-card__link">Lesen&nbsp;&rarr;</a>
                         </div>
                     </div>
                 </article>
@@ -436,11 +480,11 @@
                             <span>⏱️ 5 Min.</span>
                         </div>
                         <span class="blog-card__tag">ESG, CBAM &amp; Energie</span>
-                        <h3>ESG, CBAM &amp; Energie-Transparenz: Nachhaltigkeitsdaten direkt aus dem Betrieb</h3>
+                        <h3>ESG, CBAM &amp; Energie&#8209;Transparenz: Nachhaltigkeitsdaten direkt aus dem Betrieb</h3>
                         <p>Wie Energieverbrauch, Emissionsdaten und Nachweise aus Produktion, Material und Logistik nachvollziehbar zusammengeführt werden, statt sie mühsam in Tabellen zu sammeln.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
-                            <a href="blog-article-8.html" class="blog-card__link">Lesen →</a>
+                            <a href="blog-article-8.html?from=blog" class="blog-card__link">Lesen&nbsp;&rarr;</a>
                         </div>
                     </div>
                 </article>
@@ -453,16 +497,18 @@
                             <span>📅 November 2026</span>
                             <span>⏱️ 5 Min.</span>
                         </div>
-                        <span class="blog-card__tag">Systemintegration &amp; On-Premise</span>
-                        <h3>Systemintegration ohne Bruch: Legacy-ERP, APIs und On-Premise-Datenaustausch</h3>
-                        <p>Wie bestehende ERP-Systeme, Schnittstellen, Lager- und Transportdaten schrittweise und lokal angebunden werden – ohne Medienbrüche und ohne Zwang zur Cloud.</p>
+                        <span class="blog-card__tag">Systemintegration &amp; On&#8209;Premise</span>
+                        <h3>Systemintegration ohne Bruch: Legacy&#8209;ERP, APIs und On&#8209;Premise&#8209;Datenaustausch</h3>
+                        <p>Wie bestehende ERP&#8209;Systeme, Schnittstellen, Lager- und Transportdaten schrittweise und lokal angebunden werden – ohne Medienbrüche und ohne Zwang zur Cloud.</p>
                         <div class="blog-card__footer">
                             <span class="blog-card__author">von NJB CodeMasters</span>
-                            <a href="blog-article-9.html" class="blog-card__link">Lesen →</a>
+                            <a href="blog-article-9.html?from=blog" class="blog-card__link">Lesen&nbsp;&rarr;</a>
                         </div>
                     </div>
                 </article>
             </div>
+
+            <p id="blogEmptyState" class="blog-empty" hidden>Keine passenden Artikel für diese Filterkombination gefunden.</p>
         </section>
     </main>
 
@@ -472,10 +518,12 @@
         const categoryFilter = document.getElementById('blogCategoryFilter');
         const blogCards = document.querySelectorAll('.blog-card');
         const blogSearch = document.getElementById('blogSearch');
+        const blogEmptyState = document.getElementById('blogEmptyState');
 
         function filterBlogPosts() {
             const selectedCategory = categoryFilter.value;
             const search = blogSearch.value.toLowerCase().trim();
+            let visibleCount = 0;
 
             blogCards.forEach(card => {
                 const matchesCategory = selectedCategory === 'all' || card.dataset.category === selectedCategory;
@@ -484,8 +532,14 @@
                 const tag = card.querySelector('.blog-card__tag').textContent.toLowerCase();
                 const matchesSearch = !search || title.includes(search) || desc.includes(search) || tag.includes(search);
 
-                card.style.display = (matchesCategory && matchesSearch) ? '' : 'none';
+                const isVisible = matchesCategory && matchesSearch;
+                card.style.display = isVisible ? '' : 'none';
+                if (isVisible) visibleCount += 1;
             });
+
+            if (blogEmptyState) {
+                blogEmptyState.hidden = visibleCount > 0;
+            }
         }
 
         categoryFilter.addEventListener('change', filterBlogPosts);
@@ -498,9 +552,6 @@
     <script src="../js/theme.js"></script>
     <script src="../js/navigation.js" defer></script>
     <script src="../js/animations.js" defer></script>
-    <script src="../js/testimonials.js" defer></script>
-    <script src="../js/stats-counter.js" defer></script>
-    <script src="../js/hero-canvas.js" defer></script>
     <script src="../js/main.js" defer></script>
     <script src="../js/ai-assistant.js" defer></script>
 </body>
