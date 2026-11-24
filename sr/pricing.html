@@ -63,6 +63,49 @@
             white-space: nowrap !important;
         }
 
+        .services-back-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-md);
+            margin: 0 auto var(--space-2xl);
+            width: 100%;
+        }
+
+        .services-back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: 0.45rem 0.95rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: var(--font-weight-semibold);
+            font-size: var(--font-size-sm);
+            color: #e0f2fe;
+            background: rgba(56, 189, 248, 0.18);
+            border: 1px solid rgba(56, 189, 248, 0.55);
+            transition: all 0.25s ease;
+        }
+
+        .services-back-link:hover {
+            color: #ffffff;
+            background: rgba(56, 189, 248, 0.3);
+            border-color: #7dd3fc;
+            transform: translateX(-3px);
+        }
+
+        [data-theme="light"] .services-back-link {
+            color: #0369a1;
+            background: rgba(2, 132, 199, 0.12);
+            border-color: rgba(2, 132, 199, 0.35);
+        }
+
+        [data-theme="light"] .services-back-link:hover {
+            color: #0c4a6e;
+            background: rgba(2, 132, 199, 0.2);
+        }
+
         .main .section {
             padding-block: 3rem;
         }
@@ -1880,15 +1923,98 @@
                     : '';
                 const message = `Пакет: ${packageName}\n\n${breakdown}\nПроцењени укупан износ: ${totalPriceEl.textContent}\n\nМолим контактирајте ме за детаљну понуду.`;
 
+                const params = new URLSearchParams(window.location.search);
+                const fromServices = params.get('from') === 'services' || /services\.html/i.test(document.referrer || '');
+
                 const queryParams = new URLSearchParams({
                     subject: `Калкулација: ${packageName}${extrasSubject}`,
                     package: packageName,
                     message: message
                 });
+                if (fromServices) {
+                    queryParams.set('from', 'services');
+                }
 
                 window.location.href = `contact.html?${queryParams.toString()}#request-website`;
             });
         }
+    </script>
+
+    <script>
+    (function () {
+        const LABELS = {
+            de: '← Zurück zu Leistungen',
+            en: '← Back to Services',
+            sr: '← Назад на услуге'
+        };
+
+        function isFromServices() {
+            const params = new URLSearchParams(window.location.search);
+            const fromParam = (params.get('from') || '').toLowerCase();
+            const ref = document.referrer || '';
+            return fromParam === 'services' || /services\.html/i.test(ref);
+        }
+
+        function getCurrentLang() {
+            return (document.body && document.body.dataset.language) || document.documentElement.lang || 'sr';
+        }
+
+        function createServicesBackLink(lang) {
+            const link = document.createElement('a');
+            link.href = 'services.html';
+            link.className = 'services-back-link';
+            link.textContent = LABELS[lang] || LABELS.sr;
+            return link;
+        }
+
+        function propagateServicesParam() {
+            const targets = ['modules.html', 'pilot-program.html', 'vezaiongen-vi.html', 'contact.html'];
+            document.querySelectorAll('a[href]').forEach(anchor => {
+                const rawHref = anchor.getAttribute('href');
+                if (!rawHref || rawHref.startsWith('#') || rawHref.startsWith('http')) return;
+                const [pathPart, hashPart] = rawHref.split('#');
+                const basePath = pathPart.split('?')[0];
+                if (!targets.includes(basePath)) return;
+                const urlObj = new URL(rawHref, window.location.href);
+                if (!urlObj.searchParams.has('from')) {
+                    urlObj.searchParams.set('from', 'services');
+                }
+                const nextSearch = urlObj.searchParams.toString();
+                anchor.setAttribute('href', `${basePath}${nextSearch ? '?' + nextSearch : ''}${hashPart ? '#' + hashPart : ''}`);
+            });
+        }
+
+        function initServicesBackLinks() {
+            if (!isFromServices()) return;
+
+            const lang = getCurrentLang();
+            const firstContainer = document.querySelector('.main .section:first-child .container');
+            if (firstContainer && !firstContainer.querySelector('.services-back-nav')) {
+                const topNav = document.createElement('div');
+                topNav.className = 'services-back-nav';
+                topNav.appendChild(createServicesBackLink(lang));
+                firstContainer.insertBefore(topNav, firstContainer.firstElementChild);
+            }
+
+            const lastSection = document.querySelector('#service-requests .container');
+            if (lastSection && !lastSection.querySelector('.services-back-nav--bottom')) {
+                const bottomNav = document.createElement('div');
+                bottomNav.className = 'services-back-nav services-back-nav--bottom';
+                bottomNav.style.marginTop = 'var(--space-2xl)';
+                bottomNav.style.marginBottom = '0';
+                bottomNav.appendChild(createServicesBackLink(lang));
+                lastSection.appendChild(bottomNav);
+            }
+
+            propagateServicesParam();
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initServicesBackLinks);
+        } else {
+            initServicesBackLinks();
+        }
+    })();
     </script>
 
     <!-- Scripts -->
