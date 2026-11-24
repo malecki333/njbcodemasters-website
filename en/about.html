@@ -76,7 +76,7 @@ body {
 .platform-content .values-grid .pricing-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
     text-align: center;
     align-items: center;
@@ -117,6 +117,40 @@ body {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+}
+.card-blog-links {
+    margin-top: auto;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    width: 100%;
+}
+.blog-ref-link,
+.card-blog-links .blog-ref-link {
+    display: inline-block;
+    text-align: center;
+    color: #818cf8;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+.blog-ref-link:hover,
+.card-blog-links .blog-ref-link:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+    transform: translateX(2px);
+}
+[data-theme="light"] .blog-ref-link,
+[data-theme="light"] .card-blog-links .blog-ref-link {
+    color: #4f46e5;
+}
+[data-theme="light"] .blog-ref-link:hover,
+[data-theme="light"] .card-blog-links .blog-ref-link:hover {
+    color: #0284c7;
 }
 .platform-content .values-grid .pricing-card .cta-lead {
     margin-top: 0.85rem;
@@ -181,13 +215,13 @@ body {
 <header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Home"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Home</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Modules</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilot Program</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Contact</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Privacy Policy</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Legal Notice</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Legacy Content</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Services</a></li><li><a class="nav__link" href="pricing.html">Pricing</a></li><li><a class="nav__link" href="portfolio.html">Portfolio</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Choose language"><option value="de">Deutsch</option><option value="en">English</option><option value="sr">Srpski</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Sound"><span class="sound-label">Sound</span></button></div></nav></header>
 <main class="main"><section class="section platform-content"><div class="container"><p class="section-label">NJB CodeMasters</p><h1>NJB CodeMasters</h1><p class="section-description">Connected software and digital products for faster workflows, fewer friction points and dependable operational visibility across industrial sites.</p></div></section>
 <section class="section platform-content about-card-section"><div class="container"><div class="values-grid about-card-grid">
-<article class="pricing-card"><h2>Mission</h2><p>We connect data, interfaces and operational workflows into one clear working context. Teams cut search and coordination overhead, make informed decisions faster and collaborate seamlessly across functions with <a href="vezaiongen-vi.html">VezaionGen VI</a>.</p></article>
-<article class="pricing-card"><h2>Vision</h2><p>We shape an industry where people, machines and intelligent systems work together smoothly. Industry 6.0 stands for adaptable, connected and human-centred solutions with tangible everyday value.</p></article>
-<article class="pricing-card"><h2>Founder</h2><p>Nenad Baralić founded NJB CodeMasters and leads the company. Hands-on understanding of industrial processes, direct accountability and disciplined software engineering go straight into reliable solutions for operating teams.</p></article>
-<article class="pricing-card"><h2>Research</h2><p>Our research focuses on industrial data models, Digital Twins, operational analytics, Industrial AI and connected workflows—helping teams spot dependencies earlier, resolve bottlenecks sooner and act faster, explored further in the <a href="blog.html?from=about">Blog</a>.</p></article>
-<article class="pricing-card"><h2>Development</h2><p>We build modular software components, interfaces and workflows for web, enterprise and industrial environments. Inside <a href="modules.html">VezaionGen VI</a>, functional areas fit together smoothly to ease existing systems and speed up execution.</p></article>
-<article class="pricing-card"><h2>Innovation</h2><p>For us, innovation matters when it makes daily operations noticeably easier. Digital Twin, Industrial AI and automation are applied where they build clarity, remove handoff gaps and support teams.</p></article>
-<article class="pricing-card"><h2>Future Objectives</h2><p>We expand <a href="pilot-program.html">pilot initiatives</a> and the step-by-step rollout of <a href="vezaiongen-vi.html">VezaionGen VI</a> together with industry partners—for predictable scaling and lasting process efficiency.</p><p class="cta-lead">Want to see how our platform and working approach fit your workflows? Start with an overview or a direct conversation:</p><div class="about-card__actions"><a class="btn btn--primary" href="vezaiongen-vi.html">Explore VezaionGen VI</a><a class="btn btn--secondary" href="contact.html#request-consulting">Talk to us</a></div></article>
+<article class="pricing-card"><h2>Mission</h2><p>We connect data, interfaces and operational workflows into one clear working context. Teams cut search and coordination overhead, make informed decisions faster and collaborate seamlessly across functions with <a href="vezaiongen-vi.html?from=about">VezaionGen VI</a>.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-2.html?from=about">Modular Platforms &amp; Data Models&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Vision</h2><p>We shape an industry where people, machines and intelligent systems work together smoothly. Industry 6.0 stands for adaptable, connected and human-centred solutions with tangible everyday value.</p><div class="card-blog-links"><a class="blog-ref-link" href="roadmap.html?from=about">Expansion Roadmap&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Founder</h2><p>Nenad Baralić founded NJB CodeMasters and leads the company. Hands-on understanding of industrial processes, direct accountability and disciplined software engineering go straight into reliable solutions for operating teams.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-1.html?from=about">Founding &amp; Path to VezaionGen VI&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Research</h2><p>Our research focuses on industrial data models, Digital Twins, operational analytics, Industrial AI and connected workflows—helping teams spot dependencies earlier, resolve bottlenecks sooner and act faster, explored further in the <a href="blog.html?from=about">Blog</a>.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-4.html?from=about">AI Agents &amp; Federated Learning&nbsp;→</a><a class="blog-ref-link" href="blog-article-7.html?from=about">3D Digital Twins &amp; Robotics&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Development</h2><p>We build modular software components, interfaces and workflows for web, enterprise and industrial environments. Across <a href="vezaiongen-vi.html?from=about">VezaionGen VI</a> and its <a href="modules.html?from=about">modules</a>, functional areas fit together smoothly to ease existing systems and speed up execution.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-9.html?from=about">System Integration, APIs &amp; On&#8209;Premise&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Innovation</h2><p>For us, innovation matters when it makes daily operations noticeably easier. Digital Twin, Industrial AI and automation are applied where they build clarity, remove handoff gaps and support teams.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-6.html?from=about">Industrial Analytics &amp; Simulation&nbsp;→</a><a class="blog-ref-link" href="blog-article-8.html?from=about">ESG, CBAM &amp; Energy&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Future Objectives</h2><p>We expand <a href="pilot-program.html?from=about">pilot initiatives</a> and the step-by-step rollout of <a href="vezaiongen-vi.html?from=about">VezaionGen VI</a> together with industry partners—for predictable scaling and lasting process efficiency.</p><p class="cta-lead">Want to see how our platform and working approach fit your workflows? Start with an overview or a direct conversation:</p><div class="about-card__actions"><a class="btn btn--primary" href="vezaiongen-vi.html?from=about">Explore VezaionGen VI</a><a class="btn btn--secondary" href="contact.html?from=about#request-consulting">Talk to us</a></div></article>
 </div></div></section></main>
 <div id="footer-placeholder"></div>
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
