@@ -61,6 +61,42 @@ body {
     margin-bottom: 1.5rem;
     line-height: 1.65;
 }
+.origin-back-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+}
+.origin-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.42rem 0.95rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: var(--font-weight-semibold, 600);
+    color: #e0f2fe;
+    background: rgba(56, 189, 248, 0.16);
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    transition: all 0.25s ease;
+}
+.origin-back-link:hover {
+    color: #ffffff;
+    background: rgba(56, 189, 248, 0.28);
+    border-color: #7dd3fc;
+    transform: translateX(-2px);
+}
+[data-theme="light"] .origin-back-link {
+    color: #0369a1;
+    background: rgba(2, 132, 199, 0.12);
+    border-color: rgba(2, 132, 199, 0.35);
+}
+[data-theme="light"] .origin-back-link:hover {
+    color: #0c4a6e;
+    background: rgba(2, 132, 199, 0.2);
+}
 .platform-content .values-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -155,13 +191,68 @@ body {
 <main class="main"><section class="section platform-content"><div class="container"><p class="section-label">VEZAIONGEN VI</p><h1>Modules for industrial work</h1><p class="section-description">Each module resolves concrete operational bottlenecks, provides immediate visibility and connects cleanly with your existing processes.</p><div class="values-grid">
 <article class="pricing-card"><h2>Industrial Core</h2><p><strong>What it does:</strong> Unifies production, materials, orders, maintenance and quality data in one place.</p><p><strong>For whom:</strong> Production, maintenance and plant leadership teams.</p><p><strong>Why:</strong> Shorter lead times, clearer priorities and less friction across manufacturing, maintenance and quality.</p></article>
 <article class="pricing-card"><h2>Digital Twin &amp; Robotics</h2><p><strong>What it does:</strong> Models equipment, factory zones and robotic tasks digitally and spatially.</p><p><strong>For whom:</strong> Engineering, automation and facility planning teams.</p><p><strong>Why:</strong> Spatial dependencies and automated workflows become verifiable upfront, safer and easier to plan.</p></article>
-<article class="pricing-card"><h2>Logistics &amp; Transport</h2><p><strong>What it does:</strong> Consolidates transport, routing, fleet and dispatch information end to end.</p><p><strong>For whom:</strong> Logistics, transport and supply-chain teams.</p><p><strong>Why:</strong> Dispatch, loading and execution align seamlessly—eliminating information gaps between planning and the road.</p></article>
+<article class="pricing-card"><h2>Logistics &amp; Transport</h2><p><strong>What it does:</strong> Consolidates transport, routing, fleet and dispatch information end to end.</p><p><strong>For whom:</strong> Logistics, transport and supply&#8209;chain teams.</p><p><strong>Why:</strong> Dispatch, loading and execution align seamlessly—eliminating information gaps between planning and the road.</p></article>
 <article class="pricing-card"><h2>ESG &amp; Sustainability</h2><p><strong>What it does:</strong> Captures and maps energy and emissions data directly to operational areas.</p><p><strong>For whom:</strong> Energy, sustainability and operations leaders.</p><p><strong>Why:</strong> Consumption and metrics become transparently manageable and ready for reporting and compliance.</p></article>
 <article class="pricing-card"><h2>Autonomy &amp; Recovery</h2><p><strong>What it does:</strong> Supports event-driven workflows, simulation and guided recovery.</p><p><strong>For whom:</strong> Operations, process and automation teams.</p><p><strong>Why:</strong> Disruptions and deviations are caught faster while teams retain full control and clear hand-offs.</p></article>
 <article class="pricing-card"><h2>Integration Ecosystem</h2><p><strong>What it does:</strong> Connects applications via clean APIs, data adapters and synchronization.</p><p><strong>For whom:</strong> IT, OT, engineering and integration teams.</p><p><strong>Why:</strong> Existing systems and sites work together without interrupting ongoing operations.</p></article>
 </div>
 <p class="cta-lead">Want to select the right modules for your plant or discuss your system requirements in detail? Jump directly to the platform overview, the pilot program or a tailored consultation:</p>
-<div class="action-buttons"><a class="btn btn--primary" href="contact.html#request-enterprise">Discuss Enterprise Development</a> <a class="btn btn--secondary" href="vezaiongen-vi.html">Platform Overview</a> <a class="btn btn--secondary" href="pilot-program.html">Explore Pilot Program</a> <a class="btn btn--secondary" href="blog.html?from=modules">Read Technical Articles</a></div></div></section></main>
+<div class="action-buttons"><a class="btn btn--primary" href="contact.html?from=modules#request-enterprise">Discuss Enterprise Development</a> <a class="btn btn--secondary" href="vezaiongen-vi.html?from=modules">Platform Overview</a> <a class="btn btn--secondary" href="pilot-program.html?from=modules">Explore Pilot Program</a> <a class="btn btn--secondary" href="blog.html?from=modules">Read Technical Articles&nbsp;→</a></div></div></section></main>
 <div id="footer-placeholder"></div>
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
+<script>
+(function () {
+    function detectOrigin() {
+        const params = new URLSearchParams(window.location.search);
+        const fromParam = params.get('from');
+        const ref = document.referrer || '';
+        if (fromParam === 'about' || /about\.html/i.test(ref)) {
+            return 'about';
+        }
+        if (fromParam === 'roadmap' || /roadmap\.html/i.test(ref)) {
+            return 'roadmap';
+        }
+        return null;
+    }
+    function initOriginBackLink() {
+        const origin = detectOrigin();
+        if (!origin) return;
+        const container = document.querySelector('.main .section .container');
+        const h1 = container ? container.querySelector('h1') : null;
+        if (!container || !h1 || container.querySelector('.origin-back-bar')) return;
+
+        const labels = {
+            about: {
+                de: '← Zurück zu Über NJB CodeMasters',
+                en: '← Back to About NJB CodeMasters',
+                sr: '← Назад на NJB CodeMasters'
+            },
+            roadmap: {
+                de: '← Zurück zur Roadmap',
+                en: '← Back to Roadmap',
+                sr: '← Назад на мапу пута'
+            }
+        };
+        const hrefs = {
+            about: 'about.html',
+            roadmap: 'roadmap.html'
+        };
+        const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'en';
+
+        const bar = document.createElement('div');
+        bar.className = 'origin-back-bar';
+        const link = document.createElement('a');
+        link.href = hrefs[origin];
+        link.className = 'origin-back-link';
+        link.textContent = (labels[origin] && (labels[origin][lang] || labels[origin].en)) || '← Back';
+        bar.appendChild(link);
+        h1.parentNode.insertBefore(bar, h1);
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initOriginBackLink);
+    } else {
+        initOriginBackLink();
+    }
+})();
+</script>
 </body></html>
