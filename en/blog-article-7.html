@@ -25,17 +25,25 @@
 
     <style>
         .article-container { max-width: 900px; margin: 0 auto; }
-        .top-back-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md); margin-bottom: var(--space-4xl); }
+        .top-back-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: var(--space-md); margin-bottom: var(--space-3xl); }
         .back-link,
-        .vezaion-back-link { display: inline-flex; align-items: center; gap: var(--space-xs); padding: 0.45rem 0.95rem; border-radius: 999px; text-decoration: none; font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm); margin-bottom: 0; transition: all 0.25s ease; }
+        .vezaion-back-link,
+        .services-back-link { display: inline-flex; align-items: center; gap: var(--space-xs); padding: 0.45rem 0.95rem; border-radius: 999px; text-decoration: none; font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm); margin-bottom: 0; transition: all 0.25s ease; }
+        .back-link[hidden],
+        .vezaion-back-link[hidden],
+        .services-back-link[hidden] { display: none !important; }
         .back-link { color: #c7d2fe; background: rgba(99, 102, 241, 0.18); border: 1px solid rgba(129, 140, 248, 0.48); }
         .back-link:hover { color: #ffffff; background: rgba(99, 102, 241, 0.3); border-color: #a5b4fc; transform: translateX(-3px); }
         .vezaion-back-link { color: #e0f2fe; background: rgba(56, 189, 248, 0.18); border: 1px solid rgba(56, 189, 248, 0.55); }
         .vezaion-back-link:hover { color: #ffffff; background: rgba(56, 189, 248, 0.3); border-color: #7dd3fc; transform: translateX(-3px); }
+        .services-back-link { color: #f5d0fe; background: rgba(192, 38, 211, 0.18); border: 1px solid rgba(232, 121, 249, 0.5); }
+        .services-back-link:hover { color: #ffffff; background: rgba(192, 38, 211, 0.3); border-color: #f0abfc; transform: translateX(-3px); }
         [data-theme="light"] .back-link { color: #3730a3; background: rgba(79, 70, 229, 0.1); border-color: rgba(79, 70, 229, 0.3); }
         [data-theme="light"] .back-link:hover { color: #1e1b4b; background: rgba(79, 70, 229, 0.18); }
         [data-theme="light"] .vezaion-back-link { color: #0369a1; background: rgba(2, 132, 199, 0.12); border-color: rgba(2, 132, 199, 0.35); }
         [data-theme="light"] .vezaion-back-link:hover { color: #0c4a6e; background: rgba(2, 132, 199, 0.2); }
+        [data-theme="light"] .services-back-link { color: #86198f; background: rgba(192, 38, 211, 0.1); border-color: rgba(192, 38, 211, 0.35); }
+        [data-theme="light"] .services-back-link:hover { color: #701a75; background: rgba(192, 38, 211, 0.18); }
         .article-hero { background: linear-gradient(135deg, rgba(99, 102, 241, 0.85), rgba(14, 165, 233, 0.85)), linear-gradient(135deg, var(--primary-color), var(--accent-color)); border-radius: var(--radius-2xl); padding: var(--space-4xl); color: white; margin-bottom: var(--space-4xl); }
         [data-theme="light"] .article-hero h1, [data-theme="light"] .article-hero, [data-theme="light"] .article-hero p, [data-theme="light"] .article-meta, [data-theme="light"] .article-tag { color: white !important; }
         .article-hero h1 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: var(--space-2xl); line-height: 1.2; }
@@ -59,8 +67,15 @@
         .article-next-link:hover { color: #ffffff; background: rgba(99, 102, 241, 0.3); border-color: #a5b4fc; transform: translateX(3px); }
         [data-theme="light"] .article-next-link { color: #1e1b4b !important; background: rgba(255, 255, 255, 0.92); border-color: rgba(79, 70, 229, 0.4); }
         .article-footer { border-top: 1px solid var(--glass-border); padding-top: var(--space-4xl); margin-top: var(--space-5xl); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-lg); }
+        .article-footer__actions { display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center; }
         .article-author { color: var(--text-secondary); font-size: var(--font-size-base); }
-        @media (max-width: 768px) { .article-hero { padding: var(--space-2xl); } .article-hero h1 { font-size: var(--font-size-2xl); } .article-meta { flex-direction: column; gap: var(--space-md); } .article-footer { flex-direction: column; align-items: flex-start; } }
+        @media (max-width: 768px) {
+            .top-back-nav { flex-direction: column; align-items: flex-start; gap: var(--space-sm); margin-bottom: var(--space-2xl); }
+            .article-hero { padding: var(--space-2xl); }
+            .article-hero h1 { font-size: var(--font-size-2xl); }
+            .article-meta { flex-direction: column; gap: var(--space-md); }
+            .article-footer { flex-direction: column; align-items: flex-start; }
+        }
     </style>
 
     <link rel="canonical" href="https://www.njbcodemasters.com/en/blog-article-7.html">
@@ -145,7 +160,10 @@
         </section>
 
         <section class="section container article-container">
-            <a href="blog.html" class="back-link">← Back to Blog</a>
+            <div class="top-back-nav">
+                <a href="blog.html" class="back-link">← Back to Blog</a>
+                <a href="services.html" class="services-back-link" data-services-back-link hidden>← Back to Services</a>
+            </div>
 
             <article>
                 <div class="article-hero">
@@ -198,7 +216,10 @@
                         <strong>Author:</strong> NJB CodeMasters<br>
                         <em>Published in November 2026</em>
                     </span>
-                    <a href="blog.html" class="back-link">← Back to Blog</a>
+                    <div class="article-footer__actions">
+                        <a href="blog.html" class="back-link">← Back to Blog</a>
+                        <a href="services.html" class="services-back-link" data-services-back-link hidden>← Back to Services</a>
+                    </div>
                 </div>
             </article>
         </section>
@@ -220,6 +241,19 @@
     <script src="../js/ai-assistant.js" defer></script>
     <script>
 (function () {
+    const SERVICES_LABELS = {
+        de: '← Zurück zu Leistungen',
+        en: '← Back to Services',
+        sr: '← Назад на услуге'
+    };
+
+    function isFromServices() {
+        const params = new URLSearchParams(window.location.search);
+        const fromParam = (params.get('from') || '').toLowerCase();
+        const ref = document.referrer || '';
+        return fromParam === 'services' || /services\.html/i.test(ref);
+    }
+
     function createSourceBackLink(targetType, lang) {
         const labels = {
             vezaiongen: {
@@ -240,7 +274,7 @@
         const link = document.createElement('a');
         link.href = hrefs[targetType];
         link.className = 'vezaion-back-link';
-        link.textContent = (labels[targetType] && (labels[targetType][lang] || labels[targetType].de)) || '← Zurück';
+        link.textContent = (labels[targetType] && (labels[targetType][lang] || labels[targetType].en)) || '← Back';
         return link;
     }
 
@@ -260,37 +294,25 @@
 
     function initOriginBackLinks() {
         const origin = detectOrigin();
-        if (!origin) return;
+        const fromServices = isFromServices();
+        const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'en';
 
-        const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'de';
+        if (origin) {
+            const topNav = document.querySelector('.top-back-nav');
+            if (topNav && !topNav.querySelector('.vezaion-back-link')) {
+                topNav.appendChild(createSourceBackLink(origin, lang));
+            }
 
-        const articleContainer = document.querySelector('.article-container');
-        const topBackLink = articleContainer ? articleContainer.querySelector(':scope > .back-link') : null;
-        if (topBackLink && !articleContainer.querySelector('.top-back-nav')) {
-            const topNav = document.createElement('div');
-            topNav.className = 'top-back-nav';
-            topBackLink.parentNode.insertBefore(topNav, topBackLink);
-            topNav.appendChild(topBackLink);
-            topNav.appendChild(createSourceBackLink(origin, lang));
-        }
-
-        const footer = document.querySelector('.article-footer');
-        if (footer && !footer.querySelector('.vezaion-back-link')) {
-            const footerBackLink = footer.querySelector('.back-link');
-            const productLinkBottom = createSourceBackLink(origin, lang);
-            if (footerBackLink) {
-                const wrap = document.createElement('div');
-                wrap.style.display = 'flex';
-                wrap.style.gap = 'var(--space-md)';
-                wrap.style.flexWrap = 'wrap';
-                wrap.style.alignItems = 'center';
-                footerBackLink.parentNode.insertBefore(wrap, footerBackLink);
-                wrap.appendChild(productLinkBottom);
-                wrap.appendChild(footerBackLink);
-            } else {
-                footer.appendChild(originLinkBottom);
+            const footerActions = document.querySelector('.article-footer__actions');
+            if (footerActions && !footerActions.querySelector('.vezaion-back-link')) {
+                footerActions.appendChild(createSourceBackLink(origin, lang));
             }
         }
+
+        document.querySelectorAll('[data-services-back-link]').forEach(link => {
+            link.textContent = SERVICES_LABELS[lang] || SERVICES_LABELS.en;
+            link.hidden = !fromServices;
+        });
     }
 
     if (document.readyState === 'loading') {
