@@ -214,6 +214,11 @@
 (function () {
     function createSourceBackLink(targetType, lang) {
         const labels = {
+            services: {
+                de: '← Zurück zu Leistungen',
+                en: '← Back to Services',
+                sr: '← Назад на услуге'
+            },
             vezaiongen: {
                 de: '← Zurück zu VezaionGen VI',
                 en: '← Back to VezaionGen VI',
@@ -226,6 +231,7 @@
             }
         };
         const hrefs = {
+            services: 'services.html',
             vezaiongen: 'vezaiongen-vi.html',
             modules: 'modules.html'
         };
@@ -241,6 +247,9 @@
         const fromParam = params.get('from');
         const ref = document.referrer || '';
 
+        if (fromParam === 'services' || /services\.html/i.test(ref)) {
+            return 'services';
+        }
         if (fromParam === 'modules' || /modules\.html/i.test(ref)) {
             return 'modules';
         }
