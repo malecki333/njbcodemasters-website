@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../css/platform-content.css">
 
     <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192x192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
 
@@ -84,7 +84,7 @@
 
         .main .section .cta-lead {
             max-width: 70ch;
-            margin-top: 0.65rem;
+            margin-top: 1.1rem;
             margin-bottom: 0.85rem;
             font-weight: var(--font-weight-medium);
             line-height: 1.6;
@@ -98,14 +98,14 @@
             gap: 1.5rem;
             align-items: stretch;
             width: 100%;
-            margin-top: 0.85rem;
+            margin-top: 1rem;
             margin-bottom: 0.85rem;
         }
 
         .main .section .values-grid .service-card {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             height: 100%;
             min-height: 0;
@@ -143,11 +143,88 @@
         }
 
         .main .section .values-grid .service-card > p {
-            margin-bottom: 0;
+            flex-grow: 1;
+            margin-bottom: 1rem;
             color: var(--text-secondary);
             line-height: 1.65;
             text-align: center;
             width: 100%;
+        }
+
+        .card-blog-links {
+            width: 100%;
+            margin-top: auto;
+            padding-top: 0.85rem;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.45rem;
+        }
+
+        .card-blog-links .blog-ref-link {
+            display: inline-block;
+            text-align: center;
+            color: #818cf8;
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+        .card-blog-links .blog-ref-link:hover {
+            color: #38bdf8;
+            text-decoration: underline;
+            transform: translateX(2px);
+        }
+
+        [data-theme="light"] .card-blog-links .blog-ref-link {
+            color: #4f46e5;
+        }
+
+        [data-theme="light"] .card-blog-links .blog-ref-link:hover {
+            color: #0284c7;
+        }
+
+        .section-blog-links {
+            margin-top: 0.9rem;
+            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.6rem 0.75rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .section-blog-links .blog-ref-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35rem;
+            padding: 0.45rem 0.95rem;
+            border-radius: 999px;
+            text-decoration: none;
+            color: #c7d2fe;
+            background: rgba(99, 102, 241, 0.18);
+            border: 1px solid rgba(129, 140, 248, 0.48);
+            transition: all 0.25s ease;
+        }
+
+        .section-blog-links .blog-ref-link:hover {
+            color: #ffffff;
+            background: rgba(99, 102, 241, 0.3);
+            border-color: #a5b4fc;
+            text-decoration: none;
+            transform: translateX(3px);
+        }
+
+        [data-theme="light"] .section-blog-links .blog-ref-link {
+            color: #3730a3;
+            background: rgba(79, 70, 229, 0.1);
+            border-color: rgba(79, 70, 229, 0.3);
+        }
+
+        [data-theme="light"] .section-blog-links .blog-ref-link:hover {
+            color: #1e1b4b;
+            background: rgba(79, 70, 229, 0.18);
         }
 
         .main .section strong {
@@ -219,6 +296,17 @@
 
             .main .section .values-grid .service-card:hover {
                 transform: none;
+            }
+
+            .section-blog-links .blog-ref-link {
+                width: 100%;
+                height: auto;
+                min-height: 2.5rem;
+                padding: 0.55rem 1rem;
+                line-height: 1.35;
+                white-space: normal;
+                overflow-wrap: break-word;
+                hyphens: none;
             }
 
             .home-actions {
@@ -324,7 +412,11 @@
             <div class="container">
                 <p class="section-label">NJB CODEMASTERS</p>
                 <h1>Software für Industrie und digitale Produkte</h1>
-                <p class="section-description">Schnellere Abläufe, weniger Reibungsverluste und verlässliche Transparenz – NJB CodeMasters verbindet Website-Entwicklung, Enterprise Development und industrielle Technologie mit den Anforderungen konkreter Teams und Prozesse. Mehr Einblicke und Hintergründe finden Sie auch im <a href="blog.html?from=services">Blog</a> und im <a href="portfolio.html">Portfolio</a>.</p>
+                <p class="section-description">Schnellere Abläufe, weniger Reibungsverluste und verlässliche Transparenz – NJB CodeMasters verbindet Website-Entwicklung, Enterprise Development und industrielle Technologie mit den Anforderungen konkreter Teams und Prozesse.</p>
+                <div class="section-blog-links">
+                    <a class="blog-ref-link" href="blog.html?from=services">Fachbeiträge im Blog&nbsp;→</a>
+                    <a class="blog-ref-link" href="portfolio.html?from=services">Umgesetzte Projekte&nbsp;→</a>
+                </div>
             </div>
         </section>
 
@@ -334,32 +426,57 @@
                 <div class="values-grid">
                     <article class="service-card">
                         <h3>Industry 6.0 &amp; Industrial AI</h3>
-                        <p>Intelligente, menschenorientierte industrielle Anwendungen konzipieren und in vorhandene Betriebsumgebungen einordnen – für schnellere Entscheidungen und klarere Zuständigkeiten. Details zur Plattform finden Sie unter <a href="vezaiongen-vi.html">VezaionGen VI</a> und zu den <a href="modules.html">Modulen</a>.</p>
+                        <p>Intelligente, menschenorientierte industrielle Anwendungen konzipieren und in vorhandene Betriebsumgebungen einordnen – für schnellere Entscheidungen und klarere Zuständigkeiten.</p>
+                        <div class="card-blog-links">
+                            <a class="blog-ref-link" href="vezaiongen-vi.html?from=services">VezaionGen VI Plattform&nbsp;→</a>
+                            <a class="blog-ref-link" href="blog-article-4.html?from=services">KI-Agenten &amp; Federated Learning&nbsp;→</a>
+                        </div>
                     </article>
 
                     <article class="service-card">
                         <h3>Enterprise Development</h3>
-                        <p>Software, Datenmodelle und Schnittstellen für komplexe Abläufe, Rollen und Systemlandschaften entwickeln – damit Medienbrüche sinken und Teams verlässlich arbeiten. Passende Richtpreise finden Sie unter <a href="pricing.html">Preise</a>.</p>
+                        <p>Software, Datenmodelle und Schnittstellen für komplexe Abläufe, Rollen und Systemlandschaften entwickeln – damit Medienbrüche sinken und Teams verlässlich arbeiten.</p>
+                        <div class="card-blog-links">
+                            <a class="blog-ref-link" href="blog-article-2.html?from=services">Modulare Plattformen&nbsp;→</a>
+                            <a class="blog-ref-link" href="blog-article-9.html?from=services">Systemintegration &amp; APIs&nbsp;→</a>
+                            <a class="blog-ref-link" href="pricing.html?from=services">Richtpreise &amp; Pakete&nbsp;→</a>
+                        </div>
                     </article>
 
                     <article class="service-card">
                         <h3>Digital Twin</h3>
-                        <p>Digitale Modelle und operative Informationen zusammenführen, um Anlagen und Prozesse im Kontext zu betrachten – für frühere Transparenz über Engpässe und Abhängigkeiten. Mehr dazu auf der Seite <a href="modules.html">Module</a> und zu <a href="vezaiongen-vi.html">VezaionGen VI</a>.</p>
+                        <p>Digitale Modelle und operative Informationen zusammenführen, um Anlagen und Prozesse im Kontext zu betrachten – für frühere Transparenz über Engpässe und Abhängigkeiten.</p>
+                        <div class="card-blog-links">
+                            <a class="blog-ref-link" href="blog-article-7.html?from=services">3D Digital Twins &amp; Robotik&nbsp;→</a>
+                            <a class="blog-ref-link" href="modules.html?from=services">Funktionsmodule&nbsp;→</a>
+                        </div>
                     </article>
 
                     <article class="service-card">
                         <h3>Automation</h3>
-                        <p>Wiederkehrende Abläufe und Systemverbindungen gestalten, mit klaren Übergaben und menschlicher Kontrolle – für spürbar weniger Routinearbeit und höhere Prozesssicherheit. Beispiele und Hintergründe finden Sie im <a href="blog.html?from=services">Blog</a>.</p>
+                        <p>Wiederkehrende Abläufe und Systemverbindungen gestalten, mit klaren Übergaben und menschlicher Kontrolle – für spürbar weniger Routinearbeit und höhere Prozesssicherheit.</p>
+                        <div class="card-blog-links">
+                            <a class="blog-ref-link" href="blog-article-6.html?from=services">Industrial Analytics &amp; Kennzahlen&nbsp;→</a>
+                            <a class="blog-ref-link" href="modules.html?from=services">Steuerungs-Module&nbsp;→</a>
+                        </div>
                     </article>
 
                     <article class="service-card">
                         <h3>Consulting</h3>
-                        <p>Technische Entscheidungen, Architektur und Produktziele gemeinsam strukturieren und passende nächste Schritte bestimmen – ohne unnötige Schleifen vor dem Start. Mehr über unsere Arbeitsweise erfahren Sie unter <a href="about.html">Über uns</a> und im <a href="pilot-program.html">Pilotprogramm</a>.</p>
+                        <p>Technische Entscheidungen, Architektur und Produktziele gemeinsam strukturieren und passende nächste Schritte bestimmen – ohne unnötige Schleifen vor dem Start.</p>
+                        <div class="card-blog-links">
+                            <a class="blog-ref-link" href="about.html?from=services">Über NJB CodeMasters&nbsp;→</a>
+                            <a class="blog-ref-link" href="pilot-program.html?from=services">Pilotprogramm&nbsp;→</a>
+                        </div>
                     </article>
 
                     <article class="service-card">
                         <h3>Website-Entwicklung &amp; Digitale Produkte</h3>
-                        <p>Websites, responsive Web-Anwendungen, Mobile Apps, E-Commerce-Lösungen, Schnittstellen und laufende Betreuung – sauber umgesetzt auf konkrete Anforderungen und den täglichen Einsatz ausgerichtet. Pakete und Einzelpositionen finden Sie unter <a href="pricing.html">Preise</a>, Referenzbeispiele im <a href="portfolio.html">Portfolio</a>.</p>
+                        <p>Websites, responsive Web-Anwendungen, Mobile Apps, E-Commerce-Lösungen, Schnittstellen und laufende Betreuung – sauber umgesetzt auf konkrete Anforderungen und den täglichen Einsatz ausgerichtet.</p>
+                        <div class="card-blog-links">
+                            <a class="blog-ref-link" href="pricing.html?from=services">Web-Pakete &amp; Preise&nbsp;→</a>
+                            <a class="blog-ref-link" href="portfolio.html?from=services">Web- &amp; Produktbeispiele&nbsp;→</a>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -368,7 +485,12 @@
         <section class="section platform-content">
             <div class="container">
                 <h2>Zusammenarbeit mit klarem Fokus</h2>
-                <p>Zu Beginn stimmen wir Ziel, Nutzer, betriebliche Umgebung und technische Schnittstellen ab. Daraus entsteht ein passender Leistungsumfang mit transparenten Annahmen, planbaren Schritten und – wo sinnvoll – dem Einstieg über das <a href="pilot-program.html">Pilotprogramm</a>. Ergänzende Fachbeiträge dazu finden Sie im <a href="blog.html?from=services">Blog</a> und mehr über <a href="about.html">NJB CodeMasters</a> auf der Über-uns-Seite.</p>
+                <p>Zu Beginn stimmen wir Ziel, Nutzer, betriebliche Umgebung und technische Schnittstellen ab. Daraus entsteht ein passender Leistungsumfang mit transparenten Annahmen, planbaren Schritten und – wo sinnvoll – dem Einstieg über das Pilotprogramm.</p>
+                <div class="section-blog-links">
+                    <a class="blog-ref-link" href="pilot-program.html?from=services">Pilotprogramm im Detail&nbsp;→</a>
+                    <a class="blog-ref-link" href="blog-article-9.html?from=services">Schrittweise Anbindung im Betrieb&nbsp;→</a>
+                    <a class="blog-ref-link" href="about.html?from=services">Arbeitsweise &amp; Hintergrund&nbsp;→</a>
+                </div>
                 <p class="cta-lead">Klären Sie direkt Ihre Anforderungen im Gespräch oder vergleichen Sie zunächst die Richtpreise:</p>
                 <div class="home-actions">
                     <a class="btn btn--primary" href="contact.html">Projekt besprechen</a>
