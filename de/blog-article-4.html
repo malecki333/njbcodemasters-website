@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="../css/platform-content.css">
 
     <link rel="icon" type="image/png" sizes="48x48" href="../assets/brand/favicon-48.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../assets/brand/favicon-192x192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png">
     <link rel="manifest" href="../site.webmanifest">
 
@@ -217,6 +217,11 @@
 (function () {
     function createSourceBackLink(targetType, lang) {
         const labels = {
+            services: {
+                de: '← Zurück zu Leistungen',
+                en: '← Back to Services',
+                sr: '← Назад на услуге'
+            },
             vezaiongen: {
                 de: '← Zurück zu VezaionGen VI',
                 en: '← Back to VezaionGen VI',
@@ -229,6 +234,7 @@
             }
         };
         const hrefs = {
+            services: 'services.html',
             vezaiongen: 'vezaiongen-vi.html',
             modules: 'modules.html'
         };
@@ -244,6 +250,9 @@
         const fromParam = params.get('from');
         const ref = document.referrer || '';
 
+        if (fromParam === 'services' || /services\.html/i.test(ref)) {
+            return 'services';
+        }
         if (fromParam === 'modules' || /modules\.html/i.test(ref)) {
             return 'modules';
         }
