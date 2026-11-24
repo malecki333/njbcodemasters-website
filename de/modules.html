@@ -124,8 +124,9 @@ body {
     line-height: 1.6;
     text-align: center;
 }
-.platform-content .values-grid .pricing-card > p:last-child {
-    margin-bottom: 0;
+.platform-content .values-grid .pricing-card > p:last-of-type {
+    flex-grow: 1;
+    margin-bottom: 1rem;
 }
 .platform-content .values-grid .pricing-card > p strong {
     background: linear-gradient(90deg, #ff2bd6 0%, #c026d3 48%, #8b5cf6 100%);
@@ -141,6 +142,34 @@ body {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+}
+.card-blog-links {
+    margin-top: auto;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem 0.85rem;
+}
+.blog-ref-link {
+    color: #818cf8;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+.blog-ref-link:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+    transform: translateX(2px);
+}
+[data-theme="light"] .blog-ref-link {
+    color: #4f46e5;
+}
+[data-theme="light"] .blog-ref-link:hover {
+    color: #0284c7;
 }
 .main .section .cta-lead {
     max-width: 74ch;
@@ -192,12 +221,12 @@ body {
 <body data-language="de">
 <header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Zur Startseite"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Startseite</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Module</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilotprogramm</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Kontakt</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Datenschutz</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Impressum</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Legacy-Inhalte</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Leistungen</a></li><li><a class="nav__link" href="pricing.html">Preise</a></li><li><a class="nav__link" href="portfolio.html">Portfolio</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Sprache wählen"><option value="de">Deutsch</option><option value="en">English</option><option value="sr">Srpski</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Sound"><span class="sound-label">Sound</span></button></div></nav></header>
 <main class="main"><section class="section platform-content"><div class="container"><p class="section-label">VEZAIONGEN VI</p><h1>Module für industrielle Abläufe</h1><div class="origin-back-bar" data-origin-back-bar hidden><a class="origin-back-link" data-origin-back-link href="about.html" hidden>← Zurück zu Über NJB CodeMasters</a></div><p class="section-description">Jedes Modul löst konkrete Engpässe im Betrieb, schafft schnelle Übersicht und lässt sich gezielt mit Ihren bestehenden Prozessen verbinden.</p><div class="values-grid">
-<article class="pricing-card"><h2>Industrial Core</h2><p><strong>Was es macht:</strong> Führt Produktions-, Material-, Auftrags-, Instandhaltungs- und Qualitätsdaten an einem Ort zusammen.</p><p><strong>Für wen:</strong> Produktions-, Instandhaltungs- und Werksleitung.</p><p><strong>Warum:</strong> Kürzere Durchlaufzeiten, klarere Prioritäten und weniger Reibungsverluste zwischen Fertigung, Wartung und Qualität.</p></article>
-<article class="pricing-card"><h2>Digital Twin &amp; Robotics</h2><p><strong>Was es macht:</strong> Bildet Anlagen, Fabrikbereiche und robotische Aufgaben digital und räumlich ab.</p><p><strong>Für wen:</strong> Engineering, Automatisierung und Anlagenplanung.</p><p><strong>Warum:</strong> Räumliche Zusammenhänge und automatisierte Abläufe werden vorab prüfbar, sicherer und besser planbar.</p></article>
-<article class="pricing-card"><h2>Logistics &amp; Transport</h2><p><strong>Was es macht:</strong> Bündelt Transport-, Routen-, Flotten- und Dispositionsinformationen durchgängig.</p><p><strong>Für wen:</strong> Logistik-, Transport- und Supply&#8209;Chain&#8209;Teams.</p><p><strong>Warum:</strong> Disposition, Beladung und Ausführung greifen nahtlos ineinander – ohne Informationsverlust zwischen Planung und Straße.</p></article>
-<article class="pricing-card"><h2>ESG &amp; Sustainability</h2><p><strong>Was es macht:</strong> Erfasst und ordnet Energie- und Emissionsdaten direkt den betrieblichen Bereichen zu.</p><p><strong>Für wen:</strong> Energie-, Nachhaltigkeits- und Betriebsverantwortliche.</p><p><strong>Warum:</strong> Verbräuche und Kennzahlen werden transparent steuerbar und lassen sich sauber für Berichte und Vorgaben nutzen.</p></article>
-<article class="pricing-card"><h2>Autonomy &amp; Recovery</h2><p><strong>Was es macht:</strong> Unterstützt ereignisgesteuerte Abläufe, Simulation und geführte Wiederherstellung.</p><p><strong>Für wen:</strong> Betriebs-, Prozess- und Automatisierungsteams.</p><p><strong>Warum:</strong> Störungen und Abweichungen werden schneller abgefangen, während Teams volle Kontrolle und klare Übergaben behalten.</p></article>
-<article class="pricing-card"><h2>Integration Ecosystem</h2><p><strong>Was es macht:</strong> Verbindet Anwendungen über klare APIs, Datenadapter und Synchronisation.</p><p><strong>Für wen:</strong> IT, OT, Engineering und Integrationsteams.</p><p><strong>Warum:</strong> Bestehende Systeme und Standorte arbeiten zusammen, ohne laufende Betriebsabläufe zu unterbrechen.</p></article>
+<article class="pricing-card"><h2>Industrial Core</h2><p><strong>Was es macht:</strong> Führt Produktions-, Material-, Auftrags-, Instandhaltungs- und Qualitätsdaten an einem Ort zusammen.</p><p><strong>Für wen:</strong> Produktions-, Instandhaltungs- und Werksleitung.</p><p><strong>Warum:</strong> Kürzere Durchlaufzeiten, klarere Prioritäten und weniger Reibungsverluste zwischen Fertigung, Wartung und Qualität.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-2.html?from=modules">Modulare Plattformen&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Digital Twin &amp; Robotics</h2><p><strong>Was es macht:</strong> Bildet Anlagen, Fabrikbereiche und robotische Aufgaben digital und räumlich ab.</p><p><strong>Für wen:</strong> Engineering, Automatisierung und Anlagenplanung.</p><p><strong>Warum:</strong> Räumliche Zusammenhänge und automatisierte Abläufe werden vorab prüfbar, sicherer und besser planbar.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-7.html?from=modules">3D-Zwillinge &amp; Robotik-Orchestrierung&nbsp;→</a><a class="blog-ref-link" href="blog-article-5.html?from=modules">Digital Twins &amp; Logistik&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Logistics &amp; Transport</h2><p><strong>Was es macht:</strong> Bündelt Transport-, Routen-, Flotten- und Dispositionsinformationen durchgängig.</p><p><strong>Für wen:</strong> Logistik-, Transport- und Supply&#8209;Chain&#8209;Teams.</p><p><strong>Warum:</strong> Disposition, Beladung und Ausführung greifen nahtlos ineinander – ohne Informationsverlust zwischen Planung und Straße.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-5.html?from=modules">TMS, Logistik &amp; Routen&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>ESG &amp; Sustainability</h2><p><strong>Was es macht:</strong> Erfasst und ordnet Energie- und Emissionsdaten direkt den betrieblichen Bereichen zu.</p><p><strong>Für wen:</strong> Energie-, Nachhaltigkeits- und Betriebsverantwortliche.</p><p><strong>Warum:</strong> Verbräuche und Kennzahlen werden transparent steuerbar und lassen sich sauber für Berichte und Vorgaben nutzen.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-8.html?from=modules">ESG, CBAM &amp; Energietransparenz&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Autonomy &amp; Recovery</h2><p><strong>Was es macht:</strong> Unterstützt ereignisgesteuerte Abläufe, Simulation und geführte Wiederherstellung.</p><p><strong>Für wen:</strong> Betriebs-, Prozess- und Automatisierungsteams.</p><p><strong>Warum:</strong> Störungen und Abweichungen werden schneller abgefangen, während Teams volle Kontrolle und klare Übergaben behalten.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-6.html?from=modules">Analytik &amp; Simulation&nbsp;→</a><a class="blog-ref-link" href="blog-article-4.html?from=modules">AI-Agenten &amp; Federated Learning&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Integration Ecosystem</h2><p><strong>Was es macht:</strong> Verbindet Anwendungen über klare APIs, Datenadapter und Synchronisation.</p><p><strong>Für wen:</strong> IT, OT, Engineering und Integrationsteams.</p><p><strong>Warum:</strong> Bestehende Systeme und Standorte arbeiten zusammen, ohne laufende Betriebsabläufe zu unterbrechen.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-9.html?from=modules">Integration ohne Stillstand&nbsp;→</a><a class="blog-ref-link" href="blog-article-3.html?from=modules">Zero-Trust-Sicherheit&nbsp;→</a></div></article>
 </div>
 <p class="cta-lead">Sie möchten die passenden Module für Ihren Betrieb auswählen oder Ihre Systemanforderungen im Detail besprechen? Nutzen Sie den direkten Einstieg zur Plattformübersicht, zum Pilotprogramm oder zur individuellen Beratung:</p>
 <div class="action-buttons"><a class="btn btn--primary" href="contact.html?from=modules#request-enterprise">Enterprise Development besprechen</a> <a class="btn btn--secondary" href="vezaiongen-vi.html?from=modules">Plattform im Überblick</a> <a class="btn btn--secondary" href="pilot-program.html?from=modules">Pilotprogramm prüfen</a> <a class="btn btn--secondary" href="blog.html?from=modules">Fachartikel lesen&nbsp;→</a></div></div></section></main>
