@@ -76,7 +76,7 @@ body {
 .platform-content .values-grid .pricing-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
     text-align: center;
     align-items: center;
@@ -117,6 +117,40 @@ body {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+}
+.card-blog-links {
+    margin-top: auto;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    width: 100%;
+}
+.blog-ref-link,
+.card-blog-links .blog-ref-link {
+    display: inline-block;
+    text-align: center;
+    color: #818cf8;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+.blog-ref-link:hover,
+.card-blog-links .blog-ref-link:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+    transform: translateX(2px);
+}
+[data-theme="light"] .blog-ref-link,
+[data-theme="light"] .card-blog-links .blog-ref-link {
+    color: #4f46e5;
+}
+[data-theme="light"] .blog-ref-link:hover,
+[data-theme="light"] .card-blog-links .blog-ref-link:hover {
+    color: #0284c7;
 }
 .platform-content .values-grid .pricing-card .cta-lead {
     margin-top: 0.85rem;
@@ -180,13 +214,13 @@ body {
 <body data-language="sr">
 <header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Почетна"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Мени" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Модули</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Пилот програм</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Мапа пута</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Блог</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Политика приватности</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Правно обавештење</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Старији садржај</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Услуге</a></li><li><a class="nav__link" href="pricing.html">Цене</a></li><li><a class="nav__link" href="portfolio.html">Портфолио</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Изаберите језик"><option value="de">Немачки</option><option value="en">Енглески</option><option value="sr">Српски</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Тема">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Звук"><span class="sound-label">Звук</span></button></div></nav></header>
 <main class="main"><section class="section platform-content"><div class="container"><p class="section-label">NJB CodeMasters</p><h1>NJB CodeMasters</h1><p class="section-description">Повезани софтвер и дигитални производи за брже токове рада, мање застоја у координацији и поуздану оперативну прегледност у индустријским погонима.</p></div></section><section class="section platform-content about-card-section"><div class="container"><div class="values-grid about-card-grid">
-<article class="pricing-card"><h2>Мисија</h2><p>Повезујемо податке, интерфејсе и оперативне процесе у јединствен радни контекст. Тимови губе мање времена на тражење података и усаглашавање, брже доносе одлуке и уз <a href="vezaiongen-vi.html">VezaionGen VI</a> раде усклађено кроз различите функције.</p></article>
-<article class="pricing-card"><h2>Визија</h2><p>Обликујемо индустрију у којој људи, машине и интелигентни системи раде без застоја. Индустрија 6.0 подразумева прилагодљива, повезана и на човека усмерена решења са опипљивом користи у свакодневном раду.</p></article>
-<article class="pricing-card"><h2>Оснивач</h2><p>Ненад Баралић је основао NJB CodeMasters и води компанију. Практично разумевање индустријских процеса, директна одговорност и доследан развој софтвера претварају се у поуздана решења за оперативне тимове.</p></article>
-<article class="pricing-card"><h2>Истраживање</h2><p>Фокус истраживања су индустријски модели података, дигитални близанци, оперативна аналитика, индустријска вештачка интелигенција и повезани процеси — како би тимови раније уочили међузависности, брже решили одступања и убрзали одлуке, чему су посвећени и текстови у секцији <a href="blog.html?from=about">Блог</a>.</p></article>
-<article class="pricing-card"><h2>Развој</h2><p>Развијамо модуларне софтверске целине, интерфејсе и токове рада за веб, пословна и индустријска окружења. У оквиру платформе <a href="modules.html">VezaionGen VI</a> функционалне целине се надовезују без прекида, растерећују постојеће системе и убрзавају реализацију.</p></article>
-<article class="pricing-card"><h2>Иновације</h2><p>За нас иновације имају смисла када осетно олакшавају свакодневни рад. Дигиталне близанце, индустријску вештачку интелигенцију и аутоматизацију примењујемо тамо где доносе прегледност, смањују ручне прелазе и подржавају тимове.</p></article>
-<article class="pricing-card"><h2>Будући циљеви</h2><p>Заједно са партнерима из индустрије развијамо <a href="pilot-program.html">пилот-пројекте</a> и постепено увођење платформе <a href="vezaiongen-vi.html">VezaionGen VI</a> — ради предвидивог проширења и трајне оперативне ефикасности.</p><p class="cta-lead">Желите да проверите како платформа и приступ рада одговарају вашим процесима? Наставите ка прегледу платформе или директном разговору:</p><div class="about-card__actions"><a class="btn btn--primary" href="vezaiongen-vi.html">Откријте VezaionGen VI</a><a class="btn btn--secondary" href="contact.html#request-consulting">Разговарајте са нама</a></div></article>
+<article class="pricing-card"><h2>Мисија</h2><p>Повезујемо податке, интерфејсе и оперативне процесе у јединствен радни контекст. Тимови губе мање времена на тражење података и усаглашавање, брже доносе одлуке и уз <a href="vezaiongen-vi.html?from=about">VezaionGen VI</a> раде усклађено кроз различите функције.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-2.html?from=about">Модуларне платформе и модели података&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Визија</h2><p>Обликујемо индустрију у којој људи, машине и интелигентни системи раде без застоја. Индустрија 6.0 подразумева прилагодљива, повезана и на човека усмерена решења са опипљивом користи у свакодневном раду.</p><div class="card-blog-links"><a class="blog-ref-link" href="roadmap.html?from=about">Мапа развоја&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Оснивач</h2><p>Ненад Баралић је основао NJB CodeMasters и води компанију. Практично разумевање индустријских процеса, директна одговорност и доследан развој софтвера претварају се у поуздана решења за оперативне тимове.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-1.html?from=about">Оснивање и пут ка VezaionGen VI&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Истраживање</h2><p>Фокус истраживања су индустријски модели података, дигитални близанци, оперативна аналитика, индустријска вештачка интелигенција и повезани процеси — како би тимови раније уочили међузависности, брже решили одступања и убрзали одлуке, чему су посвећени и текстови у секцији <a href="blog.html?from=about">Блог</a>.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-4.html?from=about">AI агенти и Federated Learning&nbsp;→</a><a class="blog-ref-link" href="blog-article-7.html?from=about">3D близанци и роботика&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Развој</h2><p>Развијамо модуларне софтверске целине, интерфејсе и токове рада за веб, пословна и индустријска окружења. У оквиру платформе <a href="vezaiongen-vi.html?from=about">VezaionGen VI</a> и <a href="modules.html?from=about">модула</a> функционалне целине се надовезују без прекида, растерећују постојеће системе и убрзавају реализацију.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-9.html?from=about">Системска интеграција, API и On&#8209;Premise&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Иновације</h2><p>За нас иновације имају смисла када осетно олакшавају свакодневни рад. Дигиталне близанце, индустријску вештачку интелигенцију и аутоматизацију примењујемо тамо где доносе прегледност, смањују ручне прелазе и подржавају тимове.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-6.html?from=about">Индустријска аналитика и симулација&nbsp;→</a><a class="blog-ref-link" href="blog-article-8.html?from=about">ESG, CBAM и енергија&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Будући циљеви</h2><p>Заједно са партнерима из индустрије развијамо <a href="pilot-program.html?from=about">пилот-пројекте</a> и постепено увођење платформе <a href="vezaiongen-vi.html?from=about">VezaionGen VI</a> — ради предвидивог проширења и трајне оперативне ефикасности.</p><p class="cta-lead">Желите да проверите како платформа и приступ рада одговарају вашим процесима? Наставите ка прегледу платформе или директном разговору:</p><div class="about-card__actions"><a class="btn btn--primary" href="vezaiongen-vi.html?from=about">Откријте VezaionGen VI</a><a class="btn btn--secondary" href="contact.html?from=about#request-consulting">Разговарајте са нама</a></div></article>
 </div></div></section></main>
 <div id="footer-placeholder"></div>
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
