@@ -65,6 +65,45 @@ body {
     margin-bottom: 0.75rem;
     line-height: 1.65;
 }
+.origin-back-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+}
+.origin-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.42rem 0.95rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: var(--font-weight-semibold, 600);
+    color: #f5d0fe;
+    background: rgba(192, 38, 211, 0.18);
+    border: 1px solid rgba(232, 121, 249, 0.5);
+    transition: all 0.25s ease;
+}
+.origin-back-link[hidden] {
+    display: none !important;
+}
+.origin-back-link:hover {
+    color: #ffffff;
+    background: rgba(192, 38, 211, 0.3);
+    border-color: #f0abfc;
+    transform: translateX(-2px);
+}
+[data-theme="light"] .origin-back-link {
+    color: #86198f;
+    background: rgba(192, 38, 211, 0.1);
+    border-color: rgba(192, 38, 211, 0.35);
+}
+[data-theme="light"] .origin-back-link:hover {
+    color: #701a75;
+    background: rgba(192, 38, 211, 0.18);
+}
 .platform-content .values-grid,
 .platform-content .about-card-grid {
     display: grid;
@@ -210,7 +249,7 @@ body {
 </head>
 <body data-language="de">
 <header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Zur Startseite"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Startseite</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Module</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilotprogramm</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Kontakt</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Datenschutz</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Impressum</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Legacy-Inhalte</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Leistungen</a></li><li><a class="nav__link" href="pricing.html">Preise</a></li><li><a class="nav__link" href="portfolio.html">Portfolio</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Sprache wählen"><option value="de">Deutsch</option><option value="en">English</option><option value="sr">Srpski</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Sound"><span class="sound-label">Sound</span></button></div></nav></header>
-<main class="main"><section class="section platform-content"><div class="container"><p class="section-label">NJB CodeMasters</p><h1>NJB CodeMasters</h1><p class="section-description">Durchgängige Software und digitale Produkte für schnellere Abläufe, weniger Reibungsverluste und verlässliche Transparenz in vernetzten Betrieben.</p></div></section>
+<main class="main"><section class="section platform-content"><div class="container"><p class="section-label">NJB CodeMasters</p><h1>NJB CodeMasters</h1><div class="origin-back-bar" data-services-back-bar hidden><a href="services.html" class="origin-back-link" data-services-back-link hidden>← Zurück zu Leistungen</a></div><p class="section-description">Durchgängige Software und digitale Produkte für schnellere Abläufe, weniger Reibungsverluste und verlässliche Transparenz in vernetzten Betrieben.</p></div></section>
 <section class="section platform-content about-card-section"><div class="container"><div class="values-grid about-card-grid">
 <article class="pricing-card"><h2>Mission</h2><p>Wir verbinden Daten, Schnittstellen und betriebliche Abläufe zu einem klaren Arbeitskontext. Teams sparen Such- und Abstimmungszeit, treffen schneller fundierte Entscheidungen und arbeiten mit <a href="vezaiongen-vi.html?from=about">VezaionGen VI</a> über Funktionsgrenzen hinweg abgestimmt.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-2.html?from=about">Modulare Plattformen &amp; Datenmodelle&nbsp;→</a></div></article>
 <article class="pricing-card"><h2>Vision</h2><p>Wir gestalten eine Industrie, in der Menschen, Maschinen und intelligente Systeme reibungslos ineinandergreifen. Industry 6.0 steht für anpassungsfähige, vernetzte und menschenorientierte Lösungen mit spürbarem Nutzen im Alltag.</p><div class="card-blog-links"><a class="blog-ref-link" href="roadmap.html?from=about">Ausbau-Roadmap&nbsp;→</a></div></article>
@@ -222,4 +261,38 @@ body {
 </div></div></section></main>
 <div id="footer-placeholder"></div>
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
+<script>
+(function () {
+    const SERVICES_LABELS = {
+        de: '← Zurück zu Leistungen',
+        en: '← Back to Services',
+        sr: '← Назад на услуге'
+    };
+
+    function isFromServices() {
+        const params = new URLSearchParams(window.location.search);
+        const fromParam = (params.get('from') || '').toLowerCase();
+        const ref = document.referrer || '';
+        return fromParam === 'services' || /services\.html/i.test(ref);
+    }
+
+    function initServicesBackLink() {
+        const fromServices = isFromServices();
+        const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'de';
+        const bar = document.querySelector('[data-services-back-bar]');
+        const link = document.querySelector('[data-services-back-link]');
+        if (!bar || !link) return;
+
+        link.textContent = SERVICES_LABELS[lang] || SERVICES_LABELS.de;
+        link.hidden = !fromServices;
+        bar.hidden = !fromServices;
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initServicesBackLink);
+    } else {
+        initServicesBackLink();
+    }
+})();
+</script>
 </body></html>
