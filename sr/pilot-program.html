@@ -68,6 +68,42 @@ body {
     margin-bottom: 1rem;
     line-height: 1.65;
 }
+.origin-back-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+}
+.origin-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.42rem 0.95rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: var(--font-weight-semibold, 600);
+    color: #e0f2fe;
+    background: rgba(56, 189, 248, 0.16);
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    transition: all 0.25s ease;
+}
+.origin-back-link:hover {
+    color: #ffffff;
+    background: rgba(56, 189, 248, 0.28);
+    border-color: #7dd3fc;
+    transform: translateX(-2px);
+}
+[data-theme="light"] .origin-back-link {
+    color: #0369a1;
+    background: rgba(2, 132, 199, 0.12);
+    border-color: rgba(2, 132, 199, 0.35);
+}
+[data-theme="light"] .origin-back-link:hover {
+    color: #0c4a6e;
+    background: rgba(2, 132, 199, 0.2);
+}
 .main .section h2,
 .main .section .container > h2,
 .main .platform-content h2,
@@ -167,10 +203,34 @@ body {
 </head>
 <body data-language="sr">
 <header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Почетна"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Мени" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Модули</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Пилот програм</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Мапа пута</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Блог</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Политика приватности</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Правно обавештење</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Старији садржај</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Услуге</a></li><li><a class="nav__link" href="pricing.html">Цене</a></li><li><a class="nav__link" href="portfolio.html">Портфолио</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Изаберите језик"><option value="de">Немачки</option><option value="en">Енглески</option><option value="sr">Српски</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Тема">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Звук"><span class="sound-label">Звук</span></button></div></nav></header>
-<main class="main"><section class="section platform-content"><div class="container"><p class="section-label">VEZAIONGEN VI</p><h1>Пилот програм</h1><p class="section-description">Циљано проверите конкретну оперативну вредност — за брже одлуке, мање застоја у процесима и сигуран почетак без сувишног ризика.</p><p class="cta-lead">Усагласите у уводном разговору како пилот може да се прилагоди вашим приоритетним процесима:</p><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">Договорите разговор о пилоту</a></div></section>
+<main class="main"><section class="section platform-content"><div class="container"><p class="section-label">VEZAIONGEN VI</p><h1>Пилот програм</h1><p class="section-description">Циљано проверите конкретну оперативну вредност — за брже одлуке, мање застоја у процесима и сигуран почетак без сувишног ризика.</p><p class="cta-lead">Усагласите у уводном разговору како пилот може да се прилагоди вашим приоритетним процесима:</p><a class="btn btn--primary" href="contact.html?from=pilot-program#vezaiongen-consultation">Договорите разговор о пилоту</a></div></section>
 <section class="section platform-content"><div class="container"><h2>Шта добијате кроз пилот програм</h2><p>У фокусу су лакши свакодневни рад, јаснији токови информација и поуздани показатељи за наредне одлуке:</p><div class="values-grid"><article class="pricing-card"><h3>Релевантан случај употребе</h3><p>Фокусирамо се управо на процес или ток података који вашем тиму у свакодневном раду доноси највећу корист.</p></article><article class="pricing-card"><h3>Практична усклађеност</h3><p>Видите како одабране функције платформе VezaionGen VI и интерфејси одговарају вашим процесима и постојећим системима.</p></article><article class="pricing-card"><h3>Поуздана основа за одлуку</h3><p>Бележимо конкретна запажања, отворена питања и јасне наредне кораке — за сигурну одлуку у тиму.</p></article></div></div></section>
 <section class="section platform-content"><div class="container"><h2>Фазе пилота</h2><p>Јасан редослед обезбеђује предвидиве кораке, транспарентна очекивања и проверљиве резултате:</p><div class="values-grid"><article class="pricing-card"><h3>1. Случај употребе</h3><p>Заједнички прецизно одређујемо процес, уска грла или празнине у подацима и жељене исходе.</p><p><strong>Исход:</strong> Јасан фокус пилота са мерљивим циљем.</p></article><article class="pricing-card"><h3>2. Планирање</h3><p>Усаглашавамо учеснике, релевантне податке, интерфејсе и конкретан радни оквир.</p><p><strong>Исход:</strong> Поуздан план пројекта и процене.</p></article><article class="pricing-card"><h3>3. Испитивање</h3><p>Циљано проверавамо одабране функције и токове рада у договореном оквиру.</p><p><strong>Исход:</strong> Документована запажања о току рада, употребљивости и користи.</p></article><article class="pricing-card"><h3>4. Осврт</h3><p>Заједно процењујемо добијена сазнања, отворена питања и опције за даље увођење.</p><p><strong>Исход:</strong> Утемељена основа за одлуку о наредним корацима.</p></article></div></div></section>
-<section class="section platform-content"><div class="container"><h2>Сарадња</h2><p>Ваш оперативни тим доноси познавање процеса и свакодневне праксе. NJB CodeMasters прати техничко усклађивање, токове података и повезивање система. Циљеви, оквири и критеријуми процене дефинишу се заједно како би тим брзо дошао до јасних закључака.</p><h2>Резултати</h2><p>Пилот пружа прегледност о томе како VezaionGen VI подржава изабрани случај употребе и где лежи највећи оперативни допринос. Обим, временски план и услови сарадње прилагођавају се сваком пројекту појединачно.</p><p>Повезане функционалности и шире контексте можете погледати на страницама <a href="vezaiongen-vi.html">VezaionGen VI</a>, <a href="modules.html">Модули</a> и у секцији <a href="blog.html?from=pilot-program">Блог</a>.</p><h2>Контакт</h2><p>Поделите са нама свој случај употребе, циљеве и жељени рок. Заједно разматрамо како структуриран пилот може да се уклопи у ваш рад.</p><p class="cta-lead">Започните необавезујући упит за пилот сарадњу вашег тима:</p><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">Пошаљите упит о пилоту</a></div></section></main>
+<section class="section platform-content"><div class="container"><h2>Сарадња</h2><p>Ваш оперативни тим доноси познавање процеса и свакодневне праксе. NJB CodeMasters прати техничко усклађивање, токове података и повезивање система. Циљеви, оквири и критеријуми процене дефинишу се заједно како би тим брзо дошао до јасних закључака.</p><h2>Резултати</h2><p>Пилот пружа прегледност о томе како VezaionGen VI подржава изабрани случај употребе и где лежи највећи оперативни допринос. Обим, временски план и услови сарадње прилагођавају се сваком пројекту појединачно.</p><p>Повезане функционалности и шире контексте можете погледати на страницама <a href="vezaiongen-vi.html?from=pilot-program">VezaionGen VI</a>, <a href="modules.html?from=pilot-program">Модули</a> и у секцији <a href="blog.html?from=pilot-program">Блог</a>.</p><h2>Контакт</h2><p>Поделите са нама свој случај употребе, циљеве и жељени рок. Заједно разматрамо како структуриран пилот може да се уклопи у ваш рад.</p><p class="cta-lead">Започните необавезујући упит за пилот сарадњу вашег тима:</p><a class="btn btn--primary" href="contact.html?from=pilot-program#vezaiongen-consultation">Пошаљите упит о пилоту</a></div></section></main>
 <div id="footer-placeholder"></div>
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
-</body></html>
+<script>
+(function () {
+    function detectOrigin() {
+        const params = new URLSearchParams(window.location.search);
+        const fromParam = params.get('from');
+        const ref = document.referrer || '';
+        if (fromParam === 'about' || /about\.html/i.test(ref)) {
+            return 'about';
+        }
+        if (fromParam === 'roadmap' || /roadmap\.html/i.test(ref)) {
+            return 'roadmap';
+        }
+        return null;
+    }
+    function initOriginBackLink() {
+        const origin = detectOrigin();
+        if (!origin) return;
+        const container = document.querySelector('.main .section:first-of-type .container');
+        const h1 = container ? container.querySelector('h1') : null;
+        if (!container || !h1 || container.querySelector('.origin-back-bar')) return;
+
+        const labels = {
+            about: {
+                de: '← Zurück zu Über NJB CodeMasters',
+                en: '← Back to About NJB CodeMasters',
