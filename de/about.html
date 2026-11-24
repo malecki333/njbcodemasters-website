@@ -76,7 +76,7 @@ body {
 .platform-content .values-grid .pricing-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     height: 100%;
     text-align: center;
     align-items: center;
@@ -100,9 +100,6 @@ body {
     text-align: center;
     width: 100%;
 }
-.platform-content .values-grid .pricing-card > p:last-child {
-    margin-bottom: 0;
-}
 .platform-content .values-grid .pricing-card > p strong {
     background: linear-gradient(90deg, #ff2bd6 0%, #c026d3 48%, #8b5cf6 100%);
     -webkit-background-clip: text;
@@ -117,6 +114,40 @@ body {
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
+}
+.card-blog-links {
+    margin-top: auto;
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    width: 100%;
+}
+.blog-ref-link,
+.card-blog-links .blog-ref-link {
+    display: inline-block;
+    text-align: center;
+    color: #818cf8;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+.blog-ref-link:hover,
+.card-blog-links .blog-ref-link:hover {
+    color: #38bdf8;
+    text-decoration: underline;
+    transform: translateX(2px);
+}
+[data-theme="light"] .blog-ref-link,
+[data-theme="light"] .card-blog-links .blog-ref-link {
+    color: #4f46e5;
+}
+[data-theme="light"] .blog-ref-link:hover,
+[data-theme="light"] .card-blog-links .blog-ref-link:hover {
+    color: #0284c7;
 }
 .platform-content .values-grid .pricing-card .cta-lead {
     margin-top: 0.85rem;
@@ -181,13 +212,13 @@ body {
 <header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Zur Startseite"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Startseite</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Module</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilotprogramm</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Kontakt</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Datenschutz</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Impressum</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Legacy-Inhalte</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Leistungen</a></li><li><a class="nav__link" href="pricing.html">Preise</a></li><li><a class="nav__link" href="portfolio.html">Portfolio</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Sprache wählen"><option value="de">Deutsch</option><option value="en">English</option><option value="sr">Srpski</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Sound"><span class="sound-label">Sound</span></button></div></nav></header>
 <main class="main"><section class="section platform-content"><div class="container"><p class="section-label">NJB CodeMasters</p><h1>NJB CodeMasters</h1><p class="section-description">Durchgängige Software und digitale Produkte für schnellere Abläufe, weniger Reibungsverluste und verlässliche Transparenz in vernetzten Betrieben.</p></div></section>
 <section class="section platform-content about-card-section"><div class="container"><div class="values-grid about-card-grid">
-<article class="pricing-card"><h2>Mission</h2><p>Wir verbinden Daten, Schnittstellen und betriebliche Abläufe zu einem klaren Arbeitskontext. Teams sparen Such- und Abstimmungszeit, treffen schneller fundierte Entscheidungen und arbeiten mit <a href="vezaiongen-vi.html">VezaionGen VI</a> über Funktionsgrenzen hinweg abgestimmt.</p></article>
-<article class="pricing-card"><h2>Vision</h2><p>Wir gestalten eine Industrie, in der Menschen, Maschinen und intelligente Systeme reibungslos ineinandergreifen. Industry 6.0 steht für anpassungsfähige, vernetzte und menschenorientierte Lösungen mit spürbarem Nutzen im Alltag.</p></article>
-<article class="pricing-card"><h2>Founder</h2><p>Nenad Baralić gründete NJB CodeMasters und leitet das Unternehmen. Praxisnahes Verständnis für industrielle Prozesse, direkte Verantwortlichkeit und konsequente Softwareentwicklung fließen unmittelbar in verlässliche Lösungen für Betriebe ein.</p></article>
-<article class="pricing-card"><h2>Research</h2><p>Unsere Forschung konzentriert sich auf industrielle Datenmodelle, Digital Twins, Betriebsanalytik, Industrial AI und vernetzte Abläufe. Ziel ist es, Zusammenhänge schneller sichtbar zu machen, Störungen früher zu erkennen und Entscheidungen zu beschleunigen – vertieft auch im <a href="blog.html?from=about">Blog</a>.</p></article>
-<article class="pricing-card"><h2>Development</h2><p>Wir entwickeln modulare Softwarebausteine, Schnittstellen und Workflows für Web-, Enterprise- und Industrieumgebungen. In <a href="modules.html">VezaionGen VI</a> greifen Funktionsbereiche nahtlos ineinander, damit bestehende Systeme entlastet und Abläufe beschleunigt werden.</p></article>
-<article class="pricing-card"><h2>Innovation</h2><p>Innovation zählt für uns dann, wenn sie den Betrieb spürbar erleichtert. Digital Twin, Industrial AI und Automatisierung setzen wir gezielt dort ein, wo sie Transparenz schaffen, Medienbrüche abbauen und Teams entlasten.</p></article>
-<article class="pricing-card"><h2>Future Objectives</h2><p>Wir bauen <a href="pilot-program.html">Pilotprojekte</a> und den schrittweisen Ausbau von <a href="vezaiongen-vi.html">VezaionGen VI</a> gemeinsam mit Industriepartnern aus – für planbare Erweiterungen und nachhaltige Prozesseffizienz.</p><p class="cta-lead">Sie möchten prüfen, wie unsere Plattform und Arbeitsweise zu Ihren Prozessen passen? Starten Sie direkt mit dem Überblick oder einem persönlichen Gespräch:</p><div class="about-card__actions"><a class="btn btn--primary" href="vezaiongen-vi.html">VezaionGen VI entdecken</a><a class="btn btn--secondary" href="contact.html#request-consulting">Mit uns sprechen</a></div></article>
+<article class="pricing-card"><h2>Mission</h2><p>Wir verbinden Daten, Schnittstellen und betriebliche Abläufe zu einem klaren Arbeitskontext. Teams sparen Such- und Abstimmungszeit, treffen schneller fundierte Entscheidungen und arbeiten mit <a href="vezaiongen-vi.html?from=about">VezaionGen VI</a> über Funktionsgrenzen hinweg abgestimmt.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-2.html?from=about">Modulare Plattformen &amp; Datenmodelle&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Vision</h2><p>Wir gestalten eine Industrie, in der Menschen, Maschinen und intelligente Systeme reibungslos ineinandergreifen. Industry 6.0 steht für anpassungsfähige, vernetzte und menschenorientierte Lösungen mit spürbarem Nutzen im Alltag.</p><div class="card-blog-links"><a class="blog-ref-link" href="roadmap.html?from=about">Ausbau-Roadmap&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Founder</h2><p>Nenad Baralić gründete NJB CodeMasters und leitet das Unternehmen. Praxisnahes Verständnis für industrielle Prozesse, direkte Verantwortlichkeit und konsequente Softwareentwicklung fließen unmittelbar in verlässliche Lösungen für Betriebe ein.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-1.html?from=about">Gründung &amp; Weg zu VezaionGen VI&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Research</h2><p>Unsere Forschung konzentriert sich auf industrielle Datenmodelle, Digital Twins, Betriebsanalytik, Industrial AI und vernetzte Abläufe. Ziel ist es, Zusammenhänge schneller sichtbar zu machen, Störungen früher zu erkennen und Entscheidungen zu beschleunigen – vertieft auch im <a href="blog.html?from=about">Blog</a>.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-4.html?from=about">KI-Agenten &amp; Federated Learning&nbsp;→</a><a class="blog-ref-link" href="blog-article-7.html?from=about">3D Digital Twins &amp; Robotik&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Development</h2><p>Wir entwickeln modulare Softwarebausteine, Schnittstellen und Workflows für Web-, Enterprise- und Industrieumgebungen. In <a href="vezaiongen-vi.html?from=about">VezaionGen VI</a> und den <a href="modules.html?from=about">Modulen</a> greifen Funktionsbereiche nahtlos ineinander, damit bestehende Systeme entlastet und Abläufe beschleunigt werden.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-9.html?from=about">Systemintegration, APIs &amp; On&#8209;Premise&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Innovation</h2><p>Innovation zählt für uns dann, wenn sie den Betrieb spürbar erleichtert. Digital Twin, Industrial AI und Automatisierung setzen wir gezielt dort ein, wo sie Transparenz schaffen, Medienbrüche abbauen und Teams entlasten.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-6.html?from=about">Industrial Analytics &amp; Simulation&nbsp;→</a><a class="blog-ref-link" href="blog-article-8.html?from=about">ESG, CBAM &amp; Energie&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Future Objectives</h2><p>Wir bauen <a href="pilot-program.html?from=about">Pilotprojekte</a> und den schrittweisen Ausbau von <a href="vezaiongen-vi.html?from=about">VezaionGen VI</a> gemeinsam mit Industriepartnern aus – für planbare Erweiterungen und nachhaltige Prozesseffizienz.</p><p class="cta-lead">Sie möchten prüfen, wie unsere Plattform und Arbeitsweise zu Ihren Prozessen passen? Starten Sie direkt mit dem Überblick oder einem persönlichen Gespräch:</p><div class="about-card__actions"><a class="btn btn--primary" href="vezaiongen-vi.html?from=about">VezaionGen VI entdecken</a><a class="btn btn--secondary" href="contact.html?from=about#request-consulting">Mit uns sprechen</a></div></article>
 </div></div></section></main>
 <div id="footer-placeholder"></div>
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
