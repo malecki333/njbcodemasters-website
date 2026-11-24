@@ -61,6 +61,42 @@ body {
     margin-bottom: 1.5rem;
     line-height: 1.65;
 }
+.origin-back-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+}
+.origin-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.42rem 0.95rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: var(--font-weight-semibold, 600);
+    color: #e0f2fe;
+    background: rgba(56, 189, 248, 0.16);
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    transition: all 0.25s ease;
+}
+.origin-back-link:hover {
+    color: #ffffff;
+    background: rgba(56, 189, 248, 0.28);
+    border-color: #7dd3fc;
+    transform: translateX(-2px);
+}
+[data-theme="light"] .origin-back-link {
+    color: #0369a1;
+    background: rgba(2, 132, 199, 0.12);
+    border-color: rgba(2, 132, 199, 0.35);
+}
+[data-theme="light"] .origin-back-link:hover {
+    color: #0c4a6e;
+    background: rgba(2, 132, 199, 0.2);
+}
 .platform-content .values-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -161,7 +197,51 @@ body {
 <article class="pricing-card"><h2>Будући екосистем</h2><p>Обликовање екосистема Индустрије 6.0 у коме дигитални близанци, индустријска вештачка интелигенција, аналитика и постојећи системи раде усклађено.</p></article>
 </div>
 <p class="cta-lead">Желите да проверите који кораци или модули одговарају вашим тренутним циљевима? Наставите директно ка разговору, пилот програму или прегледу модула:</p>
-<div class="action-buttons"><a class="btn btn--primary" href="contact.html#vezaiongen-consultation">Разговарајте о сарадњи</a> <a class="btn btn--secondary" href="pilot-program.html">Погледајте пилот програм</a> <a class="btn btn--secondary" href="modules.html">Истражите модуле</a> <a class="btn btn--secondary" href="blog.html?from=roadmap">Прочитајте чланке</a></div></div></section></main>
+<div class="action-buttons"><a class="btn btn--primary" href="contact.html?from=roadmap#vezaiongen-consultation">Разговарајте о сарадњи</a> <a class="btn btn--secondary" href="pilot-program.html?from=roadmap">Погледајте пилот програм</a> <a class="btn btn--secondary" href="modules.html?from=roadmap">Истражите модуле</a> <a class="btn btn--secondary" href="blog.html?from=roadmap">Прочитајте чланке&nbsp;→</a></div></div></section></main>
 <div id="footer-placeholder"></div>
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
+<script>
+(function () {
+    function detectOrigin() {
+        const params = new URLSearchParams(window.location.search);
+        const fromParam = params.get('from');
+        const ref = document.referrer || '';
+        if (fromParam === 'about' || /about\.html/i.test(ref)) {
+            return 'about';
+        }
+        return null;
+    }
+    function initOriginBackLink() {
+        const origin = detectOrigin();
+        if (!origin) return;
+        const container = document.querySelector('.main .section .container');
+        const h1 = container ? container.querySelector('h1') : null;
+        if (!container || !h1 || container.querySelector('.origin-back-bar')) return;
+
+        const labels = {
+            about: {
+                de: '← Zurück zu Über NJB CodeMasters',
+                en: '← Back to About NJB CodeMasters',
+                sr: '← Назад на NJB CodeMasters'
+            }
+        };
+        const hrefs = { about: 'about.html' };
+        const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'sr';
+
+        const bar = document.createElement('div');
+        bar.className = 'origin-back-bar';
+        const link = document.createElement('a');
+        link.href = hrefs[origin];
+        link.className = 'origin-back-link';
+        link.textContent = (labels[origin] && (labels[origin][lang] || labels[origin].sr)) || '← Назад';
+        bar.appendChild(link);
+        h1.parentNode.insertBefore(bar, h1);
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initOriginBackLink);
+    } else {
+        initOriginBackLink();
+    }
+})();
+</script>
 </body></html>
