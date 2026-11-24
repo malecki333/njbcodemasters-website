@@ -25,7 +25,7 @@
 
     <style>
         .article-container { max-width: 900px; margin: 0 auto; }
-        .top-back-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md); margin-bottom: var(--space-4xl); }
+        .top-back-nav { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: var(--space-md); margin-bottom: var(--space-3xl); }
         .back-link,
         .vezaion-back-link,
         .services-back-link { display: inline-flex; align-items: center; gap: var(--space-xs); padding: 0.45rem 0.95rem; border-radius: 999px; text-decoration: none; font-weight: var(--font-weight-semibold); font-size: var(--font-size-sm); margin-bottom: 0; transition: all 0.25s ease; }
@@ -67,8 +67,15 @@
         .article-next-link:hover { color: #ffffff; background: rgba(99, 102, 241, 0.3); border-color: #a5b4fc; transform: translateX(3px); }
         [data-theme="light"] .article-next-link { color: #1e1b4b !important; background: rgba(255, 255, 255, 0.92); border-color: rgba(79, 70, 229, 0.4); }
         .article-footer { border-top: 1px solid var(--glass-border); padding-top: var(--space-4xl); margin-top: var(--space-5xl); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: var(--space-lg); }
+        .article-footer__actions { display: flex; flex-wrap: wrap; gap: var(--space-md); align-items: center; }
         .article-author { color: var(--text-secondary); font-size: var(--font-size-base); }
-        @media (max-width: 768px) { .article-hero { padding: var(--space-2xl); } .article-hero h1 { font-size: var(--font-size-2xl); } .article-meta { flex-direction: column; gap: var(--space-md); } .article-footer { flex-direction: column; align-items: flex-start; } }
+        @media (max-width: 768px) {
+            .top-back-nav { flex-direction: column; align-items: flex-start; gap: var(--space-sm); margin-bottom: var(--space-2xl); }
+            .article-hero { padding: var(--space-2xl); }
+            .article-hero h1 { font-size: var(--font-size-2xl); }
+            .article-meta { flex-direction: column; gap: var(--space-md); }
+            .article-footer { flex-direction: column; align-items: flex-start; }
+        }
     </style>
 
     <link rel="canonical" href="https://www.njbcodemasters.com/de/blog-article-7.html">
@@ -145,8 +152,10 @@
         </section>
 
         <section class="section container article-container">
-            <a href="blog.html" class="back-link">← Zurück zum Blog</a>
-            <a href="services.html" class="services-back-link" data-services-back-link hidden>← Zurück zu Leistungen</a>
+            <div class="top-back-nav">
+                <a href="blog.html" class="back-link">← Zurück zum Blog</a>
+                <a href="services.html" class="services-back-link" data-services-back-link hidden>← Zurück zu Leistungen</a>
+            </div>
 
             <article>
                 <div class="article-hero">
@@ -204,8 +213,10 @@
                         <strong>Autor:</strong> NJB CodeMasters<br>
                         <em>Veröffentlicht im November 2026</em>
                     </span>
-                    <a href="blog.html" class="back-link">← Zurück zum Blog</a>
-                    <a href="services.html" class="services-back-link" data-services-back-link hidden>← Zurück zu Leistungen</a>
+                    <div class="article-footer__actions">
+                        <a href="blog.html" class="back-link">← Zurück zum Blog</a>
+                        <a href="services.html" class="services-back-link" data-services-back-link hidden>← Zurück zu Leistungen</a>
+                    </div>
                 </div>
             </article>
         </section>
@@ -284,32 +295,14 @@
         const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'de';
 
         if (origin) {
-            const articleContainer = document.querySelector('.article-container');
-            const topBackLink = articleContainer ? articleContainer.querySelector(':scope > .back-link') : null;
-            if (topBackLink && !articleContainer.querySelector('.top-back-nav')) {
-                const topNav = document.createElement('div');
-                topNav.className = 'top-back-nav';
-                topBackLink.parentNode.insertBefore(topNav, topBackLink);
-                topNav.appendChild(topBackLink);
+            const topNav = document.querySelector('.top-back-nav');
+            if (topNav && !topNav.querySelector('.vezaion-back-link')) {
                 topNav.appendChild(createSourceBackLink(origin, lang));
             }
 
-            const footer = document.querySelector('.article-footer');
-            if (footer && !footer.querySelector('.vezaion-back-link')) {
-                const footerBackLink = footer.querySelector('.back-link');
-                const productLinkBottom = createSourceBackLink(origin, lang);
-                if (footerBackLink) {
-                    const wrap = document.createElement('div');
-                    wrap.style.display = 'flex';
-                    wrap.style.gap = 'var(--space-md)';
-                    wrap.style.flexWrap = 'wrap';
-                    wrap.style.alignItems = 'center';
-                    footerBackLink.parentNode.insertBefore(wrap, footerBackLink);
-                    wrap.appendChild(productLinkBottom);
-                    wrap.appendChild(footerBackLink);
-                } else {
-                    footer.appendChild(productLinkBottom);
-                }
+            const footerActions = document.querySelector('.article-footer__actions');
+            if (footerActions && !footerActions.querySelector('.vezaion-back-link')) {
+                footerActions.appendChild(createSourceBackLink(origin, lang));
             }
         }
 
