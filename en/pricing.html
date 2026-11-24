@@ -292,16 +292,17 @@
             text-align: center;
         }
 
-        /* Feature lists inside cards: centered block, left-aligned inside */
+        /* Feature lists inside cards: centered block, left-aligned inline before text */
         .main .section .features-list {
             list-style: none !important;
+            list-style-type: none !important;
             columns: unset !important;
             column-count: unset !important;
-            padding: 0;
-            margin: 0 auto var(--space-xl);
+            padding: 0 !important;
+            margin: 0 auto var(--space-xl) !important;
             flex-grow: 1;
             min-width: 0;
-            max-width: 420px;
+            max-width: 440px;
             width: 100%;
             display: flex !important;
             flex-direction: column !important;
@@ -320,6 +321,7 @@
         .main .section .features-list li {
             display: flex !important;
             flex-direction: row !important;
+            flex-wrap: nowrap !important;
             align-items: flex-start !important;
             justify-content: flex-start !important;
             gap: 0.65rem;
@@ -330,6 +332,7 @@
             line-height: 1.45;
             text-align: left !important;
             width: 100%;
+            position: relative !important;
         }
 
         .main .section .features-list li:last-child {
@@ -337,18 +340,34 @@
         }
 
         .main .section .features-list li::before {
-            content: "✓";
-            color: var(--primary-color);
+            position: static !important;
+            inset: auto !important;
+            transform: none !important;
+            content: "✓" !important;
+            color: var(--primary-color) !important;
+            background: none !important;
+            border-radius: 0 !important;
+            width: auto !important;
+            height: auto !important;
             font-weight: 700;
-            flex: 0 0 auto;
+            flex: 0 0 auto !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
             margin-top: 0.05rem;
+        }
+
+        .main .section .features-list li::after {
+            content: none !important;
+            display: none !important;
         }
 
         .main .section .features-list li span {
             flex: 1 1 auto;
             min-width: 0;
             text-align: left !important;
-            display: inline !important;
+            display: block !important;
+            overflow-wrap: break-word;
         }
 
         .cta-block {
@@ -852,7 +871,7 @@
             }
 
             .main .section .features-list li {
-                flex-wrap: wrap;
+                flex-wrap: nowrap !important;
             }
 
             .calculator-section {
