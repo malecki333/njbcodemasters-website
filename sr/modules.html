@@ -61,6 +61,42 @@ body {
     margin-bottom: 1.5rem;
     line-height: 1.65;
 }
+.origin-back-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+}
+.origin-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.42rem 0.95rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: var(--font-weight-semibold, 600);
+    color: #e0f2fe;
+    background: rgba(56, 189, 248, 0.16);
+    border: 1px solid rgba(56, 189, 248, 0.5);
+    transition: all 0.25s ease;
+}
+.origin-back-link:hover {
+    color: #ffffff;
+    background: rgba(56, 189, 248, 0.28);
+    border-color: #7dd3fc;
+    transform: translateX(-2px);
+}
+[data-theme="light"] .origin-back-link {
+    color: #0369a1;
+    background: rgba(2, 132, 199, 0.12);
+    border-color: rgba(2, 132, 199, 0.35);
+}
+[data-theme="light"] .origin-back-link:hover {
+    color: #0c4a6e;
+    background: rgba(2, 132, 199, 0.2);
+}
 .platform-content .values-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -183,15 +219,70 @@ body {
 <body data-language="sr">
 <header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Почетна"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Мени" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Модули</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Пилот програм</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Мапа пута</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Блог</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Политика приватности</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Правно обавештење</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Старији садржај</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Услуге</a></li><li><a class="nav__link" href="pricing.html">Цене</a></li><li><a class="nav__link" href="portfolio.html">Портфолио</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Изаберите језик"><option value="de">Немачки</option><option value="en">Енглески</option><option value="sr">Српски</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Тема">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Звук"><span class="sound-label">Звук</span></button></div></nav></header>
 <main class="main"><section class="section platform-content"><div class="container"><p class="section-label">VEZAIONGEN VI</p><h1>Модули за индустријски рад</h1><p class="section-description">Сваки модул решава конкретна оперативна уска грла, обезбеђује тренутну прегледност и лако се повезује са постојећим процесима.</p><div class="values-grid">
-<article class="pricing-card"><h2>Индустријско језгро</h2><p><strong>Шта ради:</strong> Обједињује податке о производњи, материјалима, налозима, одржавању и квалитету на једном месту.</p><p><strong>За кога:</strong> Тимови производње, одржавања и управљања погоном.</p><p><strong>Зашто:</strong> Краћи рокови реализације, јаснији приоритети и мање празних ходова између производње, одржавања и квалитета.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-2.html?from=modules">Модуларне платформе →</a></div></article>
-<article class="pricing-card"><h2>Дигитални близанац и роботика</h2><p><strong>Шта ради:</strong> Дигитално и просторно приказује опрему, фабричке зоне и роботске задатке.</p><p><strong>За кога:</strong> Инжењеринг, аутоматизација и планирање постројења.</p><p><strong>Зашто:</strong> Просторне међузависности и аутоматизовани токови постају унапред проверљиви, безбеднији и лакши за планирање.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-7.html?from=modules">3D близанци и оркестрација роботике →</a><a class="blog-ref-link" href="blog-article-5.html?from=modules">Дигитални близанци и логистика →</a></div></article>
-<article class="pricing-card"><h2>Логистика и транспорт</h2><p><strong>Шта ради:</strong> Повезује податке о транспорту, рутама, флоти и диспечирању од почетка до краја.</p><p><strong>За кога:</strong> Тимови логистике, транспорта и ланца снабдевања.</p><p><strong>Зашто:</strong> Диспечирање, утовар и реализација функционишу усклађено — без губитка информација између планирања и терена.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-5.html?from=modules">TMS, логистика и руте →</a></div></article>
-<article class="pricing-card"><h2>Еколошка, друштвена и управљачка одговорност и одрживост</h2><p><strong>Шта ради:</strong> Бележи и повезује податке о потрошњи енергије и емисијама директно са оперативним целинама.</p><p><strong>За кога:</strong> Тимови за енергију, одрживост и оперативно управљање.</p><p><strong>Зашто:</strong> Потрошња и показатељи постају јасно мерљиви и спремни за извештавање и регулаторне обавезе.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-8.html?from=modules">ESG, CBAM и енергетска транспарентност →</a></div></article>
-<article class="pricing-card"><h2>Аутономија и опоравак</h2><p><strong>Шта ради:</strong> Подржава процесе вођене догађајима, симулацију и вођени опоравак система.</p><p><strong>За кога:</strong> Тимови операција, процеса и аутоматизације.</p><p><strong>Зашто:</strong> Застоји и одступања се брже решавају, док тимови задржавају потпуну контролу и јасне кораке интервенције.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-6.html?from=modules">Аналитика и симулација →</a><a class="blog-ref-link" href="blog-article-4.html?from=modules">AI агенти и Federated Learning →</a></div></article>
-<article class="pricing-card"><h2>Интеграциони екосистем</h2><p><strong>Шта ради:</strong> Повезује апликације преко јасних API уговора, адаптера података и синхронизације.</p><p><strong>За кога:</strong> IT, OT, инжењерски и интеграциони тимови.</p><p><strong>Зашто:</strong> Постојећи системи и локације раде заједно без прекида текућих оперативних активности.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-9.html?from=modules">Интеграција без прекида рада →</a><a class="blog-ref-link" href="blog-article-3.html?from=modules">Zero-Trust безбедност →</a></div></article>
+<article class="pricing-card"><h2>Индустријско језгро</h2><p><strong>Шта ради:</strong> Обједињује податке о производњи, материјалима, налозима, одржавању и квалитету на једном месту.</p><p><strong>За кога:</strong> Тимови производње, одржавања и управљања погоном.</p><p><strong>Зашто:</strong> Краћи рокови реализације, јаснији приоритети и мање празних ходова између производње, одржавања и квалитета.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-2.html?from=modules">Модуларне платформе&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Дигитални близанац и роботика</h2><p><strong>Шта ради:</strong> Дигитално и просторно приказује опрему, фабричке зоне и роботске задатке.</p><p><strong>За кога:</strong> Инжењеринг, аутоматизација и планирање постројења.</p><p><strong>Зашто:</strong> Просторне међузависности и аутоматизовани токови постају унапред проверљиви, безбеднији и лакши за планирање.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-7.html?from=modules">3D близанци и оркестрација роботике&nbsp;→</a><a class="blog-ref-link" href="blog-article-5.html?from=modules">Дигитални близанци и логистика&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Логистика и транспорт</h2><p><strong>Шта ради:</strong> Повезује податке о транспорту, рутама, флоти и диспечирању од почетка до краја.</p><p><strong>За кога:</strong> Тимови логистике, транспорта и ланца снабдевања.</p><p><strong>Зашто:</strong> Диспечирање, утовар и реализација функционишу усклађено — без губитка информација између планирања и терена.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-5.html?from=modules">TMS, логистика и руте&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Еколошка, друштвена и управљачка одговорност и одрживост</h2><p><strong>Шта ради:</strong> Бележи и повезује податке о потрошњи енергије и емисијама директно са оперативним целинама.</p><p><strong>За кога:</strong> Тимови за енергију, одрживост и оперативно управљање.</p><p><strong>Зашто:</strong> Потрошња и показатељи постају јасно мерљиви и спремни за извештавање и регулаторне обавезе.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-8.html?from=modules">ESG, CBAM и енергетска транспарентност&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Аутономија и опоравак</h2><p><strong>Шта ради:</strong> Подржава процесе вођене догађајима, симулацију и вођени опоравак система.</p><p><strong>За кога:</strong> Тимови операција, процеса и аутоматизације.</p><p><strong>Зашто:</strong> Застоји и одступања се брже решавају, док тимови задржавају потпуну контролу и јасне кораке интервенције.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-6.html?from=modules">Аналитика и симулација&nbsp;→</a><a class="blog-ref-link" href="blog-article-4.html?from=modules">AI агенти и Federated Learning&nbsp;→</a></div></article>
+<article class="pricing-card"><h2>Интеграциони екосистем</h2><p><strong>Шта ради:</strong> Повезује апликације преко јасних API уговора, адаптера података и синхронизације.</p><p><strong>За кога:</strong> IT, OT, инжењерски и интеграциони тимови.</p><p><strong>Зашто:</strong> Постојећи системи и локације раде заједно без прекида текућих оперативних активности.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-9.html?from=modules">Интеграција без прекида рада&nbsp;→</a><a class="blog-ref-link" href="blog-article-3.html?from=modules">Zero-Trust безбедност&nbsp;→</a></div></article>
 </div>
 <p class="cta-lead modules-cta-lead">Желите да одаберете одговарајуће модуле за ваш погон или детаљније размотрите системске захтеве? Изаберите директан корак ка прегледу платформе, пилот програму или разговору са нашим тимом:</p>
-<div class="modules-actions"><a class="btn btn--primary" href="contact.html#request-enterprise">Разговарајте о развоју пословних система</a><a class="btn btn--secondary" href="vezaiongen-vi.html">Преглед платформе VezaionGen VI</a><a class="btn btn--secondary" href="pilot-program.html">Проверите пилот програм</a><a class="btn btn--secondary" href="blog.html?from=modules">Прочитајте стручне чланке</a></div></div></section></main>
+<div class="modules-actions"><a class="btn btn--primary" href="contact.html?from=modules#request-enterprise">Разговарајте о развоју пословних система</a><a class="btn btn--secondary" href="vezaiongen-vi.html?from=modules">Преглед платформе VezaionGen VI</a><a class="btn btn--secondary" href="pilot-program.html?from=modules">Проверите пилот програм</a><a class="btn btn--secondary" href="blog.html?from=modules">Прочитајте стручне чланке&nbsp;→</a></div></div></section></main>
 <div id="footer-placeholder"></div>
-<script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
+<script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer"></script>
+<script>
+(function () {
+    function detectOrigin() {
+        const params = new URLSearchParams(window.location.search);
+        const fromParam = params.get('from');
+        const ref = document.referrer || '';
+        if (fromParam === 'about' || /about\.html/i.test(ref)) {
+            return 'about';
+        }
+        if (fromParam === 'roadmap' || /roadmap\.html/i.test(ref)) {
+            return 'roadmap';
+        }
+        return null;
+    }
+    function initOriginBackLink() {
+        const origin = detectOrigin();
+        if (!origin) return;
+        const container = document.querySelector('.main .section .container');
+        const h1 = container ? container.querySelector('h1') : null;
+        if (!container || !h1 || container.querySelector('.origin-back-bar')) return;
+
+        const labels = {
+            about: {
+                de: '← Zurück zu Über NJB CodeMasters',
+                en: '← Back to About NJB CodeMasters',
+                sr: '← Назад на NJB CodeMasters'
+            },
+            roadmap: {
+                de: '← Zurück zur Roadmap',
+                en: '← Back to Roadmap',
+                sr: '← Назад на мапу пута'
+            }
+        };
+        const hrefs = {
+            about: 'about.html',
+            roadmap: 'roadmap.html'
+        };
+        const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'sr';
+
+        const bar = document.createElement('div');
+        bar.className = 'origin-back-bar';
+        const link = document.createElement('a');
+        link.href = hrefs[origin];
+        link.className = 'origin-back-link';
+        link.textContent = (labels[origin] && (labels[origin][lang] || labels[origin].sr)) || '← Назад';
+        bar.appendChild(link);
+        h1.parentNode.insertBefore(bar, h1);
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initOriginBackLink);
+    } else {
+        initOriginBackLink();
+    }
+})();
+</script>
 </body></html>
