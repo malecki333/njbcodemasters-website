@@ -65,6 +65,45 @@ body {
     margin-bottom: 0.75rem;
     line-height: 1.65;
 }
+.origin-back-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+}
+.origin-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.42rem 0.95rem;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: var(--font-size-sm, 0.875rem);
+    font-weight: var(--font-weight-semibold, 600);
+    color: #f5d0fe;
+    background: rgba(192, 38, 211, 0.18);
+    border: 1px solid rgba(232, 121, 249, 0.5);
+    transition: all 0.25s ease;
+}
+.origin-back-link[hidden] {
+    display: none !important;
+}
+.origin-back-link:hover {
+    color: #ffffff;
+    background: rgba(192, 38, 211, 0.3);
+    border-color: #f0abfc;
+    transform: translateX(-2px);
+}
+[data-theme="light"] .origin-back-link {
+    color: #86198f;
+    background: rgba(192, 38, 211, 0.1);
+    border-color: rgba(192, 38, 211, 0.35);
+}
+[data-theme="light"] .origin-back-link:hover {
+    color: #701a75;
+    background: rgba(192, 38, 211, 0.18);
+}
 .platform-content .values-grid,
 .platform-content .about-card-grid {
     display: grid;
@@ -213,7 +252,7 @@ body {
 </head>
 <body data-language="sr">
 <header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Почетна"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Мени" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Модули</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Пилот програм</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Мапа пута</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Блог</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Политика приватности</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Правно обавештење</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Старији садржај</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Услуге</a></li><li><a class="nav__link" href="pricing.html">Цене</a></li><li><a class="nav__link" href="portfolio.html">Портфолио</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Изаберите језик"><option value="de">Немачки</option><option value="en">Енглески</option><option value="sr">Српски</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Тема">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Звук"><span class="sound-label">Звук</span></button></div></nav></header>
-<main class="main"><section class="section platform-content"><div class="container"><p class="section-label">NJB CodeMasters</p><h1>NJB CodeMasters</h1><p class="section-description">Повезани софтвер и дигитални производи за брже токове рада, мање застоја у координацији и поуздану оперативну прегледност у индустријским погонима.</p></div></section><section class="section platform-content about-card-section"><div class="container"><div class="values-grid about-card-grid">
+<main class="main"><section class="section platform-content"><div class="container"><p class="section-label">NJB CodeMasters</p><h1>NJB CodeMasters</h1><div class="origin-back-bar" data-services-back-bar hidden><a href="services.html" class="origin-back-link" data-services-back-link hidden>← Назад на услуге</a></div><p class="section-description">Повезани софтвер и дигитални производи за брже токове рада, мање застоја у координацији и поуздану оперативну прегледност у индустријским погонима.</p></div></section><section class="section platform-content about-card-section"><div class="container"><div class="values-grid about-card-grid">
 <article class="pricing-card"><h2>Мисија</h2><p>Повезујемо податке, интерфејсе и оперативне процесе у јединствен радни контекст. Тимови губе мање времена на тражење података и усаглашавање, брже доносе одлуке и уз <a href="vezaiongen-vi.html?from=about">VezaionGen VI</a> раде усклађено кроз различите функције.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-2.html?from=about">Модуларне платформе и модели података&nbsp;→</a></div></article>
 <article class="pricing-card"><h2>Визија</h2><p>Обликујемо индустрију у којој људи, машине и интелигентни системи раде без застоја. Индустрија 6.0 подразумева прилагодљива, повезана и на човека усмерена решења са опипљивом користи у свакодневном раду.</p><div class="card-blog-links"><a class="blog-ref-link" href="roadmap.html?from=about">Мапа развоја&nbsp;→</a></div></article>
 <article class="pricing-card"><h2>Оснивач</h2><p>Ненад Баралић је основао NJB CodeMasters и води компанију. Практично разумевање индустријских процеса, директна одговорност и доследан развој софтвера претварају се у поуздана решења за оперативне тимове.</p><div class="card-blog-links"><a class="blog-ref-link" href="blog-article-1.html?from=about">Оснивање и пут ка VezaionGen VI&nbsp;→</a></div></article>
@@ -224,4 +263,38 @@ body {
 </div></div></section></main>
 <div id="footer-placeholder"></div>
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
+<script>
+(function () {
+    const SERVICES_LABELS = {
+        de: '← Zurück zu Leistungen',
+        en: '← Back to Services',
+        sr: '← Назад на услуге'
+    };
+
+    function isFromServices() {
+        const params = new URLSearchParams(window.location.search);
+        const fromParam = (params.get('from') || '').toLowerCase();
+        const ref = document.referrer || '';
+        return fromParam === 'services' || /services\.html/i.test(ref);
+    }
+
+    function initServicesBackLink() {
+        const fromServices = isFromServices();
+        const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'sr';
+        const bar = document.querySelector('[data-services-back-bar]');
+        const link = document.querySelector('[data-services-back-link]');
+        if (!bar || !link) return;
+
+        link.textContent = SERVICES_LABELS[lang] || SERVICES_LABELS.sr;
+        link.hidden = !fromServices;
+        bar.hidden = !fromServices;
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initServicesBackLink);
+    } else {
+        initServicesBackLink();
+    }
+})();
+</script>
 </body></html>
