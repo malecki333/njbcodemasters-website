@@ -73,7 +73,10 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.6rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.35rem;
+}
+.origin-back-bar[hidden] {
+    display: none !important;
 }
 .origin-back-link {
     display: inline-flex;
@@ -89,11 +92,24 @@ body {
     border: 1px solid rgba(56, 189, 248, 0.5);
     transition: all 0.25s ease;
 }
+.origin-back-link[hidden] {
+    display: none !important;
+}
 .origin-back-link:hover {
     color: #ffffff;
     background: rgba(56, 189, 248, 0.28);
     border-color: #7dd3fc;
     transform: translateX(-2px);
+}
+.origin-back-link--services {
+    color: #f5d0fe;
+    background: rgba(192, 38, 211, 0.18);
+    border: 1px solid rgba(232, 121, 249, 0.5);
+}
+.origin-back-link--services:hover {
+    color: #ffffff;
+    background: rgba(192, 38, 211, 0.3);
+    border-color: #f0abfc;
 }
 [data-theme="light"] .origin-back-link {
     color: #0369a1;
@@ -103,6 +119,15 @@ body {
 [data-theme="light"] .origin-back-link:hover {
     color: #0c4a6e;
     background: rgba(2, 132, 199, 0.2);
+}
+[data-theme="light"] .origin-back-link--services {
+    color: #86198f;
+    background: rgba(192, 38, 211, 0.1);
+    border-color: rgba(192, 38, 211, 0.35);
+}
+[data-theme="light"] .origin-back-link--services:hover {
+    color: #701a75;
+    background: rgba(192, 38, 211, 0.18);
 }
 .main .section h2,
 .main .section .container > h2,
@@ -202,8 +227,8 @@ body {
 </style>
 </head>
 <body data-language="sr">
-<header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Почетна"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Мени" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Модули</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Пилот програм</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Мапа пута</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Блог</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Политика приватности</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Правно обавештење</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Старији садржај</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Услуге</a></li><li><a class="nav__link" href="pricing.html">Цене</a></li><li><a class="nav__link" href="portfolio.html">Портфолио</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Изаберите језик"><option value="de">Немачки</option><option value="en">Енглески</option><option value="sr">Српски</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Тема">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Звук"><span class="sound-label">Звук</span></button></div></nav></header>
-<main class="main"><section class="section platform-content"><div class="container"><p class="section-label">VEZAIONGEN VI</p><h1>Пилот програм</h1><p class="section-description">Циљано проверите конкретну оперативну вредност — за брже одлуке, мање застоја у процесима и сигуран почетак без сувишног ризика.</p><p class="cta-lead">Усагласите у уводном разговору како пилот може да се прилагоди вашим приоритетним процесима:</p><a class="btn btn--primary" href="contact.html?from=pilot-program#vezaiongen-consultation">Договорите разговор о пилоту</a></div></section>
+<header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Почетна"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Мени" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Почетна</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Модули</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Пилот програм</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Мапа пута</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Блог</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Контакт</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Политика приватности</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Правно обавештење</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Старији садржај</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Услуге</a></li><li><a class="nav__link" href="pricing.html">Цене</a></li><li><a class="nav__link" href="portfolio.html">Портфолио</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Изаберите језик"><option value="de">Немачки</option><option value="en">Енглески</option><option value="sr" selected>Српски</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Тема">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Звук"><span class="sound-label">Звук</span></button></div></nav></header>
+<main class="main"><section class="section platform-content"><div class="container"><p class="section-label">VEZAIONGEN VI</p><div class="origin-back-bar" data-origin-back-bar hidden><a class="origin-back-link" data-origin-back-link href="about.html" hidden>← Назад</a><a class="origin-back-link origin-back-link--services" data-services-back-link href="services.html" hidden>← Назад на услуге</a></div><h1>Пилот програм</h1><p class="section-description">Циљано проверите конкретну оперативну вредност — за брже одлуке, мање застоја у процесима и сигуран почетак без сувишног ризика.</p><p class="cta-lead">Усагласите у уводном разговору како пилот може да се прилагоди вашим приоритетним процесима:</p><a class="btn btn--primary" href="contact.html?from=pilot-program#vezaiongen-consultation">Договорите разговор о пилоту</a></div></section>
 <section class="section platform-content"><div class="container"><h2>Шта добијате кроз пилот програм</h2><p>У фокусу су лакши свакодневни рад, јаснији токови информација и поуздани показатељи за наредне одлуке:</p><div class="values-grid"><article class="pricing-card"><h3>Релевантан случај употребе</h3><p>Фокусирамо се управо на процес или ток података који вашем тиму у свакодневном раду доноси највећу корист.</p></article><article class="pricing-card"><h3>Практична усклађеност</h3><p>Видите како одабране функције платформе VezaionGen VI и интерфејси одговарају вашим процесима и постојећим системима.</p></article><article class="pricing-card"><h3>Поуздана основа за одлуку</h3><p>Бележимо конкретна запажања, отворена питања и јасне наредне кораке — за сигурну одлуку у тиму.</p></article></div></div></section>
 <section class="section platform-content"><div class="container"><h2>Фазе пилота</h2><p>Јасан редослед обезбеђује предвидиве кораке, транспарентна очекивања и проверљиве резултате:</p><div class="values-grid"><article class="pricing-card"><h3>1. Случај употребе</h3><p>Заједнички прецизно одређујемо процес, уска грла или празнине у подацима и жељене исходе.</p><p><strong>Исход:</strong> Јасан фокус пилота са мерљивим циљем.</p></article><article class="pricing-card"><h3>2. Планирање</h3><p>Усаглашавамо учеснике, релевантне податке, интерфејсе и конкретан радни оквир.</p><p><strong>Исход:</strong> Поуздан план пројекта и процене.</p></article><article class="pricing-card"><h3>3. Испитивање</h3><p>Циљано проверавамо одабране функције и токове рада у договореном оквиру.</p><p><strong>Исход:</strong> Документована запажања о току рада, употребљивости и користи.</p></article><article class="pricing-card"><h3>4. Осврт</h3><p>Заједно процењујемо добијена сазнања, отворена питања и опције за даље увођење.</p><p><strong>Исход:</strong> Утемељена основа за одлуку о наредним корацима.</p></article></div></div></section>
 <section class="section platform-content"><div class="container"><h2>Сарадња</h2><p>Ваш оперативни тим доноси познавање процеса и свакодневне праксе. NJB CodeMasters прати техничко усклађивање, токове података и повезивање система. Циљеви, оквири и критеријуми процене дефинишу се заједно како би тим брзо дошао до јасних закључака.</p><h2>Резултати</h2><p>Пилот пружа прегледност о томе како VezaionGen VI подржава изабрани случај употребе и где лежи највећи оперативни допринос. Обим, временски план и услови сарадње прилагођавају се сваком пројекту појединачно.</p><p>Повезане функционалности и шире контексте можете погледати на страницама <a href="vezaiongen-vi.html?from=pilot-program">VezaionGen VI</a>, <a href="modules.html?from=pilot-program">Модули</a> и у секцији <a href="blog.html?from=pilot-program">Блог</a>.</p><h2>Контакт</h2><p>Поделите са нама свој случај употребе, циљеве и жељени рок. Заједно разматрамо како структуриран пилот може да се уклопи у ваш рад.</p><p class="cta-lead">Започните необавезујући упит за пилот сарадњу вашег тима:</p><a class="btn btn--primary" href="contact.html?from=pilot-program#vezaiongen-consultation">Пошаљите упит о пилоту</a></div></section></main>
@@ -211,9 +236,22 @@ body {
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
 <script>
 (function () {
+    const SERVICES_LABELS = {
+        de: '← Zurück zu Leistungen',
+        en: '← Back to Services',
+        sr: '← Назад на услуге'
+    };
+
+    function isFromServices() {
+        const params = new URLSearchParams(window.location.search);
+        const fromParam = (params.get('from') || '').toLowerCase();
+        const ref = document.referrer || '';
+        return fromParam === 'services' || /services\.html/i.test(ref);
+    }
+
     function detectOrigin() {
         const params = new URLSearchParams(window.location.search);
-        const fromParam = params.get('from');
+        const fromParam = (params.get('from') || '').toLowerCase();
         const ref = document.referrer || '';
         if (fromParam === 'about' || /about\.html/i.test(ref)) {
             return 'about';
@@ -223,14 +261,56 @@ body {
         }
         return null;
     }
+
     function initOriginBackLink() {
         const origin = detectOrigin();
-        if (!origin) return;
-        const container = document.querySelector('.main .section:first-of-type .container');
-        const h1 = container ? container.querySelector('h1') : null;
-        if (!container || !h1 || container.querySelector('.origin-back-bar')) return;
+        const fromServices = isFromServices();
+        const bar = document.querySelector('[data-origin-back-bar]');
+        const originLink = document.querySelector('[data-origin-back-link]');
+        const servicesLink = document.querySelector('[data-services-back-link]');
+        if (!bar) return;
 
-        const labels = {
-            about: {
-                de: '← Zurück zu Über NJB CodeMasters',
-                en: '← Back to About NJB CodeMasters',
+        const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'sr';
+
+        if (originLink) {
+            if (!origin) {
+                originLink.hidden = true;
+            } else {
+                const labels = {
+                    about: {
+                        de: '← Zurück zu Über NJB CodeMasters',
+                        en: '← Back to About NJB CodeMasters',
+                        sr: '← Назад на NJB CodeMasters'
+                    },
+                    roadmap: {
+                        de: '← Zurück zur Roadmap',
+                        en: '← Back to Roadmap',
+                        sr: '← Назад на мапу пута'
+                    }
+                };
+                const hrefs = {
+                    about: 'about.html',
+                    roadmap: 'roadmap.html'
+                };
+                originLink.href = hrefs[origin];
+                originLink.textContent = (labels[origin] && (labels[origin][lang] || labels[origin].sr)) || '← Назад';
+                originLink.hidden = false;
+            }
+        }
+
+        if (servicesLink) {
+            servicesLink.textContent = SERVICES_LABELS[lang] || SERVICES_LABELS.sr;
+            servicesLink.hidden = !fromServices;
+        }
+
+        bar.hidden = !(origin || fromServices);
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initOriginBackLink);
+    } else {
+        initOriginBackLink();
+    }
+})();
+</script>
+</body></html>
