@@ -73,7 +73,10 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     gap: 0.6rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.35rem;
+}
+.origin-back-bar[hidden] {
+    display: none !important;
 }
 .origin-back-link {
     display: inline-flex;
@@ -89,11 +92,24 @@ body {
     border: 1px solid rgba(56, 189, 248, 0.5);
     transition: all 0.25s ease;
 }
+.origin-back-link[hidden] {
+    display: none !important;
+}
 .origin-back-link:hover {
     color: #ffffff;
     background: rgba(56, 189, 248, 0.28);
     border-color: #7dd3fc;
     transform: translateX(-2px);
+}
+.origin-back-link--services {
+    color: #f5d0fe;
+    background: rgba(192, 38, 211, 0.18);
+    border: 1px solid rgba(232, 121, 249, 0.5);
+}
+.origin-back-link--services:hover {
+    color: #ffffff;
+    background: rgba(192, 38, 211, 0.3);
+    border-color: #f0abfc;
 }
 [data-theme="light"] .origin-back-link {
     color: #0369a1;
@@ -103,6 +119,15 @@ body {
 [data-theme="light"] .origin-back-link:hover {
     color: #0c4a6e;
     background: rgba(2, 132, 199, 0.2);
+}
+[data-theme="light"] .origin-back-link--services {
+    color: #86198f;
+    background: rgba(192, 38, 211, 0.1);
+    border-color: rgba(192, 38, 211, 0.35);
+}
+[data-theme="light"] .origin-back-link--services:hover {
+    color: #701a75;
+    background: rgba(192, 38, 211, 0.18);
 }
 .main .section h2,
 .main .section .container > h2,
@@ -203,7 +228,7 @@ body {
 </head>
 <body data-language="de">
 <header class="header" id="header"><nav class="nav container"><div class="nav__logo"><a href="index.html" aria-label="Startseite"><picture class="logo-theme" aria-hidden="true"><img src="../assets/brand/njb-codemasters-mark-light.png" alt="" class="logo logo--image logo--light" width="472" height="620"><img src="../assets/brand/njb-codemasters-mark.png" alt="" class="logo logo--image logo--dark" width="472" height="620"></picture></a><button class="nav__toggle" id="navToggle" type="button" aria-label="Menu" aria-expanded="false"><span class="hamburger"></span></button></div><ul class="nav__menu" id="navMenu"><li class="nav__item"><a href="index.html" class="nav__link">Startseite</a></li><li class="nav__item"><a href="about.html" class="nav__link">NJB CodeMasters</a></li><li class="nav__item"><a href="vezaiongen-vi.html" class="nav__link">VezaionGen VI</a></li><li class="nav__item"><a href="modules.html" class="nav__link">Module</a></li><li class="nav__item"><a href="pilot-program.html" class="nav__link">Pilotprogramm</a></li><li class="nav__item"><a href="roadmap.html" class="nav__link">Roadmap</a></li><li class="nav__item"><a href="blog.html" class="nav__link">Blog</a></li><li class="nav__item"><a href="contact.html" class="nav__link">Kontakt</a></li><li class="nav__item"><a href="datenschutz.html" class="nav__link">Datenschutz</a></li><li class="nav__item"><a href="impressum.html" class="nav__link">Impressum</a></li><li class="nav__item nav__item--legacy"><details><summary class="nav__link">Legacy-Inhalte</summary><ul class="nav__legacy-links"><li><a class="nav__link" href="services.html">Leistungen</a></li><li><a class="nav__link" href="pricing.html">Preise</a></li><li><a class="nav__link" href="portfolio.html">Portfolio</a></li></ul></details></li></ul><div class="nav__actions"><div class="language-switcher"><label for="languageSelect">🌐</label><select id="languageSelect" aria-label="Sprache wählen"><option value="de">Deutsch</option><option value="en">English</option><option value="sr">Srpski</option></select></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Theme">◐</button><button class="sound-toggle" id="soundToggle" type="button" aria-label="Sound"><span class="sound-label">Sound</span></button></div></nav></header>
-<main class="main"><section class="section platform-content"><div class="container"><p class="section-label">VEZAIONGEN VI</p><h1>Pilotprogramm</h1><p class="section-description">Konkreten betrieblichen Nutzen gezielt prüfen – für schnellere Entscheidungen, weniger Reibungsverluste und einen klaren Start ohne unnötiges Risiko.</p><p class="cta-lead">Klären Sie in einem ersten Gespräch, wie ein Pilot auf Ihre wichtigsten Prozesse zugeschnitten werden kann:</p><a class="btn btn--primary" href="contact.html?from=pilot-program#vezaiongen-consultation">Pilotgespräch vereinbaren</a></div></section>
+<main class="main"><section class="section platform-content"><div class="container"><p class="section-label">VEZAIONGEN VI</p><div class="origin-back-bar" data-origin-back-bar hidden><a class="origin-back-link" data-origin-back-link href="about.html" hidden>← Zurück</a><a class="origin-back-link origin-back-link--services" data-services-back-link href="services.html" hidden>← Zurück zu Leistungen</a></div><h1>Pilotprogramm</h1><p class="section-description">Konkreten betrieblichen Nutzen gezielt prüfen – für schnellere Entscheidungen, weniger Reibungsverluste und einen klaren Start ohne unnötiges Risiko.</p><p class="cta-lead">Klären Sie in einem ersten Gespräch, wie ein Pilot auf Ihre wichtigsten Prozesse zugeschnitten werden kann:</p><a class="btn btn--primary" href="contact.html?from=pilot-program#vezaiongen-consultation">Pilotgespräch vereinbaren</a></div></section>
 <section class="section platform-content"><div class="container"><h2>Was Sie aus dem Pilot mitnehmen</h2><p>Im Fokus stehen spürbare Entlastung im Arbeitsalltag, klarere Informationswege und verlässliche Grundlagen für Ihre nächsten Schritte:</p><div class="values-grid"><article class="pricing-card"><h3>Ein relevanter Anwendungsfall</h3><p>Wir fokussieren uns auf genau den Prozess oder Informationsfluss, der Ihrem Team im Alltag den größten Nutzen bringt.</p></article><article class="pricing-card"><h3>Praxisnahe Einordnung</h3><p>Sie sehen, wie ausgewählte VezaionGen&#8209;VI&#8209;Funktionen und Schnittstellen zu Ihren Abläufen und Systemen passen.</p></article><article class="pricing-card"><h3>Belastbare Entscheidungsgrundlage</h3><p>Wir halten konkrete Ergebnisse, offene Punkte und klare nächste Schritte fest – für eine sichere Entscheidung im Team.</p></article></div></div></section>
 <section class="section platform-content"><div class="container"><h2>Pilotphasen</h2><p>Ein klarer Ablauf sorgt für planbare Schritte, transparente Erwartungen und nachvollziehbare Ergebnisse:</p><div class="values-grid"><article class="pricing-card"><h3>1. Anwendungsfall</h3><p>Prozess, Engpässe oder Informationslücken und gewünschte Ergebnisse gemeinsam präzise festlegen.</p><p><strong>Ergebnis:</strong> Ein klarer Pilotfokus mit messbarem Zielbild.</p></article><article class="pricing-card"><h3>2. Planung</h3><p>Beteiligte, relevante Daten, Schnittstellen und den konkreten Arbeitsrahmen gemeinsam abstimmen.</p><p><strong>Ergebnis:</strong> Ein verlässlicher Projekt&#8209; und Bewertungsplan.</p></article><article class="pricing-card"><h3>3. Erprobung</h3><p>Ausgewählte Funktionen und Abläufe im vereinbarten Rahmen gezielt prüfen und einordnen.</p><p><strong>Ergebnis:</strong> Dokumentierte Erkenntnisse zu Ablauf, Bedienung und Nutzen.</p></article><article class="pricing-card"><h3>4. Auswertung</h3><p>Erzielte Erkenntnisse, offene Fragen und Optionen für den weiteren Ausbau gemeinsam bewerten.</p><p><strong>Ergebnis:</strong> Eine fundierte Entscheidungsgrundlage für die nächsten Schritte.</p></article></div></div></section>
 <section class="section platform-content"><div class="container"><h2>Zusammenarbeit</h2><p>Ihr Betriebsteam bringt Prozessverständnis und tägliche Praxis ein. NJB CodeMasters begleitet die technische Einordnung, Datenflüsse und Systemanbindungen. Ziele, Rahmenbedingungen und Bewertungskriterien werden partnerschaftlich abgestimmt, damit Ihr Team schnell zu klaren Aussagen kommt.</p><h2>Ergebnisse</h2><p>Der Pilot liefert Transparenz darüber, wie VezaionGen VI Ihren ausgewählten Anwendungsfall unterstützt und wo der größte Mehrwert liegt. Umfang, Zeitplan und Konditionen werden passend zum jeweiligen Vorhaben individuell vereinbart.</p><p>Vorab passende Funktionsbereiche und Hintergründe finden Sie unter <a href="vezaiongen-vi.html?from=pilot-program">VezaionGen VI</a>, <a href="modules.html?from=pilot-program">Module</a> und im <a href="blog.html?from=pilot-program">Blog</a>.</p><h2>Kontakt</h2><p>Schildern Sie uns Ihren Anwendungsfall, Ihre Ziele und Ihren Zeitrahmen. Wir prüfen gemeinsam, wie ein strukturierter Pilot für Ihren Betrieb aussehen kann.</p><p class="cta-lead">Starten Sie jetzt mit einer unverbindlichen Anfrage für Ihr Pilotvorhaben:</p><a class="btn btn--primary" href="contact.html?from=pilot-program#vezaiongen-consultation">Pilotanfrage senden</a></div></section></main>
@@ -211,9 +236,22 @@ body {
 <script src="../js/theme.js"></script><script src="../js/navigation.js"></script><script src="../js/i18n.js" defer></script><script src="../js/language-switcher.js" defer></script><script src="../js/performance.js" defer></script><script src="../js/footer.js" defer></script><script src="../js/animations.js" defer></script><script src="../js/main.js" defer></script>
 <script>
 (function () {
+    const SERVICES_LABELS = {
+        de: '← Zurück zu Leistungen',
+        en: '← Back to Services',
+        sr: '← Назад на услуге'
+    };
+
+    function isFromServices() {
+        const params = new URLSearchParams(window.location.search);
+        const fromParam = (params.get('from') || '').toLowerCase();
+        const ref = document.referrer || '';
+        return fromParam === 'services' || /services\.html/i.test(ref);
+    }
+
     function detectOrigin() {
         const params = new URLSearchParams(window.location.search);
-        const fromParam = params.get('from');
+        const fromParam = (params.get('from') || '').toLowerCase();
         const ref = document.referrer || '';
         if (fromParam === 'about' || /about\.html/i.test(ref)) {
             return 'about';
@@ -223,40 +261,51 @@ body {
         }
         return null;
     }
+
     function initOriginBackLink() {
         const origin = detectOrigin();
-        if (!origin) return;
-        const container = document.querySelector('.main .section:first-of-type .container');
-        const h1 = container ? container.querySelector('h1') : null;
-        if (!container || !h1 || container.querySelector('.origin-back-bar')) return;
+        const fromServices = isFromServices();
+        const bar = document.querySelector('[data-origin-back-bar]');
+        const originLink = document.querySelector('[data-origin-back-link]');
+        const servicesLink = document.querySelector('[data-services-back-link]');
+        if (!bar) return;
 
-        const labels = {
-            about: {
-                de: '← Zurück zu Über NJB CodeMasters',
-                en: '← Back to About NJB CodeMasters',
-                sr: '← Назад на NJB CodeMasters'
-            },
-            roadmap: {
-                de: '← Zurück zur Roadmap',
-                en: '← Back to Roadmap',
-                sr: '← Назад на мапу пута'
-            }
-        };
-        const hrefs = {
-            about: 'about.html',
-            roadmap: 'roadmap.html'
-        };
         const lang = (document.body && document.body.dataset.language) || document.documentElement.lang || 'de';
 
-        const bar = document.createElement('div');
-        bar.className = 'origin-back-bar';
-        const link = document.createElement('a');
-        link.href = hrefs[origin];
-        link.className = 'origin-back-link';
-        link.textContent = (labels[origin] && (labels[origin][lang] || labels[origin].de)) || '← Zurück';
-        bar.appendChild(link);
-        h1.parentNode.insertBefore(bar, h1);
+        if (originLink) {
+            if (!origin) {
+                originLink.hidden = true;
+            } else {
+                const labels = {
+                    about: {
+                        de: '← Zurück zu Über NJB CodeMasters',
+                        en: '← Back to About NJB CodeMasters',
+                        sr: '← Назад на NJB CodeMasters'
+                    },
+                    roadmap: {
+                        de: '← Zurück zur Roadmap',
+                        en: '← Back to Roadmap',
+                        sr: '← Назад на мапу пута'
+                    }
+                };
+                const hrefs = {
+                    about: 'about.html',
+                    roadmap: 'roadmap.html'
+                };
+                originLink.href = hrefs[origin];
+                originLink.textContent = (labels[origin] && (labels[origin][lang] || labels[origin].de)) || '← Zurück';
+                originLink.hidden = false;
+            }
+        }
+
+        if (servicesLink) {
+            servicesLink.textContent = SERVICES_LABELS[lang] || SERVICES_LABELS.de;
+            servicesLink.hidden = !fromServices;
+        }
+
+        bar.hidden = !(origin || fromServices);
     }
+
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', initOriginBackLink);
     } else {
