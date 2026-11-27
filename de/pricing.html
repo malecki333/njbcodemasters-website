@@ -970,7 +970,7 @@
             background: #eef0ff !important;
         }
 
-                /* Fix Hellmodus Hover-Bug & Select-Kontrast */
+        /* Fix Hellmodus Hover-Bug & Select-Kontrast */
         [data-theme="light"] .main .section .pricing-card:hover,
         [data-theme="light"] .main .section .codemasters-card:hover,
         [data-theme="light"] .main .section .calculator-section:hover,
@@ -992,7 +992,7 @@
         [data-theme="light"] .main .section .pricing-card:hover p,
         [data-theme="light"] .main .section .pricing-card:hover li,
         [data-theme="light"] .main .section .pricing-card:hover li span,
-        [data-theme="light"] .main .section .pricing-card:hover div,
+        [data-theme="light"] .main .section .pricing-card:hover div:not(.price),
         [data-theme="light"] .main .section .codemasters-card:hover h3,
         [data-theme="light"] .main .section .codemasters-card:hover p,
         [data-theme="light"] .main .section .card:hover h3,
@@ -1001,6 +1001,26 @@
         [data-theme="light"] .main .section .breakdown-card:hover p {
             color: #0f172a !important;
             opacity: 1 !important;
+        }
+
+        /* Magenta-zu-Violett Verlauf für den Preis der mittleren Karte (Dunkel & Hell) */
+        .main .section .pricing-card.featured .price,
+        .main .section .pricing-card.featured:hover .price {
+            background: linear-gradient(90deg, #ff2bd6 0%, #c026d3 48%, #8b5cf6 100%) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            color: transparent !important;
+            -webkit-text-fill-color: transparent !important;
+            display: inline-block;
+        }
+
+        [data-theme="light"] .main .section .pricing-card.featured .price,
+        [data-theme="light"] .main .section .pricing-card.featured:hover .price {
+            background: linear-gradient(90deg, #c026d3 0%, #9333ea 50%, #6d28d9 100%) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            color: transparent !important;
+            -webkit-text-fill-color: transparent !important;
         }
 
         [data-theme="light"] #timelineSelect {
@@ -1014,6 +1034,7 @@
             background: #ffffff !important;
             color: #0f172a !important;
         }
+
 
     </style>
 
