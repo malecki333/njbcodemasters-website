@@ -1,7 +1,7 @@
 (() => {
     'use strict';
 
-    const API_ENDPOINT = 'https://workers.dev';
+    const API_ENDPOINT = 'https://' + 'vezaichatbot.nenadbaralic2-0.workers.dev';
 
     if (document.getElementById('ai-chat-toggle')) return;
 
@@ -175,10 +175,11 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: question, lang: language })
             });
+            if (!res.ok) throw new Error('HTTP ' + res.status);
             const data = await res.json();
             typeWriter(botBubble, data.reply || text.error);
-        } catch {
-            botBubble.textContent = text.error;
+        } catch (err) {
+            botBubble.textContent = text.error + ' [' + err.message + ']';
         } finally {
             input.disabled = false;
             sendBtn.disabled = false;
